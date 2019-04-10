@@ -192,6 +192,21 @@ values("patientCategory", "Patient Category", "org.openmrs.Concept", @patient_ca
 
 
 
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("relativeName", "Relative Name", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("relativeContactNumber", "Contact Number", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("relativeRelation", "Relation", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
 
 
 

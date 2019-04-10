@@ -22,9 +22,19 @@
   ],
   "config": {
     "autoCompleteFields": [
-      "familyName"
+      "familyName",
+      "relativeRelation"
     ],
     "patientInformation": {
+      "emergencyContact": {
+        "title": "Emergency Contact",
+        "translationKey": "REGISTRATION_EMERGENCY_CONTACT_KEY",
+        "attributes": [
+          "relativeName",
+          "relativeContactNumber",
+          "relativeRelation"
+        ]
+      },
       "hidden": {
         "attributes": [
           "healthId"
