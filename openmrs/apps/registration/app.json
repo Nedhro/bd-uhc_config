@@ -43,6 +43,7 @@
     "searchByIdForwardUrl": "/patient/{{patientUuid}}",
     "showLastName": true,
     "showMiddleName": true,
+    "isLastNameMandatory": false,
     "addressHierarchy": {
       "showAddressFieldsTopDown": true,
       "strictAutocompleteFromLevel": "address2"
