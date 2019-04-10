@@ -21,9 +21,16 @@
     "activeVisitUuid"
   ],
   "config": {
+    "mandatoryPersonAttributes": [
+      "phoneNumber",
+      "referredByHospital",
+      "referredByDoctor"
+    ],
     "autoCompleteFields": [
       "familyName",
-      "relativeRelation"
+      "relativeRelation",
+      "referredByHospital",
+      "referredByDoctor"
     ],
     "patientInformation": {
       "emergencyContact": {
@@ -35,6 +42,20 @@
           "relativeRelation"
         ]
       },
+      "hospitalSection": {
+        "title": "Referred By Hospital",
+        "translationKey": "REGISTRATION_REFERRED_BY_HOSPITAL_KEY",
+        "attributes": [
+          "referredByHospital"
+        ]
+      },
+      "doctorSection": {
+        "title": "Referred By Doctor",
+        "translationKey": "REGISTRATION_REFERRED_BY_DOCTOR_KEY",
+        "attributes": [
+          "referredByDoctor"
+        ]
+      },
       "hidden": {
         "attributes": [
           "healthId"
@@ -42,7 +63,8 @@
       },
       "defaults": {
         "alarmingField": "General",
-        "patientCategory": "General"
+        "patientCategory": "General",
+        "referredBy": "Self"
       }
     },
     "prepopulateFields": [

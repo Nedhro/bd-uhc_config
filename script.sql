@@ -213,3 +213,112 @@ values("relativeRelation", "Relation", "java.lang.String", null , 0, @super_user
 
 
 
+
+
+
+
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @na_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+
+select @self_concept_id := LAST_INSERT_ID();
+
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@self_concept_id, "Self", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@self_concept_id, "Self", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@self_concept_id, "Self", "en", @super_user_id, NOW(), uuid());
+
+
+
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @na_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+
+select @hospital_concept_id := LAST_INSERT_ID();
+
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@hospital_concept_id, "Hospital", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@hospital_concept_id, "Hospital", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@hospital_concept_id, "Hospital", "en", @super_user_id, NOW(), uuid());
+
+
+
+
+
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @na_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+
+select @doctors_concept_id := LAST_INSERT_ID();
+
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@doctors_concept_id, "Doctor", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@doctors_concept_id, "Doctor", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@doctors_concept_id, "Doctor", "en", @super_user_id, NOW(), uuid());
+
+
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @na_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+
+select @relatives_concept_id := LAST_INSERT_ID();
+
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@relatives_concept_id, "Relative", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@relatives_concept_id, "Relative", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@relatives_concept_id, "Relative", "en", @super_user_id, NOW(), uuid());
+
+
+
+
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @codded_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+
+select @referred_by_concept_id := LAST_INSERT_ID();
+
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@referred_by_concept_id, "Referred By", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@referred_by_concept_id, "Referred By", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@referred_by_concept_id, "Referred By", "en", @super_user_id, NOW(), uuid());
+
+
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@referred_by_concept_id, @self_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@referred_by_concept_id, @hospital_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@referred_by_concept_id, @doctors_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@referred_by_concept_id, @relatives_concept_id, @super_user_id, NOW(), 1, uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredBy", "Referred By", "org.openmrs.Concept", @referred_by_concept_id, 1, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredByDoctor", "Referred By Doctor", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredByHospital", "Referred By Hospital", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
+
+
+
+
+
