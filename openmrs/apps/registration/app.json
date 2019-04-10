@@ -31,7 +31,8 @@
         ]
       },
       "defaults": {
-        "alarmingField": "General"
+        "alarmingField": "General",
+        "patientCategory": "General"
       }
     },
     "prepopulateFields": [

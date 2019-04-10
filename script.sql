@@ -123,9 +123,6 @@ values(@corporate_concept_id, "Corporate", "en", @super_user_id, NOW(), uuid());
 
 
 
-
-
-
 insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
 values (0, @codded_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
 
@@ -138,8 +135,6 @@ values(@alarming_field_concept_id, "Alarming field", "en", 1, @super_user_id, NO
 
 insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
 values(@alarming_field_concept_id, "Alarming field", "en", @super_user_id, NOW(), uuid());
-
-
 
 insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
 values(@alarming_field_concept_id, @general_concept_id, @super_user_id, NOW(), 1, uuid());
@@ -159,6 +154,41 @@ values(@alarming_field_concept_id, @corporate_concept_id, @super_user_id, NOW(),
 select @last_sort_weight := max(sort_weight) from person_attribute_type;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
 values("alarmingField", "Alarming Field", "org.openmrs.Concept", @alarming_field_concept_id, 1, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
+
+
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @codded_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+
+select @patient_cat_field_concept_id := LAST_INSERT_ID();
+
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@patient_cat_field_concept_id, "Patient Category", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@patient_cat_field_concept_id, "Patient Category", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@patient_cat_field_concept_id, "Patient Category", "en", @super_user_id, NOW(), uuid());
+
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@patient_cat_field_concept_id, @general_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@patient_cat_field_concept_id, @staff_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@patient_cat_field_concept_id, @health_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@patient_cat_field_concept_id, @sensitive_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@patient_cat_field_concept_id, @vip_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@patient_cat_field_concept_id, @mf_concept_id, @super_user_id, NOW(), 1, uuid());
+insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid)
+values(@patient_cat_field_concept_id, @corporate_concept_id, @super_user_id, NOW(), 1, uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("patientCategory", "Patient Category", "org.openmrs.Concept", @patient_cat_field_concept_id, 1, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
 
 
 
