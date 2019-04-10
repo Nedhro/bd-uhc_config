@@ -1,6 +1,7 @@
 -- sajida config
 update idgen_identifier_source set name="SHK", description="ID sequence source for patients in Keraniganj" where name="BDH";
-
+select @identier_id := id from idgen_identifier_source where name="SHK";
+update idgen_seq_id_gen set prefix="SHK" where id=@identier_id;
 -- location
 SELECT @location_id := location_id FROM location WHERE name='Sajida Health Center-Keraniganj (10020242)' LIMIT 1;
 update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="Emergency";
