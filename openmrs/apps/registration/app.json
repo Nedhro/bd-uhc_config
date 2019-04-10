@@ -29,6 +29,9 @@
         "attributes": [
           "healthId"
         ]
+      },
+      "defaults": {
+        "alarmingField": "General"
       }
     },
     "prepopulateFields": [
