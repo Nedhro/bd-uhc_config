@@ -141,6 +141,10 @@
         "pattern": "^(\\d{3,14})$",
         "errorMessage": "Phone Number should be between 3 to 14 digits"
       },
+      "relativeContactNumber": {
+        "pattern": "^(\\d{3,14})$",
+        "errorMessage": "Relative Number should be between 3 to 14 digits"
+      },
       "healthId": {
         "pattern": "^[9][1-9][0-9]{9}$",
         "errorMessage": "Please enter a valid HID"
