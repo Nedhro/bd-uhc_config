@@ -169,6 +169,11 @@
       }
     },
     "patientSearch": {
+      "address": {
+        "label": "Ward/Union",
+        "placeholder": "Enter Ward/Union",
+        "field": "address3"
+      },
       "customAttributes": {
         "label": "ID/Phone/Father/Spouse",
         "placeholder": "NID/Phone/Father/Spouse",
