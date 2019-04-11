@@ -108,11 +108,6 @@
         "translationKey": "REGISTRATION_PRINT_REG_CARD_LOCAL_KEY",
         "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/print.html",
         "shortcutKey": "l"
-      },
-      {
-        "translationKey": "REGISTRATION_PRINT_HEALTHID_CARD_KEY",
-        "templateUrl": "/bahmni_config/openmrs/apps/registration/healthIDCardLayout/print.html",
-        "shortcutKey": "p"
       }
     ],
     "conceptSetUI": {

@@ -1,37 +1,121 @@
-<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-print.css"/>
-<div class="opdTicket-print-table-container">
-	<table class="opdTicket-print-table">
+<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/print.css"/>
+<table cellpadding="0" cellspacing="1" class="registrationCard-print-table">
     <tbody>
-    	<tr>
-    		<td colspan="2"><h2 class="custom-print-center custom-bold-text"> <u>Kaliganj UHC</u> </h2></td>
-    	</tr>
-    	<tr>
-    		<td> <span class="custom-bold-text">ID</span> : {{patient.primaryIdentifier.identifier}}</td>
-            <td><span class="custom-bold-text">Date</span> : {{patient.registrationDate | bahmniDate}} </td>
-    	</tr>
-    	<tr>
-    		<td colspan="2"> <span class="custom-bold-text">Name</span> : <span class="capitalize">{{patient.fullNameLocal()}}</span></td>
-    	</tr>
-    	<tr>
-    	    <td><span class="custom-bold-text">Age</span> : {{patient.age | age}} </td>
-    		<td> <span class="custom-bold-text">Gender</span> : {{patient.gender}}</td>
-    	</tr>
-    	<tr>
-    	    <td  colspan="2">
-    	    	<span class="custom-bold-text">Address</span> : 
-    	    	{{patient.address.address1}}
-                {{patient.address.address2}}
-                {{patient.address.address3}}
-                {{patient.address.address4}}
-                {{patient.address.address5}}
-                {{patient.address.countyDistrict}}
-                {{patient.address.stateProvince}}
-    	    </td>
-    	</tr>
-    	<tr>
-    	    <td> <span class="custom-bold-text">Registration fee category</span> : {{obs['Fee Category'].shortName}} </td>
-    		<td> </td>
-    	</tr>
+    <tr>
+        <td class="print-table-right">
+            <table style="border-bottom: 1px solid black;">
+                <tr>
+                    <td class="logo">
+                        <p>
+                            <img src="/bahmni_config/openmrs/apps/registration/registrationCardLayout/images/registrationCardHeader.png" width="556"/>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <table class="padding-small">
+                <tr>
+                    <td class="data-td">
+                        <span class="label_tag">Name: </span>
+                        <span>{{patient.givenName + (patient.middleName ? (" " + patient.middleName) : "") + (patient.familyName ? (" " + patient.familyName) : "")}}</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="padding-small">
+                <tr>
+                    <td width="35%">
+                        <table>
+                            <tr>
+                                <td class="data-td">
+                                    <span class="label_tag">Patient Id: </span>
+                                    <span>{{patient.primaryIdentifier.identifier}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="data-td">
+                                    <span class="label_tag">Age: </span>
+                                    <span>{{patient.age | age}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="data-td">
+                                    <span class="label_tag">Contact No:</span>
+                                    <span>{{patient.phoneNumber}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="2%"></td>
+                    <td width="30%">
+                        <table>
+                            <tr>
+                                <td class="data-td">
+                                    <span class="label_tag">Issue Date:</span>
+                                    <span>{{patient.registrationDate | bahmniDate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="data-td">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="data-td">
+                                    <span class="label_tag">Gender: </span>
+                                    <span>{{patient.gender}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="registrationCard-photo" width="30%" align="right">
+                        <img ng-src="{{patient.image}}" style="width: 30mm; height: 32mm; "
+                             onerror="this.onerror=null;this.src='../images/blank.jpeg';"/>
+                    </td>
+                </tr>
+            </table>
+            <table class="padding-small" style="border-bottom: 1px solid black; width: 100% !important;">
+                <tr>
+                    <td>
+                        <span class="label_tag">Address:</span>
+                        <span>{{patient.address.address1}}
+					{{patient.address.address2}}
+					{{patient.address.address3}}
+					{{patient.address.address4}}
+					{{patient.address.address5}}
+					{{patient.address.countyDistrict}}
+					{{patient.address.stateProvince}}</span>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                   <td align="center" style="padding: 5px">
+                       <img id="barcode"
+                            jsbarcode-value="{{patient.primaryIdentifier.identifier}}"
+                            jsbarcode-width="3"
+                            jsbarcode-height="100"
+                            jsbarcode-margin="0"
+                            jsbarcode-displayValue="false"
+                            jsbarcode-textAlign="left"
+                            jsbarcode-textMargin="0"
+                            jsbarcode-fontSize="10"
+
+                       />
+                   </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <p style="text-align: center;">{{ "REGISTRATION_SLIP_DISCLAIMER" | translate }}<p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
     </tbody>
 </table>
-</div>
+
+<script type="text/javascript" src="/bahmni_config/openmrs/apps/JsBarcode.all.min.js"></script>
+<script>
+    (function() {
+        JsBarcode("#barcode").init();
+    })();
+</script>
