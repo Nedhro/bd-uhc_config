@@ -318,6 +318,10 @@ insert into person_attribute_type(name, description, format, foreign_key, search
 values("referredByHospital", "Referred By Hospital", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
 
 
+-- retired Health Id
+ update patient_identifier_type set retired = 1 where name ="Health Id";
+
+
 
 
 
