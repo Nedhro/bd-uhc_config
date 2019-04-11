@@ -44,7 +44,10 @@
     "mandatoryPersonAttributes": [
       "phoneNumber",
       "referredByHospital",
-      "referredByDoctor"
+      "referredByDoctor",
+      "alarmingField",
+      "referredBy",
+      "patientCategory"
     ],
     "autoCompleteFields": [
       "familyName",
