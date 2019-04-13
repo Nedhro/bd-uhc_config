@@ -76,13 +76,15 @@
                 <tr>
                     <td>
                         <span class="label_tag">Address:</span>
-                        <span>{{patient.address.address1}}
-					{{patient.address.address2}}
-					{{patient.address.address3}}
-					{{patient.address.address4}}
-					{{patient.address.address5}}
-					{{patient.address.countyDistrict}}
-					{{patient.address.stateProvince}}</span>
+                        <span>
+                            {{patient.address.address1 ? patient.address.address1 + "," : ""}}
+                            {{patient.address.address2 ? patient.address.address2 + "," : ""}}
+                            {{patient.address.address3 ? patient.address.address3 + "," : ""}}
+                            {{patient.address.address4 ? patient.address.address4 + "," : ""}}
+                            {{patient.address.address5 ? patient.address.address5 + "," : ""}}
+                            {{patient.address.countyDistrict ? patient.address.countyDistrict + "," : ""}}
+					        {{patient.address.stateProvince}}
+                        </span>
                     </td>
                 </tr>
             </table>
