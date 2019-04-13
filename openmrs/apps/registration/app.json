@@ -98,6 +98,8 @@
     "searchByIdForwardUrl": "/patient/{{patientUuid}}",
     "showLastName": true,
     "showMiddleName": true,
+    "showEnterID":false,
+    "showBirthTime": false,
     "isLastNameMandatory": false,
     "addressHierarchy": {
       "showAddressFieldsTopDown": true,
@@ -170,20 +172,22 @@
     },
     "patientSearch": {
       "address": {
-        "label": "Ward/Union",
-        "placeholder": "Enter Ward/Union",
-        "field": "address3"
+        "label": "Address Line",
+        "placeholder": "Address Line",
+        "field": "address1"
       },
       "customAttributes": {
-        "label": "ID/Phone/Father/Spouse",
-        "placeholder": "NID/Phone/Father/Spouse",
+        "label": "NID/Phone/Father/Mother/Spouse",
+        "placeholder": "NID/Phone/Father/Mother/Spouse",
         "fields": [
           "nationalId",
           "phoneNumber",
           "fatherName",
+          "motherName",
           "spouseName"
         ]
-      }
+      },
+      "searchByPatientIdentifier": true
     }
   }
 }
