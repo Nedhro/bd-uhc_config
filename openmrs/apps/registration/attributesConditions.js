@@ -6,11 +6,25 @@ var showOrHideReferredBySection = function (patient) {
     if (patient["referredBy"].value == "Hospital") {
         returnValues.show.push("hospitalSection");
         returnValues.hide.push("doctorSection");
+        returnValues.hide.push("pharmacySection");
+        returnValues.hide.push("promotionalActivitySection");
+    } else if (patient["referredBy"].value == "Pharmacy") {
+        returnValues.show.push("pharmacySection");
+        returnValues.hide.push("doctorSection");
+        returnValues.hide.push("hospitalSection");
+        returnValues.hide.push("promotionalActivitySection");
+    } else if (patient["referredBy"].value == "Promotional Activity") {
+        returnValues.show.push("promotionalActivitySection");
+        returnValues.hide.push("doctorSection");
+        returnValues.hide.push("hospitalSection");
+        returnValues.hide.push("pharmacySection");
     } else if (patient["referredBy"].value == "Doctor") {
         returnValues.show.push("doctorSection");
         returnValues.hide.push("hospitalSection");
+        returnValues.hide.push("pharmacySection");
+        returnValues.hide.push("promotionalActivitySection");
     } else {
-        returnValues.hide.push("hospitalSection", "doctorSection");
+        returnValues.hide.push("hospitalSection", "doctorSection", "pharmacySection", "promotionalActivitySection");
     }
     return returnValues
 };

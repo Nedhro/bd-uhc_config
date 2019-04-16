@@ -47,6 +47,8 @@
       "referredByDoctor",
       "alarmingField",
       "referredBy",
+      "referredByPharmacy",
+      "referredByPromotionalActivity",
       "patientCategory"
     ],
     "autoCompleteFields": [
@@ -77,6 +79,20 @@
         "translationKey": "REGISTRATION_REFERRED_BY_DOCTOR_KEY",
         "attributes": [
           "referredByDoctor"
+        ]
+      },
+      "pharmacySection": {
+        "title": "Referred By Pharmacy",
+        "translationKey": "REGISTRATION_REFERRED_BY_PHARMACY_KEY",
+        "attributes": [
+          "referredByPharmacy"
+        ]
+      },
+      "promotionalActivitySection": {
+        "title": "Referred By Promotional Activity",
+        "translationKey": "REGISTRATION_REFERRED_BY_PROMOTIONAL_ACTIVITY_KEY",
+        "attributes": [
+          "referredByPromotionalActivity"
         ]
       },
       "hidden": {

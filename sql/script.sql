@@ -39,11 +39,11 @@ insert into concept(retired, datatype_id, class_id, is_set, creator, date_create
 values (0, @na_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
 select @staff_concept_id := LAST_INSERT_ID();
 insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
-values(@staff_concept_id, "Staff , Self & family", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+values(@staff_concept_id, "Staff, Self & family", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
 insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
-values(@staff_concept_id, "Staff , Self & family", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+values(@staff_concept_id, "Staff, Self & family", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
 insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
-values(@staff_concept_id, "Staff , Self & family", "en", @super_user_id, NOW(), uuid());
+values(@staff_concept_id, "Staff, Self & family", "en", @super_user_id, NOW(), uuid());
 
 -- concept-Health card holder
 insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
@@ -330,3 +330,37 @@ insert into concept_name(concept_id, name, locale, locale_preferred, creator, da
 values(@alarming_field_concept_id, "Alarming Field", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
 insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
 values(@alarming_field_concept_id, "Alarming Field", "en", @super_user_id, NOW(), uuid());
+
+
+-- concept-Staff
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @na_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+select @staff_concept_id := LAST_INSERT_ID();
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@staff_concept_id, "Staff, Self & family", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@staff_concept_id, "Staff, Self & family", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@staff_concept_id, "Staff, Self & family", "en", @super_user_id, NOW(), uuid());
+
+-- concept-Patient Category
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @codded_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+select @patient_cat_field_concept_id := LAST_INSERT_ID();
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@patient_cat_field_concept_id, "Patient Category", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@patient_cat_field_concept_id, "Patient Category", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@patient_cat_field_concept_id, "Patient Category", "en", @super_user_id, NOW(), uuid());
+
+-- concept-Referred by
+insert into concept(retired, datatype_id, class_id, is_set, creator, date_created, changed_by, date_changed, uuid)
+values (0, @codded_data_type, @misc_class_id, 0, @super_user_id, NOW(), @super_user_id, NOW(), uuid());
+select @referred_by_concept_id := LAST_INSERT_ID();
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@referred_by_concept_id, "Referred by", "en", 0, @super_user_id, NOW(), "SHORT", 0, uuid());
+insert into concept_name(concept_id, name, locale, locale_preferred, creator, date_created, concept_name_type, voided, uuid)
+values(@referred_by_concept_id, "Referred by", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
+insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
+values(@referred_by_concept_id, "Referred by", "en", @super_user_id, NOW(), uuid());
