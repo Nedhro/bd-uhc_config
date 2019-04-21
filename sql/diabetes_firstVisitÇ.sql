@@ -67,3 +67,19 @@ call add_concept(@insulin_70_30_concept_id, @s_name_id, @f_name_id, "insulin 70/
 call add_concept_answer(@current_home_medication_concept_id, @metformin_concept_id, 1);
 call add_concept_answer(@current_home_medication_concept_id, @glipizide_concept_id, 2);
 call add_concept_answer(@current_home_medication_concept_id, @insulin_70_30_concept_id, 3);
+
+
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Is Patient on ARB", "Is Patient on ARB", "Boolean", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Last LDL", "Last LDL", "Text", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Last LDL Date", "Last LDL Date", "Date", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Last HDL", "Last HDL", "Text", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Last HDL Date", "Last HDL Date", "Date", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Last TG", "Last TG", "Text", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Last  TG Date", "Last  TG Date", "Date", "Misc", false);
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Total Cholesterol", "Total Cholesterol", "Text", "Misc", false);
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Ulcer Present on Feet", "Ulcer Present on Feet", "Boolean", "Misc", false);
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Last Eye Exam Date", "Last Eye Exam Date", "Date", "Misc", false);
