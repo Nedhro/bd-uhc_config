@@ -22,7 +22,7 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "Last Known Fasting Blood 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Last Known Fasting Blood Sugar", "Last Known Fasting Blood Sugar", "Text", "Misc", false);
 
 
-call add_concept(@if_new_Patient_suspicion_concept_id, @s_name_id, @f_name_id, "If New Patient /Suspicion", "If New Patient /Suspicion", "Coded", "Misc", false);
+call add_concept(@if_new_Patient_suspicion_concept_id, @s_name_id, @f_name_id, "If New Patient Suspicion", "If New Patient /Suspicion", "Coded", "Misc", false);
 call add_concept(@polyuria_concept_id, @s_name_id, @f_name_id, "Polyuria", "Polyuria", "N/A", "Misc", false);
 call add_concept(@blurred_vision_concept_id, @s_name_id, @f_name_id, "Blurred Vision", "Blurred Vision", "N/A", "Misc", false);
 call add_concept(@polydipsia_concept_id, @s_name_id, @f_name_id, "Polydipsia", "Polydipsia", "N/A", "Misc", false);
@@ -45,7 +45,7 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "Lipid Panel", "Lipid Pane
 
 
 call add_concept(@exercise_concept_id, @s_name_id, @f_name_id, "Exercise", "Exercise", "Coded", "Misc", false);
-call add_concept(@none_sedentary_concept_id, @s_name_id, @f_name_id, "None/sedentary", "None/sedentary", "N/A", "Misc", false);
+call add_concept(@none_sedentary_concept_id, @s_name_id, @f_name_id, "None sedentary", "None/sedentary", "N/A", "Misc", false);
 call add_concept(@standing_at_work_concept_id, @s_name_id, @f_name_id, "Standing at Work", "Standing at Work", "N/A", "Misc", false);
 call add_concept(@labor_of_work_concept_id, @s_name_id, @f_name_id, "Labor of work", "Labor of work", "N/A", "Misc", false);
 call add_concept(@cardio_exercise_concept_id, @s_name_id, @f_name_id, "Cardio Exercise", "Cardio Exercise", "N/A", "Misc", false);
@@ -62,7 +62,7 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "Alcohol Abuse", "Alcohol 
 call add_concept(@current_home_medication_concept_id, @s_name_id, @f_name_id, "Current Home Medication", "Current Home Medication", "Coded", "Misc", false);
 call add_concept(@metformin_concept_id, @s_name_id, @f_name_id, "Metformin", "Metformin", "N/A", "Misc", false);
 call add_concept(@glipizide_concept_id, @s_name_id, @f_name_id, "Glipizide", "Glipizide", "N/A", "Misc", false);
-call add_concept(@insulin_70_30_concept_id, @s_name_id, @f_name_id, "insulin 70/30", "insulin 70/30", "N/A", "Misc", false);
+call add_concept(@insulin_70_30_concept_id, @s_name_id, @f_name_id, "Insulin 70 30", "Insulin 70/30", "N/A", "Misc", false);
 
 call add_concept_answer(@current_home_medication_concept_id, @metformin_concept_id, 1);
 call add_concept_answer(@current_home_medication_concept_id, @glipizide_concept_id, 2);
