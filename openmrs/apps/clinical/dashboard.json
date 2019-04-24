@@ -276,6 +276,102 @@
         "displayOrder": 9
       }
     }
+  },
+  "diabetes": {
+    "dashboardName": "Diabetes",
+    "translationKey": "Diabetes",
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patient_information": {
+        "title": "Patient Information",
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY",
+        "type": "patientInformation",
+        "patientAttributes": [
+          "healthId",
+          "fatherName",
+          "spouseName",
+          "nationalId",
+          "education",
+          "householdCode",
+          "birthRegistrationId",
+          "occupation",
+          "phoneNumber"
+        ],
+        "addressFields": [
+          "address1",
+          "address2",
+          "address3",
+          "address4",
+          "address5",
+          "countyDistrict",
+          "stateProvince"
+        ],
+        "displayOrder": 0
+      },
+      "diagnosis": {
+        "hideEmptyDisplayControl": true,
+        "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
+        "type": "diagnosis",
+        "showCertainty": true,
+        "showDetailsButton": true,
+        "showOrder": true,
+        "displayOrder": 1
+      },
+      "diabetes_first_visit_note": {
+        "hideEmptyDisplayControl": true,
+        "title": "Diabetes First Visit  Notes",
+        "translationKey": "Diabetes First Visit  Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "Date of Last Visit",
+            "Previous Follow Up Location",
+            "Diagnosis Confirmed",
+            "Diabetic Type",
+            "Last Known HbA1C Result",
+            "Last Known HbA1C Date",
+            "Last Known Fasting Blood Sugar",
+            "Last Known Fasting Blood Sugar Date",
+            "If New Patient Suspicion",
+            "Family History of Diabetes",
+            "Detail of Family History of Diabetes",
+            "HbA1C",
+            "Fasting Glucose Sugar",
+            "Lipid Panel",
+            "Exercise",
+            "Smoking History",
+            "Alcohol Abuse",
+            "Current Home Medication"
+          ],
+          "numberOfVisits": 2
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "Date of Last Visit",
+            "Previous Follow Up Location",
+            "Diagnosis Confirmed",
+            "Diabetic Type",
+            "Last Known HbA1C Result",
+            "Last Known HbA1C Date",
+            "Last Known Fasting Blood Sugar",
+            "Last Known Fasting Blood Sugar Date",
+            "If New Patient Suspicion",
+            "Family History of Diabetes",
+            "Detail of Family History of Diabetes",
+            "HbA1C",
+            "Fasting Glucose Sugar",
+            "Lipid Panel",
+            "Exercise",
+            "Smoking History",
+            "Alcohol Abuse",
+            "Current Home Medication"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
+      }
+    }
   }
-
 }
