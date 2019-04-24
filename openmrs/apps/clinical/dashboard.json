@@ -166,41 +166,6 @@
         },
         "displayOrder": 9
       },
-      "dlivery_notes": {
-        "hideEmptyDisplayControl": true,
-        "title": "Delivery Notes",
-        "translationKey": "Delivery Notes",
-        "isObservation": true,
-        "dashboardConfig": {
-          "conceptNames": [
-            "Date and Time of Delivery",
-            "Indication",
-            "Mode of Delivery",
-            "Medication received during delivery",
-            "Delivery information, Delivery outcome",
-            "Delivery Note, Blood Transfusion Given",
-            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
-            "Delivery Notes, Baby Notes"
-          ],
-          "numberOfVisits": 1
-        },
-        "expandedViewConfig": {
-          "conceptNames": [
-            "Date and Time of Delivery",
-            "Indication",
-            "Mode of Delivery",
-            "Medication received during delivery",
-            "Delivery information, Delivery outcome",
-            "Delivery Note, Blood Transfusion Given",
-            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
-            "Delivery Notes, Baby Notes"
-          ],
-          "numberOfVisits": 2,
-          "showDetailsButton": true,
-          "pivotTable": {}
-        },
-        "displayOrder": 9
-      },
       "ConsultationNotes": {
         "title": "Consultation Notes",
         "translationKey": "DASHBOARD_TITLE_Consultation_KEY",
@@ -275,91 +240,137 @@
         "showOrder": true,
         "displayOrder": 1
       },
-      "DeliveryNotes": {
+      "dlivery_notes": {
         "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "title": "Delivery Note",
+        "title": "Delivery Notes",
+        "translationKey": "Delivery Notes",
         "isObservation": true,
-        "type": "Delivery Note",
-        "displayOrder": 2,
-        "conceptNames": [
-          "Delivery Note"
-        ],
-        "translationKey": "DELIVERY_NOTES",
-        "numberOfVisits": "5",
         "dashboardConfig": {
           "conceptNames": [
-            "Delivery Note"
+            "Date and Time of Delivery",
+            "Indication",
+            "Mode of Delivery",
+            "Medication received during delivery",
+            "Delivery information, Delivery outcome",
+            "Delivery Note, Blood Transfusion Given",
+            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
+            "Delivery Notes, Baby Notes"
           ],
-          "numberOfVisits": "5"
+          "numberOfVisits": 1
         },
         "expandedViewConfig": {
           "conceptNames": [
-            "Delivery Note"
+            "Date and Time of Delivery",
+            "Indication",
+            "Mode of Delivery",
+            "Medication received during delivery",
+            "Delivery information, Delivery outcome",
+            "Delivery Note, Blood Transfusion Given",
+            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
+            "Delivery Notes, Baby Notes"
           ],
+          "numberOfVisits": 2,
           "showDetailsButton": true,
           "pivotTable": {}
-        }
-      },
-      "PNCNotes": {
-        "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "title": "PNC Notes",
-        "isObservation": true,
-        "type": "PNC Notes",
-        "displayOrder": 3,
-        "conceptNames": [
-          "PNC Notes"
+        },
+        "displayOrder": 9
+      }
+    }
+  },
+  "diabetes": {
+    "dashboardName": "Diabetes",
+    "translationKey": "Diabetes",
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patient_information": {
+        "title": "Patient Information",
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY",
+        "type": "patientInformation",
+        "patientAttributes": [
+          "healthId",
+          "fatherName",
+          "spouseName",
+          "nationalId",
+          "education",
+          "householdCode",
+          "birthRegistrationId",
+          "occupation",
+          "phoneNumber"
         ],
-        "translationKey": "PNC_NOTES",
-        "numberOfVisits": "5",
+        "addressFields": [
+          "address1",
+          "address2",
+          "address3",
+          "address4",
+          "address5",
+          "countyDistrict",
+          "stateProvince"
+        ],
+        "displayOrder": 0
+      },
+      "diagnosis": {
+        "hideEmptyDisplayControl": true,
+        "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
+        "type": "diagnosis",
+        "showCertainty": true,
+        "showDetailsButton": true,
+        "showOrder": true,
+        "displayOrder": 1
+      },
+      "diabetes_first_visit_note": {
+        "hideEmptyDisplayControl": true,
+        "title": "Diabetes First Visit  Notes",
+        "translationKey": "Diabetes First Visit  Notes",
+        "isObservation": true,
         "dashboardConfig": {
           "conceptNames": [
-            "PNC Notes"
+            "Date of Last Visit",
+            "Previous Follow Up Location",
+            "Diagnosis Confirmed",
+            "Diabetic Type",
+            "Last Known HbA1C Result",
+            "Last Known HbA1C Date",
+            "Last Known Fasting Blood Sugar",
+            "Last Known Fasting Blood Sugar Date",
+            "If New Patient Suspicion",
+            "Family History of Diabetes",
+            "Detail of Family History of Diabetes",
+            "HbA1C",
+            "Fasting Glucose Sugar",
+            "Lipid Panel",
+            "Exercise",
+            "Smoking History",
+            "Alcohol Abuse",
+            "Current Home Medication"
           ],
-          "numberOfVisits": "5"
+          "numberOfVisits": 2
         },
         "expandedViewConfig": {
           "conceptNames": [
-            "PNC Notes"
+            "Date of Last Visit",
+            "Previous Follow Up Location",
+            "Diagnosis Confirmed",
+            "Diabetic Type",
+            "Last Known HbA1C Result",
+            "Last Known HbA1C Date",
+            "Last Known Fasting Blood Sugar",
+            "Last Known Fasting Blood Sugar Date",
+            "If New Patient Suspicion",
+            "Family History of Diabetes",
+            "Detail of Family History of Diabetes",
+            "HbA1C",
+            "Fasting Glucose Sugar",
+            "Lipid Panel",
+            "Exercise",
+            "Smoking History",
+            "Alcohol Abuse",
+            "Current Home Medication"
           ],
+          "numberOfVisits": 2,
           "showDetailsButton": true,
           "pivotTable": {}
-        }
-      },
-      "ANCNotes": {
-        "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "title": "ANC Notes",
-        "isObservation": true,
-        "type": "ANC Notes",
-        "displayOrder": 4,
-        "conceptNames": [
-          "ANC Notes"
-        ],
-        "translationKey": "ANC_NOTES",
-        "numberOfVisits": "5",
-        "dashboardConfig": {
-          "conceptNames": [
-            "ANC Notes"
-          ],
-          "numberOfVisits": "5"
         },
-        "expandedViewConfig": {
-          "conceptNames": [
-            "ANC Notes"
-          ],
-          "showDetailsButton": true,
-          "pivotTable": {
-            "numberOfVisits": "10",
-            "groupBy": "encounters",
-            "obsConcepts": [
-              "Weight"
-            ],
-            "drugConcepts": [],
-            "labConcepts": []
-          }
-        }
+        "displayOrder": 9
       }
     }
   }

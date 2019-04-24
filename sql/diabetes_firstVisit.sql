@@ -39,7 +39,7 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "Family History of Diabete
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Detail of Family History of Diabetes", "Detail of Family History of Diabetes", "Text", "Misc", false);
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "HbA1C", "HbA1C", "Text", "Misc", false);
-call add_concept(@concept_id, @s_name_id, @f_name_id, "Fasting Glucose Sugar", "Fasting Glucose Sugar", "Text", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Fasting Glucose Sugar", "Fasting Blood Sugar", "Text", "Misc", false);
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Lipid Panel", "Lipid Panel", "Text", "Misc", false);
 
 
