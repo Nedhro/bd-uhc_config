@@ -166,41 +166,6 @@
         },
         "displayOrder": 9
       },
-      "dlivery_notes": {
-        "hideEmptyDisplayControl": true,
-        "title": "Delivery Notes",
-        "translationKey": "Delivery Notes",
-        "isObservation": true,
-        "dashboardConfig": {
-          "conceptNames": [
-            "Date and Time of Delivery",
-            "Indication",
-            "Mode of Delivery",
-            "Medication received during delivery",
-            "Delivery information, Delivery outcome",
-            "Delivery Note, Blood Transfusion Given",
-            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
-            "Delivery Notes, Baby Notes"
-          ],
-          "numberOfVisits": 1
-        },
-        "expandedViewConfig": {
-          "conceptNames": [
-            "Date and Time of Delivery",
-            "Indication",
-            "Mode of Delivery",
-            "Medication received during delivery",
-            "Delivery information, Delivery outcome",
-            "Delivery Note, Blood Transfusion Given",
-            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
-            "Delivery Notes, Baby Notes"
-          ],
-          "numberOfVisits": 2,
-          "showDetailsButton": true,
-          "pivotTable": {}
-        },
-        "displayOrder": 9
-      },
       "ConsultationNotes": {
         "title": "Consultation Notes",
         "translationKey": "DASHBOARD_TITLE_Consultation_KEY",
@@ -275,92 +240,42 @@
         "showOrder": true,
         "displayOrder": 1
       },
-      "DeliveryNotes": {
+      "dlivery_notes": {
         "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "title": "Delivery Note",
+        "title": "Delivery Notes",
+        "translationKey": "Delivery Notes",
         "isObservation": true,
-        "type": "Delivery Note",
-        "displayOrder": 2,
-        "conceptNames": [
-          "Delivery Note"
-        ],
-        "translationKey": "DELIVERY_NOTES",
-        "numberOfVisits": "5",
         "dashboardConfig": {
           "conceptNames": [
-            "Delivery Note"
+            "Date and Time of Delivery",
+            "Indication",
+            "Mode of Delivery",
+            "Medication received during delivery",
+            "Delivery information, Delivery outcome",
+            "Delivery Note, Blood Transfusion Given",
+            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
+            "Delivery Notes, Baby Notes"
           ],
-          "numberOfVisits": "5"
+          "numberOfVisits": 1
         },
         "expandedViewConfig": {
           "conceptNames": [
-            "Delivery Note"
+            "Date and Time of Delivery",
+            "Indication",
+            "Mode of Delivery",
+            "Medication received during delivery",
+            "Delivery information, Delivery outcome",
+            "Delivery Note, Blood Transfusion Given",
+            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
+            "Delivery Notes, Baby Notes"
           ],
+          "numberOfVisits": 2,
           "showDetailsButton": true,
           "pivotTable": {}
-        }
-      },
-      "PNCNotes": {
-        "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "title": "PNC Notes",
-        "isObservation": true,
-        "type": "PNC Notes",
-        "displayOrder": 3,
-        "conceptNames": [
-          "PNC Notes"
-        ],
-        "translationKey": "PNC_NOTES",
-        "numberOfVisits": "5",
-        "dashboardConfig": {
-          "conceptNames": [
-            "PNC Notes"
-          ],
-          "numberOfVisits": "5"
         },
-        "expandedViewConfig": {
-          "conceptNames": [
-            "PNC Notes"
-          ],
-          "showDetailsButton": true,
-          "pivotTable": {}
-        }
-      },
-      "ANCNotes": {
-        "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "title": "ANC Notes",
-        "isObservation": true,
-        "type": "ANC Notes",
-        "displayOrder": 4,
-        "conceptNames": [
-          "ANC Notes"
-        ],
-        "translationKey": "ANC_NOTES",
-        "numberOfVisits": "5",
-        "dashboardConfig": {
-          "conceptNames": [
-            "ANC Notes"
-          ],
-          "numberOfVisits": "5"
-        },
-        "expandedViewConfig": {
-          "conceptNames": [
-            "ANC Notes"
-          ],
-          "showDetailsButton": true,
-          "pivotTable": {
-            "numberOfVisits": "10",
-            "groupBy": "encounters",
-            "obsConcepts": [
-              "Weight"
-            ],
-            "drugConcepts": [],
-            "labConcepts": []
-          }
-        }
+        "displayOrder": 9
       }
     }
   }
+
 }
