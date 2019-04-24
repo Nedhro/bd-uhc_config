@@ -1,0 +1,2 @@
+1. Translate concept name in every observation
+2. death notes: Diagnosis answer should be add manually in implementer interface & reorder accordingly
