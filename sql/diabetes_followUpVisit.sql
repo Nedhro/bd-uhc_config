@@ -13,7 +13,3 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "Ulcer Present on Feet", "
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Last Eye Exam Date", "Last Eye Exam Date", "Date", "Misc", false);
 
 
-call add_concept(@diabetes_systolic_concept_id, @s_name_id, @f_name_id, "Diabetes, Systolic", "Systolic", "Numeric", "Misc", false);
-call add_concept(@diabetes_diastolic_concept_id, @s_name_id, @f_name_id, "Diabetes, Diastolic", "Diastolic", "Numeric", "Misc", false);
-
-
