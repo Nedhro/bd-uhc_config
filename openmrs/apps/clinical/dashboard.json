@@ -30,6 +30,7 @@
         "displayOrder": 0
       },
       "diagnosis": {
+        "hideEmptyDisplayControl": true,
         "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
         "type": "diagnosis",
         "showCertainty": true,
@@ -38,6 +39,7 @@
         "displayOrder": 1
       },
       "treatments": {
+        "hideEmptyDisplayControl": true,
         "title": "Treatments",
         "translationKey": "DASHBOARD_TITLE_TREATMENTS_KEY",
         "type": "treatment",
@@ -64,6 +66,7 @@
         "displayOrder": 3
       },
       "lab_results": {
+        "hideEmptyDisplayControl": true,
         "title": "Lab Results",
         "translationKey": "DASHBOARD_TITLE_LAB_ORDERS_DISPLAY_CONTROL_KEY",
         "type": "labOrders",
@@ -85,6 +88,7 @@
         "displayOrder": 7
       },
       "procedureOrders": {
+        "hideEmptyDisplayControl": true,
         "orderType": "Procedure Order",
         "title": "Procedure Orders",
         "type": "ordersControl",
@@ -97,6 +101,7 @@
         }
       },
       "radiologyOrders": {
+        "hideEmptyDisplayControl": true,
         "orderType": "Radiology Order",
         "title": "Radiology Orders",
         "type": "ordersControl",
@@ -109,6 +114,7 @@
         }
       },
       "vitals": {
+        "hideEmptyDisplayControl": true,
         "title": "Vitals",
         "translationKey": "DASHBOARD_TITLE_VITALS_KEY",
         "type": "vitals",
@@ -139,6 +145,7 @@
         "displayOrder": 8
       },
       "history_and_examinations": {
+        "hideEmptyDisplayControl": true,
         "title": "History and Examinations",
         "translationKey": "DASHBOARD_TITLE_HISTORY_AND_EXAMINATIONS_KEY",
         "type": "vitals",
@@ -160,6 +167,7 @@
         "displayOrder": 9
       },
       "dlivery_notes": {
+        "hideEmptyDisplayControl": true,
         "title": "Delivery Notes",
         "translationKey": "Delivery Notes",
         "isObservation": true,
@@ -197,6 +205,7 @@
         "title": "Consultation Notes",
         "translationKey": "DASHBOARD_TITLE_Consultation_KEY",
         "type": "Consultation Notes",
+        "hideEmptyDisplayControl": true,
         "isObservation": true,
         "dashboardConfig": {
           "conceptNames": [
@@ -207,6 +216,7 @@
         "displayOrder": 11
       },
       "visits": {
+        "hideEmptyDisplayControl": true,
         "title": "Visits",
         "translationKey": "DASHBOARD_TITLE_VISITS_KEY",
         "type": "visits",
@@ -217,6 +227,7 @@
         "displayOrder": 10
       },
       "admission_details": {
+        "hideEmptyDisplayControl": true,
         "title": "Admission Details",
         "translationKey": "DASHBOARD_TITLE_ADMISSION_DETAILS_KEY",
         "type": "admissionDetails",
@@ -256,6 +267,7 @@
         "displayOrder": 0
       },
       "diagnosis": {
+        "hideEmptyDisplayControl": true,
         "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
         "type": "diagnosis",
         "showCertainty": true,
@@ -264,6 +276,7 @@
         "displayOrder": 1
       },
       "DeliveryNotes": {
+        "hideEmptyDisplayControl": true,
         "type": "observation",
         "title": "Delivery Note",
         "isObservation": true,
@@ -289,6 +302,7 @@
         }
       },
       "PNCNotes": {
+        "hideEmptyDisplayControl": true,
         "type": "observation",
         "title": "PNC Notes",
         "isObservation": true,
@@ -314,6 +328,7 @@
         }
       },
       "ANCNotes": {
+        "hideEmptyDisplayControl": true,
         "type": "observation",
         "title": "ANC Notes",
         "isObservation": true,
