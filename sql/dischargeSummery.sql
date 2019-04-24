@@ -11,7 +11,7 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "OT Surgery Notes", "OT/Su
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Radiology Notes", "Radiology Notes", "Text", "Misc", false);
 
 call add_concept(@follow_up_after_concept_id, @s_name_id, @f_name_id, "Follow up After", "After", "Numeric", "Finding", false);
-call add_concept_numeric(@follow_up_after_concept_id, null, null, null);
+call add_concept_numeric_db(@follow_up_after_concept_id, null, null, null);
 
 call add_concept(@follow_up_concept_id, @s_name_id, @f_name_id, "Duration Coded Units", "Unit", "Coded", "Misc", false);
 call add_concept(@hours_concept_id, @s_name_id, @f_name_id, "Duration Hours", "Hour(s)", "N/A", "Misc", false);
