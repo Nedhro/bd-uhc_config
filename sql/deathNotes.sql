@@ -1,8 +1,8 @@
 
-select @date_time_arrival_concept_id := concept_id from concept_name where name = "Death Note, Time of Arrival" and concept_name_type = "FULLY_SPECIFIED";
+select @date_time_arrival_concept_id := concept_id from concept_name where name = "Death Note, Time of Arrival" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 update concept_name set name = "Date and Time of Arrival" where concept_id = @date_time_arrival_concept_id and concept_name_type = "SHORT";
 
-select @date_time_death_concept_id := concept_id from concept_name where name = "Date of death" and concept_name_type = "FULLY_SPECIFIED";
+select @date_time_death_concept_id := concept_id from concept_name where name = "Date of death" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 update concept_name set name = "Date and Time of death" where concept_id = @date_time_death_concept_id and concept_name_type = "SHORT";
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Death Notes, Primary diseases Causing Death", "Primary diseases Causing Death", "Text", "Misc", false);
