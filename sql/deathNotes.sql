@@ -30,4 +30,17 @@ call add_concept_answer(@maternal_death_concept_id, @postpartum_concept_id, 2);
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Death Notes, Other Comorbidities", "Other Comorbidities", "Text", "Misc", false);
 
+call add_concept(@religion_concept_id, @s_name_id, @f_name_id, "Death Notes, Religion", "Religion", "Coded", "Misc", false);
+call add_concept(@islam_concept_id, @s_name_id, @f_name_id, "Death Notes, Religion, Islam", "Islam", "N/A", "Misc", false);
+call add_concept(@hinduism_concept_id, @s_name_id, @f_name_id, "Death Notes, Religion, Hinduism", "Hinduism", "N/A", "Misc", false);
+call add_concept(@christianity_concept_id, @s_name_id, @f_name_id, "Death Notes, Religion, Christianity", "Christianity", "N/A", "Misc", false);
+call add_concept(@buddhism_concept_id, @s_name_id, @f_name_id, "Death Notes, Religion, Buddhism", "Buddhism", "N/A", "Misc", false);
+
+call add_concept_answer(@religion_concept_id, @islam_concept_id, 1);
+call add_concept_answer(@religion_concept_id, @hinduism_concept_id, 2);
+call add_concept_answer(@religion_concept_id, @christianity_concept_id, 3);
+call add_concept_answer(@religion_concept_id, @buddhism_concept_id, 4);
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Death Notes, Citizenship", "Citizenship", "Text", "Misc", false);
+
 
