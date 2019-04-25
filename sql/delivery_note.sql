@@ -15,6 +15,7 @@ call add_concept_answer(@mode_delivery_concept_id, @caesarean_concept_id, 2);
 
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Date and Time of Birth", "Date and Time of Birth", "Datetime", "Question", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "Delivery Notes, Complication", "Complication", "Boolean", "Misc", false);
 
 select @child_gender_concept_id := concept_id from concept_name where name = "Child gender" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 select @weight_concept_id := concept_id from concept_name where name = "Baby Weight" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;

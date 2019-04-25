@@ -66,7 +66,6 @@
         "displayOrder": 3
       },
       "lab_results": {
-        "hideEmptyDisplayControl": true,
         "title": "Lab Results",
         "translationKey": "DASHBOARD_TITLE_LAB_ORDERS_DISPLAY_CONTROL_KEY",
         "type": "labOrders",
