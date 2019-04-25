@@ -59,7 +59,7 @@ call add_concept_answer(@anc_endocrine_and_metabolic_track, @anc_endocrine_and_m
 call add_concept_answer(@anc_endocrine_and_metabolic_track, @anc_endocrine_and_metabolic_hypothyroidism, 3);
 call add_concept_answer(@anc_endocrine_and_metabolic_track, @anc_endocrine_and_metabolic_other, 4);
 
-call add_concept(@anc_other_note, @s_name_id, @f_name_id, "ANC,Others Note", "Others", "N/A", "Misc", false);
+call add_concept(@anc_other_note, @s_name_id, @f_name_id, "ANC,Others Note", "Others", "Text", "Misc", false);
 
 call add_concept(@anc_past_surgical_history_track, @s_name_id, @f_name_id, "ANC,Past Surgical history", "Past Surgical history", "Coded", "Misc", false);
 call add_concept(@anc_past_surgical_yes, @s_name_id, @f_name_id, "ANC,Past Surgical history Yes", "Yes", "N/A", "Misc", false);
