@@ -68,3 +68,17 @@ call add_concept(@anc_past_surgical_no, @s_name_id, @f_name_id, "ANC,Past Surgic
 
 call add_concept_answer(@anc_past_surgical_history_track, @anc_past_surgical_yes, 1);
 call add_concept_answer(@anc_past_surgical_history_track, @anc_past_surgical_no, 2);
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Temperature", "Temperature(Deg F)", "Numeric", "Finding", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Weight", "Weight", "Numeric", "Finding", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Anemia", "Anemia", "Numeric", "Finding", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Pulse", "Pulse", "Numeric", "Finding", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Jaundice", "Jaundice", "Numeric", "Finding", false);
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,General Examination Others", "Others", "Text", "Misc", false);
+
+
+
+
+
+
