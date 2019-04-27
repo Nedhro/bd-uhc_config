@@ -43,8 +43,8 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC,Excesive Veginal blee
 call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC,Vaginal Discharge", "Vaginal Discharge", "Boolean", "Misc", false);
 
 call add_concept(@pnc_perineal_concept_id, @s_name_id, @f_name_id, "PNC,Perineal Tear Or Episiotomy Wound", "PNC,Perineal Tear/Episiotomy Wound", "Coded", "Misc", false);
-call add_concept(@pnc_perineal_healthy_concept_id, @s_name_id, @f_name_id, "PNC,Healthy", "Healthy", "N/A", "Misc", false);
-call add_concept(@pnc_perineal_infectedconcept_id, @s_name_id, @f_name_id, "PNC,Infected", "Infected", "N/A", "Misc", false);
+call add_concept(@pnc_perineal_healthy_concept_id, @s_name_id, @f_name_id, "PNC Perineal,Healthy", "Healthy", "N/A", "Misc", false);
+call add_concept(@pnc_perineal_infectedconcept_id, @s_name_id, @f_name_id, "PNC,Perineal Infected", "Infected", "N/A", "Misc", false);
 
 call add_concept_answer(@pnc_perineal_concept_id, @pnc_perineal_healthy_concept_id, 1);
 call add_concept_answer(@pnc_perineal_concept_id, @pnc_perineal_infectedconcept_id, 2);
