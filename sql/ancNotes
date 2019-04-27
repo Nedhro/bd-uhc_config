@@ -78,7 +78,23 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Jaundice", "Jaundice"
 call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,General Examination Others", "Others", "Text", "Misc", false);
 
 
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Fundal Height", "Fundal Height (weeks)", "Numeric", "Finding", false);
+
+call add_concept(@anc_fetal_movement, @s_name_id, @f_name_id, "ANC,Fetal Movement", "Fetal Movement", "Coded", "Misc", false);
+call add_concept(@anc_fetal_present, @s_name_id, @f_name_id, "ANC,Fetal Present", "Present", "N/A", "Misc", false);
+call add_concept(@anc_fetal_absent, @s_name_id, @f_name_id, "ANC,Fetal Absent", "Absent", "N/A", "Misc", false);
+
+call add_concept_answer(@anc_fetal_movement, @anc_fetal_present, 1);
+call add_concept_answer(@anc_fetal_movement, @anc_fetal_absent, 2);
 
 
+call add_concept(@anc_heartbeat_movement, @s_name_id, @f_name_id, "ANC,Fetal Heartbeat", "Fetal Heartbeat/Sound", "Coded", "Misc", false);
+call add_concept(@anc_heartbeat_present, @s_name_id, @f_name_id, "ANC,Heartbeat Present", "Present", "N/A", "Misc", false);
+call add_concept(@anc_heartbeat_absent, @s_name_id, @f_name_id, "ANC,Heartbeat Absent", "Absent", "N/A", "Misc", false);
+
+call add_concept_answer(@anc_heartbeat_movement, @anc_heartbeat_present, 1);
+call add_concept_answer(@anc_heartbeat_movement, @anc_heartbeat_absent, 2);
+
+call add_concept(@anc_other_note, @s_name_id, @f_name_id, "ANC,Abdominal Problem", "Problem", "Text", "Misc", false);
 
 
