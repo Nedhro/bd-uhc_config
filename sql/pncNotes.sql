@@ -51,6 +51,14 @@ call add_concept_answer(@pnc_perineal_concept_id, @pnc_perineal_infectedconcept_
 
 
 
+call add_concept(@pnc_systolic_blood_pressure_concept_id, @s_name_id, @f_name_id, "PNC,Systolic Blood Pressure", "Systolic Blood Pressure", "Numeric", "Finding", false);
+call add_concept_numeric_db(@pnc_systolic_blood_pressure_concept_id, 110, 140, null);
+call add_concept(@pnc_diastolic_blood_pressure_concept_id, @s_name_id, @f_name_id, "PNC,Diastolic Blood Pressure", "Diastolic Blood Pressure", "Numeric", "Finding", false);
+call add_concept_numeric_db(@pnc_diastolic_blood_pressure_concept_id, 80, 90, null);
+
+
+
+
 
 
 
