@@ -155,3 +155,38 @@ call add_concept_answer(@anc_internal_examination_station, @anc_internal_examina
 
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC,Internal Examination Other", "Other", "Text", "Misc", false);
+
+
+call add_concept(@anc_obstetric_concept_id, @s_name_id, @f_name_id, "ANC, Obstetric Details", "Obstetric Details", "N/A", "Misc", true);
+
+call add_concept(@anc_type_of_delivery, @s_name_id, @f_name_id, "ANC, Type of Delivery", "Type of Delivery", "Coded", "Misc", false);
+call add_concept(@anc_vagainal_delivery, @s_name_id, @f_name_id, "ANC, Vagainal delivery", "Vagainal delivery", "N/A", "Misc", false);
+call add_concept(@anc_cesarean_section, @s_name_id, @f_name_id, "ANC, Cesarean section", "Cesarean section", "N/A", "Misc", false);
+
+call add_concept_answer(@anc_type_of_delivery, @anc_vagainal_delivery, 1);
+call add_concept_answer(@anc_type_of_delivery, @anc_cesarean_section, 2);
+
+call add_concept(@anc_delivery_outcome, @s_name_id, @f_name_id, "ANC, Delivery Outcome", "Delivery Outcome", "Coded", "Misc", false);
+call add_concept(@anc_live_birth, @s_name_id, @f_name_id, "ANC, Live Birth", "Live Birth", "N/A", "Misc", false);
+call add_concept(@anc_still_birth, @s_name_id, @f_name_id, "ANC, Still Birth", "Still Birth", "N/A", "Misc", false);
+call add_concept(@anc_abortus, @s_name_id, @f_name_id, "ANC, Abortus", "Abortus", "N/A", "Misc", false);
+
+call add_concept_answer(@anc_delivery_outcome, @anc_live_birth, 1);
+call add_concept_answer(@anc_delivery_outcome, @anc_still_birth, 2);
+call add_concept_answer(@anc_delivery_outcome, @anc_abortus, 3);
+
+call add_concept(@anc_child_gender_concept_id, @s_name_id, @f_name_id, "ANC, Chile Gender", "Child Gender", "Coded", "Misc", false);
+select @baby_male := concept_id from concept_name where name = "Baby male" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @baby_female := concept_id from concept_name where name = "Baby female" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+call add_concept_answer(@anc_child_gender_concept_id, @baby_male, 1);
+call add_concept_answer(@anc_child_gender_concept_id, @baby_female, 2);
+
+call add_concept(@anc_obstetric_details_problem, @s_name_id, @f_name_id, "ANC, Problem", "Problem", "Text", "Misc", false);
+
+call add_concept_set_members(@anc_obstetric_concept_id, @anc_type_of_delivery, 1);
+call add_concept_set_members(@anc_obstetric_concept_id, @anc_delivery_outcome, 2);
+call add_concept_set_members(@anc_obstetric_concept_id, @anc_child_gender_concept_id, 3);
+call add_concept_set_members(@anc_obstetric_concept_id, @anc_obstetric_details_problem, 4);
+
+
+
