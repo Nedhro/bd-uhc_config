@@ -1,5 +1,5 @@
 call add_concept(@menstrual_history_concept_id, @s_name_id, @f_name_id, "Gynae Case, Gynae History, Menstrual History", "Menstrual History", "Coded", "Misc", false);
-call add_concept(@menstrual_history_regullar_id, @s_name_id, @f_name_id, "Gynae Case, Gynae History Status, Regullar", "Regullar", "N/A", "Misc", false);
+call add_concept(@menstrual_history_regullar_id, @s_name_id, @f_name_id, "Gynae Case, Gynae History Status, Regular", "Regular", "N/A", "Misc", false);
 call add_concept(@menstrual_history_irregular_id, @s_name_id, @f_name_id, "Gynae Case, Gynae History Status, Irregular", "Irregular", "N/A", "Misc", false);
 
 call add_concept_answer(@menstrual_history_concept_id, @menstrual_history_regullar_id, 1);
