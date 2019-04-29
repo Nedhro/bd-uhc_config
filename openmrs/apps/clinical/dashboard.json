@@ -401,6 +401,77 @@
           "pivotTable": {}
         },
         "displayOrder": 9
+      },
+      "pnc_notes": {
+        "hideEmptyDisplayControl": true,
+        "title": "PNC Notes",
+        "translationKey": "PNC Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "PNC visit number",
+            "Place of delivery",
+            "PNC, Date and Time of Delivery",
+            "PNC, Indication",
+            "PNC, Mode of Delivery",
+            "PNC, Medication received during delivery",
+            "PNC,Delivery Outcome",
+            "PNC Notes, Blood Transfusion",
+            "PNC,AMTSL(Active Management of Third Stage of Labor) Given",
+            "PNC, Baby Notes",
+            "PNC,Temperature",
+            "PNC,Systolic Blood Pressure",
+            "PNC,Diastolic Blood Pressure",
+            "PNC,Pulse",
+            "PNC,Weight",
+            "PNC,Anemia",
+            "PNC,Oedema",
+            "PNC,Jaundice",
+            "Postpartum Examination, Problem regarding Breast",
+            "PNC,Others",
+            "PNC,Fundal Height",
+            "PNC,Abdominal wound",
+            "PNC,Abdomina Other",
+            "PNC,Excesive Veginal bleeding",
+            "PNC,Vaginal Discharge",
+            "PNC,Perineal Tear Or Episiotomy Wound"
+          ],
+          "numberOfVisits": 1
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "PNC visit number",
+            "Place of delivery",
+            "PNC, Date and Time of Delivery",
+            "PNC, Indication",
+            "PNC, Mode of Delivery",
+            "PNC, Medication received during delivery",
+            "PNC,Delivery Outcome",
+            "PNC Notes, Blood Transfusion",
+            "PNC,AMTSL(Active Management of Third Stage of Labor) Given",
+            "PNC, Baby Notes",
+            "PNC,Temperature",
+            "PNC,Systolic Blood Pressure",
+            "PNC,Diastolic Blood Pressure",
+            "PNC,Pulse",
+            "PNC,Weight",
+            "PNC,Anemia",
+            "PNC,Oedema",
+            "PNC,Jaundice",
+            "Postpartum Examination, Problem regarding Breast",
+            "PNC,Others",
+            "PNC,Fundal Height",
+            "PNC,Abdominal wound",
+            "PNC,Abdomina Other",
+            "PNC,Excesive Veginal bleeding",
+            "PNC,Vaginal Discharge",
+            "PNC,Perineal Tear Or Episiotomy Wound"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
       }
     }
   },
