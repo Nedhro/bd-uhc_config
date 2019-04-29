@@ -239,7 +239,7 @@
         "showOrder": true,
         "displayOrder": 1
       },
-      "dlivery_notes": {
+      "delivery_notes": {
         "hideEmptyDisplayControl": true,
         "title": "Delivery Notes",
         "translationKey": "Delivery Notes",
