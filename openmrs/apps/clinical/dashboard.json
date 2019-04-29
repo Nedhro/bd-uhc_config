@@ -239,7 +239,7 @@
         "showOrder": true,
         "displayOrder": 1
       },
-      "dlivery_notes": {
+      "delivery_notes": {
         "hideEmptyDisplayControl": true,
         "title": "Delivery Notes",
         "translationKey": "Delivery Notes",
@@ -267,6 +267,47 @@
             "Delivery Note, Blood Transfusion Given",
             "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
             "Delivery Notes, Baby Notes"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
+      },
+      "gynae_case_notes": {
+        "hideEmptyDisplayControl": true,
+        "title": "Gynae Case Notes",
+        "translationKey": "Gynae Case Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "Gynae Case, Gynae History, Menstrual History",
+            "Gynae Case, Menstrual Period (days)",
+            "Gynae Case, Menstrual Cycle (days)",
+            "Gynae Case, Gynae History, Menstrual Flow",
+            "Gynae Case, Gynae History, Dysmenorrhoea",
+            "Gynae Case, Gynae History, LMP",
+            "Gynae Case, Obstetric History, Married For",
+            "Gynae Case, Obstetric History, Para",
+            "Gynae Case, Obstetric History, Gravida",
+            "Gynae Case, Obstetric History, ALC",
+            "Gynae Case, Contraceptive History"
+          ],
+          "numberOfVisits": 1
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "Gynae Case, Gynae History, Menstrual History",
+            "Gynae Case, Menstrual Period (days)",
+            "Gynae Case, Menstrual Cycle (days)",
+            "Gynae Case, Gynae History, Menstrual Flow",
+            "Gynae Case, Gynae History, Dysmenorrhoea",
+            "Gynae Case, Gynae History, LMP",
+            "Gynae Case, Obstetric History, Married For",
+            "Gynae Case, Obstetric History, Para",
+            "Gynae Case, Obstetric History, Gravida",
+            "Gynae Case, Obstetric History, ALC",
+            "Gynae Case, Contraceptive History"
           ],
           "numberOfVisits": 2,
           "showDetailsButton": true,
