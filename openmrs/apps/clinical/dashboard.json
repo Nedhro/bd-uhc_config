@@ -352,9 +352,9 @@
             "ANC,Abdominal Problem",
             "ANC,Position",
             "ANC,Consistency",
-            "ANC,Effacement",
-            "ANC,Dillation",
-            "ANC,Station",
+            "ANC, Effacement",
+            "ANC, Dillation",
+            "ANC, Station",
             "ANC,Internal Examination Other"
           ],
           "numberOfVisits": 1
@@ -391,9 +391,9 @@
             "ANC,Abdominal Problem",
             "ANC,Position",
             "ANC,Consistency",
-            "ANC,Effacement",
-            "ANC,Dillation",
-            "ANC,Station",
+            "ANC, Effacement",
+            "ANC, Dillation",
+            "ANC, Station",
             "ANC,Internal Examination Other"
           ],
           "numberOfVisits": 2,
