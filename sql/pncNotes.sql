@@ -88,6 +88,24 @@ call add_concept_set_members(@pnc_baby_note_concept_id, @pnc_date_and_time_of_bo
 call add_concept_set_members(@pnc_baby_note_concept_id, @pnc_baby_note_delivery_note_concept_id, 6);
 
 
+call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC, Date and Time of Delivery", "Date and Time of Birth", "Datetime", "Question", false);
+
+call add_concept(@pnc_mood_of_delivery, @s_name_id, @f_name_id, "PNC, Mode of Delivery", "Mode of Delivery", "Coded", "Question", false);
+select @pnc_vaginal_face_delivery := concept_id from concept_name where name = "Vaginal face delivery" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @single_caesarean := concept_id from concept_name where name = "O82 Single delivery by caesarean section" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+
+call add_concept_answer(@pnc_mood_of_delivery, @pnc_vaginal_face_delivery, 1);
+call add_concept_answer(@pnc_mood_of_delivery, @single_caesarean, 2);
+
+call add_concept(@pnc_medication_during_delivery, @s_name_id, @f_name_id, "PNC, Medication received during delivery", "Mode of Delivery", "Coded", "Question", false);
+select @pnc_misopostol := concept_id from concept_name where name = "Misoprostol" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @pnc_oxytocin := concept_id from concept_name where name = "Oxytocin" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+
+call add_concept_answer(@pnc_medication_during_delivery, @pnc_misopostol, 1);
+call add_concept_answer(@pnc_medication_during_delivery, @pnc_oxytocin, 2);
+
+call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC, Indication", "Indication", "Text", "Misc", false);
+
 
 
 
