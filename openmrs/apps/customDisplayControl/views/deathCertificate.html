@@ -29,11 +29,11 @@
  		 <span ng-if="patient.occupation.value.display != undefined"> Occupation {{patient.occupation.value.display}}</span>
  		 
    		 
- 	  was admitted at<span class="custom-bold-text"> KALIGANJ UHC HOSPITAL </span>,  {{visitSummary.admissionDetails | bahmniDateTime}} in <span class="capitalize">{{visitSummary.visitType}} Department.</span>
+ 	  was admitted at<span class="custom-bold-text"> {{ "HOSPITAL_NAME" | translate }} </span>,  {{visitSummary.admissionDetails | bahmniDateTime}} in <span class="capitalize">{{visitSummary.visitType}} Department.</span>
  	  The Death Details of the patient are mentioned below,
  	  <br><br>
  	  
-  	
+	</p>
   	
    	
   

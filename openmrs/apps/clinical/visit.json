@@ -1,13 +1,8 @@
-{  
+{
   "Prescription": {
     "title": "Patient_Prescription ",
     "translationKey": "PRESCRIPTION",
     "displayByDefault": true,
-    "printing": {
-      "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
-      "header": " Prescription",
-      "logo": "/bahmni_config/openmrs/images/dghslogo.png"
-    },
     "sections": {
       "Patient Information": {
         "type": "patientInformation",
@@ -37,20 +32,19 @@
           ]
         }
       },
-      "investigationresult":
-	{
-		"type": "investigationResult",
-		"config": {
-			"title": "Lab Investigations",
-			"showChart": false,
-			"showTable": true,
-			"showNormalLabResults": true,
-			"showCommentsExpanded": true,
-			"showAccessionNotes": true,
-			"numberOfVisits": 10
-		},
-		"displayOrder":1
-	},
+      "investigationresult": {
+        "type": "investigationResult",
+        "config": {
+          "title": "Lab Investigations",
+          "showChart": false,
+          "showTable": true,
+          "showNormalLabResults": true,
+          "showCommentsExpanded": true,
+          "showAccessionNotes": true,
+          "numberOfVisits": 10
+        },
+        "displayOrder": 1
+      },
       "diagnoses": {
         "type": "diagnosis",
         "displayOrder": 2,
@@ -98,7 +92,6 @@
       }
     }
   },
-
   "general": {
     "title": "General",
     "translationKey": "GENERAL_TYPE_VISIT",
@@ -129,7 +122,7 @@
     "title": "Patient Discharge Summary ",
     "translationKey": "DISCHARGE_SUMMARY_VISIT",
     "printing": {
-     "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
+      "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
       "header": "DISCHARGE SUMMARY",
       "logo": "/bahmni_config/openmrs/images/dghslogo.png"
     },
@@ -186,21 +179,19 @@
           "showDetailsButton": true
         }
       },
-       "investigationresult":
-        {
-                "type": "investigationResult",
-                "config": {
-                        "title": "Lab Investigations",
-                        "showChart": false,
-                        "showTable": true,
-                        "showNormalLabResults": true,
-                        "showCommentsExpanded": true,
-                        "showAccessionNotes": true,
-                        "numberOfVisits": 10
-                },
-
-                "displayOrder":3
+      "investigationresult": {
+        "type": "investigationResult",
+        "config": {
+          "title": "Lab Investigations",
+          "showChart": false,
+          "showTable": true,
+          "showNormalLabResults": true,
+          "showCommentsExpanded": true,
+          "showAccessionNotes": true,
+          "numberOfVisits": 10
         },
+        "displayOrder": 3
+      },
       "diagnoses": {
         "type": "diagnosis",
         "displayOrder": 3,
@@ -262,7 +253,6 @@
       "logo": "/bahmni_config/openmrs/images/dghslogo.png"
     },
     "sections": {
-
       "Patient Information": {
         "type": "patientInformation",
         "title": "Patient Information",
@@ -330,25 +320,28 @@
   "deathCertificate": {
     "title": "Death CERTIFICATE ",
     "translationKey": "DEATH_CLINICAL_CERTIFICATE",
-    "printing": {
-      "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
-      "header": " Death Certificate",
-      "logo": "/bahmni_config/openmrs/images/dghslogo.png"
-    },
     "sections": {
-
+      "Header": {
+        "type": "custom",
+        "displayOrder": 0,
+        "showOnlyInPrint": true,
+        "config": {
+          "title": "Death Certificate",
+          "template": "<header-pad-white-space></header-pad-white-space>"
+        }
+      },
       "Death Certificate": {
         "type": "custom",
-        "displayOrder": 1,
+        "displayOrder": 2,
         "config": {
           "title": "Patient Death Certificate ",
           "template": "<death-certificate></death-certificate>"
         }
       },
-          "Patient Information": {
+      "Patient Information": {
         "type": "patientInformation",
         "title": "Patient Information",
-        "displayOrder": 0,
+        "displayOrder": 1,
         "config": {
           "title": "PatientInformation",
           "patientAttributes": [
@@ -376,10 +369,19 @@
       "DeathNotes": {
         "type": "observation",
         "title": "Death Notes",
-        "displayOrder": 2,
+        "displayOrder": 3,
         "config": {
           "conceptNames": [
-        	    "Death Note"
+            "Death Note, Time of Arrival",
+            "Date of death",
+            "Death Notes, Religion",
+            "Death Notes, Citizenship",
+            "Death Notes, Primary diseases Causing Death",
+            "Medico Legal",
+            "Death Notes, Provider Name who Pronounced Death",
+            "Death Notes, Next to Kin Aware of Death",
+            "In Cause of Maternal Death ,Death Occurs at",
+            "Death Notes, Other Comorbidities"
           ],
           "translationKey": "DEATH_CLINICAL_NOTES",
           "numberOfVisits": "1",
@@ -392,7 +394,7 @@
       },
       "footerSummary": {
         "type": "custom",
-        "displayOrder": 5,
+        "displayOrder": 6,
         "config": {
           "translationKey": "FOOTER_SUMMARY",
           "title": " Discharge Summary ",
@@ -410,7 +412,6 @@
       "logo": "/bahmni_config/openmrs/images/dghslogo.png"
     },
     "sections": {
-
       "Patient Information": {
         "type": "patientInformation",
         "title": "Patient Information",
@@ -465,6 +466,5 @@
         }
       }
     }
-
   }
 }

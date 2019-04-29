@@ -20,7 +20,7 @@ angular.module('bahmni.common.displaycontrol.custom')
         var link = function ($scope) 
         {
             $scope.displayStuff = false;
-            var conceptNames = ["Death Note"];
+            var conceptNames = ["Date of death"];
             spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
                     $scope.observations = response.data;
                     if($scope.observations.length > 0){
@@ -52,7 +52,7 @@ angular.module('bahmni.common.displaycontrol.custom')
        var link = function ($scope) 
         {
         	 $scope.displayStuff = false;
-            var conceptNames = ["Death Note"];
+            var conceptNames = ["Date of death"];
             spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
                     $scope.observations = response.data;
                     if($scope.observations.length > 0){
@@ -202,5 +202,15 @@ angular.module('bahmni.common.displaycontrol.custom')
             restrict: 'E',
             link: link,
             template: '<ng-include src="contentUrl"/>',
+        }
+    }]).directive('headerPadWhiteSpace', ['appService','$sce', function (appService, $sce) {
+        var link = function ($scope) {
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/headerPadWhiteSpace.html";
+        }
+
+        return {
+            restrict: 'E',
+            link: link,
+            template: '<ng-include src="contentUrl"/>'
         }
     }]);
