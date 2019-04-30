@@ -6,7 +6,7 @@ call add_concept_answer(@pnc_delivery_outcome, @pnc_delivery_live_birth, 1);
 call add_concept_answer(@pnc_delivery_outcome, @pnc_delivery_still_birth, 2);
 
 
-call add_concept(@pnc_active_manage, @s_name_id, @f_name_id, "PNC,AMTSL(Active Management of Third Stage of Labor) Given", "AMTSL(Active Management of Third Stage of Labor) Given", "Boolean", "Misc", false);
+call add_concept(@pnc_active_manage, @s_name_id, @f_name_id, "PNC, AMTSL Active Management of Third Stage of Labor Given", "AMTSL(Active Management of Third Stage of Labor) Given", "Boolean", "Misc", false);
 
 call add_concept(@pnc_temperature_id, @s_name_id, @f_name_id, "PNC,Temperature", "Temperature(Deg F)", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_temperature_id, null, null, null);

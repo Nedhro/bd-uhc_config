@@ -121,20 +121,7 @@
   "dischargeSummary": {
     "title": "Patient Discharge Summary ",
     "translationKey": "DISCHARGE_SUMMARY_VISIT",
-    "printing": {
-      "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
-      "header": "DISCHARGE SUMMARY",
-      "logo": "/bahmni_config/openmrs/images/dghslogo.png"
-    },
     "sections": {
-      "Discharge Certificate": {
-        "type": "custom",
-        "displayOrder": 1,
-        "config": {
-          "title": "Patient Discharge Summary ",
-          "template": "<discharge-summary></discharge-summary>"
-        }
-      },
       "Patient Information": {
         "type": "patientInformation",
         "title": "Patient Information",
@@ -161,6 +148,14 @@
             "countyDistrict",
             "stateProvince"
           ]
+        }
+      },
+      "Discharge Certificate": {
+        "type": "custom",
+        "displayOrder": 1,
+        "config": {
+          "title": "Patient Discharge Summary ",
+          "template": "<discharge-summary></discharge-summary>"
         }
       },
       "History_Examinations": {
