@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="placeholder-text">This is certified that,
+    <span ng-if="patient.gender == 'M' ">Mr </span>
+    <span ng-if="patient.gender == 'O' ">Mx </span>
+    <span ng-if="patient.gender == 'F' ">Ms </span>
+    <span class="custom-bold-text"> {{patient.name}}</span>,
+    <span ng-if="patient.gender == 'M' && patient.fatherName.value!=undefined">son of </span>
+    <span ng-if="patient.gender == 'F' && patient.fatherName.value!=undefined">daughter of </span>
+    <span ng-if="patient.gender == 'O' && patient.fatherName.value!=undefined">son of </span>
+    {{patient.fatherName.value}} <span ng-if="patient.fatherName.value != undefined">, </span>
+    <span ng-if="patient.gender == 'M' && patient.spouseName.value!=undefined">husband of </span>
+    <span ng-if="patient.gender == 'F'&& patient.spouseName.value!=undefined">wife of </span>
+    <span ng-if="patient.gender == 'O'&& patient.spouseName.value!=undefined">spouse of </span>
+    {{patient.spouseName.value}} <span ng-if="patient.spouseName.value != undefined">, </span>
+    residing at {{patient.address.address1}}
+    {{patient.address.address2}} {{patient.address.address3}} {{patient.address.cityVillage}}{{patient.address.countyDistrict}}
+    {{patient.address.stateProvince}}
+    </span>
+    Age <span ng-if="patient.age == 0" ng-bind-html="htmlLabel(patient.ageText)"></span>
+    <span ng-if="patient.age !== 0">{{patient.age}},</span>
+    Gender {{patient.gender}},
+    <span ng-if="patient.occupation.value.display != undefined"> Occupation {{patient.occupation.value.display}}</span>
+
+
+    is my patient under my observation.
+    <span ng-if="patient.gender == 'M' ">He </span>
+    <span ng-if="patient.gender == 'O' ">He/She </span>
+    <span ng-if="patient.gender == 'F' ">She</span>
+    has been suffering from
+    <span ng-repeat="item in observations[0].groupMembers">
+        <b>{{item.valueAsString}}</b> for  <b>{{item.duration}}</b>,
+    </span>
+    <br/><br/>
+
+    Now <span ng-if="patient.gender == 'M' ">He </span>
+    <span ng-if="patient.gender == 'O' ">He/She </span>
+    <span ng-if="patient.gender == 'F' ">She</span>
+    Needs _____from ____to____
+
+    <br/><br/>
+    General Indications/Complications:
+
+
+</p>
+</body>
+</html>
