@@ -29,7 +29,8 @@ call add_concept_answer(@dysmenorrhoea_concept_id, @dysmenorrhoea_absent_id, 2);
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Gynae Case, Gynae History, LMP", "LMP", "Date", "Misc", false);
 
-call add_concept(@concept_id, @s_name_id, @f_name_id, "Gynae Case, Obstetric History, Married For", "Married For", "Text", "Misc", false);
+call add_concept(@obstetric_history_married_for, @s_name_id, @f_name_id, "Gynae Case, Obstetric History, Married For", "Married For", "Numeric", "Finding", false);
+call add_concept_numeric_db(@obstetric_history_married_for, null, null, null);
 
 call add_concept(@obstetric_history_para_concept_id, @s_name_id, @f_name_id, "Gynae Case, Obstetric History, Para", "Para", "Numeric", "Finding", false);
 call add_concept_numeric_db(@obstetric_history_para_concept_id, null, null, null);

@@ -71,7 +71,7 @@ select @baby_female := concept_id from concept_name where name = "Baby female" a
 call add_concept_answer(@pnc_child_gender_concept_id, @baby_male, 1);
 call add_concept_answer(@pnc_child_gender_concept_id, @baby_female, 2);
 
-call add_concept(@pnc_baby_note_weight_concept_id, @s_name_id, @f_name_id, "PNC,Baby Note Weight", "Weight", "Numeric", "Finding", false);
+call add_concept(@pnc_baby_note_weight_concept_id, @s_name_id, @f_name_id, "PNC,Baby Note Weight", "Weight (kg)", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_baby_note_weight_concept_id, null, null, null);
 call add_concept(@pnc_baby_note_apgar_one_concept_id, @s_name_id, @f_name_id, "PNC, APGAR score at 1 Minutes", "APGAR score at 1 Minutes", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_baby_note_apgar_one_concept_id, null, null, null);
