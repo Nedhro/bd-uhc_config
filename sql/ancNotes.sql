@@ -16,8 +16,8 @@ call add_concept_answer(@anc_menstrual_history_concept_id, @anc_gynae_history_re
 call add_concept_answer(@anc_menstrual_history_concept_id, @anc_gynae_history_irregular_concept_id, 2);
 
 
-call add_concept(@concept_id, @s_name_id, @f_name_id, "LMP", "LMP", "Date", "Misc", false);
-call add_concept(@concept_id, @s_name_id, @f_name_id, "EDD", "EDD", "Date", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC, LMP", "LMP", "Date", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC, EDD", "EDD", "Date", "Misc", false);
 
 
 
@@ -61,9 +61,9 @@ call add_concept_answer(@anc_endocrine_and_metabolic_track, @anc_endocrine_and_m
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC, Others Note", "Others", "Text", "Misc", false);
 
-call add_concept(@anc_past_surgical_history_track, @s_name_id, @f_name_id, "ANC, Past Surgical history", "Past Surgical history", "Coded", "Misc", false);
-call add_concept(@anc_past_surgical_yes, @s_name_id, @f_name_id, "ANC, Past Surgical history Yes", "Yes", "N/A", "Misc", false);
-call add_concept(@anc_past_surgical_no, @s_name_id, @f_name_id, "ANC, Past Surgical history No", "No", "N/A", "Misc", false);
+call add_concept(@anc_past_surgical_history_track, @s_name_id, @f_name_id, "ANC, Past Surgical History", "Past Surgical History", "Coded", "Misc", false);
+call add_concept(@anc_past_surgical_yes, @s_name_id, @f_name_id, "ANC, Past Surgical History Yes", "Yes", "N/A", "Misc", false);
+call add_concept(@anc_past_surgical_no, @s_name_id, @f_name_id, "ANC, Past Surgical History No", "No", "N/A", "Misc", false);
 
 
 call add_concept_answer(@anc_past_surgical_history_track, @anc_past_surgical_yes, 1);
