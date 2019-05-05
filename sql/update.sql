@@ -224,6 +224,9 @@ call add_concept_numeric_db(@menstrual_period_concept_id, null, null, null);
 call add_concept(@menstrual_cycle_concept_id, @s_name_id, @f_name_id, "Gynae Case, Menstrual Cycle days", "Menstrual Cycle (days)", "Numeric", "Finding", false);
 call add_concept_numeric_db(@menstrual_cycle_concept_id, null, null, null);
 
+call add_concept(@obstetric_history_married_for, @s_name_id, @f_name_id, "Gynae Case, Married For", "Married For", "Numeric", "Finding", false);
+call add_concept_numeric_db(@obstetric_history_married_for, null, null, null);
+
 
 
 
