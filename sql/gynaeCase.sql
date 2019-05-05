@@ -5,10 +5,10 @@ call add_concept(@menstrual_history_irregular_id, @s_name_id, @f_name_id, "Gynae
 call add_concept_answer(@menstrual_history_concept_id, @menstrual_history_regullar_id, 1);
 call add_concept_answer(@menstrual_history_concept_id, @menstrual_history_irregular_id, 2);
 
-call add_concept(@menstrual_period_concept_id, @s_name_id, @f_name_id, "Gynae Case, Menstrual Period (days)", "Menstrual Period (days)", "Numeric", "Finding", false);
+call add_concept(@menstrual_period_concept_id, @s_name_id, @f_name_id, "Gynae Case, Menstrual Period days", "Menstrual Period (days)", "Numeric", "Finding", false);
 call add_concept_numeric_db(@menstrual_period_concept_id, null, null, null);
 
-call add_concept(@menstrual_cycle_concept_id, @s_name_id, @f_name_id, "Gynae Case, Menstrual Cycle (days)", "Menstrual Cycle (days)", "Numeric", "Finding", false);
+call add_concept(@menstrual_cycle_concept_id, @s_name_id, @f_name_id, "Gynae Case, Menstrual Cycle days", "Menstrual Cycle (days)", "Numeric", "Finding", false);
 call add_concept_numeric_db(@menstrual_cycle_concept_id, null, null, null);
 
 call add_concept(@menstrual_flow_concept_id, @s_name_id, @f_name_id, "Gynae Case, Gynae History, Menstrual Flow", "Menstrual Flow", "Coded", "Misc", false);
