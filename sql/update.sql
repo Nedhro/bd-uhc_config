@@ -147,6 +147,11 @@ call add_concept_numeric_db(@anc_systolic_blood_pressure_concept_id, 110, 140, n
 call add_concept(@anc_diastolic_blood_pressure_concept_id, @s_name_id, @f_name_id, "ANC, Diastolic Blood Pressure", "Diastolic Blood Pressure", "Numeric", "Finding", false);
 call add_concept_numeric_db(@anc_diastolic_blood_pressure_concept_id, 80, 90, null);
 
+update concept_name set name = "ANC, Child Gender" where concept_name_type = "FULLY_SPECIFIED" and name="ANC, Chile Gender";
+update concept_name set name = "ANC , 1 to 2 cm" where concept_name_type = "FULLY_SPECIFIED" and name="ANC ,1 to 2 cm";
+update concept_name set name = "ANC, plus 1 by plus 2" where concept_name_type = "FULLY_SPECIFIED" and name="ANC, minus 1 by plus 2";
+
+
 --PNC Notes
 
 call add_concept(@pnc_delivery_outcome, @s_name_id, @f_name_id, "PNC, Delivery Outcome", "Delivery Outcome", "Coded", "Finding", false);

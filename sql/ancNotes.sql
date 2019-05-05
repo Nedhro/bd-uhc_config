@@ -139,7 +139,7 @@ call add_concept_answer(@anc_internal_examination_effacement, @anc_internal_exam
 
 call add_concept(@anc_internal_examination_dillation, @s_name_id, @f_name_id, "ANC, Dillation", "Dillation", "Coded", "Misc", false);
 call add_concept(@anc_internal_examination_closed, @s_name_id, @f_name_id, "ANC, Closed", "Closed", "N/A", "Misc", false);
-call add_concept(@anc_internal_examination_one_two, @s_name_id, @f_name_id, "ANC ,1 to 2 cm", "1-2 cm", "N/A", "Misc", false);
+call add_concept(@anc_internal_examination_one_two, @s_name_id, @f_name_id, "ANC , 1 to 2 cm", "1-2 cm", "N/A", "Misc", false);
 call add_concept(@anc_internal_examination_three_four, @s_name_id, @f_name_id, "ANC, 3 to 4 cm", "3-4 cm", "N/A", "Misc", false);
 call add_concept(@anc_internal_examination_five_plus, @s_name_id, @f_name_id, "ANC, 5 Plus cm", "5+ cm", "N/A", "Misc", false);
 
@@ -152,7 +152,7 @@ call add_concept(@anc_internal_examination_station, @s_name_id, @f_name_id, "ANC
 call add_concept(@anc_internal_examination_minus_three, @s_name_id, @f_name_id, "ANC, minus 3", "-3", "N/A", "Misc", false);
 call add_concept(@anc_internal_examination_minus_two, @s_name_id, @f_name_id, "ANC, minus 2", "-2", "N/A", "Misc", false);
 call add_concept(@anc_internal_examination_minus_one_ten, @s_name_id, @f_name_id, "ANC, minus 1 by 10", "-1/10", "N/A", "Misc", false);
-call add_concept(@anc_internal_examination_plus_one_plus_two, @s_name_id, @f_name_id, "ANC, minus 1 by plus 2", "+1/+2", "N/A", "Misc", false);
+call add_concept(@anc_internal_examination_plus_one_plus_two, @s_name_id, @f_name_id, "ANC, plus 1 by plus 2", "+1/+2", "N/A", "Misc", false);
 
 call add_concept_answer(@anc_internal_examination_station, @anc_internal_examination_minus_three, 1);
 call add_concept_answer(@anc_internal_examination_station, @anc_internal_examination_minus_two, 2);
@@ -181,7 +181,7 @@ call add_concept_answer(@anc_delivery_outcome, @anc_live_birth, 1);
 call add_concept_answer(@anc_delivery_outcome, @anc_still_birth, 2);
 call add_concept_answer(@anc_delivery_outcome, @anc_abortus, 3);
 
-call add_concept(@anc_child_gender_concept_id, @s_name_id, @f_name_id, "ANC, Chile Gender", "Child Gender", "Coded", "Misc", false);
+call add_concept(@anc_child_gender_concept_id, @s_name_id, @f_name_id, "ANC, Child Gender", "Child Gender", "Coded", "Misc", false);
 select @baby_male := concept_id from concept_name where name = "Baby male" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 select @baby_female := concept_id from concept_name where name = "Baby female" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 call add_concept_answer(@anc_child_gender_concept_id, @baby_male, 1);
