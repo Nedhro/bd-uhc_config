@@ -34,7 +34,7 @@
         "id": "bahmni.clinical.billing.treatment",
         "extensionPointId": "org.bahmni.clinical.consultation.board",
         "type": "link",
-        "translationKey": "Treatment",
+        "translationKey": "Medication",
         "extensionParams": {
             "tabConfigName": "allTreatment"
         },
@@ -116,6 +116,24 @@
         },
         "order": 2, 
         "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalTreatmentLinks": {
+        "id": "bahmni.clinical.treatment.links",
+        "extensionPointId": "org.bahmni.clinical.treatment.links",
+        "type": "link",
+        "label": "Open <u>Q</u>uotation",
+        "url": "http://192.168.33.11:8069/quotations/latest?patient_ref={{patient_ref}}&amp;dispensed=false&amp;location_ref={{location_ref}}",
+        "shortcutKey": "q",
+        "requiredPrivilege": "app:billing"
+    },
+    "bahmniClinicalTreatmentDispensedLinks": {
+        "id": "bahmni.clinical.treatment.links",
+        "extensionPointId": "org.bahmni.clinical.treatment.links",
+        "type": "link",
+        "label": "Open <u>D</u>ispensed Quotation",
+        "url": "http://192.168.33.11:8069/quotations/latest?patient_ref={{patient_ref}}&amp;dispensed=true&amp;location_ref={{location_ref}}",
+        "shortcutKey": "q",
+        "requiredPrivilege": "app:billing"
     }
    
 }
