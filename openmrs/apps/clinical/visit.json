@@ -159,6 +159,30 @@
           ]
         }
       },
+      "admissionDetails": {
+        "type": "admissionDetails",
+        "displayOrder": 1,
+        "config": {
+          "showDetailsButton": true,
+          "translationKey": "DISCHARGE_SUMMARY_ADMISSION_DETAILS_KEY"
+        }
+      },
+      "History_Examinations": {
+        "type": "observation",
+        "displayOrder": 2,
+        "title": "History and Examination",
+        "config": {
+          "conceptNames": [
+            "Condition Complaint Template"
+          ],
+          "translationKey": "DASHBOARD_TITLE_HISTORY_AND_EXAMINATIONS_KEY",
+          "numberOfVisits": "1",
+          "showFlowSheet": false,
+          "showListView": true,
+          "showOtherActive": true,
+          "showDetailsButton": true
+        }
+      },
       "diagnoses": {
         "type": "diagnosis",
         "displayOrder": 3,
@@ -183,6 +207,14 @@
         "config": {
           "title": "Surgical Note",
           "template": "<discharged-surgical-note></discharged-advice>"
+        }
+      },
+      "dischargedFollowUpPlan": {
+        "type": "custom",
+        "displayOrder": 7,
+        "config": {
+          "title": "Follow Up Plan",
+          "template": "<discharged-follow-up-plan></discharged-follow-up-plan>"
         }
       }
     }

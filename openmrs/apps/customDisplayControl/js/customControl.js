@@ -235,4 +235,27 @@ angular.module('bahmni.common.displaycontrol.custom')
         template: '<ng-include src="contentUrl"/>',
         link: link
     }
+}]).directive('dischargedFollowUpPlan', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
+    var link = function ($scope) {
+        var conceptNames = ["Follow up After", "Duration Coded Units"];
+        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            if (response.data.length > 0) {
+                for (var i = 0; i < response.data.length; i++) {
+                    if (response.data[i].concept.name == 'Follow up After') {
+                        $scope.followUpAfter = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Duration Coded Units') {
+                        $scope.durationUnits = response.data[i].value.shortName;
+                    }
+                }
+            }
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedFollowUpPlan.html";
+        }));
+    };
+
+    return {
+        restrict: 'E',
+        template: '<ng-include src="contentUrl"/>',
+        link: link
+    }
 }]);
