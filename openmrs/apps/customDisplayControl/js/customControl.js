@@ -296,4 +296,33 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>'
     }
+    }]).directive('dischargedAdvice', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
+    var link = function ($scope) {
+        var conceptNames = ["Additional advice"];
+        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedAdvice.html";
+        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            $scope.observations = response.data;
+        }));
+    };
+
+    return {
+        restrict: 'E',
+        template: '<ng-include src="contentUrl"/>',
+        link: link
+    }
+}]).directive('dischargedSurgicalNote', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
+    var link = function ($scope) {
+        var conceptNames = ["Additional advice"];
+        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedSurgicalNote.html";
+        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            $scope.observations = response.data;
+        }));
+    };
+
+    return {
+        restrict: 'E',
+        template: '<ng-include src="contentUrl"/>',
+        link: link
+    }
 }]);
+

@@ -152,6 +152,15 @@
     "title": "Patient Discharge Summary ",
     "translationKey": "DISCHARGE_SUMMARY_VISIT",
     "sections": {
+      "Header": {
+        "type": "custom",
+        "displayOrder": 0,
+        "showOnlyInPrint": true,
+        "config": {
+          "title": "Discharge Summary",
+          "template": "<header-pad-white-space></header-pad-white-space>"
+        }
+      },
       "Patient Information": {
         "type": "patientInformation",
         "title": "Patient Information",
@@ -180,43 +189,6 @@
           ]
         }
       },
-      "Discharge Certificate": {
-        "type": "custom",
-        "displayOrder": 1,
-        "config": {
-          "title": "Patient Discharge Summary ",
-          "template": "<discharge-summary></discharge-summary>"
-        }
-      },
-      "History_Examinations": {
-        "type": "observation",
-        "displayOrder": 2,
-        "title": "History and Examination",
-        "config": {
-          "conceptNames": [
-            "Condition Complaint Template"
-          ],
-          "translationKey": "DASHBOARD_TITLE_HISTORY_AND_EXAMINATIONS_KEY",
-          "numberOfVisits": "1",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true
-        }
-      },
-      "investigationresult": {
-        "type": "investigationResult",
-        "config": {
-          "title": "Lab Investigations",
-          "showChart": false,
-          "showTable": true,
-          "showNormalLabResults": true,
-          "showCommentsExpanded": true,
-          "showAccessionNotes": true,
-          "numberOfVisits": 10
-        },
-        "displayOrder": 3
-      },
       "diagnoses": {
         "type": "diagnosis",
         "displayOrder": 3,
@@ -227,44 +199,12 @@
           "showDetailsButton": true
         }
       },
-      "treatments": {
-        "type": "treatment",
-        "displayOrder": 4,
-        "config": {
-          "translationKey": "DISCHARGE_CLINICAL_TREATMENTS_KEY",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true,
-          "showRoute": true,
-          "showDrugForm": true
-        }
-      },
-      "clinicalNotes": {
-        "type": "observation",
-        "title": "Clinical Notes",
-        "config": {
-          "conceptNames": [
-            "Discharge Summary"
-          ],
-          "translationKey": "DISCHARGE_CLINICAL_DISCHARGE",
-          "scope": "latest",
-          "numberOfVisits": "1",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true,
-          "showRoute": true
-        },
-        "displayOrder": 4
-      },
-      "footerSummary": {
+      "dischargedAdvice": {
         "type": "custom",
-        "displayOrder": 5,
+        "displayOrder": 6,
         "config": {
-          "translationKey": "FOOTER_SUMMARY",
-          "title": " Discharge Summary ",
-          "template": "<footer-summary></footer-summary>"
+          "title": "Advice",
+          "template": "<discharged-advice></discharged-advice>"
         }
       }
     }
