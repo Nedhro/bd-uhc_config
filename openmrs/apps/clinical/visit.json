@@ -213,6 +213,24 @@
           "showDetailsButton": true
         }
       },
+      "dischargedNotes": {
+        "type": "observation",
+        "displayOrder": 5,
+        "translationKey": "Discharged Note",
+        "config": {
+          "conceptNames": [
+            "Hospital Course",
+            "Treatment Plan",
+            "Reason for admission",
+            "Inpatient Outcome",
+            "History and examination notes",
+            "Provisional Diagnosis",
+            "Lab Investigation Notes"
+          ],
+          "scope": "latest",
+          "numberOfVisits": "1"
+        }
+      },
       "diagnoses": {
         "type": "diagnosis",
         "displayOrder": 3,

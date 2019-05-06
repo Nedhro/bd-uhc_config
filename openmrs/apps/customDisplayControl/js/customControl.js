@@ -316,10 +316,10 @@ angular.module('bahmni.common.displaycontrol.custom')
         spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
             if (response.data.length > 0) {
                 for (var i = 0; i < response.data.length; i++) {
-                    if (response.data[i].conceptNameToDisplay == 'OT Surgery Notes') {
+                    if (response.data[i].concept.name == 'OT Surgery Notes') {
                         $scope.otSurgicalNote = response.data[i].value;
                     }
-                    if (response.data[i].conceptNameToDisplay == 'Radiology Notes') {
+                    if (response.data[i].concept.name == 'Radiology Notes') {
                         $scope.radiologyNote = response.data[i].value;
                     }
                 }
