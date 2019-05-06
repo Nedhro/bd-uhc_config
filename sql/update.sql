@@ -195,7 +195,7 @@ call add_concept(@pnc_abdominal_infected_concept_id, @s_name_id, @f_name_id, "PN
 call add_concept_answer(@pnc_abdominal, @pnc_abdominal_healthy_concept_id, 1);
 call add_concept_answer(@pnc_abdominal, @pnc_abdominal_infected_concept_id, 2);
 
-call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC, Abdomina Other", "Others", "Text", "Misc", false);
+call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC, Abdominal Others", "Others", "Text", "Misc", false);
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC, Excessive Vaginal Bleeding", "Excessive Vaginal Bleeding", "Boolean", "Misc", false);
 call add_concept(@concept_id, @s_name_id, @f_name_id, "PNC, Vaginal Discharge", "Vaginal Discharge", "Boolean", "Misc", false);
@@ -214,8 +214,17 @@ call add_concept_numeric_db(@pnc_systolic_blood_pressure_concept_id, 110, 140, n
 call add_concept(@pnc_diastolic_blood_pressure_concept_id, @s_name_id, @f_name_id, "PNC, Diastolic Blood Pressure", "Diastolic Blood Pressure", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_diastolic_blood_pressure_concept_id, 80, 90, null);
 
+
+select @pnc_baby_note := concept_id from concept_name where name = "PNC, Baby Notes" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+call add_concept(@pnc_baby_note_apgar_one_concept_id, @s_name_id, @f_name_id, "PNC, Baby Note APGAR score at 1 Minutes", "APGAR score at 1 Minutes", "Numeric", "Finding", false);
+call add_concept_numeric_db(@pnc_baby_note_apgar_one_concept_id, null, null, null);
+
+call add_concept_set_members(@pnc_baby_note, @pnc_baby_note_apgar_one_concept_id, 3);
+
 update concept_name set name = "PNC, Child Gender" where concept_name_type = "FULLY_SPECIFIED" and name="PNC,Child Gender";
 update concept_name set name = "PNC, Baby Note Weight" where concept_name_type = "FULLY_SPECIFIED" and name="PNC,Baby Note Weight";
+update concept_name set name = "PNC, Delivery Baby Note" where concept_name_type = "FULLY_SPECIFIED" and name="PNC, Delivary Baby Note";
+
 
 --Gynae Case
 call add_concept(@menstrual_period_concept_id, @s_name_id, @f_name_id, "Gynae Case, Menstrual Period days", "Menstrual Period (days)", "Numeric", "Finding", false);

@@ -73,12 +73,12 @@ call add_concept_answer(@pnc_child_gender_concept_id, @baby_female, 2);
 
 call add_concept(@pnc_baby_note_weight_concept_id, @s_name_id, @f_name_id, "PNC, Baby Note Weight", "Weight (kg)", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_baby_note_weight_concept_id, null, null, null);
-call add_concept(@pnc_baby_note_apgar_one_concept_id, @s_name_id, @f_name_id, "PNC, APGAR score at 1 Minutes", "APGAR score at 1 Minutes", "Numeric", "Finding", false);
+call add_concept(@pnc_baby_note_apgar_one_concept_id, @s_name_id, @f_name_id, "PNC, Baby Note APGAR score at 1 Minutes", "APGAR score at 1 Minutes", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_baby_note_apgar_one_concept_id, null, null, null);
 call add_concept(@pnc_baby_note_apgar_five_concept_id, @s_name_id, @f_name_id, "PNC, APGAR score at 5 Minutes", "APGAR score at 5 Minutes", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_baby_note_apgar_five_concept_id, null, null, null);
 call add_concept(@pnc_date_and_time_of_born_concept_id, @s_name_id, @f_name_id, "PNC, Date and Time of Birth", "Date and Time of Birth", "Datetime", "Question", false);
-call add_concept(@pnc_baby_note_delivery_note_concept_id, @s_name_id, @f_name_id, "PNC, Delivary Baby Note", "Baby Note", "Text", "Misc", false);
+call add_concept(@pnc_baby_note_delivery_note_concept_id, @s_name_id, @f_name_id, "PNC, Delivery Baby Note", "Baby Note", "Text", "Misc", false);
 
 call add_concept_set_members(@pnc_baby_note_concept_id, @pnc_child_gender_concept_id, 1);
 call add_concept_set_members(@pnc_baby_note_concept_id, @pnc_baby_note_weight_concept_id, 2);
