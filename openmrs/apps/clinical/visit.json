@@ -176,6 +176,14 @@
           "title": "Advice",
           "template": "<discharged-advice></discharged-advice>"
         }
+      },
+      "dischargedSurgicalNote": {
+        "type": "custom",
+        "displayOrder": 6,
+        "config": {
+          "title": "Surgical Note",
+          "template": "<discharged-surgical-note></discharged-advice>"
+        }
       }
     }
   },

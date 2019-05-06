@@ -201,9 +201,9 @@ angular.module('bahmni.common.displaycontrol.custom')
 }]).directive('dischargedAdvice', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
         var conceptNames = ["Additional advice"];
-        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedAdvice.html";
         spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
             $scope.observations = response.data;
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedAdvice.html";
         }));
     };
 
@@ -214,10 +214,19 @@ angular.module('bahmni.common.displaycontrol.custom')
     }
 }]).directive('dischargedSurgicalNote', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
-        var conceptNames = ["Additional advice"];
-        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedSurgicalNote.html";
+        var conceptNames = ["OT Surgery Notes", "Radiology Notes"];
         spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
-            $scope.observations = response.data;
+            if (response.data.length > 0) {
+                for (var i = 0; i < response.data.length; i++) {
+                    if (response.data[i].conceptNameToDisplay == 'OT Surgery Notes') {
+                        $scope.otSurgicalNote = response.data[i].value;
+                    }
+                    if (response.data[i].conceptNameToDisplay == 'Radiology Notes') {
+                        $scope.radiologyNote = response.data[i].value;
+                    }
+                }
+            }
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedSurgicalNote.html";
         }));
     };
 
