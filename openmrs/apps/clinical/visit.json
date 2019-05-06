@@ -241,9 +241,53 @@
           "showDetailsButton": true
         }
       },
+      "investigationresult": {
+        "type": "investigationResult",
+        "showOnlyInDashboard": true,
+        "config": {
+          "title": "Lab Investigations",
+          "showChart": false,
+          "showTable": true,
+          "showNormalLabResults": true,
+          "showCommentsExpanded": true,
+          "showAccessionNotes": true,
+          "numberOfVisits": 4
+        },
+        "displayOrder": 1
+      },
+      "labInvestigation": {
+        "type": "custom",
+        "displayOrder": 5,
+        "showOnlyInPrint": true,
+        "config": {
+          "title": "Lab Test",
+          "template": "<lab-investigation></lab-investigation>"
+        }
+      },
+      "treatments": {
+        "type": "treatment",
+        "displayOrder": 6,
+        "config": {
+          "translationKey": "Given Medication",
+          "showFlowSheet": false,
+          "showListView": true,
+          "showOtherActive": false,
+          "showDetailsButton": true,
+          "showRoute": true,
+          "showDrugForm": true
+        }
+      },
+      "TreatmentPrescription": {
+        "type": "custom",
+        "displayOrder": 7,
+        "config": {
+          "title": "Active Medication",
+          "template": "<treatment-prescription></treatment-prescription>"
+        }
+      },
       "dischargedAdvice": {
         "type": "custom",
-        "displayOrder": 6,
+        "displayOrder": 8,
         "config": {
           "title": "Advice",
           "template": "<discharged-advice></discharged-advice>"
@@ -251,7 +295,7 @@
       },
       "dischargedSurgicalNote": {
         "type": "custom",
-        "displayOrder": 6,
+        "displayOrder": 9,
         "config": {
           "title": "Surgical Note",
           "template": "<discharged-surgical-note></discharged-advice>"
@@ -259,7 +303,7 @@
       },
       "dischargedFollowUpPlan": {
         "type": "custom",
-        "displayOrder": 7,
+        "displayOrder": 10,
         "config": {
           "title": "Follow Up Plan",
           "template": "<discharged-follow-up-plan></discharged-follow-up-plan>"
