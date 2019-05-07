@@ -67,5 +67,6 @@
   "PNC_NOTES":"PNC Notes",
   "ANC_NOTES":"ANC Notes ",
   "DASHBOARD_TITLE_Consultation_KEY":"Consultation Notes",
-  "HOSPITAL_NAME": "SAJIDA Hospital"
+  "HOSPITAL_NAME": "SAJIDA Hospital",
+  "MEDICAL_CLINICAL_CERTIFICATE" : "Medical Certificate"
 }

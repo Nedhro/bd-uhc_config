@@ -618,5 +618,117 @@
         "displayOrder": 9
       }
     }
+  },
+  "MedicalCertificate": {
+    "dashboardName": "MedicalCertificate",
+    "translationKey": "MedicalCertificate",
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patient_information": {
+        "title": "Patient Information",
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY",
+        "type": "patientInformation",
+        "patientAttributes": [
+          "healthId",
+          "fatherName",
+          "spouseName",
+          "nationalId",
+          "education",
+          "householdCode",
+          "birthRegistrationId",
+          "occupation",
+          "phoneNumber"
+        ],
+        "addressFields": [
+          "address1",
+          "address2",
+          "address3",
+          "address4",
+          "address5",
+          "countyDistrict",
+          "stateProvince"
+        ],
+        "displayOrder": 0
+      },
+      "diagnosis": {
+        "hideEmptyDisplayControl": true,
+        "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
+        "type": "diagnosis",
+        "showCertainty": true,
+        "showDetailsButton": true,
+        "showOrder": true,
+        "displayOrder": 1
+      },
+      "diabetes_first_visit_note": {
+        "hideEmptyDisplayControl": true,
+        "title": "Medical Certificate  Notes",
+        "translationKey": "Medical Certificate  Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "Medical Certificate, Previous Complications",
+            "Medical Certificate, Advice"
+          ],
+          "numberOfVisits": 2
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "Medical Certificate, Previous Complications",
+            "Medical Certificate, Advice"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
+      },
+      "diabetes_followUp_visit_note": {
+        "hideEmptyDisplayControl": true,
+        "title": "Diabetes Follow Up Visit Notes",
+        "translationKey": "Diabetes Follow Up Visit Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "Systolic data",
+            "Diastolic data",
+            "HbA1C",
+            "Last Known HbA1C Date",
+            "Is Patient on ARB",
+            "Last LDL",
+            "Last LDL Date",
+            "Last HDL",
+            "Last HDL Date",
+            "Last TG",
+            "Last  TG Date",
+            "Total Cholesterol",
+            "Ulcer Present on Feet",
+            "Last Eye Exam Date"
+          ],
+          "numberOfVisits": 2
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "Systolic data",
+            "Diastolic data",
+            "HbA1C",
+            "Last date of HbA1C",
+            "Is Patient on ARB",
+            "Last LDL",
+            "Last date LDL",
+            "Last HDL",
+            "Last date HDL",
+            "Last TG",
+            "Last date of TG",
+            "Total Cholesterol",
+            "Ulcer Present on Feet",
+            "Last Eye Exam Date"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
+      }
+    }
   }
 }

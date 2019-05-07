@@ -356,5 +356,25 @@ angular.module('bahmni.common.displaycontrol.custom')
         template: '<ng-include src="contentUrl"/>',
         link: link
     }
-}]);
+}]).directive('medicalCertificate', ['observationsService','visitService','appService', 'spinner', function (observationsService, visitService,appService, spinner)
+{
+    var link = function ($scope)
+    {
+        $scope.displayStuff = false;
+        var conceptNames = ["Condition Complaint Template", "Medical Certificate, Previous Complications"];
+        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            $scope.observations = response.data;
+            if($scope.observations.length > 0){
+                $scope.displayStuff = true;
+            }
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalCertificate.html";
+            $scope.curDate=new Date();
+        }));
+    }
 
+    return {
+        restrict: 'E',
+        link: link,
+        template: '<ng-include src="contentUrl"/>',
+    }
+}]);
