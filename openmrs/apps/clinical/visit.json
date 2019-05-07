@@ -557,5 +557,38 @@
         }
       }
     }
+  },
+  "MedicalCertificate": {
+    "title": "Medical CERTIFICATE ",
+    "translationKey": "MEDICAL_CLINICAL_CERTIFICATE",
+    "sections": {
+      "Header": {
+        "type": "custom",
+        "displayOrder": 1,
+        "showOnlyInPrint": true,
+        "config": {
+          "title": "Medical Certificate",
+          "subTitle": "Whomsoever It May Concern",
+          "template": "<header-pad-white-space></header-pad-white-space>"
+        }
+      },
+      "Medical Certificate": {
+        "type": "custom",
+        "displayOrder": 2,
+        "config": {
+          "title": "Patient Medical Certificate ",
+          "template": "<medical-certificate></medical-certificate>"
+        }
+      },
+      "footerSummary": {
+        "type": "custom",
+        "displayOrder": 6,
+        "config": {
+          "translationKey": "FOOTER_SUMMARY",
+          "title": " Discharge Summary ",
+          "template": "<death-footer></death-footer>"
+        }
+      }
+    }
   }
 }
