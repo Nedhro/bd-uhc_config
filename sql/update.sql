@@ -150,6 +150,14 @@ call add_concept_numeric_db(@anc_diastolic_blood_pressure_concept_id, 80, 90, nu
 update concept_name set name = "ANC, Child Gender" where concept_name_type = "FULLY_SPECIFIED" and name="ANC, Chile Gender";
 update concept_name set name = "ANC , 1 to 2 cm" where concept_name_type = "FULLY_SPECIFIED" and name="ANC ,1 to 2 cm";
 update concept_name set name = "ANC, plus 1 by plus 2" where concept_name_type = "FULLY_SPECIFIED" and name="ANC, minus 1 by plus 2";
+update concept_name set name = "Fourth or more" where concept_name_type = "FULLY_SPECIFIED" and name="Four or more";
+update concept_name set name = "Fourth or more" where concept_name_type = "SHORT" and name="Four or more";
+
+update concept_name set name = "ANC, Caesarean section" where concept_name_type = "FULLY_SPECIFIED" and name="ANC, Cesarean section";
+update concept_name set name = "Caesarean section" where concept_name_type = "SHORT" and name="Cesarean section";
+
+update concept_name set name = "ANC, Dilation" where concept_name_type = "FULLY_SPECIFIED" and name="ANC, Dillation";
+update concept_name set name = "Dilation" where concept_name_type = "SHORT" and name="Dillation";
 
 
 --PNC Notes

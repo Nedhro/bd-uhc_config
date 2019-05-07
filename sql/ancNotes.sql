@@ -137,7 +137,7 @@ call add_concept_answer(@anc_internal_examination_effacement, @anc_internal_exam
 call add_concept_answer(@anc_internal_examination_effacement, @anc_internal_examination_fifty_eighty, 4);
 
 
-call add_concept(@anc_internal_examination_dillation, @s_name_id, @f_name_id, "ANC, Dillation", "Dillation", "Coded", "Misc", false);
+call add_concept(@anc_internal_examination_dillation, @s_name_id, @f_name_id, "ANC, Dilation", "Dilation", "Coded", "Misc", false);
 call add_concept(@anc_internal_examination_closed, @s_name_id, @f_name_id, "ANC, Closed", "Closed", "N/A", "Misc", false);
 call add_concept(@anc_internal_examination_one_two, @s_name_id, @f_name_id, "ANC , 1 to 2 cm", "1-2 cm", "N/A", "Misc", false);
 call add_concept(@anc_internal_examination_three_four, @s_name_id, @f_name_id, "ANC, 3 to 4 cm", "3-4 cm", "N/A", "Misc", false);
@@ -167,7 +167,7 @@ call add_concept(@anc_obstetric_concept_id, @s_name_id, @f_name_id, "ANC, Obstet
 
 call add_concept(@anc_type_of_delivery, @s_name_id, @f_name_id, "ANC, Type of Delivery", "Type of Delivery", "Coded", "Misc", false);
 call add_concept(@anc_vagainal_delivery, @s_name_id, @f_name_id, "ANC, Vagainal delivery", "Vagainal delivery", "N/A", "Misc", false);
-call add_concept(@anc_cesarean_section, @s_name_id, @f_name_id, "ANC, Cesarean section", "Cesarean section", "N/A", "Misc", false);
+call add_concept(@anc_cesarean_section, @s_name_id, @f_name_id, "ANC, Caesarean section", "Caesarean section", "N/A", "Misc", false);
 
 call add_concept_answer(@anc_type_of_delivery, @anc_vagainal_delivery, 1);
 call add_concept_answer(@anc_type_of_delivery, @anc_cesarean_section, 2);
@@ -199,4 +199,9 @@ call add_concept(@anc_systolic_blood_pressure_concept_id, @s_name_id, @f_name_id
 call add_concept_numeric_db(@anc_systolic_blood_pressure_concept_id, 110, 140, null);
 call add_concept(@anc_diastolic_blood_pressure_concept_id, @s_name_id, @f_name_id, "ANC, Diastolic Blood Pressure", "Diastolic Blood Pressure", "Numeric", "Finding", false);
 call add_concept_numeric_db(@anc_diastolic_blood_pressure_concept_id, 80, 90, null);
+
+update concept_name set name = "Fourth or more" where concept_name_type = "FULLY_SPECIFIED" and name="Four or more";
+update concept_name set name = "Fourth or more" where concept_name_type = "SHORT" and name="Four or more";
+
+
 
