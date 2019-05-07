@@ -19,7 +19,8 @@
     <span ng-if="patient.gender == 'O'&& patient.spouseName.value!=undefined">spouse of </span>
     {{patient.spouseName.value}} <span ng-if="patient.spouseName.value != undefined">, </span>
     residing at {{patient.address.address1}}
-    {{patient.address.address2}} {{patient.address.address3}} {{patient.address.cityVillage}}{{patient.address.countyDistrict}}
+    {{patient.address.address2}} {{patient.address.address3}}
+    {{patient.address.cityVillage}}{{patient.address.countyDistrict}}
     {{patient.address.stateProvince}}
     </span>
     Age <span ng-if="patient.age == 0" ng-bind-html="htmlLabel(patient.ageText)"></span>
@@ -32,21 +33,22 @@
     <span ng-if="patient.gender == 'M' ">He </span>
     <span ng-if="patient.gender == 'O' ">He/She </span>
     <span ng-if="patient.gender == 'F' ">She</span>
-    has been suffering from
-    <span ng-repeat="item in observations[0].groupMembers">
-        <b>{{item.valueAsString}}</b> for  <b>{{item.duration}}</b>,
-    </span>
+    has been suffering from {{medicalSufferingFrom}} For {{medicalSufferingFor}}
+    {{medicalDurationCodeUnit}} With History of
+    {{medicalPreviousComplication}} .
     <br/><br/>
-
     Now <span ng-if="patient.gender == 'M' ">He </span>
     <span ng-if="patient.gender == 'O' ">He/She </span>
     <span ng-if="patient.gender == 'F' ">She</span>
-    Needs _____from ____to____
-
+    Needs {{adviceName}} from {{medicalFromDate}} to {{medicalToDate}}.
     <br/><br/>
-    General Indications/Complications:
-
-
 </p>
+<div class="placeholder-text">
+    <span style="font-weight: bold">General Indications/Complications:</span>
+    <ul style="list-style-type:circle; padding-left: 20px">
+        <li ng-repeat="indication in medicalGeneralComplicationName">{{indication}}</li>
+        <br>
+    </ul>
+</div>
 </body>
 </html>

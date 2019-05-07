@@ -548,34 +548,6 @@
           "template": "<header-pad-white-space></header-pad-white-space>"
         }
       },
-      "Patient Information": {
-        "type": "patientInformation",
-        "title": "Patient Information",
-        "displayOrder": 1,
-        "config": {
-          "title": "PatientInformation",
-          "patientAttributes": [
-            "healthId",
-            "fatherName",
-            "spouseName",
-            "nationalId",
-            "education",
-            "householdCode",
-            "birthRegistrationId",
-            "occupation",
-            "phoneNumber"
-          ],
-          "addressFields": [
-            "address1",
-            "address2",
-            "address3",
-            "address4",
-            "address5",
-            "countyDistrict",
-            "stateProvince"
-          ]
-        }
-      },
       "Medical Certificate": {
         "type": "custom",
         "displayOrder": 2,

@@ -218,7 +218,6 @@ angular.module('bahmni.common.displaycontrol.custom')
             }
 
 
-
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/treatmentPrescription.html";
             $scope.curDate = new Date();
         }));
@@ -239,7 +238,7 @@ angular.module('bahmni.common.displaycontrol.custom')
         $scope.instruction = (instructionList.instructions ? instructionList.instructions : '') + ' ' + (instructionList.additionalInstructions ? instructionList.additionalInstructions : '');
         switch ($scope.drugOrder.dosingInstructions.frequency) {
             case 'Once a day' : {
-                if($scope.instruction.includes('morning')) {
+                if ($scope.instruction.includes('morning')) {
                     $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-0-0 (" + doseUnits + ")";
                 } else {
                     $scope.dosageFrequency = "0-0-" + $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
@@ -247,14 +246,17 @@ angular.module('bahmni.common.displaycontrol.custom')
                 break;
             }
 
-            case 'Twice a day' : $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-0-" +
-                $scope.drugOrder.dosingInstructions.dose  + " (" + doseUnits + ")";
+            case 'Twice a day' :
+                $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-0-" +
+                    $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
                 break;
-            case 'Thrice a day' : $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-" +
-                $scope.drugOrder.dosingInstructions.dose + "-" + $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
+            case 'Thrice a day' :
+                $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-" +
+                    $scope.drugOrder.dosingInstructions.dose + "-" + $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
                 break;
-            default: $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
-                " " + doseUnits + " " + " (" + $scope.drugOrder.dosingInstructions.frequency + ")");
+            default:
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " (" + $scope.drugOrder.dosingInstructions.frequency + ")");
 
         }
     };
@@ -276,26 +278,26 @@ angular.module('bahmni.common.displaycontrol.custom')
     };
 }).directive('labInvestigation', ['appService', 'labOrderResultService', 'treatmentService', 'visitService', 'spinner', '$http',
     function (appService, labOrderResultService, treatmentService, visitService, spinner, $http) {
-    var link = function ($scope) {
-        var params = {
-            visitUuids: $scope.$parent.visitUuid
+        var link = function ($scope) {
+            var params = {
+                visitUuids: $scope.$parent.visitUuid
+            };
+            $http.get(Bahmni.Common.Constants.bahmniLabOrderResultsUrl, {
+                method: "GET",
+                params: params,
+                withCredentials: true
+            }).success(function (response) {
+                $scope.investigationResults = response.results;
+                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/labInvestigation.html";
+                $scope.curDate = new Date();
+            });
         };
-        $http.get(Bahmni.Common.Constants.bahmniLabOrderResultsUrl, {
-            method: "GET",
-            params: params,
-            withCredentials: true
-        }).success(function (response) {
-            $scope.investigationResults = response.results;
-            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/labInvestigation.html";
-            $scope.curDate = new Date();
-        });
-    };
 
-    return {
-        restrict: 'E',
-        link: link,
-        template: '<ng-include src="contentUrl"/>'
-    }
+        return {
+            restrict: 'E',
+            link: link,
+            template: '<ng-include src="contentUrl"/>'
+        }
     }]).directive('dischargedAdvice', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
         var conceptNames = ["Additional advice"];
@@ -356,19 +358,49 @@ angular.module('bahmni.common.displaycontrol.custom')
         template: '<ng-include src="contentUrl"/>',
         link: link
     }
-}]).directive('medicalCertificate', ['observationsService','visitService','appService', 'spinner', function (observationsService, visitService,appService, spinner)
-{
-    var link = function ($scope)
-    {
+}]).directive('medicalCertificate', ['observationsService', 'visitService', 'appService', 'spinner', function (observationsService, visitService, appService, spinner) {
+    var link = function ($scope) {
         $scope.displayStuff = false;
-        var conceptNames = ["Condition Complaint Template", "Medical Certificate, Previous Complications"];
+        var conceptNames = ["Medical Certificate, Suffering From", "Medical, For", "Medical Certificate, Duration Coded Units",
+            "Medical Certificate, Previous Complications", "Medical Certificate, Advice Name",
+            "Medical Certificate, From Date", "Medical Certificate, To Date", "Medical Certificate, General Complication Name"];
+
+
         spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
             $scope.observations = response.data;
-            if($scope.observations.length > 0){
+            if (response.data.length > 0) {
+                for (var i = 0; i < response.data.length; i++) {
+                    if (response.data[i].concept.name == 'Medical Certificate, Suffering From') {
+                        $scope.medicalSufferingFrom = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Medical, For') {
+                        $scope.medicalSufferingFor = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Medical Certificate, Duration Coded Units') {
+                        $scope.medicalDurationCodeUnit = response.data[i].value.shortName;
+                    }
+                    if (response.data[i].concept.name == 'Medical Certificate, Previous Complications') {
+                        $scope.medicalPreviousComplication = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Medical Certificate, Advice Name') {
+                        $scope.adviceName = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Medical Certificate, From Date') {
+                        $scope.medicalFromDate = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Medical Certificate, To Date') {
+                        $scope.medicalToDate = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Medical Certificate, General Complication Name') {
+                        $scope.medicalGeneralComplicationName = response.data[i].value.split(',');
+                    }
+                }
+            }
+            if ($scope.observations.length > 0) {
                 $scope.displayStuff = true;
             }
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalCertificate.html";
-            $scope.curDate=new Date();
+            $scope.curDate = new Date();
         }));
     }
 
