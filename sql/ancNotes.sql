@@ -161,6 +161,8 @@ call add_concept_answer(@anc_internal_examination_station, @anc_internal_examina
 
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC, Internal Examination Other", "Other", "Text", "Misc", false);
+call add_concept(@anc_bishop_scoring_result, @s_name_id, @f_name_id, "ANC, Bishop Scoring Result", "Bishop Scoring Result", "Numeric", "Finding", false);
+call add_concept_numeric_db(@anc_bishop_scoring_result, null, null, null);
 
 
 call add_concept(@anc_obstetric_concept_id, @s_name_id, @f_name_id, "ANC, Obstetric Details", "Obstetric Details", "N/A", "Misc", true);

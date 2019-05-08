@@ -9,6 +9,47 @@ var lmpDate = new Date(lmp);
 lmpDate.setMonth(lmpDate.getMonth()+9);
 lmpDate.setDate(lmpDate.getDate()+7);
 lmpDate = Bahmni.Common.Util.DateTimeFormatter.getDateWithoutTime(lmpDate);
-console.log("www: " + lmpDate);
 form.get('ANC, EDD').setValue(lmpDate);
+}
+
+Bishop Scoring
+function(form) {
+var score = 0;
+var position = form.get('ANC, Position').getValue();
+if(position == 'ANC, Middle') {
+score +=1;
+} else if(position == 'ANC, Anterior') {
+score +=2;
+}
+var consistency = form.get('ANC, Consistency').getValue();
+if(consistency == 'ANC, Medium') {
+score +=1;
+} else if(consistency == 'ANC, Soft') {
+score +=2;
+}
+var effacement = form.get('ANC, Effacement').getValue();
+if(effacement == 'ANC, 40 to 50 Percentage') {
+score +=1;
+} else if(effacement == 'ANC, 50 to 70 Percentage') {
+score +=2;
+} else if(effacement == 'ANC, 80 Percentage Plus') {
+score +=3;
+}
+var dilation = form.get('ANC, Dilation').getValue();
+if(dilation == 'ANC , 1 to 2 cm') {
+score +=1;
+} else if(dilation == 'ANC, 3 to 4 cm') {
+score +=2;
+} else if(dilation == 'ANC, 5 Plus cm') {
+score +=3;
+}
+var station = form.get('ANC, Station').getValue();
+if(station == 'ANC, minus 2') {
+score +=1;
+} else if(station == 'ANC, minus 1 by 10') {
+score +=2;
+} else if(station == 'ANC, plus 1 by plus 2') {
+score +=3;
+}
+form.get('ANC, Bishop Scoring Result').setValue(score);
 }

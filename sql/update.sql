@@ -245,6 +245,9 @@ call add_concept(@obstetric_history_married_for, @s_name_id, @f_name_id, "Gynae 
 call add_concept_numeric_db(@obstetric_history_married_for, null, null, null);
 
 
+call add_concept(@anc_bishop_scoring_result, @s_name_id, @f_name_id, "ANC, Bishop Scoring Result", "Bishop Scoring Result", "Numeric", "Finding", false);
+call add_concept_numeric_db(@anc_bishop_scoring_result, null, null, null);
+
 
 
 
