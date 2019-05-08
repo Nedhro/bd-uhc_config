@@ -580,13 +580,12 @@
           "template": "<medical-certificate></medical-certificate>"
         }
       },
-      "footerSummary": {
+      "Presciption Footer": {
         "type": "custom",
-        "displayOrder": 6,
+        "displayOrder": 9,
         "config": {
-          "translationKey": "FOOTER_SUMMARY",
-          "title": " Discharge Summary ",
-          "template": "<death-footer></death-footer>"
+          "title": "  ",
+          "template": "<prescription-footer></prescription-footer>"
         }
       }
     }
