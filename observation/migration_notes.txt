@@ -1,2 +1,14 @@
 1. Translate concept name in every observation
 2. death notes: Diagnosis answer should be add manually in implementer interface & reorder accordingly
+
+
+EDD= LMP + 9M 7D
+function(form) {
+var lmp = form.get('ANC, LMP').getValue();
+var lmpDate = new Date(lmp);
+lmpDate.setMonth(lmpDate.getMonth()+9);
+lmpDate.setDate(lmpDate.getDate()+7);
+lmpDate = Bahmni.Common.Util.DateTimeFormatter.getDateWithoutTime(lmpDate);
+console.log("www: " + lmpDate);
+form.get('ANC, EDD').setValue(lmpDate);
+}
