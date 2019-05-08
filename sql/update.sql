@@ -248,6 +248,9 @@ call add_concept_numeric_db(@obstetric_history_married_for, null, null, null);
 call add_concept(@anc_bishop_scoring_result, @s_name_id, @f_name_id, "ANC, Bishop Scoring Result", "Bishop Scoring Result", "Numeric", "Finding", false);
 call add_concept_numeric_db(@anc_bishop_scoring_result, null, null, null);
 
+select @medication_received_concept_id := concept_id from concept_name where name = "PNC, Medication received during delivery" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_name set name = "Medication received during delivery" where concept_name_type = "SHORT" and concept_id=@medication_received_concept_id;
+
 
 
 

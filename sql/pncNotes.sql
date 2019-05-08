@@ -97,7 +97,7 @@ select @single_caesarean := concept_id from concept_name where name = "O82 Singl
 call add_concept_answer(@pnc_mood_of_delivery, @pnc_vaginal_face_delivery, 1);
 call add_concept_answer(@pnc_mood_of_delivery, @single_caesarean, 2);
 
-call add_concept(@pnc_medication_during_delivery, @s_name_id, @f_name_id, "PNC, Medication received during delivery", "Mode of Delivery", "Coded", "Question", false);
+call add_concept(@pnc_medication_during_delivery, @s_name_id, @f_name_id, "PNC, Medication received during delivery", "Medication received during delivery", "Coded", "Question", false);
 select @pnc_misopostol := concept_id from concept_name where name = "Misoprostol" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 select @pnc_oxytocin := concept_id from concept_name where name = "Oxytocin" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 
