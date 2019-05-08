@@ -6,10 +6,10 @@
 </head>
 <body>
 <p class="placeholder-text">This is certified that,
-    <span ng-if="patient.gender == 'M' ">Mr </span>
-    <span ng-if="patient.gender == 'O' ">Mx </span>
-    <span ng-if="patient.gender == 'F' ">Ms </span>
-    <span class="custom-bold-text"> {{patient.name}}</span>,
+    <span ng-if="patient.gender == 'M' " style="font-weight: bold">Mr </span>
+    <span ng-if="patient.gender == 'O' " style="font-weight: bold">Mx </span>
+    <span ng-if="patient.gender == 'F' " style="font-weight: bold">Ms </span>
+    <span class="custom-bold-text" style="font-weight: bold"> {{patient.name}}</span>,
     <span ng-if="patient.gender == 'M' && patient.fatherName.value!=undefined">son of </span>
     <span ng-if="patient.gender == 'F' && patient.fatherName.value!=undefined">daughter of </span>
     <span ng-if="patient.gender == 'O' && patient.fatherName.value!=undefined">son of </span>
@@ -33,18 +33,20 @@
     <span ng-if="patient.gender == 'M' ">He </span>
     <span ng-if="patient.gender == 'O' ">He/She </span>
     <span ng-if="patient.gender == 'F' ">She</span>
-    has been suffering from {{medicalSufferingFrom}} For {{medicalSufferingFor}}
-    {{medicalDurationCodeUnit}} With History of
-    {{medicalPreviousComplication}} .
+    has been suffering from <b>{{medicalSufferingFrom}} For {{medicalSufferingFor}}
+        {{medicalDurationCodeUnit}} </b> With History of
+    <b>{{medicalPreviousComplication}} </b>.
     <br/><br/>
     Now <span ng-if="patient.gender == 'M' ">He </span>
     <span ng-if="patient.gender == 'O' ">He/She </span>
     <span ng-if="patient.gender == 'F' ">She</span>
-    Needs {{adviceName}} from {{medicalFromDate}} to {{medicalToDate}}.
+    Needs <b>{{adviceName}} from {{medicalFromDate}} to {{medicalToDate}}.</b>
     <br/><br/>
 </p>
 <div class="placeholder-text">
     <span style="font-weight: bold">General Indications/Complications:</span>
+    <br/>
+    <br/>
     <ul style="list-style-type:circle; padding-left: 20px">
         <li ng-repeat="indication in medicalGeneralComplicationName">{{indication}}</li>
         <br>
