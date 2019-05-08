@@ -355,6 +355,7 @@
             "ANC, Effacement",
             "ANC, Dilation",
             "ANC, Station",
+            "ANC, Bishop Scoring Result",
             "ANC, Internal Examination Other"
           ],
           "numberOfVisits": 1
@@ -394,6 +395,7 @@
             "ANC, Effacement",
             "ANC, Dilation",
             "ANC, Station",
+            "ANC, Bishop Scoring Result",
             "ANC, Internal Examination Other"
           ],
           "numberOfVisits": 2,
