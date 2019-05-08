@@ -9,7 +9,7 @@
         "displayOrder": 0,
         "showOnlyInPrint": true,
         "config": {
-          "title": "Prescription",
+          "title": " ",
           "template": "<header-pad-white-space></header-pad-white-space>"
         }
       },
