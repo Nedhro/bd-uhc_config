@@ -24,6 +24,24 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes Follow up, HbA1C
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes Follow up, Last Date of HbA1C", "Last Date of HbA1C", "Date", "Misc", false);
 
+select @diabetes_follow_up_systolic_data := concept_id from concept_name where name = "Diabetes Follow up, Systolic Data" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="mmHg" where concept_id = @diabetes_follow_up_systolic_data;
+
+select @diabetes_follow_up_diastolic_data := concept_id from concept_name where name = "Diabetes Follow up, Diastolic data" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="mmHg" where concept_id = @diabetes_follow_up_diastolic_data;
+
+call add_concept(@diabetes_follow_up_hba1c_percentage, @s_name_id, @f_name_id, "Diabetes Follow up, HbA1C Percentage", "HbA1C", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_follow_up_hba1c_percentage, null, null, "%");
+
+call add_concept(@diabetes_follow_up_last_ldl_mg_dl, @s_name_id, @f_name_id, "Diabetes Follow up, Last LDL Mg", "Last LDL", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_follow_up_last_ldl_mg_dl, null, null, "mg/dl");
+
+call add_concept(@diabetes_follow_up_last_hdl_mg_dl, @s_name_id, @f_name_id, "Diabetes Follow up, Last HDL Mg", "Last HDL", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_follow_up_last_hdl_mg_dl, null, null, "mg/dl");
+
+select @diabetes_follow_up_total_cholesterol := concept_id from concept_name where name = "Diabetes Follow up, Total Cholesterol" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="mg/dl" where concept_id = @diabetes_follow_up_total_cholesterol;
+
 --ANC Note
 call add_concept(@anc_married_for_concept_id, @s_name_id, @f_name_id, "ANC, Married For", "Married For", "Numeric", "Finding", false);
 call add_concept_numeric_db(@anc_married_for_concept_id, null, null, null);
@@ -160,6 +178,27 @@ update concept_name set name = "ANC, Dilation" where concept_name_type = "FULLY_
 update concept_name set name = "Dilation" where concept_name_type = "SHORT" and name="Dillation";
 
 
+select @anc_married_for_concept_id := concept_id from concept_name where name = "ANC, Married For" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="Year" where concept_id = @anc_married_for_concept_id;
+
+select @anc_weight := concept_id from concept_name where name = "ANC, Weight" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="kg" where concept_id = @anc_weight;
+
+select @anc_pulse := concept_id from concept_name where name = "ANC, Pulse" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="bpm" where concept_id = @anc_pulse;
+
+select @anc_systolic_blood_pressure_concept_id := concept_id from concept_name where name = "ANC, Systolic Blood Pressure" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="mmHg" where concept_id = @anc_systolic_blood_pressure_concept_id;
+
+select @anc_diastolic_blood_pressure_concept_id := concept_id from concept_name where name = "ANC, Diastolic Blood Pressure" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="mmHg" where concept_id = @anc_diastolic_blood_pressure_concept_id;
+
+select @anc_temp_id := concept_id from concept_name where name = "ANC, Temperature" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="Deg F" where concept_id = @anc_temp_id;
+
+select @anc_fundal := concept_id from concept_name where name = "ANC, Fundal Height" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="cm" where concept_id = @anc_fundal;
+
 --PNC Notes
 
 call add_concept(@pnc_delivery_outcome, @s_name_id, @f_name_id, "PNC, Delivery Outcome", "Delivery Outcome", "Coded", "Finding", false);
@@ -233,6 +272,11 @@ update concept_name set name = "PNC, Child Gender" where concept_name_type = "FU
 update concept_name set name = "PNC, Baby Note Weight" where concept_name_type = "FULLY_SPECIFIED" and name="PNC,Baby Note Weight";
 update concept_name set name = "PNC, Delivery Baby Note" where concept_name_type = "FULLY_SPECIFIED" and name="PNC, Delivary Baby Note";
 
+select @pnc_weight_concept_id := concept_id from concept_name where name = "PNC, Weight" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="kg" where concept_id = @pnc_weight_concept_id;
+
+select @pnc_pulse_concept_id := concept_id from concept_name where name = "PNC, Pulse" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="bpm" where concept_id = @pnc_pulse_concept_id;
 
 --Gynae Case
 call add_concept(@menstrual_period_concept_id, @s_name_id, @f_name_id, "Gynae Case, Menstrual Period days", "Menstrual Period (days)", "Numeric", "Finding", false);
@@ -250,6 +294,37 @@ call add_concept_numeric_db(@anc_bishop_scoring_result, null, null, null);
 
 select @medication_received_concept_id := concept_id from concept_name where name = "PNC, Medication received during delivery" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 update concept_name set name = "Medication received during delivery" where concept_name_type = "SHORT" and concept_id=@medication_received_concept_id;
+
+--diabetes first visit
+
+call add_concept(@diabetes_first_visit_last_known_hba1c_result_percentage, @s_name_id, @f_name_id, "Diabetes, Last Known HbA1C Result Percentage", "Last Known HbA1C Result", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_last_known_hba1c_result_percentage, null, null, "%");
+
+call add_concept(@diabetes_first_visit_last_known_fasting_blood_sugar_mmml_liter, @s_name_id, @f_name_id, "Diabetes, Last Known Fasting Blood Sugar Mmml Liter", "Last Known Fasting Blood Sugar", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_last_known_fasting_blood_sugar_mmml_liter, null, null, "mmml/Liter");
+
+call add_concept(@diabetes_first_visit_hba1c_percentage, @s_name_id, @f_name_id, "Diabetes, Diabetes First Visit, HbA1C Percentage", "HbA1C", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_hba1c_percentage, null, null, "%");
+
+call add_concept(@diabetes_first_visit_fasting_glucose_sugar_mmml_liter, @s_name_id, @f_name_id, "Diabetes, Fasting Glucose Sugar Mmml Liter", "Fasting Blood Sugar", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_fasting_glucose_sugar_mmml_liter, null, null, "mmml/Liter");
+
+
+call add_concept(@diabetes_total_cholesterol, @s_name_id, @f_name_id, "Diabetes, Total Cholesterol", "Total Cholesterol", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_total_cholesterol, null, null, "mg/dl");
+
+call add_concept(@diabetes_low_density_lipoprotein_ldl, @s_name_id, @f_name_id, "Diabetes, Low Density Lipoprotein LDL", "Low Density Lipoprotein (LDL)", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_low_density_lipoprotein_ldl, null, null, "mg/dl");
+
+call add_concept(@diabetes_high_density_lipoprotein_hdl, @s_name_id, @f_name_id, "Diabetes, High Density Lipoprotein HDL", "High Density Lipoprotein (HDL)", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_high_density_lipoprotein_hdl, null, null, "mg/dl");
+
+call add_concept(@diabetes_triglycerides, @s_name_id, @f_name_id, "Diabetes, Triglycerides", "Triglycerides", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_triglycerides, null, null, "mg/dl");
+
+
+
+
 
 
 

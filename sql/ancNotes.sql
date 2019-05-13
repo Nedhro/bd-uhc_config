@@ -1,5 +1,6 @@
 call add_concept(@anc_married_for_concept_id, @s_name_id, @f_name_id, "ANC, Married For", "Married For", "Numeric", "Finding", false);
-call add_concept_numeric_db(@anc_married_for_concept_id, null, null, null);
+call add_concept_numeric_db(@anc_married_for_concept_id, null, null, "Year");
+
 call add_concept(@anc_gravida_concept_id, @s_name_id, @f_name_id, "ANC, Gravida", "Gravida", "Numeric", "Finding", false);
 call add_concept_numeric_db(@anc_gravida_concept_id, null, null, null);
 call add_concept(@anc_alc_concept_id, @s_name_id, @f_name_id, "ANC, ALC", "ALC", "Numeric", "Finding", false);
@@ -69,14 +70,17 @@ call add_concept(@anc_past_surgical_no, @s_name_id, @f_name_id, "ANC, Past Surgi
 call add_concept_answer(@anc_past_surgical_history_track, @anc_past_surgical_yes, 1);
 call add_concept_answer(@anc_past_surgical_history_track, @anc_past_surgical_no, 2);
 
-call add_concept(@anc_temp_id, @s_name_id, @f_name_id, "ANC, Temperature", "Temperature(Deg F)", "Numeric", "Finding", false);
-call add_concept_numeric_db(@anc_temp_id, null, null, null);
+call add_concept(@anc_temp_id, @s_name_id, @f_name_id, "ANC, Temperature", "Temperature", "Numeric", "Finding", false);
+call add_concept_numeric_db(@anc_temp_id, null, null, "Deg F");
+
 call add_concept(@anc_weight, @s_name_id, @f_name_id, "ANC, Weight", "Weight", "Numeric", "Finding", false);
-call add_concept_numeric_db(@anc_weight, null, null, null);
+call add_concept_numeric_db(@anc_weight, null, null, "kg");
+
 call add_concept(@anc_anemia, @s_name_id, @f_name_id, "ANC, Anemia", "Anemia", "Numeric", "Finding", false);
 call add_concept_numeric_db(@anc_anemia, null, null, null);
 call add_concept(@anc_pulse, @s_name_id, @f_name_id, "ANC, Pulse", "Pulse", "Numeric", "Finding", false);
-call add_concept_numeric_db(@anc_pulse, null, null, null);
+call add_concept_numeric_db(@anc_pulse, null, null, "bpm");
+
 call add_concept(@anc_jaundice, @s_name_id, @f_name_id, "ANC, Jaundice", "Jaundice", "Numeric", "Finding", false);
 call add_concept_numeric_db(@anc_jaundice, null, null, null);
 
@@ -84,7 +88,7 @@ call add_concept(@concept_id, @s_name_id, @f_name_id, "ANC, General Examination 
 
 
 call add_concept(@anc_fundal, @s_name_id, @f_name_id, "ANC, Fundal Height", "Fundal Height (weeks)", "Numeric", "Finding", false);
-call add_concept_numeric_db(@anc_fundal, null, null, null);
+call add_concept_numeric_db(@anc_fundal, null, null, "cm");
 
 call add_concept(@anc_fetal_movement, @s_name_id, @f_name_id, "ANC, Fetal Movement", "Fetal Movement", "Coded", "Misc", false);
 call add_concept(@anc_fetal_present, @s_name_id, @f_name_id, "ANC, Fetal Present", "Present", "N/A", "Misc", false);
@@ -198,9 +202,10 @@ call add_concept_set_members(@anc_obstetric_concept_id, @anc_obstetric_details_p
 
 
 call add_concept(@anc_systolic_blood_pressure_concept_id, @s_name_id, @f_name_id, "ANC, Systolic Blood Pressure", "Systolic Blood Pressure", "Numeric", "Finding", false);
-call add_concept_numeric_db(@anc_systolic_blood_pressure_concept_id, 110, 140, null);
+call add_concept_numeric_db(@anc_systolic_blood_pressure_concept_id, 110, 140, "mmHg");
+
 call add_concept(@anc_diastolic_blood_pressure_concept_id, @s_name_id, @f_name_id, "ANC, Diastolic Blood Pressure", "Diastolic Blood Pressure", "Numeric", "Finding", false);
-call add_concept_numeric_db(@anc_diastolic_blood_pressure_concept_id, 80, 90, null);
+call add_concept_numeric_db(@anc_diastolic_blood_pressure_concept_id, 80, 90, "mmHg");
 
 update concept_name set name = "Fourth or more" where concept_name_type = "FULLY_SPECIFIED" and name="Four or more";
 update concept_name set name = "Fourth or more" where concept_name_type = "SHORT" and name="Four or more";

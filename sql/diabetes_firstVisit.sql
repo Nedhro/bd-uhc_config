@@ -16,11 +16,14 @@ call add_concept_answer(@diabetic_type_concept_id, @type_1_dM_id, 1);
 call add_concept_answer(@diabetic_type_concept_id, @type_2_dM_id, 2);
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes, Last Known HbA1C Date", "Last Known HbA1C Date", "Date", "Misc", false);
-call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes, Last Known HbA1C Result", "Last Known HbA1C Result", "Text", "Misc", false);
+
+call add_concept(@diabetes_first_visit_last_known_hba1c_result_percentage, @s_name_id, @f_name_id, "Diabetes, Last Known HbA1C Result Percentage", "Last Known HbA1C Result", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_last_known_hba1c_result_percentage, null, null, "%");
 
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes, Last Known Fasting Blood Sugar Date", "Last Known Fasting Blood Sugar Date", "Date", "Misc", false);
-call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes, Last Known Fasting Blood Sugar", "Last Known Fasting Blood Sugar", "Text", "Misc", false);
 
+call add_concept(@diabetes_first_visit_last_known_fasting_blood_sugar_mmml_liter, @s_name_id, @f_name_id, "Diabetes, Last Known Fasting Blood Sugar Mmml Liter", "Last Known Fasting Blood Sugar", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_last_known_fasting_blood_sugar_mmml_liter, null, null, "mmml/Liter");
 
 call add_concept(@if_new_Patient_suspicion_concept_id, @s_name_id, @f_name_id, "Diabetes, If New Patient Suspicion", "If New Patient /Suspicion", "Coded", "Misc", false);
 call add_concept(@polyuria_concept_id, @s_name_id, @f_name_id, "Diabetes New, Polyuria", "Polyuria", "N/A", "Misc", false);
@@ -38,10 +41,24 @@ call add_concept_answer(@if_new_Patient_suspicion_concept_id, @weight_loss_conce
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Family History of Diabetes", "Family History of Diabetes", "Boolean", "Misc", false);
 call add_concept(@concept_id, @s_name_id, @f_name_id, "Detail of Family History of Diabetes", "Detail of Family History of Diabetes", "Text", "Misc", false);
 
-call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes, Diabetes First Visit, HbA1C", "HbA1C", "Text", "Misc", false);
-call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes, Fasting Glucose Sugar", "Fasting Blood Sugar", "Text", "Misc", false);
-call add_concept(@concept_id, @s_name_id, @f_name_id, "Diabetes, Lipid Panel", "Lipid Panel", "Text", "Misc", false);
+call add_concept(@diabetes_first_visit_hba1c_percentage, @s_name_id, @f_name_id, "Diabetes, Diabetes First Visit, HbA1C Percentage", "HbA1C", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_hba1c_percentage, null, null, "%");
 
+call add_concept(@diabetes_first_visit_fasting_glucose_sugar_mmml_liter, @s_name_id, @f_name_id, "Diabetes, Fasting Glucose Sugar Mmml Liter", "Fasting Blood Sugar", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_first_visit_fasting_glucose_sugar_mmml_liter, null, null, "mmml/Liter");
+
+
+call add_concept(@diabetes_total_cholesterol, @s_name_id, @f_name_id, "Diabetes, Total Cholesterol", "Total Cholesterol", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_total_cholesterol, null, null, "mg/dl");
+
+call add_concept(@diabetes_low_density_lipoprotein_ldl, @s_name_id, @f_name_id, "Diabetes, Low Density Lipoprotein LDL", "Low Density Lipoprotein (LDL)", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_low_density_lipoprotein_ldl, null, null, "mg/dl");
+
+call add_concept(@diabetes_high_density_lipoprotein_hdl, @s_name_id, @f_name_id, "Diabetes, High Density Lipoprotein HDL", "High Density Lipoprotein (HDL)", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_high_density_lipoprotein_hdl, null, null, "mg/dl");
+
+call add_concept(@diabetes_triglycerides, @s_name_id, @f_name_id, "Diabetes, Triglycerides", "Triglycerides", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diabetes_triglycerides, null, null, "mg/dl");
 
 
 call add_concept(@exercise_concept_id, @s_name_id, @f_name_id, "Diabetes, Exercise", "Exercise", "Coded", "Misc", false);

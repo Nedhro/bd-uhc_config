@@ -11,9 +11,11 @@ call add_concept(@pnc_active_manage, @s_name_id, @f_name_id, "PNC, AMTSL Active 
 call add_concept(@pnc_temperature_id, @s_name_id, @f_name_id, "PNC, Temperature", "Temperature(Deg F)", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_temperature_id, null, null, null);
 call add_concept(@pnc_pulse_concept_id, @s_name_id, @f_name_id, "PNC, Pulse", "Pulse(Beats Per Minute)", "Numeric", "Finding", false);
-call add_concept_numeric_db(@pnc_pulse_concept_id, null, null, null);
+call add_concept_numeric_db(@pnc_pulse_concept_id, null, null, "bpm");
+
 call add_concept(@pnc_weight_concept_id, @s_name_id, @f_name_id, "PNC, Weight", "Weight", "Numeric", "Finding", false);
-call add_concept_numeric_db(@pnc_weight_concept_id, null, null, null);
+call add_concept_numeric_db(@pnc_weight_concept_id, null, null, "kg");
+
 call add_concept(@pnc_anemia_concept_id, @s_name_id, @f_name_id, "PNC, Anemia", "Anemia", "Numeric", "Finding", false);
 call add_concept_numeric_db(@pnc_anemia_concept_id, null, null, null);
 
