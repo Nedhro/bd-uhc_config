@@ -364,3 +364,8 @@ insert into concept_name(concept_id, name, locale, locale_preferred, creator, da
 values(@referred_by_concept_id, "Referred by", "en", 1, @super_user_id, NOW(), "FULLY_SPECIFIED", 0, uuid());
 insert into concept_description(concept_id, description, locale, creator, date_created, uuid)
 values(@referred_by_concept_id, "Referred by", "en", @super_user_id, NOW(), uuid());
+
+
+
+insert into provider_attribute_type(name, description, datatype, min_occurs, creator, date_created, retired, uuid)
+values("Designation", "Designation", "org.openmrs.customdatatype.datatype.FreeTextDatatype", 0, 6, NOW(), 0, uuid());
