@@ -54,6 +54,12 @@ score +=3;
 form.get('ANC, Bishop Scoring Result').setValue(score);
 }
 
+3.Open Elislab logo upload
+   step_1: In the OpenELIS, go to Administration section
+   step_2: Edit "lab logo" to  upload the Logo file from the bellow path
+   bd_uhc_config/openelis/images folder in the name of  labLogo.jpg
 
+
+4.Have to remove result validate option from openElis.
 
 
