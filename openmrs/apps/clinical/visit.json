@@ -142,11 +142,6 @@
     "title": "General",
     "translationKey": "GENERAL_TYPE_VISIT",
     "displayByDefault": true,
-    "printing": {
-      "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
-      "header": "Visit",
-      "logo": "/bahmni_config/openmrs/images/dghslogo.png"
-    },
     "defaultSections": true,
     "sections": {
       "pivot_table": {
@@ -335,79 +330,6 @@
       }
     }
   },
-  "injuryCertificate": {
-    "title": "Patient INJURY CERTIFICATE ",
-    "translationKey": "INJURY_CLINICAL_CERTIFICATE",
-    "printing": {
-      "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
-      "header": " Injury Certificate",
-      "logo": "/bahmni_config/openmrs/images/dghslogo.png"
-    },
-    "sections": {
-      "Patient Information": {
-        "type": "patientInformation",
-        "title": "Patient Information",
-        "displayOrder": 0,
-        "config": {
-          "title": "PatientInformation",
-          "patientAttributes": [
-            "healthId",
-            "fatherName",
-            "spouseName",
-            "nationalId",
-            "education",
-            "householdCode",
-            "birthRegistrationId",
-            "occupation",
-            "phoneNumber"
-          ],
-          "addressFields": [
-            "address1",
-            "address2",
-            "address3",
-            "address4",
-            "address5",
-            "countyDistrict",
-            "stateProvince"
-          ]
-        }
-      },
-      "InjuryNotes": {
-        "type": "observation",
-        "displayOrder": 1,
-        "title": "Injury Notes",
-        "config": {
-          "conceptNames": [
-            "Injury Notes"
-          ],
-          "translationKey": "INJURY_CLINICAL_NOTES",
-          "numberOfVisits": "1",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true,
-          "showRoute": true
-        }
-      },
-      "footerSummary": {
-        "type": "custom",
-        "displayOrder": 6,
-        "config": {
-          "translationKey": "FOOTER_SUMMARY",
-          "title": " Discharge Summary ",
-          "template": "<common-footer concept-name='Injury Notes'></common-footer>"
-        }
-      },
-      "Presciption EndFooter": {
-        "type": "custom",
-        "displayOrder": 2,
-        "config": {
-          "title": "   ",
-          "template": "<end_prescription></end_prescription>"
-        }
-      }
-    }
-  },
   "deathCertificate": {
     "title": "Death CERTIFICATE ",
     "translationKey": "DEATH_CLINICAL_CERTIFICATE",
@@ -490,70 +412,6 @@
           "translationKey": "FOOTER_SUMMARY",
           "title": " Discharge Summary ",
           "template": "<death-footer></death-footer>"
-        }
-      }
-    }
-  },
-  "Baby Notes": {
-    "title": "Baby_Notes",
-    "translationKey": "BABY_NOTES",
-    "printing": {
-      "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
-      "header": "Baby Notes",
-      "logo": "/bahmni_config/openmrs/images/dghslogo.png"
-    },
-    "sections": {
-      "Patient Information": {
-        "type": "patientInformation",
-        "title": "Patient Information",
-        "displayOrder": 0,
-        "config": {
-          "title": "PatientInformation",
-          "patientAttributes": [
-            "healthId",
-            "fatherName",
-            "spouseName",
-            "nationalId",
-            "education",
-            "householdCode",
-            "birthRegistrationId",
-            "occupation",
-            "phoneNumber"
-          ],
-          "addressFields": [
-            "address1",
-            "address2",
-            "address3",
-            "address4",
-            "address5",
-            "countyDistrict",
-            "stateProvince"
-          ]
-        }
-      },
-      "BabyNotes": {
-        "type": "observation",
-        "title": "Baby Notes",
-        "displayOrder": 2,
-        "config": {
-          "conceptNames": [
-            "Delivery Note, Baby notes"
-          ],
-          "translationKey": "BABY_NOTES",
-          "numberOfVisits": "1",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true,
-          "showRoute": true
-        }
-      },
-      "Baby Notes Footer": {
-        "type": "custom",
-        "displayOrder": 4,
-        "config": {
-          "title": "Death Footer",
-          "template": "<common-footer concept-name='Delivery Note, Baby notes'></common-footer>"
         }
       }
     }
