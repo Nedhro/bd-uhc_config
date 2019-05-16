@@ -168,7 +168,7 @@
         "displayOrder": 0,
         "showOnlyInPrint": true,
         "config": {
-          "title": "Discharge Summary",
+          "title": "Discharge Certificate",
           "template": "<header-pad-white-space></header-pad-white-space>"
         }
       },
