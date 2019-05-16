@@ -18,10 +18,9 @@
     <span ng-if="patient.gender == 'F'&& patient.spouseName.value!=undefined">wife of </span>
     <span ng-if="patient.gender == 'O'&& patient.spouseName.value!=undefined">spouse of </span>
     {{patient.spouseName.value}} <span ng-if="patient.spouseName.value != undefined">, </span>
-    residing at {{patient.address.address1}}
-    {{patient.address.address2}} {{patient.address.address3}}
-    {{patient.address.cityVillage}}{{patient.address.countyDistrict}}
-    {{patient.address.stateProvince}}
+    residing at {{patient.address.address1}},
+    {{patient.address.address2}}, {{patient.address.address3}},
+    {{patient.address.cityVillage}}, {{patient.address.countyDistrict}}, {{patient.address.stateProvince}}
     </span>
     Age <span ng-if="patient.age == 0" ng-bind-html="htmlLabel(patient.ageText)"></span>
     <span ng-if="patient.age !== 0">{{patient.age}},</span>
