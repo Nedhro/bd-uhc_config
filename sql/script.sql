@@ -369,3 +369,32 @@ values(@referred_by_concept_id, "Referred by", "en", @super_user_id, NOW(), uuid
 
 insert into provider_attribute_type(name, description, datatype, min_occurs, creator, date_created, retired, uuid)
 values("Designation", "Designation", "org.openmrs.customdatatype.datatype.FreeTextDatatype", 0, 6, NOW(), 0, uuid());
+
+--delete unnecessary observation from list
+
+select @all_Observation_templates := concept_id from concept_name where name = "All Observation Templates" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @family_history_template := concept_id from concept_name where name = "Family History Template" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @discharge_summary := concept_id from concept_name where name = "Discharge Summary" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @procedure_template := concept_id from concept_name where name = "Procedure Template" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @immunization_incident_template := concept_id from concept_name where name = "Immunization Incident Template" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @aNC_notes := concept_id from concept_name where name = "ANC Notes" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @delivery_note := concept_id from concept_name where name = "Delivery Note" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @Injury_notes := concept_id from concept_name where name = "Injury notes set" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @non_Communicable_disease := concept_id from concept_name where name = "Non Communicable Disease Set" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @paediatric_anthropometry := concept_id from concept_name where name = "Paediatric Anthropometry" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @pNC_notes := concept_id from concept_name where name = "PNC Notes" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @death_note := concept_id from concept_name where name = "Death Note" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @iMCI := concept_id from concept_name where name = "IMCI 0-2m" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @IMCI_two_month_five_year := concept_id from concept_name where name = "IMCI 2m-5y, IMCI 2months to 5 years" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @breast_cancer_screening := concept_id from concept_name where name = "Breast Cancer Screening Notes" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @cervical_cancer := concept_id from concept_name where name = "Cervical Cancer Screening Notes" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @diarrhoea_template := concept_id from concept_name where name = "Diarrhoea Template" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @Animal_bite := concept_id from concept_name where name = "Animal bite form, recommended" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @eye_examination := concept_id from concept_name where name = "Eye examination" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+
+delete from concept_set where concept_set= @all_Observation_templates and concept_id in (@family_history_template,@discharge_summary,@procedure_template,
+                                                                                         @immunization_incident_template,@aNC_notes,@delivery_note,@Injury_notes,
+                                                                                         @non_Communicable_disease,@paediatric_anthropometry,@pNC_notes,@death_note,@iMCI,
+                                                                                         @IMCI_two_month_five_year,@breast_cancer_screening,@cervical_cancer,@diarrhoea_template,
+                                                                                         @Animal_bite,@eye_examination);
+
