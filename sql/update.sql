@@ -295,6 +295,10 @@ call add_concept_numeric_db(@anc_bishop_scoring_result, null, null, null);
 select @medication_received_concept_id := concept_id from concept_name where name = "PNC, Medication received during delivery" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
 update concept_name set name = "Medication received during delivery" where concept_name_type = "SHORT" and concept_id=@medication_received_concept_id;
 
+
+select @gynae_married_for_concept_id := concept_id from concept_name where name = "Gynae Case, Married For" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+update concept_numeric set units ="Year" where concept_id = @gynae_married_for_concept_id;
+
 --diabetes first visit
 
 call add_concept(@diabetes_first_visit_last_known_hba1c_result_percentage, @s_name_id, @f_name_id, "Diabetes, Last Known HbA1C Result Percentage", "Last Known HbA1C Result", "Numeric", "Finding", false);
