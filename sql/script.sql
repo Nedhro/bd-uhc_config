@@ -397,3 +397,9 @@ delete from concept_set where concept_set= @all_Observation_templates and concep
                                                                                          @non_Communicable_disease,@paediatric_anthropometry,@pNC_notes,@death_note,@iMCI,
                                                                                          @IMCI_two_month_five_year,@breast_cancer_screening,@cervical_cancer,@diarrhoea_template,
                                                                                          @Animal_bite,@eye_examination);
+
+
+--Rename Observation name
+update form set name="ANC Notes" where name="ANC Notes1";
+update form set name="Death Notes" where name="Daeth Notes";
+update form set name="PNC Notes" where name="PNC Notes 2";
