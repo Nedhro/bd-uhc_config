@@ -62,4 +62,7 @@ form.get('ANC, Bishop Scoring Result').setValue(score);
 
 4.Have to remove result validate option from openElis.
 
+5.If it is needed to change the name of observation name then we handle it by the following it by the following step
+  step_1 : Go to form builder & select the desirable observation
+  step_2 : press the view form button & edit the observation name
 
