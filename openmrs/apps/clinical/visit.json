@@ -321,8 +321,8 @@
         }
       },
       "Discharge Footer": {
-      "type": "custom",
-      "displayOrder": 13,
+        "type": "custom",
+        "displayOrder": 13,
         "config": {
           "title": "  ",
           "template": "<prescription-footer></prescription-footer>"
@@ -438,12 +438,12 @@
           "template": "<medical-certificate></medical-certificate>"
         }
       },
-      "Presciption Footer": {
+      "Medical Footer": {
         "type": "custom",
         "displayOrder": 9,
         "config": {
           "title": "  ",
-          "template": "<prescription-footer></prescription-footer>"
+          "template": "<medical-footer></medical-footer>"
         }
       }
     }
