@@ -36,11 +36,6 @@
         {{medicalDurationCodeUnit}} </b> With History of
     <b>{{medicalPreviousComplication}} </b>.
     <br/><br/>
-    Now <span ng-if="patient.gender == 'M' ">He </span>
-    <span ng-if="patient.gender == 'O' ">He/She </span>
-    <span ng-if="patient.gender == 'F' ">She</span>
-    Needs <b>{{adviceName}} from {{medicalFromDate}} to {{medicalToDate}}.</b>
-    <br/><br/>
 </p>
 <div class="placeholder-text">
     <span style="font-weight: bold">General Indications/Complications:</span>
@@ -51,5 +46,11 @@
         <br>
     </ul>
 </div>
+<p class="placeholder-text">
+    Now <span ng-if="patient.gender == 'M' ">He </span>
+    <span ng-if="patient.gender == 'O' ">He/She </span>
+    <span ng-if="patient.gender == 'F' ">She</span>
+    Needs <b>{{adviceName}} from {{medicalFromDate}} to {{medicalToDate}}.</b>
+</p>
 </body>
 </html>
