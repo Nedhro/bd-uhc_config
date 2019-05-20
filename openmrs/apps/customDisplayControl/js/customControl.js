@@ -15,37 +15,50 @@ angular.module('bahmni.common.displaycontrol.custom')
             template: '<ng-include src="contentUrl"/>',
             link: link
         }
-    }]).directive('deathCertificate', ['$q', 'observationsService', 'visitService', 'bedService', 'appService', 'spinner', '$sce', function ($q, observationsService, visitService, bedService, appService, spinner, $sce) {
-    var link = function ($scope) {
-        $scope.displayStuff = false;
-        var conceptNames = ["Date of death"];
-        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
-            $scope.observations = response.data;
-            if ($scope.observations.length > 0) {
-                $scope.displayStuff = true;
+    }])
+    .directive('deathCertificate', ['$q', 'observationsService', 'visitService', 'bedService', 'appService', 'spinner', '$sce', function ($q, observationsService, visitService, bedService, appService, spinner, $sce) {
+        var link = function ($scope) {
+            $scope.displayStuff = false;
+            var conceptNames = ["Date of death","Death Notes, Citizenship","Death Notes, Religion"];
+            spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+                $scope.observations = response.data;
+
+                if ($scope.observations.length > 0) {
+                    $scope.displayStuff = true;
+                    for (var i = 0; i < response.data.length; i++) {
+                        if (response.data[i].concept.name == 'Date of death') {
+                            $scope.dateOfDeath = response.data[i].value;
+                        }
+                        if (response.data[i].concept.name == 'Death Notes, Citizenship') {
+                            $scope.deathNotesCitizenship = response.data[i].value;
+                        }
+                        if (response.data[i].concept.name == 'Death Notes, Religion') {
+                            $scope.deathNotesReligion = response.data[i].value.shortName;
+                        }
+                    }
+                }
+
+            }));
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/deathCertificate.html";
+
+            spinner.forPromise($q.all([bedService.getAssignedBedForPatient($scope.patient.uuid), visitService.getVisitSummary($scope.visitUuid)]).then(function (results) {
+                $scope.bedDetails = results[0];
+                $scope.visitSummary = results[1].data;
+            }));
+
+        };
+        var controller = function ($scope) {
+            $scope.htmlLabel = function (label) {
+                return $sce.trustAsHtml(label)
             }
-
-        }));
-        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/deathCertificate.html";
-
-        spinner.forPromise($q.all([bedService.getAssignedBedForPatient($scope.patient.uuid), visitService.getVisitSummary($scope.visitUuid)]).then(function (results) {
-            $scope.bedDetails = results[0];
-            $scope.visitSummary = results[1].data;
-        }));
-
-    };
-    var controller = function ($scope) {
-        $scope.htmlLabel = function (label) {
-            return $sce.trustAsHtml(label)
         }
-    }
-    return {
-        restrict: 'E',
-        link: link,
-        controller: controller,
-        template: '<ng-include src="contentUrl"/>'
-    }
-}]).directive('deathFooter', ['observationsService', 'visitService', 'appService', 'spinner', function (observationsService, visitService, appService, spinner) {
+        return {
+            restrict: 'E',
+            link: link,
+            controller: controller,
+            template: '<ng-include src="contentUrl"/>'
+        }
+    }]).directive('deathFooter', ['observationsService', 'visitService', 'appService', 'spinner', function (observationsService, visitService, appService, spinner) {
     var link = function ($scope) {
         $scope.displayStuff = false;
         var conceptNames = ["Date of death"];
@@ -167,7 +180,7 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>',
     }
-}]).directive('medicalFooter', [ 'observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
+}]).directive('medicalFooter', ['observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
     var link = function ($scope) {
 
         var conceptNames = ["Medical Certificate, Suffering From"];
