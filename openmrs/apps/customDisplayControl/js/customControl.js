@@ -167,25 +167,33 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>',
     }
-}]).directive('medicalFooter', ['treatmentService', 'visitService', 'appService', 'spinner', function (treatmentService, visitService, appService, spinner) {
+}]).directive('medicalFooter', [ 'observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
     var link = function ($scope) {
-        spinner.forPromise(treatmentService.getPrescribedAndActiveDrugOrders($scope.patient.uuid, undefined, false, [$scope.visitUuid]).then(function (response) {
-            $scope.drugOrders = response.data;
 
-            var audits = _.map($scope.drugOrders.visitDrugOrders, function (drugOrder) {
-                return _.pick(drugOrder, 'creatorName', 'provider');
-            });
-            var auditDisplay = _.map(audits, function (audit) {
-                return audit.creatorName == audit.provider.name ? audit.provider.name : audit.creatorName + " on behalf of " + audit.provider.name;
-            });
-            $scope.displayName = _.uniq(auditDisplay)
-            if (_.isEmpty($scope.drugOrders)) {
-                $scope.$emit("no-data-present-event");
-            }
+        var conceptNames = ["Medical Certificate, Suffering From"];
+        spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
+            var providerUuid = response.data[0].providers[0].uuid;
+            $scope.providerName = response.data[0].providers[0].name;
 
-            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
-            $scope.curDate = new Date();
+
+            $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                $scope.providerDesignation = response[0].data[0].designation;
+                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
+                $scope.curDate = new Date();
+            });
         }));
+        var getProviderDesignation = function (providerUuid) {
+            var params = {
+                q: "bahmni.sqlGet.providerDesignation2",
+                v: "full",
+                providerUuid: providerUuid
+            };
+            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
+                method: "GET",
+                params: params,
+                withCredentials: true
+            });
+        };
     }
 
     return {
