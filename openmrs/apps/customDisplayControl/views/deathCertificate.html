@@ -2,21 +2,46 @@
 <link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-print.css"
       media="print"/>
 
-<div class="placeholder-text" style="background-color: gainsboro; font-size: 14px;">
-    Name : <span class="custom-bold-text"> {{patient.name}}</span> |
-    Patient ID : <span class="custom-bold-text"> {{patient.identifier}}</span> |
-    Gender : <span class="custom-bold-text"> {{patient.gender}}</span> |
-    Age : <span class="custom-bold-text"> {{patient.age}}</span>
+<div class="placeholder-text" style="background-color: gainsboro;height: 30px; line-height: 30px;">
+   <b> Name : <span class="custom-bold-text"> {{patient.name}} </span> &nbsp;&nbsp; | &nbsp;&nbsp;
+    Patient ID : <span class="custom-bold-text"> {{patient.identifier}}</span>&nbsp;&nbsp;  | &nbsp;&nbsp;
+    Gender : <span ng-if="patient.gender == 'M' " class="custom-bold-text"> Male &nbsp;&nbsp; | &nbsp;&nbsp;</span>
+    <span ng-if="patient.gender == 'F' " class="custom-bold-text"> Female &nbsp;&nbsp; | &nbsp;&nbsp;</span>
+    <span ng-if="patient.gender == 'O' " class="custom-bold-text"> Other &nbsp;&nbsp; | &nbsp;&nbsp;</span>
+       Age : <span class="custom-bold-text" ng-bind-html="patient.ageText"></span></b>
     <br><br>
-    Address : <span ng-if="patient.address.address1 != undefined"> {{patient.address.address1}}, </span>
-    <span ng-if="patient.address.address2 != undefined"> {{patient.address.address2}}, </span>
-    <span ng-if="patient.address.address3 != undefined"> {{patient.address.address3}}, </span>
-    <span ng-if="patient.address.address1 != undefined"> {{patient.address.cityVillage}}, </span>
-    <span ng-if="patient.address.address1 != undefined"> {{patient.address.countyDistrict}}, </span>
-    <span ng-if="patient.address.address1 != undefined"> {{patient.address.stateProvince}} </span> |
-    Citizenship : <span class="custom-bold-text">{{deathNotesCitizenship}}</span> |
-    Religion : <span class="custom-bold-text">{{deathNotesReligion}}</span>
+
 </div>
+<div class="placeholder-text" style="font-size: 14px;">
+    <table>
+        <tr style="border: none" ng-if="deathNotesCitizenship">
+            <td width="20%" style="border: none">Citizenship</td>
+            <td width="30%" style="border: none">{{deathNotesCitizenship}}</td>
+            <td width="50%" style="border: none"></td>
+        </tr>
+        <tr style="border: none" ng-if="deathNotesReligion">
+            <td width="20%" style="border: none">Religion</td>
+            <td width="30%" style="border: none">{{deathNotesReligion}}</td>
+            <td width="50%" style="border: none"></td>
+        </tr>
+
+        <tr style="border: none">
+            <td width="20%" style="border: none">Address</td>
+            <td width="30%" style="border: none">{{patient.address.address1 ? patient.address.address1 + "," : ""}}
+                {{patient.address.address2 ? patient.address.address2 + "," : ""}}
+                {{patient.address.address3 ? patient.address.address3 + "," : ""}}
+                {{patient.address.address4 ? patient.address.address4 + "," : ""}}
+                {{patient.address.address5 ? patient.address.address5 + "," : ""}}
+                {{patient.address.countyDistrict ? patient.address.countyDistrict + "," : ""}}
+                {{patient.address.stateProvince}}
+            </td>
+            <td width="50%" style="border: none"></td>
+        </tr>
+    </table>
+</div>
+<br>
+<hr style="border-bottom: 1px solid #e8e0e0">
+<br>
 <br>
 <p class="placeholder-text" style="font-size: 14px">To whomsoever it may concern,
     <span ng-if="patient.gender == 'M' ">Mr </span>
