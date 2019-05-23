@@ -397,7 +397,7 @@
         "showOnlyInPrint": true,
         "config": {
           "title": "Medical Certificate",
-          "subTitle": "Whomsoever It May Concern",
+          "subTitle": "To Whom It May Concern",
           "template": "<header-pad-white-space></header-pad-white-space>"
         }
       },
