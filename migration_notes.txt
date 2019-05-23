@@ -66,3 +66,14 @@ form.get('ANC, Bishop Scoring Result').setValue(score);
   step_1 : Go to form builder & select the desirable observation
   step_2 : press the view form button & edit the observation name
 
+6. Odoo
+Periods
+Accounting -> Periods -> Fiscal Years -> Create -> Input Fiscal Year, Code, Start Date, End Date -> Click Create Monthly Periods
+PriceList
+Sales -> PriceList -> Public Pricelist -> Edit -> Default Public Pricelist Version -> change product category to All Products
+
+Sales -> Shop -> create shop for general bill
+
+Sales -> Order Type - Shop mapping -> map lab order with general
+
+
