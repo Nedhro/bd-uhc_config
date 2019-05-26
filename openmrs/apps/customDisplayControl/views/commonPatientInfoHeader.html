@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-display.css"/>
+<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-print.css"
+      media="print"/>
+
+<div class="placeholder-text" style="background-color: gainsboro;height: 30px; line-height: 30px;">
+    <b> Name : <span class="custom-bold-text"> {{patient.name}} </span> &nbsp;&nbsp; | &nbsp;&nbsp;
+        Patient ID : <span class="custom-bold-text"> {{patient.identifier}}</span>&nbsp;&nbsp; | &nbsp;&nbsp;
+        Gender : <span ng-if="patient.gender == 'M' " class="custom-bold-text"> Male &nbsp;&nbsp; | &nbsp;&nbsp;</span>
+        <span ng-if="patient.gender == 'F' " class="custom-bold-text"> Female &nbsp;&nbsp; | &nbsp;&nbsp;</span>
+        <span ng-if="patient.gender == 'O' " class="custom-bold-text"> Other &nbsp;&nbsp; | &nbsp;&nbsp;</span>
+        Age : <span class="custom-bold-text" ng-bind-html="patient.ageText"></span></b>
+    <br><br>
+</div>

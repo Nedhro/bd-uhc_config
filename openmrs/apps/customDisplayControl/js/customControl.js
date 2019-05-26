@@ -1,6 +1,16 @@
 'use strict';
 
 angular.module('bahmni.common.displaycontrol.custom')
+    .directive('commonPatientInfoHeader', ['appService', '$sce', function (appService, $sce) {
+        var link = function ($scope) {
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/commonPatientInfoHeader.html";
+        }
+        return {
+            restrict: 'E',
+            link: link,
+            template: '<ng-include src="contentUrl"/>'
+        }
+    }])
     .directive('birthCertificate', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
         var link = function ($scope) {
             var conceptNames = ["HEIGHT"];
@@ -19,7 +29,7 @@ angular.module('bahmni.common.displaycontrol.custom')
     .directive('deathCertificate', ['$q', 'observationsService', 'visitService', 'bedService', 'appService', 'spinner', '$sce', function ($q, observationsService, visitService, bedService, appService, spinner, $sce) {
         var link = function ($scope) {
             $scope.displayStuff = false;
-            var conceptNames = ["Date of death","Death Notes, Citizenship","Death Notes, Religion"];
+            var conceptNames = ["Date of death", "Death Notes, Citizenship", "Death Notes, Religion"];
             spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
                 $scope.observations = response.data;
 
