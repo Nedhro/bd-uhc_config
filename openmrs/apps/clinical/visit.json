@@ -96,7 +96,7 @@
       },
       "ConsultationNotes": {
         "type": "observation",
-        "title": "Consultation Notes",
+        "title": "Other Advices",
         "displayOrder": 8,
         "config": {
           "conceptNames": [

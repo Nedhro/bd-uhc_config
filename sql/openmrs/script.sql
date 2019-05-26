@@ -370,6 +370,9 @@ values(@referred_by_concept_id, "Referred by", "en", @super_user_id, NOW(), uuid
 insert into provider_attribute_type(name, description, datatype, min_occurs, creator, date_created, retired, uuid)
 values("Designation", "Designation", "org.openmrs.customdatatype.datatype.FreeTextDatatype", 0, 6, NOW(), 0, uuid());
 
+insert into provider_attribute_type(name, description, datatype, min_occurs, creator, date_created, retired, uuid)
+values("BMDC Number", "BMDC Number", "org.openmrs.customdatatype.datatype.FreeTextDatatype", 0, 6, NOW(), 0, uuid());
+
 -- delete unnecessary observation from list
 
 select @all_Observation_templates := concept_id from concept_name where name = "All Observation Templates" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
