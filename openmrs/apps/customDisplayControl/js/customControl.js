@@ -265,15 +265,18 @@ angular.module('bahmni.common.displaycontrol.custom')
 
             var conceptNames = ["Inpatient Outcome"];
             spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
-                var providerUuid = response.data[0].providers[0].uuid;
-                $scope.providerName = response.data[0].providers[0].name;
+                if(response.data.length > 0) {
+                    var providerUuid = response.data[0].providers[0].uuid;
+                    $scope.providerName = response.data[0].providers[0].name;
 
-
-                $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                    $scope.providerDesignation = response[0].data[0].designation;
-                    $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedFooter.html";
-                    $scope.curDate = new Date();
-                });
+                    $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                        if(response[0].data.length > 0) {
+                            $scope.providerDesignation = response[0].data[0].designation;
+                        }
+                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedFooter.html";
+                        $scope.curDate = new Date();
+                    });
+                }
             }));
             var getProviderDesignation = function (providerUuid) {
                 var params = {
