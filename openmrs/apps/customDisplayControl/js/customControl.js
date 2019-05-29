@@ -210,7 +210,14 @@ angular.module('bahmni.common.displaycontrol.custom')
 
                 $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
                     if(response[0].data.length > 0) {
-                        $scope.providerDesignation = response[0].data[0].designation;
+                        for(var i=0; i < response[0].data.length; i++) {
+                            if(response[0].data[i].name == 'Designation') {
+                                $scope.providerDesignation = response[0].data[i].value_reference;
+                            }
+                            if(response[0].data[i].name == 'BMDC Number') {
+                                $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                            }
+                        }
                     }
                     $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
                     $scope.curDate = new Date();
@@ -258,7 +265,14 @@ angular.module('bahmni.common.displaycontrol.custom')
 
                     $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
                         if(response[0].data.length > 0) {
-                            $scope.providerDesignation = response[0].data[0].designation;
+                            for(var i=0; i < response[0].data.length; i++) {
+                                if(response[0].data[i].name == 'Designation') {
+                                    $scope.providerDesignation = response[0].data[i].value_reference;
+                                }
+                                if(response[0].data[i].name == 'BMDC Number') {
+                                    $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                }
+                            }
                         }
                         $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
                         $scope.curDate = new Date();
@@ -296,7 +310,14 @@ angular.module('bahmni.common.displaycontrol.custom')
 
                     $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
                         if(response[0].data.length > 0) {
-                            $scope.providerDesignation = response[0].data[0].designation;
+                            for(var i=0; i < response[0].data.length; i++) {
+                                if(response[0].data[i].name == 'Designation') {
+                                    $scope.providerDesignation = response[0].data[i].value_reference;
+                                }
+                                if(response[0].data[i].name == 'BMDC Number') {
+                                    $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                }
+                            }
                         }
                         $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedFooter.html";
                         $scope.curDate = new Date();
