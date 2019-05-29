@@ -231,7 +231,56 @@ angular.module('bahmni.common.displaycontrol.custom')
                     params: params,
                     withCredentials: true
                 }).success(function (response) {
-                    $scope.investigationResults = response.results;
+                    if(response.results.length > 0) {
+                        var orderUuid = response.results[0].orderUuid;
+                        if(orderUuid) {
+                            $q.all([getProviderUuid(orderUuid)]).then(function (response) {
+                                if(response[0].data.length > 0) {
+                                    var providerUuid = response[0].data[0].uuid;
+                                    $scope.providerName = response[0].data[0].given_name + (response[0].data[0].middle_name ? (' ' + response[0].data[0].middle_name) : '') + ' ' + response[0].data[0].family_name;
+                                    if(providerUuid) {
+                                        $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                                            if(response[0].data.length > 0) {
+                                                for(var i=0; i < response[0].data.length; i++) {
+                                                    if(response[0].data[i].name == 'Designation') {
+                                                        $scope.providerDesignation = response[0].data[i].value_reference;
+                                                    }
+                                                    if(response[0].data[i].name == 'BMDC Number') {
+                                                        $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                                    }
+                                                }
+                                            }
+                                            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
+                                            $scope.curDate = new Date();
+                                        });
+                                    }
+                                }
+                            });
+                        } else {
+                            var conceptNames = ["Consultation Note"];
+                            spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
+                                if(response.data.length > 0) {
+                                    var providerUuid = response.data[0].providers[0].uuid;
+                                    $scope.providerName = response.data[0].providers[0].name;
+
+                                    $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                                        if(response[0].data.length > 0) {
+                                            for(var i=0; i < response[0].data.length; i++) {
+                                                if(response[0].data[i].name == 'Designation') {
+                                                    $scope.providerDesignation = response[0].data[i].value_reference;
+                                                }
+                                                if(response[0].data[i].name == 'BMDC Number') {
+                                                    $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                                }
+                                            }
+                                        }
+                                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
+                                        $scope.curDate = new Date();
+                                    });
+                                }
+                            }));
+                        }
+                    }
                 });
             }
         }));
@@ -240,6 +289,18 @@ angular.module('bahmni.common.displaycontrol.custom')
                 q: "bahmni.sqlGet.providerDesignation2",
                 v: "full",
                 providerUuid: providerUuid
+            };
+            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
+                method: "GET",
+                params: params,
+                withCredentials: true
+            });
+        };
+        var getProviderUuid = function (orderUuid) {
+            var params = {
+                q: "bahmni.sqlGet.orderUuid",
+                v: "full",
+                orderUuid: orderUuid
             };
             return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
                 method: "GET",
