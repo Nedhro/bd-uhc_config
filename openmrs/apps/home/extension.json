@@ -59,16 +59,6 @@
     "order": 8,
     "requiredPrivilege": "app:admin"
   },
-  "bahmni_nationalregistry_search": {
-    "id": "bahmni.nationalregistry.search",
-    "extensionPointId": "org.bahmni.home.dashboard",
-    "type": "link",
-    "translationKey": "National Registry",
-    "url": "../../openmrs/shrclient/mciPatient.page",
-    "icon": "fa-database",
-    "order": 7,
-    "requiredPrivilege": "National Registry"
-  },
   "implementerInterface": {
     "id": "bahmni.implementer.interface",
     "extensionPointId": "org.bahmni.home.dashboard",
