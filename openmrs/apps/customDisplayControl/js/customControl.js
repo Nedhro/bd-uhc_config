@@ -198,25 +198,48 @@ angular.module('bahmni.common.displaycontrol.custom')
         },
         template: '<ng-include src="contentUrl"/>',
     }
-}]).directive('prescriptionFooter', ['treatmentService', 'visitService', 'appService', 'spinner', function (treatmentService, visitService, appService, spinner) {
+}]).directive('prescriptionFooter', ['treatmentService', 'labOrderResultService', 'visitService', 'appService', 'spinner', '$q', '$http',
+    function (treatmentService, labOrderResultService, visitService, appService, spinner, $q, $http) {
     var link = function ($scope) {
         spinner.forPromise(treatmentService.getPrescribedAndActiveDrugOrders($scope.patient.uuid, undefined, false, [$scope.visitUuid]).then(function (response) {
-            $scope.drugOrders = response.data;
+            if(response.data.visitDrugOrders.length > 0) {
+                var visitDrugOrders = response.data.visitDrugOrders[0];
+                var provider = visitDrugOrders.provider;
+                $scope.providerName = provider.name;
+                var providerUuid = provider.uuid;
 
-            var audits = _.map($scope.drugOrders.visitDrugOrders, function (drugOrder) {
-                return _.pick(drugOrder, 'creatorName', 'provider');
-            });
-            var auditDisplay = _.map(audits, function (audit) {
-                return audit.creatorName == audit.provider.name ? audit.provider.name : audit.creatorName + " on behalf of " + audit.provider.name;
-            });
-            $scope.displayName = _.uniq(auditDisplay)
-            if (_.isEmpty($scope.drugOrders)) {
-                $scope.$emit("no-data-present-event");
+                $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                    if(response[0].data.length > 0) {
+                        $scope.providerDesignation = response[0].data[0].designation;
+                    }
+                    $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
+                    $scope.curDate = new Date();
+                });
+            } else {
+                var params = {
+                    visitUuids: $scope.$parent.visitUuid
+                };
+                $http.get(Bahmni.Common.Constants.bahmniLabOrderResultsUrl, {
+                    method: "GET",
+                    params: params,
+                    withCredentials: true
+                }).success(function (response) {
+                    $scope.investigationResults = response.results;
+                });
             }
-
-            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
-            $scope.curDate = new Date();
         }));
+        var getProviderDesignation = function (providerUuid) {
+            var params = {
+                q: "bahmni.sqlGet.providerDesignation2",
+                v: "full",
+                providerUuid: providerUuid
+            };
+            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
+                method: "GET",
+                params: params,
+                withCredentials: true
+            });
+        };
     }
 
     return {
@@ -224,21 +247,23 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>',
     }
-}])
-    .directive('medicalFooter', ['observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
+}]).directive('medicalFooter', ['observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
         var link = function ($scope) {
 
             var conceptNames = ["Medical Certificate, Suffering From"];
             spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
-                var providerUuid = response.data[0].providers[0].uuid;
-                $scope.providerName = response.data[0].providers[0].name;
+                if(response.data.length > 0) {
+                    var providerUuid = response.data[0].providers[0].uuid;
+                    $scope.providerName = response.data[0].providers[0].name;
 
-
-                $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                    $scope.providerDesignation = response[0].data[0].designation;
-                    $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
-                    $scope.curDate = new Date();
-                });
+                    $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                        if(response[0].data.length > 0) {
+                            $scope.providerDesignation = response[0].data[0].designation;
+                        }
+                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
+                        $scope.curDate = new Date();
+                    });
+                }
             }));
             var getProviderDesignation = function (providerUuid) {
                 var params = {
@@ -335,20 +360,11 @@ angular.module('bahmni.common.displaycontrol.custom')
         spinner.forPromise(treatmentService.getPrescribedAndActiveDrugOrders($scope.patient.uuid, undefined, false, [$scope.visitUuid]).then(function (response) {
             $scope.drugOrders = response.data;
 
-            var audits = _.map($scope.drugOrders.visitDrugOrders, function (drugOrder) {
-                return _.pick(drugOrder, 'creatorName', 'provider');
-            });
-            var auditDisplay = _.map(audits, function (audit) {
-                return audit.creatorName == audit.provider.name ? audit.provider.name : audit.creatorName + " on behalf of " + audit.provider.name;
-            });
-            $scope.displayName = _.uniq(auditDisplay);
             $scope.frequencyList = [];
             $scope.frequencyList["Once a day"] = "";
             if ($scope.drugOrders.visitDrugOrders.length == 0) {
                 $scope.isDataAvailable = false;
             }
-
-
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/treatmentPrescription.html";
             $scope.curDate = new Date();
         }));
@@ -430,42 +446,42 @@ angular.module('bahmni.common.displaycontrol.custom')
             template: '<ng-include src="contentUrl"/>'
         }
     }]).directive('dischargedAdvice', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
-    var link = function ($scope) {
-        var conceptNames = ["Additional advice"];
-        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
-            $scope.observations = response.data;
-            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedAdvice.html";
-        }));
-    };
+        var link = function ($scope) {
+            var conceptNames = ["Additional advice"];
+            spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+                $scope.observations = response.data;
+                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedAdvice.html";
+            }));
+        };
 
-    return {
-        restrict: 'E',
-        template: '<ng-include src="contentUrl"/>',
-        link: link
-    }
+        return {
+            restrict: 'E',
+            template: '<ng-include src="contentUrl"/>',
+            link: link
+        }
 }]).directive('dischargedSurgicalNote', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
-    var link = function ($scope) {
-        var conceptNames = ["OT Surgery Notes", "Radiology Notes"];
-        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
-            if (response.data.length > 0) {
-                for (var i = 0; i < response.data.length; i++) {
-                    if (response.data[i].concept.name == 'OT Surgery Notes') {
-                        $scope.otSurgicalNote = response.data[i].value;
-                    }
-                    if (response.data[i].concept.name == 'Radiology Notes') {
-                        $scope.radiologyNote = response.data[i].value;
+        var link = function ($scope) {
+            var conceptNames = ["OT Surgery Notes", "Radiology Notes"];
+            spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+                if (response.data.length > 0) {
+                    for (var i = 0; i < response.data.length; i++) {
+                        if (response.data[i].concept.name == 'OT Surgery Notes') {
+                            $scope.otSurgicalNote = response.data[i].value;
+                        }
+                        if (response.data[i].concept.name == 'Radiology Notes') {
+                            $scope.radiologyNote = response.data[i].value;
+                        }
                     }
                 }
-            }
-            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedSurgicalNote.html";
-        }));
-    };
+                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedSurgicalNote.html";
+            }));
+        };
 
-    return {
-        restrict: 'E',
-        template: '<ng-include src="contentUrl"/>',
-        link: link
-    }
+        return {
+            restrict: 'E',
+            template: '<ng-include src="contentUrl"/>',
+            link: link
+        }
 }]).directive('dischargedFollowUpPlan', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
         var conceptNames = ["Follow up After", "Duration Coded Units"];
