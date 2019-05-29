@@ -198,8 +198,8 @@ angular.module('bahmni.common.displaycontrol.custom')
         },
         template: '<ng-include src="contentUrl"/>',
     }
-}]).directive('prescriptionFooter', ['treatmentService', 'labOrderResultService', 'visitService', 'appService', 'spinner', '$q', '$http',
-    function (treatmentService, labOrderResultService, visitService, appService, spinner, $q, $http) {
+}]).directive('prescriptionFooter', ['observationsService', 'treatmentService', 'labOrderResultService', 'visitService', 'appService', 'spinner', '$q', '$http',
+    function (observationsService, treatmentService, labOrderResultService, visitService, appService, spinner, $q, $http) {
     var link = function ($scope) {
         spinner.forPromise(treatmentService.getPrescribedAndActiveDrugOrders($scope.patient.uuid, undefined, false, [$scope.visitUuid]).then(function (response) {
             if(response.data.visitDrugOrders.length > 0) {
@@ -233,19 +233,19 @@ angular.module('bahmni.common.displaycontrol.custom')
                 }).success(function (response) {
                     if(response.results.length > 0) {
                         var orderUuid = response.results[0].orderUuid;
-                        if(orderUuid) {
+                        if (orderUuid) {
                             $q.all([getProviderUuid(orderUuid)]).then(function (response) {
-                                if(response[0].data.length > 0) {
+                                if (response[0].data.length > 0) {
                                     var providerUuid = response[0].data[0].uuid;
                                     $scope.providerName = response[0].data[0].given_name + (response[0].data[0].middle_name ? (' ' + response[0].data[0].middle_name) : '') + ' ' + response[0].data[0].family_name;
-                                    if(providerUuid) {
+                                    if (providerUuid) {
                                         $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                                            if(response[0].data.length > 0) {
-                                                for(var i=0; i < response[0].data.length; i++) {
-                                                    if(response[0].data[i].name == 'Designation') {
+                                            if (response[0].data.length > 0) {
+                                                for (var i = 0; i < response[0].data.length; i++) {
+                                                    if (response[0].data[i].name == 'Designation') {
                                                         $scope.providerDesignation = response[0].data[i].value_reference;
                                                     }
-                                                    if(response[0].data[i].name == 'BMDC Number') {
+                                                    if (response[0].data[i].name == 'BMDC Number') {
                                                         $scope.providerBMDCNumber = response[0].data[i].value_reference;
                                                     }
                                                 }
@@ -256,30 +256,30 @@ angular.module('bahmni.common.displaycontrol.custom')
                                     }
                                 }
                             });
-                        } else {
-                            var conceptNames = ["Consultation Note"];
-                            spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
-                                if(response.data.length > 0) {
-                                    var providerUuid = response.data[0].providers[0].uuid;
-                                    $scope.providerName = response.data[0].providers[0].name;
+                        }
+                    } else {
+                        var conceptNames = ["Consultation Note"];
+                        spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
+                            if(response.data.length > 0) {
+                                var providerUuid = response.data[0].providers[0].uuid;
+                                $scope.providerName = response.data[0].providers[0].name;
 
-                                    $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                                        if(response[0].data.length > 0) {
-                                            for(var i=0; i < response[0].data.length; i++) {
-                                                if(response[0].data[i].name == 'Designation') {
-                                                    $scope.providerDesignation = response[0].data[i].value_reference;
-                                                }
-                                                if(response[0].data[i].name == 'BMDC Number') {
-                                                    $scope.providerBMDCNumber = response[0].data[i].value_reference;
-                                                }
+                                $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                                    if(response[0].data.length > 0) {
+                                        for(var i=0; i < response[0].data.length; i++) {
+                                            if(response[0].data[i].name == 'Designation') {
+                                                $scope.providerDesignation = response[0].data[i].value_reference;
+                                            }
+                                            if(response[0].data[i].name == 'BMDC Number') {
+                                                $scope.providerBMDCNumber = response[0].data[i].value_reference;
                                             }
                                         }
-                                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
-                                        $scope.curDate = new Date();
-                                    });
-                                }
-                            }));
-                        }
+                                    }
+                                    $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
+                                    $scope.curDate = new Date();
+                                });
+                            }
+                        }));
                     }
                 });
             }
