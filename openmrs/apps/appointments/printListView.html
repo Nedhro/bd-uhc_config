@@ -35,6 +35,7 @@
         <table cellpadding="2" cellspacing="0">
             <thead>
             <tr>
+                <th>Serial</th>
                 <th>{{::'APPOINTMENT_PATIENT_ID' |translate}}</th>
                 <th class="table-mid-width">{{::'APPOINTMENT_PATIENT_NAME' |translate}}</th>
                 <th ng-if="searchedPatient" class="width-change">{{::'APPOINTMENT_DATE' |translate}}</th>
@@ -50,6 +51,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="appointment in filteredAppointments">
+                <td>{{$index + 1}}</td>
                 <td>{{::appointment.patient.identifier}}</td>
                 <td class="table-mid-width">{{::appointment.patient.name | titleCase}}</td>
                 <td ng-if="searchedPatient">{{::appointment.startDateTime | bahmniDate}}</td>
