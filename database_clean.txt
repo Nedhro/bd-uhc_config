@@ -1,0 +1,46 @@
+Database Clean Up
+
+Remove unnecessary person_name
+delete p.* from person_name p where person_id not in (select u.person_id from users as u) and
+person_id not in (select pa.patient_id as person_id from patient as pa);
+
+Remove unnecessary provider_id_mapping
+delete from provider_id_mapping where 1 = 1;
+
+
+Remove unnecessary  provider_attribute
+delete p.* from provider_attribute p where provider_id not in
+(select pr.provider_id from provider as pr join users as u on u.person_id =pr.person_id);
+
+Remove unnecessary  Provider
+select p.* from provider p where person_id not in (select u.person_id from users as u);
+
+& select all rows & delete from mysql browser manually
+
+
+
+Remove Person
+delete p.* from person p where person_id not in (select u.person_id from users as u)
+and person_id not in (select pa.patient_id as person_id from patient as pa);
+
+
+Remove Facility Casement
+delete fac.* from facility_catchment fac where fac.location_id not in
+(select lp.location_id from location as lp where lp.name like "Sajida Health Center-Keraniganj%")
+and fac.location_id not in (select lc.location_id from location as lc join location as pl
+on pl.location_id = lc.parent_location);
+
+
+Remove location_tag_map
+delete loc.* from location_tag_map loc where loc.location_id not in
+(select lp.location_id from location as lp where lp.name like "Sajida Health Center-Keraniganj%")
+and loc.location_id not in (select lc.location_id from location as lc join location as pl
+on pl.location_id = lc.parent_location);
+
+Remove Location
+select loc.* from location loc where loc.location_id not in
+(select lp.location_id from location as lp where lp.name like "Sajida Health Center-Keraniganj%")
+and loc.location_id not in (select lc.location_id from location as lc join location as pl
+on pl.location_id = lc.parent_location);
+
+& select all rows & delete from mysql browser manually
