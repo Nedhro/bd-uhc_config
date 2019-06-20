@@ -13,7 +13,7 @@ delete p.* from provider_attribute p where provider_id not in
 (select pr.provider_id from provider as pr join users as u on u.person_id =pr.person_id);
 
 Remove unnecessary  Provider
-select p.* from provider p where person_id not in (select u.person_id from users as u);
+select p.* from provider p where person_id not in (select u.person_id from users as u) or person_id is null;
 
 & select all rows & delete from mysql browser manually
 
