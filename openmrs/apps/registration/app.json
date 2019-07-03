@@ -22,24 +22,7 @@
   ],
   "config": {
     "forwardUrlsForVisitTypes": [
-      {
-        "visitType": "emergency",
-        "forwardUrl": "../registration/index.html#/patient/new",
-        "translationKey": "Enter Visit page details",
-        "shortcutKey": "c"
-      },
-      {
-        "visitType": "outpatient",
-        "forwardUrl": "../registration/index.html#/patient/new",
-        "translationKey": "Enter Visit page details",
-        "shortcutKey": "c"
-      },
-      {
-        "visitType": "inpatient",
-        "forwardUrl": "../registration/index.html#/patient/new",
-        "translationKey": "Enter Visit page details",
-        "shortcutKey": "c"
-      }
+
     ],
     "mandatoryPersonAttributes": [
       "phoneNumber",

@@ -36,19 +36,5 @@
         "extensionPointId": "org.bahmni.patient.registration.birthTime",
         "type": "config",
         "showBirthTime": true
-    },
-     "bahmni_registration_conceptsetgroup_visitdetails": {
-        "id": "bahmni.registration.conceptSetGroup.visitDetails",
-        "extensionPointId": "org.bahmni.registration.conceptSetGroup.observations",
-        "type": "config",
-        "extensionParams": {
-            "conceptName": "Visit Details",
-            "autocomplete": true,
-            "required": true
-          
-        },
-        "order": 1,
-        "requiredPrivilege": "Edit Visits"
     }
-    
 }
