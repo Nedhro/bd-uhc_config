@@ -20,7 +20,10 @@
         "defaultVisitType": "IPD",
         "expectedDateOfDischarge": "IPD Intended Discharge",
         "conceptSetUI": {
-
+            "Expected Date of Discharge": {
+                "disableAddNotes": true,
+                "allowFutureDates": true
+            }
         },
         "hideStartNewVisitPopUp": false,
         "dashboard": {
