@@ -401,7 +401,3 @@ delete from concept_set where concept_set= @all_Observation_templates and concep
                                                                                          @IMCI_two_month_five_year,@breast_cancer_screening,@cervical_cancer,@diarrhoea_template,
                                                                                          @Animal_bite,@eye_examination);
 
---- create visit type ---
-
-insert into visit_type (name, description, creator, date_created, changed_by, date_changed, retired, retired_by, date_retired, retire_reason, uuid)
-values ("Close","To enable registration second page",1,now(),1,null,0,null,null,null,uuid());
