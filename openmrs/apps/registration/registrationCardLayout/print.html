@@ -14,20 +14,24 @@
             </table>
             <table class="padding-small">
                 <tr>
-                    <td class="data-td">
-                        <span class="label_tag">Name: </span>
-                        <span>{{patient.givenName + (patient.middleName ? (" " + patient.middleName) : "") + (patient.familyName ? (" " + patient.familyName) : "")}}</span>
-                    </td>
-                </tr>
-            </table>
-            <table class="padding-small">
-                <tr>
-                    <td width="35%">
+                    <td width="65%">
                         <table>
+                            <tr>
+                                <td class="data-td">
+                                    <span class="label_tag">Name: </span>
+                                    <span>{{patient.givenName + (patient.middleName ? (" " + patient.middleName) : "") + (patient.familyName ? (" " + patient.familyName) : "")}}</span>
+                                </td>
+                            </tr>
                             <tr>
                                 <td class="data-td">
                                     <span class="label_tag">Patient Id: </span>
                                     <span>{{patient.primaryIdentifier.identifier}}</span>
+                                </td>
+                                <td class="data-td"> </td>
+                                <td class="data-td"> </td>
+                                <td class="data-td">
+                                    <span class="label_tag">Issue Date:</span>
+                                    <span>{{patient.registrationDate | bahmniDate}}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -41,24 +45,9 @@
                                     <span class="label_tag">Contact No:</span>
                                     <span>{{patient.phoneNumber}}</span>
                                 </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td width="2%"></td>
-                    <td width="30%">
-                        <table>
-                            <tr>
-                                <td class="data-td">
-                                    <span class="label_tag">Issue Date:</span>
-                                    <span>{{patient.registrationDate | bahmniDate}}</span>
+                                <td class="data-td"> </td>
+                                <td class="data-td"> </td>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td class="data-td">
-
-                                </td>
-                            </tr>
-                            <tr>
                                 <td class="data-td">
                                     <span class="label_tag">Gender: </span>
                                     <span>{{patient.gender}}</span>
@@ -66,13 +55,14 @@
                             </tr>
                         </table>
                     </td>
+                    <td width="2%"></td>
                     <td class="registrationCard-photo" width="30%" align="right">
                         <img ng-src="{{patient.image}}" style="width: 30mm; height: 32mm; "
                              onerror="this.onerror=null;this.src='../images/blank.jpeg';"/>
                     </td>
                 </tr>
             </table>
-            <table class="padding-small" style="border-bottom: 1px solid black; width: 100% !important;">
+            <table class="padding-small" style="border-bottom: 1px solid black; width: 100% !important; padding-bottom: 5px;">
                 <tr>
                     <td>
                         <span class="label_tag">Address:</span>
