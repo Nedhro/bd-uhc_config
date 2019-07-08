@@ -401,3 +401,13 @@ delete from concept_set where concept_set= @all_Observation_templates and concep
                                                                                          @IMCI_two_month_five_year,@breast_cancer_screening,@cervical_cancer,@diarrhoea_template,
                                                                                          @Animal_bite,@eye_examination);
 
+-- Appointment Scheduling expected date of Discharged
+call add_concept(@expected_date_of_discharged_id, @s_name_id, @f_name_id, "Expected Date of Discharge", "Expected Date of Discharge", "Date", "Misc", false);
+call add_concept(@reason_for_change_discharged, @s_name_id, @f_name_id, "Reason For Change in Discharge", "Reason For Change in Discharge", "Text", "Misc", false);
+
+
+call add_concept(@ipd_intended_discharged, @s_name_id, @f_name_id, "IPD Intended Discharge", "EDD", "N/A", "ConvSet", true);
+call add_concept_set_members(@ipd_intended_discharged, @expected_date_of_discharged_id, 1);
+call add_concept_set_members(@ipd_intended_discharged, @reason_for_change_discharged, 2);
+
+
