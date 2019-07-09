@@ -4,10 +4,6 @@ delete from account_account where 1=1;
 begin;
 alter table account_account
     drop constraint account_account_parent_id_fkey;
-alter table account_account
-    add constraint account_account_parent_id_fkey
-        foreign key (id)
-    references account_account;
 commit;
 
 insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, currency_id, user_type, active, name, level, company_id, shortcut, note, parent_id, currency_mode, type) values (4, 3, 4, 1, '2015-11-10 13:46:06.904948', '2015-11-10 13:46:06.904948', 1, 100000, 'false', null, 12, 'true', 'Fixed Asset Account', 3, 1, null, null, 3, 'current', 'other');
@@ -54,10 +50,8 @@ insert into public.account_account (id, parent_left, parent_right, create_uid, c
 
 begin;
 alter table account_account
-    drop constraint account_account_parent_id_fkey;
-alter table account_account
     add constraint account_account_parent_id_fkey
-        foreign key (id)
-            references account_account
+        foreign key (parent_id)
+            references account_account(id)
             on delete cascade;
 commit;
