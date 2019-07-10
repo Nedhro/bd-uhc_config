@@ -6,6 +6,18 @@ alter table account_account
     drop constraint account_account_parent_id_fkey;
 commit;
 
+insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, user_type, active, name, level, company_id, parent_id, currency_mode, type) values (1, 0, 9999, 1,   current_timestamp, current_timestamp, 1, 0, 'false', 1, 'true',      'SAJIDA HOSPITAL', 0, 1, null, 'current',                 'view');
+
+insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, user_type, active, name, level, company_id, parent_id, currency_mode, type) values (2, 1, 4999, 1,   current_timestamp, current_timestamp, 1, 1, 'false', 1, 'true',      'Balance Sheet', 1, 1, 1, 'current',                      'view');
+
+
+insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, user_type, active, name, level, company_id, parent_id, currency_mode, type) values (3, 5000, 9998, 1, current_timestamp, current_timestamp, 1, 2, 'false', 1, 'true',     'Profit and Loss', 1, 1, 1, 'current',                    'view');
+insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, user_type, active, name, level, company_id, parent_id, currency_mode, type) values (5001, 5001, 6000, 1, current_timestamp, current_timestamp, 1, 2, 'false', 1, 'true',     'Revenue', 1, 1, 1, 'current',                         'view');
+insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, user_type, active, name, level, company_id, parent_id, currency_mode, type) values (6001, 6001, 7000, 1, current_timestamp, current_timestamp, 1, 2, 'false', 1, 'true',     'Direct Expense', 1, 1, 1, 'current',                  'view');
+insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, user_type, active, name, level, company_id, parent_id, currency_mode, type) values (7001, 7001, 8000, 1, current_timestamp, current_timestamp, 1, 2, 'false', 1, 'true',     'In Direct Expense', 1, 1, 1, 'current',                  'view');
+
+
+
 insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, currency_id, user_type, active, name, level, company_id, shortcut, note, parent_id, currency_mode, type) values (4, 3, 4, 1,    current_timestamp, current_timestamp, 1, 100000, 'false', null, 12, 'true','Fixed Asset Account', 3, 1, null, null, 3, 'current',               'other');
 insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, currency_id, user_type, active, name, level, company_id, shortcut, note, parent_id, currency_mode, type) values (3, 2, 5, 1,    current_timestamp, current_timestamp, 1, 10, 'false', null, 12, 'true',    'Fixed Assets', 2, 1, null, null, 2, 'current',                      'view');
 insert into public.account_account (id, parent_left, parent_right, create_uid, create_date, write_date, write_uid, code, reconcile, currency_id, user_type, active, name, level, company_id, shortcut, note, parent_id, currency_mode, type) values (7, 8, 9, 1,    current_timestamp, current_timestamp, 1, 110100, 'false', null, 6, 'true', 'Purchased Stocks', 4, 1, null, null, 6, 'current',                  'other');
