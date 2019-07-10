@@ -7,7 +7,8 @@
                 <tr>
                     <td class="logo">
                         <p>
-                            <img src="/bahmni_config/openmrs/apps/registration/registrationCardLayout/images/registrationCardHeader.png" width="556"/>
+                            <img src="/bahmni_config/openmrs/apps/registration/registrationCardLayout/images/registrationCardHeader.png"
+                                 width="556"/>
                         </p>
                     </td>
                 </tr>
@@ -18,17 +19,11 @@
                         <table>
                             <tr>
                                 <td class="data-td">
-                                    <span class="label_tag">Name: </span>
-                                    <span>{{patient.givenName + (patient.middleName ? (" " + patient.middleName) : "") + (patient.familyName ? (" " + patient.familyName) : "")}}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="data-td">
                                     <span class="label_tag">Patient Id: </span>
                                     <span>{{patient.primaryIdentifier.identifier}}</span>
                                 </td>
-                                <td class="data-td"> </td>
-                                <td class="data-td"> </td>
+                                <td class="data-td"></td>
+                                <td class="data-td"></td>
                                 <td class="data-td">
                                     <span class="label_tag">Issue Date:</span>
                                     <span>{{patient.registrationDate | bahmniDate}}</span>
@@ -36,21 +31,27 @@
                             </tr>
                             <tr>
                                 <td class="data-td">
+                                    <span class="label_tag">Name: </span>
+                                    <span>{{patient.givenName + (patient.middleName ? (" " + patient.middleName) : "") + (patient.familyName ? (" " + patient.familyName) : "")}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="data-td">
                                     <span class="label_tag">Age: </span>
                                     <span>{{patient.age | age}}</span>
+                                </td>
+                                <td class="data-td"></td>
+                                <td class="data-td"></td>
+                                </td>
+                                <td class="data-td">
+                                    <span class="label_tag">Gender: </span>
+                                    <span>{{patient.gender}}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="data-td">
                                     <span class="label_tag">Contact No:</span>
                                     <span>{{patient.phoneNumber}}</span>
-                                </td>
-                                <td class="data-td"> </td>
-                                <td class="data-td"> </td>
-                                </td>
-                                <td class="data-td">
-                                    <span class="label_tag">Gender: </span>
-                                    <span>{{patient.gender}}</span>
                                 </td>
                             </tr>
                         </table>
@@ -62,7 +63,8 @@
                     </td>
                 </tr>
             </table>
-            <table class="padding-small" style="border-bottom: 1px solid black; width: 100% !important; padding-bottom: 5px;">
+            <table class="padding-small"
+                   style="border-bottom: 1px solid black; width: 100% !important; padding-bottom: 5px;">
                 <tr>
                     <td>
                         <span class="label_tag">Address:</span>
@@ -80,23 +82,24 @@
             </table>
             <table>
                 <tr>
-                   <td align="center" style="padding: 5px">
-                       <img id="barcode"
-                            jsbarcode-value="{{patient.primaryIdentifier.identifier}}"
-                            jsbarcode-width="3"
-                            jsbarcode-height="100"
-                            jsbarcode-margin="0"
-                            jsbarcode-displayValue="false"
-                            jsbarcode-textAlign="left"
-                            jsbarcode-textMargin="0"
-                            jsbarcode-fontSize="10"
+                    <td align="center" style="padding: 5px">
+                        <img id="barcode"
+                             jsbarcode-value="{{patient.primaryIdentifier.identifier}}"
+                             jsbarcode-width="3"
+                             jsbarcode-height="100"
+                             jsbarcode-margin="0"
+                             jsbarcode-displayValue="false"
+                             jsbarcode-textAlign="left"
+                             jsbarcode-textMargin="0"
+                             jsbarcode-fontSize="10"
 
-                       />
-                   </td>
+                        />
+                    </td>
                 </tr>
                 <tr>
                     <td align="center">
-                        <p style="text-align: center;">{{ "REGISTRATION_SLIP_DISCLAIMER" | translate }}<p>
+                        <p style="text-align: center;">{{ "REGISTRATION_SLIP_DISCLAIMER" | translate }}
+                        <p>
                     </td>
                 </tr>
             </table>
@@ -107,7 +110,7 @@
 
 <script type="text/javascript" src="/bahmni_config/openmrs/apps/JsBarcode.all.min.js"></script>
 <script>
-    (function() {
+    (function () {
         JsBarcode("#barcode").init();
     })();
 </script>
