@@ -55,6 +55,10 @@ form.get('ANC, Bishop Scoring Result').setValue(score);
 }
 
 3.Open Elislab logo upload
+   To configure hospital logo - add the logo image in <implementation>_config/openelis/images folder
+   in the name of  labLogo.jpg as the name of the image file. (Puppet deploy will take care that it
+   is added to the right folder to be picked up from for the report).
+                       Or
    step_1: In the OpenELIS, go to Administration section
    step_2: Edit "lab logo" to  upload the Logo file from the bellow path
    bd_uhc_config/openelis/images folder in the name of  labLogo.jpg
