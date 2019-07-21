@@ -73,11 +73,11 @@
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard?encounterUuid=active",
            "translationKey": "Active"
         },
-         
+
         "order": 1,
         "requiredPrivilege": "app:clinical"
     },
-   
+
     "bahmni_clinical_patients_search_allpatients_all_app:clinical": {
         "id": "bahmni.clinical.patients.search.allPatients",
         "extensionPointId": "org.bahmni.patient.search",
@@ -86,9 +86,9 @@
             "display": "All",
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard?encounterUuid=active",
             "translationKey": "All"
-            
+
         },
-        
+
         "order": 2,
         "requiredPrivilege": "app:clinical"
 
@@ -100,9 +100,9 @@
         "extensionParams": {
            "conceptName" : "Condition Complaint Template",
 	   "default" : "true",
-	   "isOpen" : "true" 
+	   "isOpen" : "true"
         },
-        "order": 1, 
+        "order": 1,
         "requiredPrivilege": "app:clinical"
     },
      "bahmni_clinical_conceptsetgroup_observations_basic_examination_details:clinical": {
@@ -112,9 +112,9 @@
         "extensionParams": {
            "conceptName" : "Vitals",
 	   "default" : "true",
-	   "isOpen" : "true" 
+	   "isOpen" : "true"
         },
-        "order": 2, 
+        "order": 2,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalTreatmentLinks": {
@@ -134,6 +134,18 @@
         "url": "http://192.168.33.11:8069/quotations/latest?patient_ref={{patient_ref}}&amp;dispensed=true&amp;location_ref={{location_ref}}",
         "shortcutKey": "q",
         "requiredPrivilege": "app:billing"
+    },
+    "bahmniClinicalPatientsASearchActivePatientsByProvider": {
+        "id": "bahmni.clinical.patients.search.activePatientsByProvider",
+        "extensionPointId": "org.bahmni.patient.search",
+        "type": "config",
+        "extensionParams": {
+            "searchHandler": "emrapi.sqlSearch.activePatientsByProvider",
+            "translationKey": "MODULE_LABEL_MY_PATIENTS_KEY",
+            "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard"
+        },
+        "label": "Active",
+        "order": 2,
+        "requiredPrivilege": "app:clinical"
     }
-   
 }
