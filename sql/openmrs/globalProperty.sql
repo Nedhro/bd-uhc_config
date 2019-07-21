@@ -13,3 +13,4 @@ insert into global_property(property, property_value, uuid)
 VALUES("bahmni.sqlGet.orderUuid", "select p.uuid as uuid, pn.given_name, pn.middle_name, pn.family_name from orders as o join provider p on o.orderer = p.provider_id join person_name pn on pn.person_id = p.person_id where o.uuid=${orderUuid};", uuid());
 
 
+update global_property set property_value = '{"provider":["Doctor"]}' where property = "bahmni.relationshipTypeMap";
