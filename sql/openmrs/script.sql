@@ -415,3 +415,4 @@ insert into relationship_type (a_is_to_b, b_is_to_a,creator, description,retired
     value ('Doctor','Patient',6,'Relationship from a primary care provider to the patient',0,now(),uuid());
 
 
+update concept_numeric set units='Inch' where concept_id=(select concept_id from concept_name where name="Height" and concept_name_type="FULLY_SPECIFIED");
