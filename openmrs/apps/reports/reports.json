@@ -1,23 +1,30 @@
 {
   "visittypereport": {
-    "name": "Visit Count Report",
+    "name": "Total patient Report - Visit Type wise",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/visittypecount.sql"
     }
   },
   "thanaWisePatientList": {
-    "name": "Thana Wise Patient Count",
+    "name": "Total patient Report - Thana Wise",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/thanaWisePatientList.sql"
     }
   },
   "categoryWisePatient": {
-    "name": "Patient Category Wise Report",
+    "name": "Total patient Report - Patient Category Wise",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/categoryWisePatient.sql"
+    }
+  },
+  "categoryWiseRepeatedPatient": {
+    "name": "Total patient Report - Repeated Patient Category Wise",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/categoryWiseRepeatedPatient.sql"
     }
   }
 }
