@@ -26,5 +26,12 @@
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/categoryWiseRepeatedPatient.sql"
     }
+  },
+  "doctorWisePatientList": {
+    "name": "Doctor Report - Total Patient Wise ",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/doctorWisePatientList.sql"
+    }
   }
 }
