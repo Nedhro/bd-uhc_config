@@ -17,3 +17,18 @@ update concept_name set name = "Hospital Campaigning" where concept_name_type = 
 -- Remove Black List
 delete from concept_answer where concept_id = (select foreign_key from person_attribute_type where name = "alarmingField")
     and answer_concept =(select concept_id from concept_name where name = 'Blacklist' and concept_name_type = 'FULLY_SPECIFIED');
+
+--medication instruction
+update concept_name set name = "খাওয়ার আগে" where name = "Before meals" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "খালি পেটে" where name = "Empty stomach" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "খাওয়ার পরে" where name = "After meals" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "সকালে" where name = "In the morning" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "সন্ধ্যায়" where name = "In the evening" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "শয়নকালে" where name = "At bedtime" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "অবিলম্বে" where name = "Immediately" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "নির্দেশ অনুসারে" where name = "As directed" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "সকালে, খালি পেটে" where name = "In the morning, Empty stomach" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "সকালে, খাওয়ার পরে" where name = "	In the morning, After meals" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "সকালে, খাওয়ার আগে" where name = "In the morning, Before meals" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "সন্ধ্যায়, খাওয়ার পরে" where name = "	In the evening, After meals" and concept_name_type ="FULLY_SPECIFIED";
+update concept_name set name = "সন্ধ্যায়, খাওয়ার আগে" where name = "In the evening, Before meals" and concept_name_type ="FULLY_SPECIFIED";
