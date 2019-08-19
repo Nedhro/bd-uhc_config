@@ -200,143 +200,87 @@ angular.module('bahmni.common.displaycontrol.custom')
     }
 }]).directive('prescriptionFooter', ['observationsService', 'treatmentService', 'labOrderResultService', 'visitService', 'appService', 'spinner', '$q', '$http',
     function (observationsService, treatmentService, labOrderResultService, visitService, appService, spinner, $q, $http) {
-    var link = function ($scope) {
-        spinner.forPromise(treatmentService.getPrescribedAndActiveDrugOrders($scope.patient.uuid, undefined, false, [$scope.visitUuid]).then(function (response) {
-            if(response.data.visitDrugOrders.length > 0) {
-                var visitDrugOrders = response.data.visitDrugOrders[0];
-                var provider = visitDrugOrders.provider;
-                $scope.providerName = provider.name;
-                var providerUuid = provider.uuid;
-
-                $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                    if(response[0].data.length > 0) {
-                        for(var i=0; i < response[0].data.length; i++) {
-                            if(response[0].data[i].name == 'Designation') {
-                                $scope.providerDesignation = response[0].data[i].value_reference;
-                            }
-                            if(response[0].data[i].name == 'BMDC Number') {
-                                $scope.providerBMDCNumber = response[0].data[i].value_reference;
-                            }
-                        }
-                    }
-                    $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
-                    $scope.curDate = new Date();
-                });
-            } else {
-                var params = {
-                    visitUuids: $scope.$parent.visitUuid
-                };
-                $http.get(Bahmni.Common.Constants.bahmniLabOrderResultsUrl, {
-                    method: "GET",
-                    params: params,
-                    withCredentials: true
-                }).success(function (response) {
-                    if(response.results.length > 0) {
-                        var orderUuid = response.results[0].orderUuid;
-                        if (orderUuid) {
-                            $q.all([getProviderUuid(orderUuid)]).then(function (response) {
-                                if (response[0].data.length > 0) {
-                                    var providerUuid = response[0].data[0].uuid;
-                                    $scope.providerName = response[0].data[0].given_name + (response[0].data[0].middle_name ? (' ' + response[0].data[0].middle_name) : '') + ' ' + response[0].data[0].family_name;
-                                    if (providerUuid) {
-                                        $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                                            if (response[0].data.length > 0) {
-                                                for (var i = 0; i < response[0].data.length; i++) {
-                                                    if (response[0].data[i].name == 'Designation') {
-                                                        $scope.providerDesignation = response[0].data[i].value_reference;
-                                                    }
-                                                    if (response[0].data[i].name == 'BMDC Number') {
-                                                        $scope.providerBMDCNumber = response[0].data[i].value_reference;
-                                                    }
-                                                }
-                                            }
-                                            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
-                                            $scope.curDate = new Date();
-                                        });
-                                    }
-                                }
-                            });
-                        }
-                    } else {
-                        var conceptNames = ["Consultation Note"];
-                        spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
-                            if(response.data.length > 0) {
-                                var providerUuid = response.data[0].providers[0].uuid;
-                                $scope.providerName = response.data[0].providers[0].name;
-
-                                $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                                    if(response[0].data.length > 0) {
-                                        for(var i=0; i < response[0].data.length; i++) {
-                                            if(response[0].data[i].name == 'Designation') {
-                                                $scope.providerDesignation = response[0].data[i].value_reference;
-                                            }
-                                            if(response[0].data[i].name == 'BMDC Number') {
-                                                $scope.providerBMDCNumber = response[0].data[i].value_reference;
-                                            }
-                                        }
-                                    }
-                                    $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
-                                    $scope.curDate = new Date();
-                                });
-                            }
-                        }));
-                    }
-                });
-            }
-        }));
-        var getProviderDesignation = function (providerUuid) {
-            var params = {
-                q: "bahmni.sqlGet.providerDesignation2",
-                v: "full",
-                providerUuid: providerUuid
-            };
-            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
-                method: "GET",
-                params: params,
-                withCredentials: true
-            });
-        };
-        var getProviderUuid = function (orderUuid) {
-            var params = {
-                q: "bahmni.sqlGet.orderUuid",
-                v: "full",
-                orderUuid: orderUuid
-            };
-            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
-                method: "GET",
-                params: params,
-                withCredentials: true
-            });
-        };
-    }
-
-    return {
-        restrict: 'E',
-        link: link,
-        template: '<ng-include src="contentUrl"/>',
-    }
-}]).directive('medicalFooter', ['observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
         var link = function ($scope) {
-
-            var conceptNames = ["Medical Certificate, Suffering From"];
-            spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
-                if(response.data.length > 0) {
-                    var providerUuid = response.data[0].providers[0].uuid;
-                    $scope.providerName = response.data[0].providers[0].name;
+            spinner.forPromise(treatmentService.getPrescribedAndActiveDrugOrders($scope.patient.uuid, undefined, false, [$scope.visitUuid]).then(function (response) {
+                if (response.data.visitDrugOrders.length > 0) {
+                    var visitDrugOrders = response.data.visitDrugOrders[0];
+                    var provider = visitDrugOrders.provider;
+                    $scope.providerName = provider.name;
+                    var providerUuid = provider.uuid;
 
                     $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                        if(response[0].data.length > 0) {
-                            for(var i=0; i < response[0].data.length; i++) {
-                                if(response[0].data[i].name == 'Designation') {
+                        if (response[0].data.length > 0) {
+                            for (var i = 0; i < response[0].data.length; i++) {
+                                if (response[0].data[i].name == 'Designation') {
                                     $scope.providerDesignation = response[0].data[i].value_reference;
                                 }
-                                if(response[0].data[i].name == 'BMDC Number') {
+                                if (response[0].data[i].name == 'BMDC Number') {
                                     $scope.providerBMDCNumber = response[0].data[i].value_reference;
                                 }
                             }
                         }
-                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
+                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
                         $scope.curDate = new Date();
+                    });
+                } else {
+                    var params = {
+                        visitUuids: $scope.$parent.visitUuid
+                    };
+                    $http.get(Bahmni.Common.Constants.bahmniLabOrderResultsUrl, {
+                        method: "GET",
+                        params: params,
+                        withCredentials: true
+                    }).success(function (response) {
+                        if (response.results.length > 0) {
+                            var orderUuid = response.results[0].orderUuid;
+                            if (orderUuid) {
+                                $q.all([getProviderUuid(orderUuid)]).then(function (response) {
+                                    if (response[0].data.length > 0) {
+                                        var providerUuid = response[0].data[0].uuid;
+                                        $scope.providerName = response[0].data[0].given_name + (response[0].data[0].middle_name ? (' ' + response[0].data[0].middle_name) : '') + ' ' + response[0].data[0].family_name;
+                                        if (providerUuid) {
+                                            $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                                                if (response[0].data.length > 0) {
+                                                    for (var i = 0; i < response[0].data.length; i++) {
+                                                        if (response[0].data[i].name == 'Designation') {
+                                                            $scope.providerDesignation = response[0].data[i].value_reference;
+                                                        }
+                                                        if (response[0].data[i].name == 'BMDC Number') {
+                                                            $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                                        }
+                                                    }
+                                                }
+                                                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
+                                                $scope.curDate = new Date();
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
+                            var conceptNames = ["Consultation Note"];
+                            spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
+                                if (response.data.length > 0) {
+                                    var providerUuid = response.data[0].providers[0].uuid;
+                                    $scope.providerName = response.data[0].providers[0].name;
+
+                                    $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                                        if (response[0].data.length > 0) {
+                                            for (var i = 0; i < response[0].data.length; i++) {
+                                                if (response[0].data[i].name == 'Designation') {
+                                                    $scope.providerDesignation = response[0].data[i].value_reference;
+                                                }
+                                                if (response[0].data[i].name == 'BMDC Number') {
+                                                    $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                                }
+                                            }
+                                        }
+                                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
+                                        $scope.curDate = new Date();
+                                    });
+                                }
+                            }));
+                        }
                     });
                 }
             }));
@@ -352,6 +296,18 @@ angular.module('bahmni.common.displaycontrol.custom')
                     withCredentials: true
                 });
             };
+            var getProviderUuid = function (orderUuid) {
+                var params = {
+                    q: "bahmni.sqlGet.orderUuid",
+                    v: "full",
+                    orderUuid: orderUuid
+                };
+                return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
+                    method: "GET",
+                    params: params,
+                    withCredentials: true
+                });
+            };
         }
 
         return {
@@ -359,23 +315,67 @@ angular.module('bahmni.common.displaycontrol.custom')
             link: link,
             template: '<ng-include src="contentUrl"/>',
         }
-    }])
+    }]).directive('medicalFooter', ['observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
+    var link = function ($scope) {
+
+        var conceptNames = ["Medical Certificate, Suffering From"];
+        spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
+            if (response.data.length > 0) {
+                var providerUuid = response.data[0].providers[0].uuid;
+                $scope.providerName = response.data[0].providers[0].name;
+
+                $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
+                    if (response[0].data.length > 0) {
+                        for (var i = 0; i < response[0].data.length; i++) {
+                            if (response[0].data[i].name == 'Designation') {
+                                $scope.providerDesignation = response[0].data[i].value_reference;
+                            }
+                            if (response[0].data[i].name == 'BMDC Number') {
+                                $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                            }
+                        }
+                    }
+                    $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/medicalFooter.html";
+                    $scope.curDate = new Date();
+                });
+            }
+        }));
+        var getProviderDesignation = function (providerUuid) {
+            var params = {
+                q: "bahmni.sqlGet.providerDesignation2",
+                v: "full",
+                providerUuid: providerUuid
+            };
+            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
+                method: "GET",
+                params: params,
+                withCredentials: true
+            });
+        };
+    }
+
+    return {
+        restrict: 'E',
+        link: link,
+        template: '<ng-include src="contentUrl"/>',
+    }
+}])
     .directive('dischargedFooter', ['observationsService', '$q', 'appService', 'spinner', '$http', function (observationsService, $q, appService, spinner, $http) {
         var link = function ($scope) {
 
             var conceptNames = ["Inpatient Outcome"];
             spinner.forPromise(observationsService.fetch($scope.$parent.patient.uuid, conceptNames, "latest", undefined, $scope.$parent.visitUuid, undefined).then(function (response) {
-                if(response.data.length > 0) {
+                if (response.data.length > 0) {
                     var providerUuid = response.data[0].providers[0].uuid;
                     $scope.providerName = response.data[0].providers[0].name;
 
                     $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
-                        if(response[0].data.length > 0) {
-                            for(var i=0; i < response[0].data.length; i++) {
-                                if(response[0].data[i].name == 'Designation') {
+                        if (response[0].data.length > 0) {
+                            for (var i = 0; i < response[0].data.length; i++) {
+                                if (response[0].data[i].name == 'Designation') {
                                     $scope.providerDesignation = response[0].data[i].value_reference;
                                 }
-                                if(response[0].data[i].name == 'BMDC Number') {
+                                if (response[0].data[i].name == 'BMDC Number') {
                                     $scope.providerBMDCNumber = response[0].data[i].value_reference;
                                 }
                             }
@@ -502,7 +502,9 @@ angular.module('bahmni.common.displaycontrol.custom')
             "        <span style='padding-left: 15px'>{{dosageFrequency}}</span>" +
             "        ({{instruction}})" +
             "         <span style='padding-left: 10px'>-{{drugOrder.duration}}</span>" +
-            "         <span>{{drugOrder.durationUnits}}</span>" +
+            "         <span ng-if = 'drugOrder.durationUnits == \"Day(s)\"'>দিন</span>" +
+            "         <span ng-if = 'drugOrder.durationUnits == \"Week(s)\"'>সপ্তাহ</span>" +
+            "         <span ng-if = 'drugOrder.durationUnits == \"Month(s)\"'>মাস</span>" +
             "        <br/><br/>"
     };
 }).directive('labInvestigation', ['appService', 'labOrderResultService', 'treatmentService', 'visitService', 'spinner', '$http',
@@ -528,42 +530,42 @@ angular.module('bahmni.common.displaycontrol.custom')
             template: '<ng-include src="contentUrl"/>'
         }
     }]).directive('dischargedAdvice', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
-        var link = function ($scope) {
-            var conceptNames = ["Additional advice"];
-            spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
-                $scope.observations = response.data;
-                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedAdvice.html";
-            }));
-        };
+    var link = function ($scope) {
+        var conceptNames = ["Additional advice"];
+        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            $scope.observations = response.data;
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedAdvice.html";
+        }));
+    };
 
-        return {
-            restrict: 'E',
-            template: '<ng-include src="contentUrl"/>',
-            link: link
-        }
+    return {
+        restrict: 'E',
+        template: '<ng-include src="contentUrl"/>',
+        link: link
+    }
 }]).directive('dischargedSurgicalNote', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
-        var link = function ($scope) {
-            var conceptNames = ["OT Surgery Notes", "Radiology Notes"];
-            spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
-                if (response.data.length > 0) {
-                    for (var i = 0; i < response.data.length; i++) {
-                        if (response.data[i].concept.name == 'OT Surgery Notes') {
-                            $scope.otSurgicalNote = response.data[i].value;
-                        }
-                        if (response.data[i].concept.name == 'Radiology Notes') {
-                            $scope.radiologyNote = response.data[i].value;
-                        }
+    var link = function ($scope) {
+        var conceptNames = ["OT Surgery Notes", "Radiology Notes"];
+        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            if (response.data.length > 0) {
+                for (var i = 0; i < response.data.length; i++) {
+                    if (response.data[i].concept.name == 'OT Surgery Notes') {
+                        $scope.otSurgicalNote = response.data[i].value;
+                    }
+                    if (response.data[i].concept.name == 'Radiology Notes') {
+                        $scope.radiologyNote = response.data[i].value;
                     }
                 }
-                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedSurgicalNote.html";
-            }));
-        };
+            }
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargedSurgicalNote.html";
+        }));
+    };
 
-        return {
-            restrict: 'E',
-            template: '<ng-include src="contentUrl"/>',
-            link: link
-        }
+    return {
+        restrict: 'E',
+        template: '<ng-include src="contentUrl"/>',
+        link: link
+    }
 }]).directive('dischargedFollowUpPlan', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
         var conceptNames = ["Follow up After", "Duration Coded Units"];
