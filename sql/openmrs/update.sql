@@ -32,3 +32,6 @@ update concept_name set name = "সকালে, খাওয়ার পরে
 update concept_name set name = "সকালে, খাওয়ার আগে" where name = "In the morning, Before meals" and concept_name_type ="FULLY_SPECIFIED";
 update concept_name set name = "সন্ধ্যায়, খাওয়ার পরে" where name = "	In the evening, After meals" and concept_name_type ="FULLY_SPECIFIED";
 update concept_name set name = "সন্ধ্যায়, খাওয়ার আগে" where name = "In the evening, Before meals" and concept_name_type ="FULLY_SPECIFIED";
+
+-- update Frequency name Once a day to Once a Day(Morning)
+update concept_name set name = "Once a day (Morning)" where name = "Once a day" and concept_name_type ="FULLY_SPECIFIED";

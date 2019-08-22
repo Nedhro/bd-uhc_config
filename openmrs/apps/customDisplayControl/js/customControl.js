@@ -466,22 +466,101 @@ angular.module('bahmni.common.displaycontrol.custom')
         var instructionList = JSON.parse($scope.drugOrder.dosingInstructions.administrationInstructions);
         $scope.instruction = (instructionList.instructions ? instructionList.instructions : '') + ' ' + (instructionList.additionalInstructions ? instructionList.additionalInstructions : '');
         switch ($scope.drugOrder.dosingInstructions.frequency) {
-            case 'Once a day' : {
-                if ($scope.instruction.includes('morning')) {
-                    $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-0-0 (" + doseUnits + ")";
-                } else {
-                    $scope.dosageFrequency = "0-0-" + $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
-                }
+            case 'Once a day (Morning)' :
+                $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-0-0 (" + doseUnits + ")";
                 break;
-            }
+
+            case 'Once a Day (Noon)' :
+                $scope.dosageFrequency = "0-" + $scope.drugOrder.dosingInstructions.dose + "-0 (" + doseUnits + ")";
+                break;
+
+            case 'Once a Day (Evening)' :
+                $scope.dosageFrequency = "0-0-" + $scope.drugOrder.dosingInstructions.dose + "(" + doseUnits + ")";
+                break;
 
             case 'Twice a day' :
+                $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-0-" +
+                    $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
+                break;
+            case 'Every 12 hours' :
                 $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-0-" +
                     $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
                 break;
             case 'Thrice a day' :
                 $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-" +
                     $scope.drugOrder.dosingInstructions.dose + "-" + $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
+                break;
+            case 'Every 8 hours' :
+                $scope.dosageFrequency = $scope.drugOrder.dosingInstructions.dose + "-" +
+                    $scope.drugOrder.dosingInstructions.dose + "-" + $scope.drugOrder.dosingInstructions.dose + " (" + doseUnits + ")";
+                break;
+            case 'Every 2 hours' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( প্রতি ২ ঘন্টা পরপর )");
+                break;
+            case 'Every 3 hours' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( প্রতি ৩ ঘন্টা পরপর )");
+                break;
+            case 'Every 4 hours' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( প্রতি ৪ ঘন্টা পরপর )");
+                break;
+            case 'Every 6 hours' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( প্রতি ৬ ঘন্টা পরপর )");
+                break;
+            case 'On alternate days' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( একদিন পরপর )");
+                break;
+            case 'Six days a week' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( সপ্তাহে ৬ দিন )");
+                break;
+            case 'Five days a week' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( সপ্তাহে ৫ দিন )");
+                break;
+            case 'Four days a week' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( সপ্তাহে ৪ দিন )");
+                break;
+            case 'Five times a day' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( দিনে ৫ বার )");
+                break;
+            case 'Once a month' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( মাসে ১ বার )");
+                break;
+            case 'Every 3 weeks' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( ৩ সপ্তাহ পরপর )");
+                break;
+            case 'Every 2 weeks' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( ২ সপ্তাহ পরপর )");
+                break;
+            case 'Thrice a week' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( সপ্তাহে ৩ দিন )");
+                break;
+            case 'Twice a week' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( সপ্তাহে ২ দিন )");
+                break;
+            case 'Once a week' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( সপ্তাহে ১ দিন )");
+                break;
+            case 'Every Hour' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( প্রতি ঘণ্টায় )");
+                break;
+            case 'Four times a day' :
+                $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +
+                    " " + doseUnits + " " + " ( দিনে ৪ বার )");
                 break;
             default:
                 $scope.dosageFrequency = ("" + $scope.drugOrder.dosingInstructions.dose +

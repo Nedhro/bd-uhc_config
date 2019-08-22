@@ -416,3 +416,15 @@ insert into relationship_type (a_is_to_b, b_is_to_a,creator, description,retired
 
 
 update concept_numeric set units='Inch' where concept_id=(select concept_id from concept_name where name="Height" and concept_name_type="FULLY_SPECIFIED");
+
+-- Create Drug dose Frequency
+call add_concept(@once_day_evening, @s_name_id, @f_name_id, "Once a Day (Evening)", "Once a Day (Evening)", "N/A", "Frequency", false);
+insert into order_frequency(concept_id, frequency_per_day, creator, date_created, retired, changed_by, uuid)
+values (@once_day_evening, 1, 1, NOW(), 0, 1, uuid());
+
+call add_concept(@once_day_noon, @s_name_id, @f_name_id, "Once a Day (Noon)", "Once a Day (Noon)", "N/A", "Frequency", false);
+insert into order_frequency(concept_id, frequency_per_day, creator, date_created, retired, changed_by, uuid)
+values (@once_day_noon, 1, 1, NOW(), 0, 1, uuid());
+
+
+
