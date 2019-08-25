@@ -579,11 +579,11 @@ angular.module('bahmni.common.displaycontrol.custom')
             "        <span>{{drugOrder.drug != null ? ('('+ drugOrder.drug.form + ')') : ''}}</span>\n" +
             "        <br/>" +
             "        <span style='padding-left: 15px'>{{dosageFrequency}}</span>" +
-            "        ({{instruction}})" +
-            "         <span style='padding-left: 10px'>-{{drugOrder.duration}}</span>" +
-            "         <span ng-if = 'drugOrder.durationUnits == \"Day(s)\"'>দিন</span>" +
-            "         <span ng-if = 'drugOrder.durationUnits == \"Week(s)\"'>সপ্তাহ</span>" +
-            "         <span ng-if = 'drugOrder.durationUnits == \"Month(s)\"'>মাস</span>" +
+            "        <span ng-if='instruction.length > 1'>({{instruction}})</span>" +
+            "        <span style='padding-left: 0px'>- {{drugOrder.duration}}</span>" +
+            "        <span ng-if = 'drugOrder.durationUnits == \"Day(s)\"'>দিন</span>" +
+            "        <span ng-if = 'drugOrder.durationUnits == \"Week(s)\"'>সপ্তাহ</span>" +
+            "        <span ng-if = 'drugOrder.durationUnits == \"Month(s)\"'>মাস</span>" +
             "        <br/><br/>"
     };
 }).directive('labInvestigation', ['appService', 'labOrderResultService', 'treatmentService', 'visitService', 'spinner', '$http',
