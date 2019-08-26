@@ -18,7 +18,7 @@ update concept_name set name = "Hospital Campaigning" where concept_name_type = 
 delete from concept_answer where concept_id = (select foreign_key from person_attribute_type where name = "alarmingField")
     and answer_concept =(select concept_id from concept_name where name = 'Blacklist' and concept_name_type = 'FULLY_SPECIFIED');
 
---medication instruction
+-- medication instruction
 update concept_name set name = "খাওয়ার আগে" where name = "Before meals" and concept_name_type ="FULLY_SPECIFIED";
 update concept_name set name = "খালি পেটে" where name = "Empty stomach" and concept_name_type ="FULLY_SPECIFIED";
 update concept_name set name = "খাওয়ার পরে" where name = "After meals" and concept_name_type ="FULLY_SPECIFIED";

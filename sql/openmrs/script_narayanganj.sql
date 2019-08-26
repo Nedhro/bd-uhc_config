@@ -1,16 +1,16 @@
 -- sajida config
-update idgen_identifier_source set name="SHK", description="ID sequence source for patients in Keraniganj" where name="BDH";
-select @identier_id := id from idgen_identifier_source where name="SHK";
-update idgen_seq_id_gen set prefix="SHK" where id=@identier_id;
+update idgen_identifier_source set name="SHN", description="ID sequence source for patients in Narayanganj" where name="BDH";
+select @identier_id := id from idgen_identifier_source where name="SHN";
+update idgen_seq_id_gen set prefix="SHN" where id=@identier_id;
 -- location
-SELECT @location_id := location_id FROM location WHERE name='Sajida Health Center-Keraniganj (10020242)' LIMIT 1;
-update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="Emergency";
-update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="IPD";
-update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="OPD";
-update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="OT";
-update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="Registration";
-update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="Vaccination";
-update location set state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where location_id=@location_id;
+SELECT @location_id := location_id FROM location WHERE name='Sajida Hospital-Narayanganj Sadar (10020151)' LIMIT 1;
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Narayanganj",address4="Narayanganj Sadar",address5="Narayanganj City Corp." where name="Emergency";
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Narayanganj",address4="Narayanganj Sadar",address5="Narayanganj City Corp." where name="IPD";
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Narayanganj",address4="Narayanganj Sadar",address5="Narayanganj City Corp." where name="OPD";
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Narayanganj",address4="Narayanganj Sadar",address5="Narayanganj City Corp." where name="OT";
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Narayanganj",address4="Narayanganj Sadar",address5="Narayanganj City Corp." where name="Registration";
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Narayanganj",address4="Narayanganj Sadar",address5="Narayanganj City Corp." where name="Vaccination";
+update location set state_province="Dhaka",county_district="Narayanganj",address4="Narayanganj Sadar",address5="Narayanganj City Corp." where location_id=@location_id;
 
 select @report_tag_id := location_tag_id from location_tag where name="Report Location";
 select @visit_tag_id := location_tag_id from location_tag where name="Visit Location";
@@ -417,15 +417,6 @@ insert into relationship_type (a_is_to_b, b_is_to_a,creator, description,retired
 
 update concept_numeric set units='Inch' where concept_id=(select concept_id from concept_name where name="Height" and concept_name_type="FULLY_SPECIFIED");
 
--- Create Drug dose Frequency
-call add_concept(@once_day_evening, @s_name_id, @f_name_id, "Once a Day (Evening)", "Once a Day (Evening)", "N/A", "Frequency", false);
-insert into order_frequency(concept_id, frequency_per_day, creator, date_created, retired, changed_by, uuid)
-values (@once_day_evening, 1, 1, NOW(), 0, 1, uuid());
-
-call add_concept(@once_day_noon, @s_name_id, @f_name_id, "Once a Day (Noon)", "Once a Day (Noon)", "N/A", "Frequency", false);
-insert into order_frequency(concept_id, frequency_per_day, creator, date_created, retired, changed_by, uuid)
-values (@once_day_noon, 1, 1, NOW(), 0, 1, uuid());
-
 
 -- medication instruction
 update concept_name set name = "খাওয়ার আগে" where name = "Before meals" and concept_name_type ="FULLY_SPECIFIED";
@@ -444,6 +435,3 @@ update concept_name set name = "সন্ধ্যায়, খাওয়া�
 
 -- update Frequency name Once a day to Once a Day(Morning)
 update concept_name set name = "Once a day (Morning)" where name = "Once a day" and concept_name_type ="FULLY_SPECIFIED";
-
-
-
