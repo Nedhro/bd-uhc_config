@@ -446,4 +446,7 @@ update concept_name set name = "সন্ধ্যায়, খাওয়া�
 update concept_name set name = "Once a day (Morning)" where name = "Once a day" and concept_name_type ="FULLY_SPECIFIED";
 
 
+-- assigned doctor
 
+call add_concept(@assignDoctor, @s_name_id, @f_name_id, "Assign Doctor", "Assigned Doctor", "Complex", "Misc", false);
+INSERT INTO concept_complex (concept_id,handler) values(@assignDoctor,"ProviderObsHandler");

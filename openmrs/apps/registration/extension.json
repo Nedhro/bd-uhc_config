@@ -36,5 +36,18 @@
         "extensionPointId": "org.bahmni.patient.registration.birthTime",
         "type": "config",
         "showBirthTime": true
+    },
+    "assignedDoctor":{
+        "id": "bahmni.registration.assign_doctor",
+        "extensionPointId": "org.bahmni.registration.conceptSetGroup.observations",
+        "type": "forms",
+        "extensionParams": {
+            "formName": "Assign Doctor",
+            "conceptNames": ["Assign Doctor"],
+            "required":true,
+            "showLatest": true
+        },
+        "order": 3,
+        "requiredPrivilege": "Edit Visits"
     }
 }
