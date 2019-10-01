@@ -140,7 +140,7 @@
         "extensionPointId": "org.bahmni.patient.search",
         "type": "config",
         "extensionParams": {
-            "searchHandler": "emrapi.sqlSearch.activePatientsByProvider",
+            "searchHandler": "emrapi.sqlSearch.myreferredpatient",
             "translationKey": "MODULE_LABEL_MY_PATIENTS_KEY",
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard"
         },
