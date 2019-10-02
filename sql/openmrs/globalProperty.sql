@@ -35,7 +35,7 @@ VALUES('emrapi.sqlSearch.myreferredpatient',
                left outer join visit_attribute va on va.visit_id = v.visit_id and va.voided = 0 and va.attribute_type_id = (
                select visit_attribute_type_id from visit_attribute_type where name="Admission Status"
            ) and va.voided =0
-       where o.concept_id = 13934
+       where o.concept_id = (select concept_id from concept_name where name = "Assign Doctor" and concept_name_type = "FULLY_SPECIFIED")
          and (cast(o.value_complex as UNSIGNED )= (select p1.provider_id from provider p1 where p1.uuid =${provider_uuid}))
          and v.date_stopped is null
          and v.voided = 0
