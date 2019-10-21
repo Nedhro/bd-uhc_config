@@ -77,7 +77,7 @@
         ],
         "drugFormDefaults": {
           "Tablet": {
-            "doseUnits": "Tablet",
+            "doseUnits": "Tablet(S)",
             "route": "OralRoute"
           },
           "Capsule": {
