@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<data inherit_id="report.internal_layout">
+    <xpath expr="//div[@class='header']" position="replace">
+        <div class="header">
+            <div class="row">
+                <div class="col-xs-5 text-left">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 80px;"/>
+                    <h1>সাজেদা হাসপাতাল</h1>
+                </div>
+                <div class="col-xs-7 text-right">
+                    <span>ছাটগাওঁ, জিনজিরা, কেরানীগঞ্জ । </span><br/>
+                    <span>ফোনঃ  ০২-৭৭৬৩৩৭৬</span><br/>
+                    <span>প্রধান কার্যালয়: অটবি সেন্টার (৫ম তলা),  প্লট - ১২,  ব্লক সি ডাব্লিউ (সি)</span><br/>
+                    <span>গুলশান দক্ষিণ এভিনিউ গুলশান - ১ , ঢাকা - ১২১২ ফোন ৯৮৯০৫১৩</span>
+                </div>
+            </div>
+            <div class="row zero_min_height">
+                <div class="col-xs-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</data>

@@ -1,0 +1,80 @@
+id,reconcile,code,company_id/id,name,user_type_id/id
+__export__.account_account_76,FALSE,100101,base.main_company,Cash,account.data_account_type_liquidity
+__export__.account_account_77,FALSE,100201,base.main_company,Bank,account.data_account_type_liquidity
+l10n_in.1_p10031,FALSE,100310,base.main_company,Inventories,account.data_account_type_current_assets
+l10n_in.1_p10040,TRUE,100400,base.main_company,Debtors,account.data_account_type_receivable
+l10n_in.1_p10050,FALSE,100500,base.main_company,Sales Tax Receivable,account.data_account_type_current_assets
+l10n_in.1_p10051,FALSE,100510,base.main_company,VAT Receivable,account.data_account_type_current_assets
+l10n_in.1_p100521,FALSE,100521,base.main_company,Excise Duty Receivable,account.data_account_type_current_assets
+l10n_in.1_p100522,FALSE,100522,base.main_company,Education Cess Receivable On Excise Duty,account.data_account_type_current_assets
+l10n_in.1_p100523,FALSE,100523,base.main_company,Higher Education Cess Receivable On Excise Duty,account.data_account_type_current_assets
+l10n_in.1_p100531,FALSE,100531,base.main_company,Service Tax Receivable,account.data_account_type_current_assets
+l10n_in.1_p100532,FALSE,100532,base.main_company,Education Cess Receivable On Service Tax,account.data_account_type_current_assets
+l10n_in.1_p100533,FALSE,100533,base.main_company,Higher Education Cess Receivable On Service Tax,account.data_account_type_current_assets
+l10n_in.1_p10054,FALSE,100580,base.main_company,TDS Receivable,account.data_account_type_current_assets
+l10n_in.1_p10061,FALSE,100610,base.main_company,Deposit Account,account.data_account_type_current_assets
+l10n_in.1_p10071,FALSE,100710,base.main_company,Prepaid Insurance,account.data_account_type_current_assets
+l10n_in.1_standard_transfer_account_id,TRUE,100800,base.main_company,Transfer Account,account.data_account_type_current_assets
+l10n_in.1_p1011,FALSE,101100,base.main_company,Buildings,account.data_account_type_fixed_assets
+l10n_in.1_p1012,FALSE,101200,base.main_company,Land,account.data_account_type_fixed_assets
+l10n_in.1_p1013,FALSE,101300,base.main_company,Equipments,account.data_account_type_fixed_assets
+l10n_in.1_p1014,FALSE,101400,base.main_company,Vehicle,account.data_account_type_fixed_assets
+l10n_in.1_p1015,FALSE,101500,base.main_company,Computer/Laptops (Assets),account.data_account_type_fixed_assets
+l10n_in.1_p1016,FALSE,101600,base.main_company,Furniture,account.data_account_type_fixed_assets
+l10n_in.1_p1017,FALSE,101700,base.main_company,Air Conditionar,account.data_account_type_fixed_assets
+l10n_in.1_p1018,FALSE,101800,base.main_company,Misc Assets,account.data_account_type_fixed_assets
+l10n_in.1_p1111,FALSE,111100,base.main_company,Capital Account,account.data_account_type_current_liabilities
+l10n_in.1_p1112,FALSE,111200,base.main_company,Reserve And Surplus Account,account.data_account_type_current_liabilities
+l10n_in.1_p11211,TRUE,112110,base.main_company,Creditors,account.data_account_type_payable
+l10n_in.1_p11221,FALSE,112210,base.main_company,Bank OD Account,account.data_account_type_current_liabilities
+l10n_in.1_p11222,FALSE,112220,base.main_company,Secured Loan Account,account.data_account_type_current_liabilities
+l10n_in.1_p11223,FALSE,112230,base.main_company,Unsecured Loan Account,account.data_account_type_current_liabilities
+l10n_in.1_p11231,FALSE,112310,base.main_company,TDS Payable,account.data_account_type_current_liabilities
+l10n_in.1_p11232,FALSE,112320,base.main_company,VAT Payable,account.data_account_type_current_liabilities
+l10n_in.1_p112331,FALSE,112331,base.main_company,Excise Duty Payable,account.data_account_type_current_liabilities
+l10n_in.1_p112332,FALSE,112332,base.main_company,Education Cess Payable On Excise Duty,account.data_account_type_current_liabilities
+l10n_in.1_p112333,FALSE,112333,base.main_company,Higher Education Cess Payable On Excise Duty,account.data_account_type_current_liabilities
+l10n_in.1_p112341,FALSE,112341,base.main_company,Service Tax Payable,account.data_account_type_current_liabilities
+l10n_in.1_p112342,FALSE,112342,base.main_company,Education Cess Payable On Service Tax,account.data_account_type_current_liabilities
+l10n_in.1_p112343,FALSE,112343,base.main_company,Higher Education Cess Payable On Service Tax,account.data_account_type_current_liabilities
+l10n_in.1_p11235,FALSE,112350,base.main_company,Sales Tax Payable,account.data_account_type_current_liabilities
+l10n_in.1_p11241,FALSE,112410,base.main_company,Wages Payable,account.data_account_type_current_liabilities
+l10n_in.1_p11242,FALSE,112420,base.main_company,Interest Payable,account.data_account_type_current_liabilities
+l10n_in.1_p11243,FALSE,112430,base.main_company,Notes Payable,account.data_account_type_current_liabilities
+__export__.account_account_79,FALSE,12121212,base.main_company,Discount,account.data_account_type_expenses
+l10n_in.1_p20011,FALSE,200110,base.main_company,Local Sales,account.data_account_type_revenue
+l10n_in.1_p20012,FALSE,200120,base.main_company,Retail Sales,account.data_account_type_revenue
+l10n_in.1_p20013,FALSE,200130,base.main_company,Export Sales,account.data_account_type_revenue
+l10n_in.1_p20021,FALSE,200210,base.main_company,Local Services,account.data_account_type_revenue
+l10n_in.1_p20022,FALSE,200220,base.main_company,Export Services,account.data_account_type_revenue
+l10n_in.1_p2010,FALSE,201000,base.main_company,Interest Revenues,account.data_account_type_revenue
+l10n_in.1_p2011,FALSE,201100,base.main_company,Gain on Sale of Assets,account.data_account_type_revenue
+l10n_in.1_2012,FALSE,201200,base.main_company,Write off Income,account.data_account_type_revenue
+l10n_in.1_p2013,FALSE,201300,base.main_company,Foreign Exchange Profit,account.data_account_type_other_income
+l10n_in.1_p2100,FALSE,210000,base.main_company,Electricity Expense,account.data_account_type_expenses
+l10n_in.1_p2101,FALSE,210100,base.main_company,Salary Expense,account.data_account_type_expenses
+l10n_in.1_p2102,FALSE,210200,base.main_company,Office Rent,account.data_account_type_expenses
+l10n_in.1_p2103,FALSE,210300,base.main_company,House Keeping Expense,account.data_account_type_expenses
+l10n_in.1_p2104,FALSE,210400,base.main_company,Postage And Courier Expense,account.data_account_type_expenses
+l10n_in.1_p2105,FALSE,210500,base.main_company,Internet Expense,account.data_account_type_expenses
+l10n_in.1_p2106,FALSE,210600,base.main_company,Telephone Expense,account.data_account_type_expenses
+l10n_in.1_p2107,FALSE,210700,base.main_company,Purchase Expense,account.data_account_type_expenses
+l10n_in.1_p2108,FALSE,210800,base.main_company,Computer/Laptop Accessories,account.data_account_type_expenses
+l10n_in.1_p2109,FALSE,210900,base.main_company,News Paper And Magazine,account.data_account_type_expenses
+l10n_in.1_p2110,FALSE,211000,base.main_company,Business Promotion,account.data_account_type_expenses
+l10n_in.1_p2111,FALSE,211100,base.main_company,Entertainment Expense,account.data_account_type_expenses
+l10n_in.1_p2112,FALSE,211200,base.main_company,Professional Services,account.data_account_type_expenses
+l10n_in.1_p2113,FALSE,211300,base.main_company,Bank Charges,account.data_account_type_liquidity
+l10n_in.1_p2114,FALSE,211400,base.main_company,Diwali Bonus/Gift,account.data_account_type_expenses
+l10n_in.1_p2115,FALSE,211500,base.main_company,Parts Purchase,account.data_account_type_expenses
+l10n_in.1_p2116,FALSE,211600,base.main_company,Repairing Expense,account.data_account_type_expenses
+l10n_in.1_p2117,FALSE,211700,base.main_company,Foreign Exchange Loss,account.data_account_type_expenses
+l10n_in.1_p21181,FALSE,211810,base.main_company,Sales Commission Expense,account.data_account_type_expenses
+l10n_in.1_p21182,FALSE,211820,base.main_company,Stationary Expense,account.data_account_type_expenses
+l10n_in.1_p21183,FALSE,211830,base.main_company,Travelling Expense,account.data_account_type_expenses
+l10n_in.1_p2121,FALSE,212100,base.main_company,Opening Stock,account.data_account_type_expenses
+l10n_in.1_p2122,FALSE,212200,base.main_company,Purchase Stock,account.data_account_type_expenses
+l10n_in.1_p2123,FALSE,212300,base.main_company,Closing Stock,account.data_account_type_expenses
+l10n_in.1_p2131,FALSE,213100,base.main_company,Loss on Sale of Assets,account.data_account_type_expenses
+l10n_in.1_p2132,FALSE,213200,base.main_company,Write Off Expense,account.data_account_type_expenses
+__export__.account_account_78,FALSE,999999,base.main_company,Undistributed Profits/Losses,account.data_unaffected_earnings
