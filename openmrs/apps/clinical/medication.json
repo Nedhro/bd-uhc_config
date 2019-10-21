@@ -170,8 +170,8 @@
         },
         "hideOrderSet": true,
         "doseUnits": [
-          "Capsule dose form",
-          "Tablet dose form",
+          "Capsule",
+          "Tablet",
           "Drop - unit of product",
           "Sachet - unit of product",
           "Teaspoonful - unit of product",
