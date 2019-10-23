@@ -81,75 +81,71 @@
             "route": "OralRoute"
           },
           "Powder": {
-            "doseUnits": "Powder",
+            "doseUnits": "mg",
             "route": "OralRoute"
           },
           "Oral solution": {
-            "doseUnits": "Oral Solution",
+            "doseUnits": "ml",
             "route": "OralRoute"
           },
           "Nasal Solution": {
-            "doseUnits": "Nasal Solution",
+            "doseUnits": "ml",
             "route": "OralRoute"
           },
           "Rotacap": {
-            "doseUnits": "Rotacap",
+            "doseUnits": "Unit(s)",
             "route": "OralRoute"
           },
           "Gel": {
-            "doseUnits": "Gel",
             "route": "OralRoute"
           },
           "Pessary": {
-            "doseUnits": "Pessary",
+            "doseUnits": "Unit(s)",
             "route": "OralRoute"
           },
           "Mouth Paint": {
-            "doseUnits": "Mouth Paint",
+            "doseUnits": "Unit(s)",
             "route": "OralRoute"
           },
           "Solution": {
-            "doseUnits": "Solution",
+            "doseUnits": "ml",
             "route": "OralRoute"
           },
           "Drops": {
-            "doseUnits": "Drops",
+            "doseUnits": "Drop",
             "route": "OralRoute"
           },
           "Syrup": {
-            "doseUnits": "Syrup",
+            "doseUnits": "ml",
             "route": "OralRoute"
           },
           "Lotion": {
-            "doseUnits": "Lotion",
             "route": "OralRoute"
           },
           "Inhaler": {
-            "doseUnits": "Inhaler",
+            "doseUnits": "Puff(s)",
             "route": "OralRoute"
           },
           "Suspension": {
-            "doseUnits": "Suspension",
+            "doseUnits": "Unit(s)",
             "route": "OralRoute"
           },
           "Cream": {
-            "doseUnits": "Cream",
             "route": "Topical"
           },
           "Ointment": {
-            "doseUnits": "Ointment",
             "route": "Topical"
           },
           "Tablet": {
-            "doseUnits": "Tablet",
+            "doseUnits": "Tablet(s)",
             "route": "OralRoute"
           },
           "Capsule": {
-            "doseUnits": "Capsule",
+            "doseUnits": "Capsule(s)",
             "route": "OralRoute"
           },
           "Injection": {
-            "doseUnits": "Injection",
+            "doseUnits": "mg",
             "route": "Injection, intravenous"
           }
         },
@@ -158,25 +154,16 @@
         },
         "hideOrderSet": true,
         "doseUnits": [
-          "Capsule",
-          "Oral Rinse",
-          "Powder",
-          "Oral Solution",
-          "Nasal Solution",
-          "Rotacap",
-          "Gel",
-          "Pessary",
-          "Mouth Paint",
-          "Solution",
-          "Drops",
-          "Syrup",
-          "Lotion",
-          "Inhaler",
-          "Suspension",
-          "Cream",
-          "Ointment",
-          "Tablet",
-          "Injection"
+          "Unit(s)",
+          "Capsule(s)",
+          "Tablet(s)",
+          "ml",
+          "IU",
+          "Drop",
+          "TableSpoon",
+          "TeaSpoon",
+          "puff",
+          "mg"
         ]
       }
     }
