@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document">
+    <xpath expr="//div[@class='col-xs-4 pull-right']" position="replace">
+        <div class="col-xs-4 pull-right">
+            <table class="table table-condensed">
+                <tr class="border-black">
+                    <td>
+                        <strong>Subtotal</strong>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.amount_untaxed"
+                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </td>
+                </tr>
+                <t t-foreach="o._get_tax_amount_by_group()" t-as="amount_by_group">
+                    <tr>
+                        <td>
+                            <span t-esc="amount_by_group[0] if len(o.tax_line_ids) &gt; 1 else (o.tax_line_ids.tax_id.description or o.tax_line_ids.tax_id.name)"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-esc="amount_by_group[2]"/>
+                        </td>
+                    </tr>
+                </t>
+                <tr>
+                    <td>
+                        <strong>Discount</strong>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.discount"
+                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </td>
+                </tr>
+                <tr class="border-black">
+                    <td>
+                        <strong>Net Total</strong>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.amount_total"
+                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Paid Amount</strong>
+                    </td>
+                    <td class="text-right">
+                        <span t-esc="o.amount_total-o.residual"
+                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </td>
+                </tr>
+                <tr class="border-black">
+                    <td>
+                        <strong>Due Amount</strong>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.residual"
+                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </xpath>
+    <xpath expr="//div[@name='invoice_address']" position="replace">
+        <div name="invoice_address" class="col-xs-5 col-xs-offset-7">
+            <address t-field="o.partner_id"
+                     t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </div>
+    </xpath>
+</data>
