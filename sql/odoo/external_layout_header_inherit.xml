@@ -3,11 +3,13 @@
     <xpath expr="//div[@class='header']" position="replace">
         <div class="header">
             <div class="row">
-                <div class="col-xs-5 text-left">
+                <div class="col-xs-2 text-left">
                     <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 80px;"/>
-                    <h1>সাজেদা হাসপাতাল</h1>
                 </div>
-                <div class="col-xs-7 text-right">
+                <div class="col-xs-3 text-left" style="padding-top: 0.8px">
+                    <h3>সাজেদা হাসপাতাল</h3>
+                </div>
+                <div class="col-xs-7 text-right" style="font-size: 11px">
                     <span>ছাটগাওঁ, জিনজিরা, কেরানীগঞ্জ । </span><br/>
                     <span>ফোনঃ  ০২-৭৭৬৩৩৭৬</span><br/>
                     <span>প্রধান কার্যালয়: অটবি সেন্টার (৫ম তলা),  প্লট - ১২,  ব্লক সি ডাব্লিউ (সি)</span><br/>
