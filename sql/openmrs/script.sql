@@ -450,3 +450,36 @@ update concept_name set name = "Once a day (Morning)" where name = "Once a day" 
 
 call add_concept(@assignDoctor, @s_name_id, @f_name_id, "Assign Doctor", "Assigned Doctor", "Complex", "Misc", false);
 INSERT INTO concept_complex (concept_id,handler) values(@assignDoctor,"ProviderObsHandler");
+
+-- Basic examination update
+select @Vitals := concept_id from concept_name where name = "Vitals" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+select @previousblood := concept_id from concept_name where name = "Blood Pressure" and concept_name_type = "FULLY_SPECIFIED" order by date_created desc limit 1;
+delete from concept_set where concept_set = @Vitals and concept_id = @previousblood;
+
+call add_concept(@bp, @s_name_id, @f_name_id, "Basic Examination Detail Blood Pressures", "Blood Pressure", "N/A", "Finding", true);
+
+call add_concept(@systolic_blood_data, @s_name_id, @f_name_id, "Basic examination Detail Systolic blood", "Systolic blood pressure", "N/A", "Concept Details", true);
+
+call add_concept(@systolic_blood_pressure, @s_name_id, @f_name_id, "Basic examination Detail Systolic blood Pressure", "Systolic blood Pressure", "Numeric", "Finding", false);
+call add_concept_numeric_db(@systolic_blood_pressure, null, null, null);
+
+
+call add_concept(@systolic_abnormal, @s_name_id, @f_name_id, "Basic examination Detail Systolic Abnormal", "Systolic Abnormal", "Boolean", "Abnormal", false);
+
+call add_concept_set_members(@systolic_blood_data, @systolic_blood_pressure, 1);
+call add_concept_set_members(@systolic_blood_data, @systolic_abnormal, 2);
+
+call add_concept(@diastolic_blood_data, @s_name_id, @f_name_id, "Basic examination Detail Diastolic blood", "Diastolic blood pressures", "N/A", "Concept Details", true);
+
+call add_concept(@diastolic_blood_pressure, @s_name_id, @f_name_id, "Basic examination Detail Diastolic blood pressure", "Diastolic blood pressure", "Numeric", "Finding", false);
+call add_concept_numeric_db(@diastolic_blood_pressure, null, null, null);
+
+call add_concept(@diastolic_abnormal, @s_name_id, @f_name_id, "Basic examination Detail Diastolic Abnormal", "Basic Diastolic Abnormal", "Boolean", "Abnormal", false);
+
+call add_concept_set_members(@diastolic_blood_data, @diastolic_blood_pressure, 1);
+call add_concept_set_members(@diastolic_blood_data, @diastolic_abnormal, 2);
+
+call add_concept_set_members(@bp, @systolic_blood_data, 1);
+call add_concept_set_members(@bp, @diastolic_blood_data, 2);
+call add_concept_set_members(@Vitals, @bp, 2);
+
