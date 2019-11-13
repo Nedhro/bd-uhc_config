@@ -31,7 +31,10 @@
       "referredBy",
       "referredByPharmacy",
       "referredByPromotionalActivity",
-      "patientCategory"
+      "patientCategory",
+      "staffid",
+      "mfid",
+      "healthIdCard"
     ],
     "autoCompleteFields": [
       "familyName",
