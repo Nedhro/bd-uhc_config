@@ -32,5 +32,47 @@ var showOrHideReferredBySection = function (patient) {
 Bahmni.Registration.AttributesConditions.rules = {
     'referredBy': function (patient) {
         return showOrHideReferredBySection(patient);
+    },
+    'gender': function (patient) {
+        var returnValues = {
+            show: [],
+            hide: []
+        };
+        if (patient.gender == "M") {
+            patient.genderAttr = "Male";
+            returnValues.hide.push("genderSection");
+        } else if (patient.gender == "F") {
+            patient.genderAttr = "Female";
+            returnValues.hide.push("genderSection");
+        } else if (patient.gender == "O") {
+            patient.genderAttr = "Transgender";
+            returnValues.hide.push("genderSection");
+        } else {
+            returnValues.hide.push("genderSection");
+        }
+        return returnValues;
+    },
+    'patientCategory': function (patient) {
+        var returnValues = {
+            show: [],
+            hide: []
+        };
+        if (patient["patientCategory"].value == "MF") {
+            returnValues.show.push("mfidSection");
+            returnValues.hide.push("healthIdSection");
+            returnValues.hide.push("staffIdSection");
+        } else if (patient["patientCategory"].value == "Health card holder") {
+            returnValues.show.push("healthIdSection");
+            returnValues.hide.push("mfidSection");
+            returnValues.hide.push("staffIdSection");
+
+        } else if (patient["patientCategory"].value == "Staff, Self & family") {
+            returnValues.show.push("staffIdSection");
+            returnValues.hide.push("mfidSection");
+            returnValues.hide.push("healthIdSection");
+        } else {
+            returnValues.hide.push("staffIdSection", "mfidSection", "healthIdSection");
+        }
+        return returnValues;
     }
 };

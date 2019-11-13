@@ -31,3 +31,22 @@ select @referred_by_concept_id := concept_id from concept_name where name = "Ref
 select @last_sort_weight := max(sort_weight) from person_attribute_type where retired=0;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
 values("referredBy", "Referred By", "org.openmrs.Concept", @referred_by_concept_id, 1, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
+-- person_attribute_type-gender
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("genderAttr", "genderAttr", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+-- person_attribute_type-staff-id
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("staffid", "Staff ID No", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+-- person_attribute_type-MF-id
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("mfid", "MF ID No", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+-- person_attribute_type-health-id
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("healthIdCard", "Health Card No", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
