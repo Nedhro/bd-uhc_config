@@ -22,7 +22,6 @@
   ],
   "config": {
     "forwardUrlsForVisitTypes": [
-
     ],
     "mandatoryPersonAttributes": [
       "phoneNumber",
@@ -32,7 +31,10 @@
       "referredBy",
       "referredByPharmacy",
       "referredByPromotionalActivity",
-      "patientCategory"
+      "patientCategory",
+      "staffid",
+      "mfid",
+      "healthIdCard"
     ],
     "autoCompleteFields": [
       "familyName",
@@ -71,6 +73,34 @@
           "referredByPharmacy"
         ]
       },
+      "genderSection": {
+        "title": "Gender",
+        "translationKey": "Gender",
+        "attributes": [
+          "genderAttr"
+        ]
+      },
+      "staffIdSection": {
+        "title": "Staff ID",
+        "translationKey": "Staff ID",
+        "attributes": [
+          "staffid"
+        ]
+      },
+      "mfidSection": {
+        "title": "MF ID",
+        "translationKey": "MF ID",
+        "attributes": [
+          "mfid"
+        ]
+      },
+      "healthIdSection": {
+        "title": "Health ID",
+        "translationKey": "Health ID",
+        "attributes": [
+          "healthIdCard"
+        ]
+      },
       "promotionalActivitySection": {
         "title": "Referred By Promotional Activity",
         "translationKey": "REGISTRATION_REFERRED_BY_PROMOTIONAL_ACTIVITY_KEY",
@@ -97,7 +127,7 @@
     "searchByIdForwardUrl": "/patient/{{patientUuid}}",
     "showLastName": true,
     "showMiddleName": false,
-    "showEnterID":false,
+    "showEnterID": false,
     "showBirthTime": false,
     "isLastNameMandatory": false,
     "addressHierarchy": {
