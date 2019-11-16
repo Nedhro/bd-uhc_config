@@ -50,3 +50,8 @@ values("mfid", "MF ID No", "java.lang.String", null , 0, @super_user_id, NOW(), 
 select @last_sort_weight := max(sort_weight) from person_attribute_type;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
 values("healthIdCard", "Health Card No", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+-- person_attribute_type-additionalNote
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("additionalNote", "Additional Note", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
