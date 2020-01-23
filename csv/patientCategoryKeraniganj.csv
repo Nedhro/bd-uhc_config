@@ -1,0 +1,8 @@
+uuid,name,description,class,datatype,shortname,reference-term-source,reference-term-code,reference-term-relationship,answer.1,answer.2,answer.3,answer.4,answer.5,answer.6,answer.7,answer.8,answer.9,answer.10,answer.11,answer.12,answer.13,answer.14,answer.15,answer.16
+,"Patient Category, General",,Misc,N/A,General,,,,,,,,,,,,,,,,,,,
+,"Patient Category, Staff, Self & family",,Misc,N/A,"Staff, Self & family",,,,,,,,,,,,,,,,,,,
+,"Patient Category, Health card holder",,Misc,N/A,Health card holder,,,,,,,,,,,,,,,,,,,
+,"Patient Category, VIP",,Misc,N/A,VIP,,,,,,,,,,,,,,,,,,,
+,"Patient Category, MF",,Misc,N/A,MF,,,,,,,,,,,,,,,,,,,
+,"Patient Category, Corporate",,Misc,N/A,Corporate,,,,,,,,,,,,,,,,,,,
+,Registration Patient Category,,Misc,Coded,Patient Category,,,,"Patient Category, General","Patient Category, Staff, Self & family","Patient Category, Health card holder","Patient Category, VIP","Patient Category, MF","Patient Category, Corporate",,,,,,,,,,
