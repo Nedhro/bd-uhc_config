@@ -78,6 +78,34 @@
           "referredByPromotionalActivity"
         ]
       },
+      "genderSection": {
+        "title": "Gender",
+        "translationKey": "Gender",
+        "attributes": [
+          "genderAttr"
+        ]
+      },
+      "staffIdSection": {
+        "title": "Staff ID",
+        "translationKey": "Staff ID",
+        "attributes": [
+          "staffid"
+        ]
+      },
+      "mfidSection": {
+        "title": "MF ID",
+        "translationKey": "MF ID",
+        "attributes": [
+          "mfid"
+        ]
+      },
+      "healthIdSection": {
+        "title": "Health ID",
+        "translationKey": "Health ID",
+        "attributes": [
+          "healthIdCard"
+        ]
+      },
       "hidden": {
         "attributes": [
           "healthId"
