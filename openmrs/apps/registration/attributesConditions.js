@@ -3,16 +3,16 @@ var showOrHideReferredBySection = function (patient) {
         show: [],
         hide: []
     };
-    if (patient["referredBy"].value == "Hospital") {
+    if (patient["referredBy"].value == "Referred By, Hospital") {
         returnValues.show.push("hospitalSection");
         returnValues.hide.push("doctorSection", "pharmacySection", "promotionalActivitySection");
-    } else if (patient["referredBy"].value == "Pharmacy") {
+    } else if (patient["referredBy"].value == "Referred By, Pharmacy") {
         returnValues.show.push("pharmacySection");
         returnValues.hide.push("doctorSection", "hospitalSection", "promotionalActivitySection");
-    } else if (patient["referredBy"].value == "Promotional Activity") {
+    } else if (patient["referredBy"].value == "Referred By, Promotional Activity") {
         returnValues.show.push("promotionalActivitySection");
         returnValues.hide.push("doctorSection", "hospitalSection", "pharmacySection");
-    } else if (patient["referredBy"].value == "Doctor") {
+    } else if (patient["referredBy"].value == "Referred By, Doctor") {
         returnValues.show.push("doctorSection");
         returnValues.hide.push("hospitalSection", "pharmacySection", "promotionalActivitySection");
     } else {
@@ -49,13 +49,13 @@ Bahmni.Registration.AttributesConditions.rules = {
             show: [],
             hide: []
         };
-        if (patient["patientCategory"].value == "MF") {
+        if (patient["patientCategory"].value == "Patient Category, MF") {
             returnValues.show.push("mfidSection");
             returnValues.hide.push("healthIdSection", "staffIdSection");
-        } else if (patient["patientCategory"].value == "Health card holder") {
+        } else if (patient["patientCategory"].value == "Patient Category, Health card holder") {
             returnValues.show.push("healthIdSection");
             returnValues.hide.push("mfidSection", "staffIdSection");
-        } else if (patient["patientCategory"].value == "Staff, Self & family") {
+        } else if (patient["patientCategory"].value == "Patient Category, Staff, Self & family") {
             returnValues.show.push("staffIdSection");
             returnValues.hide.push("mfidSection", "healthIdSection");
         } else {
