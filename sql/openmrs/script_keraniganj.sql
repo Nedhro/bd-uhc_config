@@ -46,8 +46,15 @@ SELECT @entity2_uuid := uuid FROM visit_type where name = 'emergency';
 SELECT @entity_mapping_type_id := id FROM entity_mapping_type  where name = 'loginlocation_visittype';
 INSERT INTO entity_mapping ( uuid, entity_mapping_type_id , entity1_uuid , entity2_uuid , date_created) VALUES (uuid(),@entity_mapping_type_id,@entity1_uuid,@entity2_uuid,NOW());
 
+insert into location(name, state_province, county_district, address4, address5, creator, date_created, uuid) VALUES ('Sajida Hospital, Keraniganj', 'Dhaka', 'Dhaka', 'Keraniganj Paurashava', 'Keraniganj', 1, NOW(), uuid());
+select @location_id := LAST_INSERT_ID();
+update location set parent_location=@location_id where parent_location is null and location_id <> @location_id;
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="Emergency";
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="OPD";
+update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="Registration";
 
--- script run till above line
+
+
 
 
 

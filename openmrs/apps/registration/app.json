@@ -84,9 +84,9 @@
         ]
       },
       "defaults": {
-        "alarmingField": "General",
-        "patientCategory": "General",
-        "referredBy": "Self"
+        "alarmingField": "Alarming Field,General",
+        "patientCategory": "Patient Category, General",
+        "referredBy": "Referred By, Self"
       }
     },
     "prepopulateFields": [
