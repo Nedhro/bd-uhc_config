@@ -53,6 +53,16 @@ update location set parent_location=@location_id,state_province="Dhaka",county_d
 update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="OPD";
 update location set parent_location=@location_id,state_province="Dhaka",county_district="Dhaka",address4="Keraniganj Paurashava",address5="Keraniganj" where name="Registration";
 
+select @super_user_id := user_id from users where username = "superman";
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("healthIdCard", "Health Id Card", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("patientCategory", "Patient Category", "org.openmrs.Concept", 293 , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());  -- foreign key should be from concept
+
+
 
 
 
