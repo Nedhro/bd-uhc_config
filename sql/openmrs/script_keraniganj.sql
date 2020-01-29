@@ -62,6 +62,11 @@ select @last_sort_weight := max(sort_weight) from person_attribute_type;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
 values("patientCategory", "Patient Category", "org.openmrs.Concept", 293 , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());  -- foreign key should be from concept
 
+INSERT INTO reporting_age_group (name, report_group_name, min_years, min_days, max_years, max_days, sort_order) VALUES ('0-4 years', 'Registration', 0, 0, 5, -1, 1);
+INSERT INTO reporting_age_group (name, report_group_name, min_years, min_days, max_years, max_days, sort_order) VALUES ('5-14 years', 'Registration', 5, 0, 15, -1, 2);
+INSERT INTO reporting_age_group (name, report_group_name, min_years, min_days, max_years, max_days, sort_order) VALUES ('15-24 years', 'Registration', 15, 0, 25, -1, 3);
+INSERT INTO reporting_age_group (name, report_group_name, min_years, min_days, max_years, max_days, sort_order) VALUES ('25-49 years', 'Registration', 25, 0, 50, -1, 4);
+INSERT INTO reporting_age_group (name, report_group_name, min_years, min_days, max_years, max_days, sort_order) VALUES ('50+ years', 'Registration', 50, 0, 200, -1, 5);
 
 
 
