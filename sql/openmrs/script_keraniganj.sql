@@ -70,6 +70,63 @@ INSERT INTO reporting_age_group (name, report_group_name, min_years, min_days, m
 INSERT INTO reporting_age_group (name, report_group_name, min_years, min_days, max_years, max_days, sort_order) VALUES ('50+ years', 'Registration', 50, 0, 200, -1, 5);
 
 
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("patientCategory", "Patient Category", "org.openmrs.Concept", 293 , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("alarmingField", "Alarming Field", "org.openmrs.Concept", 286 , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredBy", "Referred By", "org.openmrs.Concept", 300 , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredByHospital", "Hospital Name", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredByDoctor", "Doctor Name", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredByPharmacy", "Pharmacy Name", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("referredByPromotionalActivity", "Promotional Activity Name", "	java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("relativeName", "Relative Name", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("relativeContactNumber", "Relative Contact Number", "	java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("relativeRelation", "Relative Relation", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("genderAttr", "Gender", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("staffid", "Staff ID", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("mfid", "MF ID", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+select @last_sort_weight := max(sort_weight) from person_attribute_type;
+insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
+values("healthIdCard", "Health ID Card", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+
+
 
 
 
