@@ -91,7 +91,7 @@ values("referredByPharmacy", "Pharmacy Name", "java.lang.String", null , 0, @sup
 
 select @last_sort_weight := max(sort_weight) from person_attribute_type;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
-values("referredByPromotionalActivity", "Promotional Activity Name", "	java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+values("referredByPromotionalActivity", "Promotional Activity Name", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
 
 select @last_sort_weight := max(sort_weight) from person_attribute_type;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
@@ -99,7 +99,7 @@ values("relativeName", "Relative Name", "java.lang.String", null , 0, @super_use
 
 select @last_sort_weight := max(sort_weight) from person_attribute_type;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
-values("relativeContactNumber", "Relative Contact Number", "	java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
+values("relativeContactNumber", "Relative Contact Number", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
 
 select @last_sort_weight := max(sort_weight) from person_attribute_type;
 insert into person_attribute_type(name, description, format, foreign_key, searchable, creator, date_created, retired, sort_weight, uuid)
