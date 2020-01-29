@@ -1,0 +1,8 @@
+uuid,name,description,class,datatype,shortname,reference-term-source,reference-term-code,reference-term-relationship,answer.1,answer.2,answer.3,answer.4,answer.5,answer.6,answer.7,answer.8,answer.9,answer.10,answer.11,answer.12,answer.13,answer.14,answer.15,answer.16
+,"Referred By, Self",,Misc,N/A,Self,,,,,,,,,,,,,,,,,,,
+,"Referred By, Hospital",,Misc,N/A,Hospital,,,,,,,,,,,,,,,,,,,
+,"Referred By, Doctor",,Misc,N/A,Doctor,,,,,,,,,,,,,,,,,,,
+,"Referred By, Relative",,Misc,N/A,Relative,,,,,,,,,,,,,,,,,,,
+,"Referred By, Pharmacy",,Misc,N/A,Pharmacy,,,,,,,,,,,,,,,,,,,
+,"Referred By, Promotional Activity",,Misc,N/A,Promotional Activity,,,,,,,,,,,,,,,,,,,
+,Registration Referred By,,Misc,Coded,Referred By,,,,"Referred By, Self","Referred By, Hospital","Referred By, Doctor","Referred By, Relative","Referred By, Pharmacy","Referred By, Promotional Activity",,,,,,,,,,

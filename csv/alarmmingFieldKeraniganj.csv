@@ -1,0 +1,6 @@
+uuid,name,description,class,datatype,shortname,reference-term-source,reference-term-code,reference-term-relationship,answer.1,answer.2,answer.3,answer.4,,,,answer.8,answer.9,answer.10,answer.11,answer.12,answer.13,answer.14,answer.15,answer.16
+,"Alarming Field,General",,Misc,N/A,General,,,,,,,,,,,,,,,,,,,
+,"Alarming Field,Sensitive-Contagious Disease",,Misc,N/A,Sensitive-Contagious Disease,,,,,,,,,,,,,,,,,,,
+,"Alarming Field,Risky",,Misc,N/A,Risky,,,,,,,,,,,,,,,,,,,
+,"Alarming Field,Blacklist",,Misc,N/A,Blacklist,,,,,,,,,,,,,,,,,,,
+,Registration Alarming Field,,Misc,Coded,Alarming Field,,,,"Alarming Field,General","Alarming Field,Sensitive-Contagious Disease","Alarming Field,Risky","Alarming Field,Blacklist",,,,,,,,,,,,
