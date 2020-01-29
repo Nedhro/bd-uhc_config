@@ -127,6 +127,14 @@ insert into person_attribute_type(name, description, format, foreign_key, search
 values("healthIdCard", "Health ID Card", "java.lang.String", null , 0, @super_user_id, NOW(), 0, (@last_sort_weight + 1), uuid());
 
 
+-- set gender for superman user
+update person set gender = 'M' where person_id =
+                                     (select user.person_id from users as user where username = 'superman');
+
+-- retired relationship type
+update relationship_type set retired = 1 where a_is_to_b = 'Supervisor' and b_is_to_a = 'Supervisee';
+
+
 
 
 
