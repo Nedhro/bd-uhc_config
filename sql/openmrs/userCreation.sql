@@ -19,7 +19,6 @@ BEGIN
             INSERT INTO user_role (user_id, role) VALUES (@user_id, @role);
             IF LOCATE(',', roleList) > 0 THEN
                 SET roleList = SUBSTRING(roleList, LOCATE(',', roleList) + 1);
-                select roleList;
             ELSE
                 SET roleList = '';
             END IF;
