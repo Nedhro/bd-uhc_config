@@ -125,8 +125,25 @@ update person set gender = 'M' where person_id =
 update relationship_type set retired = 1 where a_is_to_b = 'Supervisor' and b_is_to_a = 'Supervisee';
 
 
+-- Bed  Management for Sajida Hospital Center, Keraniganj Starts ***
 
+-- 1. Firstly, check the location table to collect parent location id by named "Sajida Hospital, Keraniganj" location id.
+-- 2. Copy the location id of "Sajida Hospital, Keraniganj"  from location table and use as parent_location
+-- 3. Edit and update the location.sql file from Bed Management folder updating first 4 queries with the parent_location ; These are the 4 new parent locations.
+-- 4. Then, execute the location.sql file from Bed Management Folder
+-- 5. Run the following query if "Admission Location" doesn't exist in the location_tag table.
 
+    insert into location_tag (name, description, creator, retired, date_created, uuid) values('Admission Location', 'SHCK Patients Admission Locations', 6, 0, NOW(), uuid()); -- superman user
+    SET @location_tag_id = (select location_tag_id from location_tag where name='Admission Location');
+
+-- 6. Check the location_tag_id from location tag table of  and copy it
+-- 7. Edit and update the location_tag_map.sql file from Bed Management folder with the location_tag_id .
+-- 8. Execute the location_tag_map.sql file from Bed Management Folder.
+-- 9. Then, To add Bed types executing the openmrs_bed_type.sql file from Bed Management Folder.
+-- 10. After that, To add beds execute the openmrs_bed.sql from Bed Management Folder.
+-- 11. Finally, For location mapping execute the openmrs_bed_location_map.sql from Bed Management Folder.
+
+-- Bed  Management for Sajida Hospital Center, Keraniganj ends ***
 
 
 
