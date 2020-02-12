@@ -1,0 +1,1 @@
+INSERT INTO openmrs.bed_type (bed_type_id, name, display_name, description, uuid, creator, date_created, changed_by, date_changed, retired, retire_reason, retired_by, date_retired) VALUES (1, 'Normal', 'Normal', 'Normal Bed', 'adcf42b2-29e0-45e7-9d06-b6797191f209', 6, '2020-02-11 17:00:19', null, null, 0, null, null, null);
