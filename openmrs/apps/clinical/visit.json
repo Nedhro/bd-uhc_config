@@ -21,16 +21,13 @@
           "template": "<common-patient-info-header></common-patient-info-header>"
         }
       },
-      "History_Examinations": {
-        "type": "observation",
+      "HistoryExaminations": {
+        "type": "custom",
         "displayOrder": 2,
-        "title": "History and Examination",
         "config": {
-          "conceptNames": [
-            "Condition Complaint Template"
-          ],
-          "translationKey": "DASHBOARD_TITLE_HISTORY_AND_EXAMINATIONS_KEY",
-          "numberOfVisits": "1",
+          "title": "History and Examination",
+          "template": "<chief-complaint-template></chief-complaint-template>",
+          "numberOfVisits": "2",
           "showFlowSheet": false,
           "showListView": true,
           "showOtherActive": true,
@@ -47,65 +44,28 @@
           "showDetailsButton": true
         }
       },
-      "investigationresult": {
-        "type": "investigationResult",
-        "showOnlyInDashboard": true,
-        "config": {
-          "title": "Lab Investigations",
-          "showChart": false,
-          "showTable": true,
-          "showNormalLabResults": true,
-          "showCommentsExpanded": true,
-          "showAccessionNotes": true,
-          "numberOfVisits": 10
-        },
-        "displayOrder": 4
-      },
       "labInvestigation": {
         "type": "custom",
         "displayOrder": 5,
-        "showOnlyInPrint": true,
         "config": {
           "title": "Lab Test",
-          "template": "<lab-investigation></lab-investigation>"
-        }
-      },
-      "treatments": {
-        "type": "treatment",
-        "displayOrder": 6,
-        "showOnlyInDashboard": true,
-        "hideEmptyDisplayControl": true,
-        "config": {
-          "translationKey": "DISCHARGE_CLINICAL_TREATMENTS_KEY",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": false,
-          "showDetailsButton": true,
-          "showRoute": true,
-          "showDrugForm": true
+          "template": "<investigation-template></investigation-template>"
         }
       },
       "TreatmentPrescription": {
         "type": "custom",
         "displayOrder": 7,
-        "showOnlyInPrint": true,
         "config": {
           "title": "Medication",
-          "template": "<treatment-prescription></treatment-prescription>"
+          "template": "<medication-template></medication-template>"
         }
       },
       "ConsultationNotes": {
-        "type": "observation",
-        "title": "Other Advices",
+        "type": "custom",
         "displayOrder": 8,
         "config": {
-          "conceptNames": [
-            "Consultation Note"
-          ],
-          "numberOfVisits": "1",
-          "showListView": false,
-          "showOtherActive": true,
-          "showDetailsButton": true
+          "title": "Advices",
+          "template": "<advice-template></advice-template>"
         }
       },
       "Presciption Footer": {
