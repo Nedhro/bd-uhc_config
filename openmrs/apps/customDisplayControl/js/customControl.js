@@ -960,8 +960,10 @@ angular.module('bahmni.common.displaycontrol.custom')
         var link = function ($scope) {
             var conceptNames = ["Consultation Note"];
             spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            if(response.data[0]){
                 $scope.obsAdvice = response.data[0].value.split(',');
-            }));
+            }
+             }));
         };
 
         return {
