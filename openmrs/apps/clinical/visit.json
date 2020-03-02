@@ -3,6 +3,11 @@
     "title": "Patient_Prescription ",
     "translationKey": "PRESCRIPTION",
     "displayByDefault": true,
+    "printing": {
+      "title": "",
+      "header": "",
+      "logo": ""
+    },
     "sections": {
       "Header": {
         "type": "custom",
@@ -83,6 +88,11 @@
     "translationKey": "GENERAL_TYPE_VISIT",
     "displayByDefault": true,
     "defaultSections": true,
+    "printing": {
+      "title": "",
+      "header": "",
+      "logo": ""
+    },
     "sections": {
       "pivot_table": {
         "type": "pivotTable",
@@ -102,6 +112,11 @@
   "dischargeSummary": {
     "title": "Patient Discharge Summary ",
     "translationKey": "DISCHARGE_SUMMARY_VISIT",
+    "printing": {
+      "title": "",
+      "header": "",
+      "logo": ""
+    },
     "sections": {
       "Header": {
         "type": "custom",
@@ -261,6 +276,11 @@
   "deathCertificate": {
     "title": "Death CERTIFICATE ",
     "translationKey": "DEATH_CLINICAL_CERTIFICATE",
+    "printing": {
+      "title": "",
+      "header": "",
+      "logo": ""
+    },
     "sections": {
       "Header": {
         "type": "custom",
@@ -318,6 +338,11 @@
   "MedicalCertificate": {
     "title": "Medical CERTIFICATE ",
     "translationKey": "MEDICAL_CLINICAL_CERTIFICATE",
+    "printing": {
+      "title": "",
+      "header": "",
+      "logo": ""
+    },
     "sections": {
       "Header": {
         "type": "custom",
