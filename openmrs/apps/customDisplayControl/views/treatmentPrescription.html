@@ -1,7 +1,7 @@
 <h2 class="section-title">{{config.title}}</h2>
 
 <div ng-repeat="drugOrder in drugOrders.visitDrugOrders" style="font-size: 14px">
-    <span ng-if="drugOrder.dateStopped === null && drugOrder.action !== \'DISCONTINUE\'">
+    <span ng-if="drugOrder.dateStopped === null && drugOrder.action !== 'DISCONTINUE'">
         <medicine-details drug-order="drugOrder" index="$index"></medicine-details>
     </span>
 </div>
