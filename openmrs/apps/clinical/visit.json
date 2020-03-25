@@ -40,13 +40,11 @@
         }
       },
       "diagnoses": {
-        "type": "diagnosis",
+        "type": "custom",
         "displayOrder": 3,
         "config": {
-          "translationKey": "DISCHARGE_CLINICAL_DIAGNOSIS_KEY",
-          "showCertainty": false,
-          "showOrder": false,
-          "showDetailsButton": true
+          "title": "Diagnosis",
+          "template": "<clinical-diagnosis-template></clinical-diagnosis-template>"
         }
       },
       "labInvestigation": {

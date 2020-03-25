@@ -68,5 +68,10 @@
   "ANC_NOTES":"ANC Notes ",
   "DASHBOARD_TITLE_Consultation_KEY":"Consultation Notes",
   "HOSPITAL_NAME": "SAJIDA Hospital",
-  "MEDICAL_CLINICAL_CERTIFICATE" : "Medical Certificate"
+  "MEDICAL_CLINICAL_CERTIFICATE" : "Medical Certificate",
+  "MEDICATION_LABEL_START_DATE" : "Starting Date",
+  "MEDICATION_LABEL_DOSE_FOR_TAB" : "Dose *",
+  "MEDICATION_LABEL_DURATION_FOR_TAB": "Duartion *",
+  "MEDICATION_LABEL_DRUGNAME_FOR_TAB": "Drug Name *",
+  "MEDICATION_LABEL_FREQUENCY_FOR_TAB": "Frequency *"
 }

@@ -26,7 +26,26 @@
   "tabConfig": {
     "allTreatment": {
       "inputOptionsConfig": {
-        "showDoseFractions": true,
+        "showDoseFractions": false,
+        "defaultDurationUnit": "Day(s)",
+        "defaultInstructions": "নির্দেশ অনুসারে",
+        "frequencyDefaultDurationUnitsMap": [
+          {
+            "minFrequency": "1/7",
+            "maxFrequency": 5,
+            "defaultDurationUnit": "Day(s)"
+          },
+          {
+            "minFrequency": "1/30",
+            "maxFrequency": "1/7",
+            "defaultDurationUnit": "Week(s)"
+          },
+          {
+            "minFrequency": null,
+            "maxFrequency": "1/30",
+            "defaultDurationUnit": "Month(s)"
+          }
+        ],
         "doseFractions": [
           "½",
           "⅓",
@@ -76,13 +95,25 @@
           "SublingualRoute"
         ],
         "drugFormDefaults": {
-          "Oral Rinse": {
-            "doseUnits": "Oral Rinse",
+          "Ayurvedic": {
+            "doseUnits": "TeaSpoon",
             "route": "OralRoute"
+          },
+          "Chewable tablet": {
+            "doseUnits": "Tablet(s)",
+            "route": "Chew, oral"
+          },
+          "Oral Rinse": {
+            "doseUnits": "ml",
+            "route": "Rinse, dental"
           },
           "Powder": {
             "doseUnits": "mg",
-            "route": "OralRoute"
+            "route": "Topical"
+          },
+          "Food Supplement": {
+            "doseUnits": "Unit(s)",
+            "route": "Oral"
           },
           "Oral solution": {
             "doseUnits": "ml",
@@ -90,17 +121,32 @@
           },
           "Nasal Solution": {
             "doseUnits": "ml",
-            "route": "OralRoute"
+            "route": "NasalRoute"
           },
           "Rotacap": {
             "doseUnits": "Unit(s)",
             "route": "OralRoute"
           },
           "Gel": {
+            "route": "Topical"
+          },
+          "Jelly": {
+            "route": "Topical"
+          },
+          "Spray": {
+            "doseUnits": "puff",
+            "route": "Nasal"
+          },
+          "Granule": {
+            "doseUnits": "Unit(s)",
             "route": "OralRoute"
           },
           "Pessary": {
             "doseUnits": "Unit(s)",
+            "route": "VaginalRoute"
+          },
+          "Liquid": {
+            "doseUnits": "ml",
             "route": "OralRoute"
           },
           "Mouth Paint": {
@@ -113,18 +159,18 @@
           },
           "Drops": {
             "doseUnits": "Drop",
-            "route": "OralRoute"
+            "route": "Topical"
           },
           "Syrup": {
             "doseUnits": "ml",
             "route": "OralRoute"
           },
           "Lotion": {
-            "route": "OralRoute"
+            "route": "Topical"
           },
           "Inhaler": {
-            "doseUnits": "Puff(s)",
-            "route": "OralRoute"
+            "doseUnits": "puff",
+            "route": "Inhalation"
           },
           "Suspension": {
             "doseUnits": "Unit(s)",
@@ -148,6 +194,13 @@
             "doseUnits": "mg",
             "route": "Injection, intravenous"
           }
+        },
+        "routesToMakeDoseSectionNonMandatory" : ["Topical"],
+        "labels": {
+          "dose": "MEDICATION_LABEL_DOSE_FOR_TAB",
+          "duration": "MEDICATION_LABEL_DURATION_FOR_TAB",
+          "drugName": "MEDICATION_LABEL_DRUGNAME_FOR_TAB",
+          "frequency": "MEDICATION_LABEL_FREQUENCY_FOR_TAB"
         },
         "duration": {
           "required": true

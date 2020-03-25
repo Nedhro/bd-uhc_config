@@ -215,8 +215,8 @@ angular.module('bahmni.common.displaycontrol.custom')
                                 if (response[0].data[i].name == 'Designation') {
                                     $scope.providerDesignation = response[0].data[i].value_reference;
                                 }
-                                if (response[0].data[i].name == 'BMDC Number') {
-                                    $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                if (response[0].data[i].name == 'Organization') {
+                                    $scope.providerOrganization = response[0].data[i].value_reference;
                                 }
                             }
                         }
@@ -246,9 +246,10 @@ angular.module('bahmni.common.displaycontrol.custom')
                                                         if (response[0].data[i].name == 'Designation') {
                                                             $scope.providerDesignation = response[0].data[i].value_reference;
                                                         }
-                                                        if (response[0].data[i].name == 'BMDC Number') {
-                                                            $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                                        if (response[0].data[i].name == 'Organization') {
+                                                            $scope.providerOrganization = response[0].data[i].value_reference;
                                                         }
+
                                                     }
                                                 }
                                                 $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/prescription.html";
@@ -268,11 +269,12 @@ angular.module('bahmni.common.displaycontrol.custom')
                                     $q.all([getProviderDesignation(providerUuid)]).then(function (response) {
                                         if (response[0].data.length > 0) {
                                             for (var i = 0; i < response[0].data.length; i++) {
+
                                                 if (response[0].data[i].name == 'Designation') {
                                                     $scope.providerDesignation = response[0].data[i].value_reference;
                                                 }
-                                                if (response[0].data[i].name == 'BMDC Number') {
-                                                    $scope.providerBMDCNumber = response[0].data[i].value_reference;
+                                                if (response[0].data[i].name == 'Organization') {
+                                                    $scope.providerOrganization = response[0].data[i].value_reference;
                                                 }
                                             }
                                         }
@@ -297,6 +299,7 @@ angular.module('bahmni.common.displaycontrol.custom')
                     withCredentials: true
                 });
             };
+
             var getProviderUuid = function (orderUuid) {
                 var params = {
                     q: "bahmni.sqlGet.orderUuid",
@@ -462,6 +465,7 @@ angular.module('bahmni.common.displaycontrol.custom')
     .directive("medicineDetails", function () {
         let template = "";
         var link = function ($scope) {
+            $scope.instruct = JSON.parse($scope.drugOrder.dosingInstructions.administrationInstructions);
             let doseUnits = $scope.drugOrder.dosingInstructions.doseUnits.split(" ").length > 0 ?
                 $scope.drugOrder.dosingInstructions.doseUnits.split(" ")[0] : $scope.drugOrder.dosingInstructions.doseUnits;
             let dose=$scope.drugOrder.dosingInstructions.dose;
@@ -476,6 +480,31 @@ angular.module('bahmni.common.displaycontrol.custom')
                     return false;
                 }
             }
+            $scope.testNumber = "";
+            let numbersE = {
+                0:'০',
+                1:'১',
+                2:'২',
+                3:'৩',
+                4:'৪',
+                5:'৫',
+                6:'৬',
+                7:'৭',
+                8:'৮',
+                9:'৯'
+            };
+
+            $scope.replaceNumbersE2B = function (input) {
+                var output = [];
+                for (var i = 0; i < input.length; ++i) {
+                    if (numbersE.hasOwnProperty(input[i])) {
+                        output.push(numbersE[input[i]]);
+                    } else {
+                        output.push(input[i]);
+                    }
+                }
+                return output.join('');
+            };
             $scope.convertToBangla=function (num) {
                 let dose=num;
                     if(dose===1) {
@@ -669,16 +698,20 @@ angular.module('bahmni.common.displaycontrol.custom')
             },
             link: link,
             template: "<div style='padding-bottom: 5px'><b>{{index + 1}}.\n" +
-                "      <span>{{drugOrder.drugNonCoded ? drugOrder.drugNonCoded : drugOrder.drug.name}}</span></b>\n" +
-                "        <span>{{drugOrder.drug != null ? ('('+ drugOrder.drug.form + ')') : ''}}</span>\n" +
-                "        <br/></div>" +
-                "        <span style='padding-left: 15px' ng-bind-html='dosageFrequency'></span>" +
-                "        <span ng-if='instruction.length > 1'>({{instruction}})</span>" + "-"+
-                "        <span style='padding-left: 0px' ng-bind-html='::convertToBangla(drugOrder.duration)'></span>" +
-                "        <span ng-if = 'drugOrder.durationUnits == \"Day(s)\"'>দিন</span>" +
-                "        <span ng-if = 'drugOrder.durationUnits == \"Week(s)\"'>সপ্তাহ</span>" +
-                "        <span ng-if = 'drugOrder.durationUnits == \"Month(s)\"'>মাস</span>" +
-                "        <br/><br/>"
+                "<span>{{drugOrder.drugNonCoded ? drugOrder.drugNonCoded : drugOrder.drug.name}}</span></b>\n" +
+                "<span>{{drugOrder.drug != null ? ('('+ drugOrder.drug.form + ')') : ''}}</span>\n" +
+                "<br/></div>" +
+                "<span style='padding-left: 15px' ng-if='drugOrder.dosingInstructions.dose != null' ng-bind-html='dosageFrequency'></span> " +
+                "<span style='padding-left: 15px' ng-if='drugOrder.dosingInstructions.dose == null' >" +
+                "<span ng-bind-html='::convertToBangla(instruct.morningDose)'></span> + " +
+                "<span ng-bind-html='::convertToBangla(instruct.afternoonDose)'></span> + " +
+                "<span ng-bind-html='::convertToBangla(instruct.eveningDose)'></span> <span>{{drugOrder.drug != null ? ('('+ drugOrder.drug.form + '(s)) ') : ''}}</span> </span>" +
+                "<span ng-if='instruction.length > 1'>({{instruction}})</span>" + "-"+
+                "<span style='padding-left: 0px;font-weight: bolder;' > {{replaceNumbersE2B((drugOrder.duration).toString())}} </span>" +
+                "<span ng-if = 'drugOrder.durationUnits == \"Day(s)\"'>দিন</span>" +
+                "<span ng-if = 'drugOrder.durationUnits == \"Week(s)\"'>সপ্তাহ</span>" +
+                "<span ng-if = 'drugOrder.durationUnits == \"Month(s)\"'>মাস</span>" +
+                "<br/><br/>"
         };
     }).directive('labInvestigation', ['appService', 'labOrderResultService', 'treatmentService', 'visitService', 'spinner', '$http',
     function (appService, labOrderResultService, treatmentService, visitService, spinner, $http) {
@@ -896,7 +929,8 @@ angular.module('bahmni.common.displaycontrol.custom')
         return {
             restrict: 'E',
             link: link,
-            template: '<div style="padding-bottom: 10px" > <br>' +
+            template: '<h2 class="section-title">{{config.title}}</h2>' +
+                '<div style="padding-bottom: 10px" > <br>' +
                 '<span><ul>\n' +
                 '        <li ng-repeat="obsGroup in obsDiagnosis">\n' +
                 '            <span style="padding-left: 5px;padding-top: 3px"><b> {{$index + 1}}. </b>{{obsGroup.codedAnswer.name}}</span>\n' +
