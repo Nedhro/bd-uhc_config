@@ -922,7 +922,6 @@ angular.module('bahmni.common.displaycontrol.custom')
                 withCredentials: true
             }).success(function (response) {
                 $scope.obsDiagnosis = response;
-                console.log(response);
             });
         };
 

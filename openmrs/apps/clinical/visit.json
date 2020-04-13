@@ -142,11 +142,10 @@
         }
       },
       "Admission_details_Info": {
-        "type": "custom",
+        "type": "admissionDetails",
         "displayOrder": 1,
         "config": {
-          "title": "Admission Details",
-          "template": "<admission-details-info></admission-info>"
+          "title": "Admission Details"
         }
       },
       "History_Examinations": {
