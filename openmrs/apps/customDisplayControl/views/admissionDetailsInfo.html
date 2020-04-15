@@ -3,36 +3,35 @@
       media="print"/>
 <div class="placeholder-text" style="font-size: 14px;">
     <h2 class="section-title">{{config.title}}</h2>
-    <table>
-        <tr style="border: none">
-            <td width="25%" style="border: none">Ward No</td>
-            <td width="30%" style="border: none">{{bedDetails.wardName}}</td>
-            <td width="45%" style="border: none"></td>
-        </tr>
-        <tr style="border: none">
-            <td width="25%" style="border: none">Room No</td>
-            <td width="30%" style="border: none">{{bedDetails.physicalLocationName}}</td>
-            <td width="45%" style="border: none"></td>
-        </tr>
-        <tr style="border: none">
-            <td width="25%" style="border: none">Cabin / Bed No</td>
-            <td width="30%" style="border: none">{{bedDetails.bedNumber}}</td>
-            <td width="45%" style="border: none"></td>
-        </tr>
-        <tr style="border: none">
-            <td width="25%" style="border: none">Admission Date</td>
-            <td width="30%" style="border: none">{{visitSummary.admissionDetails.date | bahmniDateTime}}</td>
-            <td width="45%" style="border: none"></td>
-        </tr>
-        <tr style="border: none">
-            <td width="25%" style="border: none">Release Date</td>
-            <td width="30%" style="border: none">{{releaseDate | bahmniDateTime}}</td>
-            <td width="45%" style="border: none"></td>
-        </tr>
-        <tr style="border: none">
-            <td width="25%" style="border: none">Doctor Name</td>
-            <td width="30%" style="border: none"></td>
-            <td width="45%" style="border: none"></td>
-        </tr>
-    </table>
+    <div >
+        <table>
+            <tr style="border: none">
+                <td  style="font-weight: bold;max-width: 35%;">Ward No</td>
+                <td  style="border: none;max-width: 65%;">{{wardName}}</td>
+
+            </tr>
+            <tr style="border: none">
+                <td style="font-weight: bold;max-width: 35%;">Room</td>
+                <td style="border: none;max-width: 65%;">{{roomName}}</td>
+
+            </tr>
+            <tr style="border: none">
+                <td style="font-weight: bold;max-width: 35%;">Cabin / Bed No</td>
+                <td style="border: none;max-width: 65%;">{{bedNumber}}</td>
+
+            </tr>
+            <tr style="border: none">
+                <td style="font-weight: bold;max-width: 35%;">Admission Date</td>
+                <td style="border: none;max-width: 65%;">{{admissionDate | bahmniDate}}</td>
+
+            </tr>
+            <tr style="border: none">
+                <td style="font-weight: bold;max-width: 35%;">Release Date</td>
+                <td style="border: none;max-width: 65%;"><span
+                        ng-if='releaseDate !="" '>{{releaseDate | bahmniDate}}</span>
+                <span ng-if='releaseDate =="" ' style="color: red;font-size: 16px;">Not Discharged yet</span></td>
+
+            </tr>
+        </table>
+    </div>
 </div>

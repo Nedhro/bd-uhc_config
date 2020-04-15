@@ -12,6 +12,20 @@ VALUES("bahmni.sqlGet.providerDesignation2", 'select pa.value_reference, pt.name
 insert into global_property(property, property_value, uuid)
 VALUES("bahmni.sqlGet.orderUuid", 'select p.uuid as uuid, pn.given_name, pn.middle_name, pn.family_name from orders as o join provider p on o.orderer = p.provider_id join person_name pn on pn.person_id = p.person_id where o.uuid=${orderUuid};', uuid());
 
+insert into global_property(property, property_value, uuid)
+VALUES("bahmni.sqlGet.bedMapInfo", 'select l.location_id, l.name, b.bed_number, l.parent_location, bm.bed_id, pi.identifier, bm.date_stopped, b.uuid, bm.date_created, b.date_changed
+from location as l
+    join bed_location_map bl on l.location_id = bl.location_id
+    join bed_patient_assignment_map bm on bl.bed_id = bm.bed_id
+    join bed b on b.bed_id=bm.bed_id
+    join patient_identifier pi on bm.patient_id= pi.patient_id
+where pi.identifier=${patientIdentifier} order by bm.date_started DESC;', uuid());
+
+insert into global_property(property, property_value, uuid)
+VALUES("bahmni.sqlGet.bedMapRoomInfo", 'select l.location_id, l.name, l.parent_location, l.description, l.date_created, l.date_changed
+from location as l join location ll on l.parent_location =ll.location_id
+where l.location_id=${parentId} order by l.date_created DESC;', uuid());
+
 
 update global_property set property_value = '{"provider":["Doctor"]}' where property = "bahmni.relationshipTypeMap";
 

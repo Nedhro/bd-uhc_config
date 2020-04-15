@@ -1,37 +1,38 @@
 <link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-display.css"/>
 <link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-print.css"
       media="print"/>
-<div class="placeholder-text" style="font-size: 14px;">
+<div class="placeholder-text" >
+    <div style="font-size: 14px;">
     <table>
-        <tr style="border: none">
-            <td width="25%" style="border: none" ng-if="patient.fatherName">Father's Name</td>
+        <tr style="border: none" ng-if="patient.fatherName">
+            <td width="25%" style="border: none" >Father's Name</td>
             <td width="30%" style="border: none">{{patient.fatherName.value}}</td>
-            <td width="45%" style="border: none"></td>
+
         </tr>
         <tr style="border: none" ng-if="patient.motherName">
             <td width="25%" style="border: none">Mother's Name</td>
             <td width="30%" style="border: none">{{patient.motherName.value}}</td>
-            <td width="45%" style="border: none"></td>
+
         </tr>
-        <tr style="border: none" ng-if="patient.motherName && patient.fatherName ">
+        <tr style="border: none" ng-if="patient.motherName || patient.fatherName ">
             <td width="25%" style="border: none">Guardian's Name</td>
             <td width="30%" style="border: none">{{patient.relativeName.value}}</td>
-            <td width="45%" style="border: none"></td>
+
         </tr>
         <tr style="border: none" ng-if="patient.spouseName">
             <td width="25%" style="border: none">Spouse's Name</td>
             <td width="30%" style="border: none">{{patient.spouseName.value}}</td>
-            <td width="45%" style="border: none"></td>
+
         </tr>
         <tr style="border: none" ng-if="patient.occupation">
             <td width="25%" style="border: none">Occupation</td>
             <td width="30%" style="border: none">{{patient.occupation.value.display}}</td>
-            <td width="45%" style="border: none"></td>
+
         </tr>
         <tr style="border: none" ng-if="patient.phoneNumber">
             <td width="25%" style="border: none">Phone Number</td>
             <td width="30%" style="border: none">{{patient.phoneNumber.value}}</td>
-            <td width="45%" style="border: none"></td>
+
         </tr>
         <tr style="border: none">
             <td width="25%" style="border: none">Address</td>
@@ -43,9 +44,10 @@
                 {{patient.address.countyDistrict ? patient.address.countyDistrict + "," : ""}}
                 {{patient.address.stateProvince}}
             </td>
-            <td width="45%" style="border: none"></td>
+
         </tr>
     </table>
+    </div>
 </div>
 <br>
 <hr style="border-bottom: 1px solid #e8e0e0">

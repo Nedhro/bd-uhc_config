@@ -134,23 +134,26 @@
         }
       },
       "Common_Patient_Additional_Info_Header": {
+        "hideEmptyDisplayControl": true,
         "type": "custom",
-        "displayOrder": 1,
+        "displayOrder": 2,
         "config": {
           "title": "",
           "template": "<common-patient-additional-info-header></common-patient-additional-info-header>"
         }
       },
       "Admission_details_Info": {
-        "type": "admissionDetails",
-        "displayOrder": 1,
+        "type": "custom",
+        "displayOrder": 3,
         "config": {
-          "title": "Admission Details"
+          "title": "Admission Details",
+          "template": "<admission-details-info></admission-info>"
         }
       },
       "History_Examinations": {
+        "hideEmptyDisplayControl": true,
         "type": "observation",
-        "displayOrder": 3,
+        "displayOrder": 4,
         "title": "History and Examination",
         "config": {
           "conceptNames": [
@@ -165,8 +168,9 @@
         }
       },
       "diagnoses": {
+        "hideEmptyDisplayControl": true,
         "type": "diagnosis",
-        "displayOrder": 4,
+        "displayOrder": 5,
         "config": {
           "translationKey": "DISCHARGE_CLINICAL_DIAGNOSIS_KEY",
           "showCertainty": false,
@@ -175,8 +179,9 @@
         }
       },
       "dischargedNotes": {
+        "hideEmptyDisplayControl": true,
         "type": "observation",
-        "displayOrder": 5,
+        "displayOrder": 6,
         "translationKey": "Discharged Note",
         "config": {
           "conceptNames": [
@@ -193,6 +198,7 @@
         }
       },
       "investigationresult": {
+        "hideEmptyDisplayControl": true,
         "type": "investigationResult",
         "showOnlyInDashboard": true,
         "config": {
@@ -204,11 +210,12 @@
           "showAccessionNotes": true,
           "numberOfVisits": 4
         },
-        "displayOrder": 6
+        "displayOrder": 7
       },
       "labInvestigation": {
+        "hideEmptyDisplayControl": true,
         "type": "custom",
-        "displayOrder": 7,
+        "displayOrder": 8,
         "showOnlyInPrint": true,
         "config": {
           "title": "Lab Test",
@@ -216,8 +223,9 @@
         }
       },
       "treatments": {
+        "hideEmptyDisplayControl": true,
         "type": "treatment",
-        "displayOrder": 8,
+        "displayOrder": 9,
         "config": {
           "translationKey": "Given Medication",
           "showFlowSheet": false,
@@ -229,40 +237,45 @@
         }
       },
       "dischargedSurgicalNote": {
+        "hideEmptyDisplayControl": true,
         "type": "custom",
-        "displayOrder": 9,
+        "displayOrder": 10,
         "config": {
           "title": "Surgical Note",
           "template": "<discharged-surgical-note></discharged-advice>"
         }
       },
       "TreatmentPrescription": {
+        "hideEmptyDisplayControl": true,
         "type": "custom",
-        "displayOrder": 10,
+        "displayOrder": 11,
         "config": {
           "title": "Active Medication",
           "template": "<treatment-prescription></treatment-prescription>"
         }
       },
       "dischargedAdvice": {
+        "hideEmptyDisplayControl": true,
         "type": "custom",
-        "displayOrder": 11,
+        "displayOrder": 12,
         "config": {
           "title": "Advice",
           "template": "<discharged-advice></discharged-advice>"
         }
       },
       "dischargedFollowUpPlan": {
+        "hideEmptyDisplayControl": true,
         "type": "custom",
-        "displayOrder": 12,
+        "displayOrder": 13,
         "config": {
           "title": "Follow Up Plan",
           "template": "<discharged-follow-up-plan></discharged-follow-up-plan>"
         }
       },
       "Discharged_Footer": {
+        "hideEmptyDisplayControl": true,
         "type": "custom",
-        "displayOrder": 13,
+        "displayOrder": 14,
         "config": {
           "title": "  ",
           "template": "<discharged-footer></discharged-footer>"

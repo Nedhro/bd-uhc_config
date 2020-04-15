@@ -79,14 +79,26 @@ angular.module('bahmni.common.displaycontrol.custom')
             template: '<ng-include src="contentUrl"/>'
         }
     }])
-    .directive('admissionDetailsInfo', ['$q', 'observationsService', 'visitService', 'bedService', 'appService', 'spinner', '$sce', function ($q, observationsService, visitService, bedService, appService, spinner, $sce) {
+    .directive('admissionDetailsInfo', ['$q', 'observationsService', 'visitService', 'bedService', 'appService', 'spinner', '$sce','$http', function ($q, observationsService, visitService, bedService, appService, spinner, $sce, $http) {
         var link = function ($scope) {
             $scope.displayStuff = false;
-            spinner.forPromise($q.all([bedService.getAssignedBedForPatient($scope.patient.uuid), visitService.getVisitSummary($scope.visitUuid)]).then(function (results) {
-                $scope.bedDetails = results[0];
-                $scope.visitSummary = results[1].data;
-                $scope.releaseDate = new Date();
-                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/admissionDetailsInfo.html";
+            spinner.forPromise($q.all([bedService.getAssignedBedForPatient($scope.patient.identifier), visitService.getVisitSummary($scope.visitUuid)]).then(function (results) {
+                var patientIdentifier = $scope.patient.identifier.toString();
+                $q.all([getAdmissionInfo(patientIdentifier)]).then(function (response) {
+                    if (response[0].data.length > 0) {
+                        $scope.wardName = response[0].data[0].name;
+                        $scope.bedNumber = response[0].data[0].bed_number;
+                        $scope.admissionDate = response[0].data[0].date_created;
+                        $scope.releaseDate = response[0].data[0].date_stopped;
+                        var parentId= response[0].data[0].parent_location;
+                        $q.all([getAdmissionRoomInfo(parentId)]).then(function (response) {
+                            if (response[0].data.length > 0) {
+                                $scope.roomName = response[0].data[0].name;
+                            }
+                        });
+                        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/admissionDetailsInfo.html";
+                    }
+                });
             }));
 
         };
@@ -94,7 +106,32 @@ angular.module('bahmni.common.displaycontrol.custom')
             $scope.htmlLabel = function (label) {
                 return $sce.trustAsHtml(label)
             }
-        }
+        };
+        var getAdmissionInfo = function (patientIdentifier) {
+            var params = {
+                q: "bahmni.sqlGet.bedMapInfo",
+                v: "full",
+                patientIdentifier: patientIdentifier
+            };
+            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
+                method: "GET",
+                params: params,
+                withCredentials: true
+            });
+        };
+        var getAdmissionRoomInfo = function (parentId) {
+            var params = {
+                q: "bahmni.sqlGet.bedMapRoomInfo",
+                v: "full",
+                parentId: parentId
+            };
+            return $http.get('/openmrs/ws/rest/v1/bahmnicore/sql', {
+                method: "GET",
+                params: params,
+                withCredentials: true
+            });
+        };
+
         return {
             restrict: 'E',
             link: link,
@@ -138,6 +175,7 @@ angular.module('bahmni.common.displaycontrol.custom')
         $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/dischargeSummary.html";
 
         spinner.forPromise($q.all([bedService.getAssignedBedForPatient($scope.patient.uuid), visitService.getVisitSummary($scope.visitUuid)]).then(function (results) {
+
             $scope.bedDetails = results[0];
             $scope.visitSummary = results[1].data;
         }));
