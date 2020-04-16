@@ -86,30 +86,16 @@
         },
         "displayOrder": 3
       },
-      "procedureOrders": {
+
+      "pacs":{
         "hideEmptyDisplayControl": true,
-        "orderType": "Procedure Order",
-        "title": "Procedure Orders",
-        "type": "ordersControl",
-        "displayOrder": 4,
-        "dashboardConfig": {
-          "conceptNames": [
-            "Procedure Template"
-          ],
-          "numberOfVisits": 4
-        }
-      },
-      "radiologyOrders": {
-        "hideEmptyDisplayControl": true,
-        "orderType": "Radiology Order",
-        "title": "Radiology Orders",
-        "type": "ordersControl",
-        "displayOrder": 5,
-        "dashboardConfig": {
-          "conceptNames": [
-            "Radiology Order Fulfillment Form"
-          ],
-          "numberOfVisits": 4
+        "orderType":"Radiology Order",
+        "type":"pacsOrders",
+        "translationKey":"DASHBOARD_TITLE_PACS_KEY",
+        "displayOrder":6,
+        "dashboardConfig":{
+          "pacsImageUrl":"/oviyam2/viewer.html?patientID={{patientID}}&accessionNumber={{orderNumber}}",
+          "numberOfVisits":1
         }
       },
       "vitals": {
@@ -141,7 +127,7 @@
             "labConcepts": []
           }
         },
-        "displayOrder": 6
+        "displayOrder": 7
       },
       "history_and_examinations": {
         "hideEmptyDisplayControl": true,
@@ -163,7 +149,7 @@
           "showDetailsButton": true,
           "pivotTable": {}
         },
-        "displayOrder": 7
+        "displayOrder": 8
       },
       "ConsultationNotes": {
         "title": "Consultation Notes",
@@ -177,7 +163,14 @@
           ],
           "numberOfVisits": "2"
         },
-        "displayOrder": 8
+        "displayOrder": 9
+      },
+      "admission_details": {
+        "hideEmptyDisplayControl": true,
+        "title": "Admission Details",
+        "translationKey": "DASHBOARD_TITLE_ADMISSION_DETAILS_KEY",
+        "type": "admissionDetails",
+        "displayOrder": 10
       },
       "visits": {
         "hideEmptyDisplayControl": true,
@@ -188,14 +181,7 @@
           "title": null,
           "maximumNoOfVisits": 10
         },
-        "displayOrder": 9
-      },
-      "admission_details": {
-        "hideEmptyDisplayControl": true,
-        "title": "Admission Details",
-        "translationKey": "DASHBOARD_TITLE_ADMISSION_DETAILS_KEY",
-        "type": "admissionDetails",
-        "displayOrder": 10
+        "displayOrder": 11
       }
     }
   },

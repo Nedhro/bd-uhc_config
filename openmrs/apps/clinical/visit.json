@@ -55,6 +55,14 @@
           "template": "<investigation-template></investigation-template>"
         }
       },
+      "pacsOrders":{
+        "type":"pacsOrders",
+        "displayOrder": 6,
+        "translationKey": "PACS_ORDERS_VISIT_PAGE_KEY",
+        "config":{
+          "orderType": "Radiology Order"
+        }
+      },
       "TreatmentPrescription": {
         "type": "custom",
         "displayOrder": 7,
