@@ -1,13 +1,40 @@
 <link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-display.css"/>
 <link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/registrationCardLayout/css/custom-print.css"
       media="print"/>
-
+<style>
+    #barcode {
+        width: 2.5cm;
+        height: 20px;
+        margin-top: 4px;
+        padding-left: 0px;
+        margin-left: 3px;
+        float: right;
+    }
+</style>
 <div class="placeholder-text" style="background-color: gainsboro;height: 30px; line-height: 30px;">
     <b> Name : <span class="custom-bold-text"> {{patient.name}} </span> &nbsp;&nbsp; | &nbsp;&nbsp;
         Patient ID : <span class="custom-bold-text"> {{patient.identifier}}</span>&nbsp;&nbsp; | &nbsp;&nbsp;
         Gender : <span ng-if="patient.gender == 'M' " class="custom-bold-text"> Male &nbsp;&nbsp; | &nbsp;&nbsp;</span>
         <span ng-if="patient.gender == 'F' " class="custom-bold-text"> Female &nbsp;&nbsp; | &nbsp;&nbsp;</span>
         <span ng-if="patient.gender == 'O' " class="custom-bold-text"> Other &nbsp;&nbsp; | &nbsp;&nbsp;</span>
-        Age : <span class="custom-bold-text" ng-bind-html="patient.ageText"></span></b>
+        Age : <span class="custom-bold-text" ng-bind-html="patient.ageText"></span>
+        <span>  <img id="barcode"
+                     jsbarcode-value="{{patient.identifier}}"
+                     jsbarcode-width="2"
+                     jsbarcode-height="45"
+                     jsbarcode-margin="0"
+                     jsbarcode-displayValue="false"
+                     jsbarcode-textAlign="left"
+                     jsbarcode-textMargin="0"
+                     jsbarcode-fontSize="4"
+        /></span>
+    </b>
     <br><br>
 </div>
+
+<script type="text/javascript" src="/bahmni_config/openmrs/apps/JsBarcode.all.min.js"></script>
+<script>
+    (function () {
+        JsBarcode("#barcode").init();
+    })();
+</script>

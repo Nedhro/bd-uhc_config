@@ -60,7 +60,11 @@
         "displayOrder": 6,
         "translationKey": "PACS_ORDERS_VISIT_PAGE_KEY",
         "config":{
-          "orderType": "Radiology Order"
+          "orderType": "Radiology Order",
+          "showFlowSheet": false,
+          "showListView": false,
+          "showChart": false,
+          "showTable": false
         }
       },
       "TreatmentPrescription": {
