@@ -1,224 +1,219 @@
 {
-  "commonConfig": {
-    "doseFractions": [
-      {
-        "value": 0.50,
-        "label": "½"
-      },
-      {
-        "value": 0.33,
-        "label": "⅓"
-      },
-      {
-        "value": 0.25,
-        "label": "¼"
-      },
-      {
-        "value": 0.75,
-        "label": "¾"
-      },
-      {
-        "value": 0.67,
-        "label": "⅔"
-      }
-    ]
-  },
-  "tabConfig": {
-    "allTreatment": {
-      "inputOptionsConfig": {
-        "showDoseFractions": false,
-        "defaultDurationUnit": "Day(s)",
-        "defaultInstructions": "নির্দেশ অনুসারে",
-        "frequencyDefaultDurationUnitsMap": [
-          {
-            "minFrequency": "1/7",
-            "maxFrequency": 5,
-            "defaultDurationUnit": "Day(s)"
-          },
-          {
-            "minFrequency": "1/30",
-            "maxFrequency": "1/7",
-            "defaultDurationUnit": "Week(s)"
-          },
-          {
-            "minFrequency": null,
-            "maxFrequency": "1/30",
-            "defaultDurationUnit": "Month(s)"
-          }
-        ],
+    "commonConfig": {
         "doseFractions": [
-          "½",
-          "⅓",
-          "¼",
-          "¾",
-          "⅔"
-        ],
-        "routes": [
-          "Chew, oral",
-          "OralRoute",
-          "NasalRoute",
-          "OphthalmicRoute",
-          "RectalRoute",
-          "VaginalRoute",
-          "Rinse, dental",
-          "Nebulization",
-          "Inhalation, nebulization",
-          "Inhalation",
-          "Topical",
-          "Injection, epidural",
-          "Injection, intraarterial",
-          "Injection, intradermal",
-          "Injection, intramuscular",
-          "Injection, intraocular",
-          "Injection, insulin pump",
-          "Injection, intraspinal",
-          "Injection, intrasynovial",
-          "Injection, intravenous",
-          "Injection, intravenous, slow push",
-          "Injection, subcutaneous",
-          "Injection",
-          "Infusion",
-          "Implantation",
-          "Insertion, cervical (uterine)",
-          "Insertion, intraocular, surgical",
-          "Insertion, subcutaneous, surgical",
-          "Insertion, vaginal",
-          "Instillation, nasogastric tube",
-          "Instillation, urinary catheter",
-          "Instillation, chest tube",
-          "Irrigation, intraocular",
-          "Irrigation, urinary bladder",
-          "Lavage, intragastric",
-          "TopicalApplication",
-          "SuppositoryRoute",
-          "EnemaRoute",
-          "SublingualRoute"
-        ],
-        "drugFormDefaults": {
-          "Ayurvedic": {
-            "doseUnits": "TeaSpoon",
-            "route": "OralRoute"
-          },
-          "Chewable tablet": {
-            "doseUnits": "Tablet(s)",
-            "route": "Chew, oral"
-          },
-          "Oral Rinse": {
-            "doseUnits": "ml",
-            "route": "Rinse, dental"
-          },
-          "Powder": {
-            "doseUnits": "mg",
-            "route": "Topical"
-          },
-          "Food Supplement": {
-            "doseUnits": "Unit(s)",
-            "route": "Oral"
-          },
-          "Oral solution": {
-            "doseUnits": "ml",
-            "route": "OralRoute"
-          },
-          "Nasal Solution": {
-            "doseUnits": "ml",
-            "route": "NasalRoute"
-          },
-          "Rotacap": {
-            "doseUnits": "Unit(s)",
-            "route": "OralRoute"
-          },
-          "Gel": {
-            "route": "Topical"
-          },
-          "Jelly": {
-            "route": "Topical"
-          },
-          "Spray": {
-            "doseUnits": "puff",
-            "route": "Nasal"
-          },
-          "Granule": {
-            "doseUnits": "Unit(s)",
-            "route": "OralRoute"
-          },
-          "Pessary": {
-            "doseUnits": "Unit(s)",
-            "route": "VaginalRoute"
-          },
-          "Liquid": {
-            "doseUnits": "ml",
-            "route": "OralRoute"
-          },
-          "Mouth Paint": {
-            "doseUnits": "Unit(s)",
-            "route": "OralRoute"
-          },
-          "Solution": {
-            "doseUnits": "ml",
-            "route": "OralRoute"
-          },
-          "Drops": {
-            "doseUnits": "Drop",
-            "route": "Topical"
-          },
-          "Syrup": {
-            "doseUnits": "ml",
-            "route": "OralRoute"
-          },
-          "Lotion": {
-            "route": "Topical"
-          },
-          "Inhaler": {
-            "doseUnits": "puff",
-            "route": "Inhalation"
-          },
-          "Suspension": {
-            "doseUnits": "Unit(s)",
-            "route": "OralRoute"
-          },
-          "Cream": {
-            "route": "Topical"
-          },
-          "Ointment": {
-            "route": "Topical"
-          },
-          "Tablet": {
-            "doseUnits": "Tablet(s)",
-            "route": "OralRoute"
-          },
-          "Capsule": {
-            "doseUnits": "Capsule(s)",
-            "route": "OralRoute"
-          },
-          "Injection": {
-            "doseUnits": "mg",
-            "route": "Injection, intravenous"
-          }
-        },
-        "routesToMakeDoseSectionNonMandatory" : ["Topical"],
-        "labels": {
-          "dose": "MEDICATION_LABEL_DOSE_FOR_TAB",
-          "duration": "MEDICATION_LABEL_DURATION_FOR_TAB",
-          "drugName": "MEDICATION_LABEL_DRUGNAME_FOR_TAB",
-          "frequency": "MEDICATION_LABEL_FREQUENCY_FOR_TAB"
-        },
-        "duration": {
-          "required": true
-        },
-        "hideOrderSet": true,
-        "doseUnits": [
-          "Unit(s)",
-          "Capsule(s)",
-          "Tablet(s)",
-          "ml",
-          "IU",
-          "Drop",
-          "TableSpoon",
-          "TeaSpoon",
-          "puff",
-          "mg"
+            {
+                "value": 0.50,
+                "label": "½"
+            },
+            {
+                "value": 0.33,
+                "label": "⅓"
+            },
+            {
+                "value": 0.25,
+                "label": "¼"
+            },
+            {
+                "value": 0.75,
+                "label": "¾"
+            },
+            {
+                "value": 0.67,
+                "label": "⅔"
+            }
         ]
-      }
+    },
+    "tabConfig": {
+        "allTreatment": {
+            "inputOptionsConfig": {
+                "showDoseFractions": true,
+                "defaultDurationUnit": "Day(s)",
+                "defaultInstructions": "As directed",
+                "frequencyDefaultDurationUnitsMap": [
+                    {
+                        "minFrequency": "1/7",
+                        "maxFrequency": 5,
+                        "defaultDurationUnit": "Day(s)"
+                    },
+                    {
+                        "minFrequency": "1/30",
+                        "maxFrequency": "1/7",
+                        "defaultDurationUnit": "Week(s)"
+                    },
+                    {
+                        "minFrequency": null,
+                        "maxFrequency": "1/30",
+                        "defaultDurationUnit": "Month(s)"
+                    }
+                ],
+                "doseFractions": [
+                    "½",
+                    "⅓",
+                    "¼",
+                    "¾",
+                    "⅔"
+                ],
+                "routes": [
+                    "Chew, oral",
+                    "OralRoute",
+                    "NasalRoute",
+                    "OphthalmicRoute",
+                    "RectalRoute",
+                    "VaginalRoute",
+                    "Rinse, dental",
+                    "Nebulization",
+                    "Inhalation, nebulization",
+                    "Inhalation",
+                    "Topical",
+                    "Injection, epidural",
+                    "Injection, intraarterial",
+                    "Injection, intradermal",
+                    "Injection, intramuscular",
+                    "Injection, intraocular",
+                    "Injection, insulin pump",
+                    "Injection, intraspinal",
+                    "Injection, intrasynovial",
+                    "Injection, intravenous",
+                    "Injection, intravenous, slow push",
+                    "Injection, subcutaneous",
+                    "Injection",
+                    "Infusion",
+                    "Implantation",
+                    "Insertion, cervical (uterine)",
+                    "Insertion, intraocular, surgical",
+                    "Insertion, subcutaneous, surgical",
+                    "Insertion, vaginal",
+                    "Instillation, nasogastric tube",
+                    "Instillation, urinary catheter",
+                    "Instillation, chest tube",
+                    "Irrigation, intraocular",
+                    "Irrigation, urinary bladder",
+                    "Lavage, intragastric",
+                    "TopicalApplication",
+                    "SuppositoryRoute",
+                    "EnemaRoute",
+                    "SublingualRoute"
+                ],
+                "drugFormDefaults": {
+                    "Tablet dose form": {
+                        "doseUnits": "Tablet dose form",
+                        "route": "OralRoute"
+                    },
+                    "Chewable tablet": {
+                        "doseUnits": "Tablet dose form",
+                        "route": "Chew, oral"
+                    },
+                    "Capsule dose form": {
+                        "doseUnits": "Capsule dose form",
+                        "route": "OralRoute"
+                    },
+                    "Drops dose form": {
+                        "doseUnits": "Drop - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Granules for oral solution": {
+                        "doseUnits": "Sachet - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Granules for oral suspension": {
+                        "doseUnits": "Teaspoonful - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Infusion solution": {
+                        "doseUnits": "millilitre",
+                        "route": "Injection, intravenous"
+                    },
+                    "Inhalation aerosol solution": {
+                        "doseUnits": "Puffs",
+                        "route": "Inhalation"
+                    },
+                    "Inhalation aerosol suspension": {
+                        "doseUnits": "Puffs",
+                        "route": "Inhalation"
+                    },
+                    "Injection solution": {
+                        "doseUnits": "Vial - unit of product",
+                        "route": "Injection, intravenous"
+                    },
+                    "Ointment": {
+                        "doseUnits": "Squirt - unit of product",
+                        "route": "Topical"
+                    },
+                    "Eye ointment": {
+                        "doseUnits": "Squirt - unit of product",
+                        "route": "Topical"
+                    },
+                    "Powder for oral suspension": {
+                        "doseUnits": "Teaspoonful - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Powder for syrup": {
+                        "doseUnits": "Teaspoonful - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Syrup": {
+                        "doseUnits": "Teaspoonful - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Oral drops": {
+                        "doseUnits": "Drop - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Oral solution": {
+                        "doseUnits": "Sachet - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Oral powder": {
+                        "doseUnits": "Teaspoonful - unit of product",
+                        "route": "OralRoute"
+                    },
+                    "Cream": {
+                        "doseUnits": "Squirt - unit of product",
+                        "route": "Topical"
+                    },
+                    "Intravenous solution": {
+                        "doseUnits": "Vial - unit of product",
+                        "route": "Injection, intravenous"
+                    },
+                    "Infusion": {
+                        "doseUnits": "Vial - unit of product",
+                        "route": "Injection, intravenous"
+                    },
+                    "Injection": {
+                        "doseUnits": "Vial - unit of product",
+                        "route": "Injection, intravenous"
+                    },
+                    "Normal Saline (Sodium chloride 0.9% solution)": {
+                        "doseUnits": "Vial - unit of product",
+                        "route": "Injection, intravenous"
+                    }
+                },
+                "routesToMakeDoseSectionNonMandatory": [
+                    "Topical"
+                ],
+                "labels": {
+                    "dose": "MEDICATION_LABEL_DOSE_FOR_TAB",
+                    "duration": "MEDICATION_LABEL_DURATION_FOR_TAB",
+                    "drugName": "MEDICATION_LABEL_DRUGNAME_FOR_TAB",
+                    "frequency": "MEDICATION_LABEL_FREQUENCY_FOR_TAB"
+                },
+                "duration": {
+                    "required": true
+                },
+                "hideOrderSet": true,
+                "doseUnits": [
+                    "Capsule dose form",
+                    "Tablet dose form",
+                    "Drop - unit of product",
+                    "Sachet - unit of product",
+                    "Teaspoonful - unit of product",
+                    "millilitre",
+                    "Ampule - unit of product",
+                    "Vial - unit of product",
+                    "Squirt - unit of product",
+                    "Puffs"
+                ]
+            }
+        }
     }
-  }
 }

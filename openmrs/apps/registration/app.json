@@ -21,100 +21,14 @@
     "activeVisitUuid"
   ],
   "config": {
-    "forwardUrlsForVisitTypes": [
-
-    ],
-    "mandatoryPersonAttributes": [
-      "phoneNumber",
-      "referredByHospital",
-      "referredByDoctor",
-      "alarmingField",
-      "referredBy",
-      "referredByPharmacy",
-      "referredByPromotionalActivity",
-      "patientCategory"
-    ],
     "autoCompleteFields": [
-      "familyName",
-      "relativeRelation",
-      "referredByHospital",
-      "referredByDoctor"
+      "familyName"
     ],
     "patientInformation": {
-      "emergencyContact": {
-        "title": "Emergency Contact",
-        "translationKey": "REGISTRATION_EMERGENCY_CONTACT_KEY",
-        "attributes": [
-          "relativeName",
-          "relativeContactNumber",
-          "relativeRelation"
-        ]
-      },
-      "hospitalSection": {
-        "title": "Referred By Hospital",
-        "translationKey": "REGISTRATION_REFERRED_BY_HOSPITAL_KEY",
-        "attributes": [
-          "referredByHospital"
-        ]
-      },
-      "doctorSection": {
-        "title": "Referred By Doctor",
-        "translationKey": "REGISTRATION_REFERRED_BY_DOCTOR_KEY",
-        "attributes": [
-          "referredByDoctor"
-        ]
-      },
-      "pharmacySection": {
-        "title": "Referred By Pharmacy",
-        "translationKey": "REGISTRATION_REFERRED_BY_PHARMACY_KEY",
-        "attributes": [
-          "referredByPharmacy"
-        ]
-      },
-      "promotionalActivitySection": {
-        "title": "Referred By Promotional Activity",
-        "translationKey": "REGISTRATION_REFERRED_BY_PROMOTIONAL_ACTIVITY_KEY",
-        "attributes": [
-          "referredByPromotionalActivity"
-        ]
-      },
-      "genderSection": {
-        "title": "Gender",
-        "translationKey": "Gender",
-        "attributes": [
-          "genderAttr"
-        ]
-      },
-      "staffIdSection": {
-        "title": "Staff ID",
-        "translationKey": "Staff ID",
-        "attributes": [
-          "staffid"
-        ]
-      },
-      "mfidSection": {
-        "title": "MF ID",
-        "translationKey": "MF ID",
-        "attributes": [
-          "mfid"
-        ]
-      },
-      "healthIdSection": {
-        "title": "Health ID",
-        "translationKey": "Health ID",
-        "attributes": [
-          "healthIdCard"
-        ]
-      },
       "hidden": {
         "attributes": [
           "healthId"
         ]
-      },
-      "defaults": {
-        "alarmingField": "Alarming Field,General",
-        "patientCategory": "Patient Category, General",
-        "referredBy": "Referred By, Self"
       }
     },
     "prepopulateFields": [
@@ -125,9 +39,6 @@
     "searchByIdForwardUrl": "/patient/{{patientUuid}}",
     "showLastName": true,
     "showMiddleName": false,
-    "showEnterID":false,
-    "showBirthTime": false,
-    "isLastNameMandatory": false,
     "addressHierarchy": {
       "showAddressFieldsTopDown": true,
       "strictAutocompleteFromLevel": "address2"
@@ -135,13 +46,13 @@
     "printOptions": [
       {
         "translationKey": "REGISTRATION_PRINT_REG_CARD_LOCAL_KEY",
-        "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/print.html",
+        "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/registrationPrintExist.html",
         "shortcutKey": "l"
       },
       {
-        "translationKey": "Admission Form",
-        "templateUrl": "/bahmni_config/openmrs/apps/registration/admissionFormLayout/print.html",
-        "shortcutKey": "2"
+        "translationKey": "REGISTRATION_PRINT_HEALTHID_CARD_KEY",
+        "templateUrl": "/bahmni_config/openmrs/apps/registration/healthIDCardLayout/print.html",
+        "shortcutKey": "p"
       }
     ],
     "conceptSetUI": {
@@ -162,20 +73,16 @@
         "errorMessage": "Family name should only have alphabets, not even space. Max length is 25"
       },
       "nationalId": {
-        "pattern": "^(\\d{10}|\\d{13}|\\d{17})$",
-        "errorMessage": "National ID should be 10 or 13 or 17 digits"
+        "pattern": "^(\\d{13}|\\d{17})$",
+        "errorMessage": "National ID should be 13 or 17 digits"
       },
       "birthRegistrationId": {
         "pattern": "^\\d{17}$",
         "errorMessage": "Birth Registration Number should be 17 digits"
       },
       "phoneNumber": {
-        "pattern": "^(\\d{3,14})$",
-        "errorMessage": "Phone Number should be between 3 to 14 digits"
-      },
-      "relativeContactNumber": {
-        "pattern": "^(\\d{3,14})$",
-        "errorMessage": "Relative Number should be between 3 to 14 digits"
+        "pattern": "^(\\d{3,12})$",
+        "errorMessage": "Phone Number should be between 3 to 12 digits"
       },
       "healthId": {
         "pattern": "^[9][1-9][0-9]{9}$",
@@ -204,22 +111,21 @@
     },
     "patientSearch": {
       "address": {
-        "label": "Address Line",
-        "placeholder": "Address Line",
-        "field": "address1"
+        "label": "Ward/Union",
+        "placeholder": "Enter Ward/Union",
+        "field": "address3"
       },
       "customAttributes": {
-        "label": "NID/Phone/Father/Mother/Spouse",
-        "placeholder": "NID/Phone/Father/Mother/Spouse",
+        "label": "ID/Relative Name/Phone",
+        "placeholder": "ID/Relative Name/Phone",
         "fields": [
           "nationalId",
+          "birthRegistrationId",
           "phoneNumber",
           "fatherName",
-          "motherName",
           "spouseName"
         ]
-      },
-      "searchByPatientIdentifier": true
+      }
     }
   }
 }

@@ -48,14 +48,3 @@ body{
 .columns-4{
   width: 25%;
 }
-
-@media print {
-
-    .border-less tr {
-        border: none !important;
-    }
-
-    .border-less td {
-        border: none !important;
-    }
-}

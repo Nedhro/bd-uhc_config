@@ -5,12 +5,12 @@
     <h2 class="section-title">{{config.title}}</h2>
     <div >
         <table>
-            <tr style="border: none">
+            <tr style="border: none" ng-if="wardName">
                 <td  style="font-weight: bold;max-width: 35%;">Ward No</td>
                 <td  style="border: none;max-width: 65%;">{{wardName}}</td>
 
             </tr>
-            <tr style="border: none">
+            <tr style="border: none" ng-if="roomName">
                 <td style="font-weight: bold;max-width: 35%;">Room</td>
                 <td style="border: none;max-width: 65%;">{{roomName}}</td>
 
