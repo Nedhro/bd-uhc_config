@@ -1,0 +1,129 @@
+<style>
+    html, body, .main-container {
+        height: 96.5% !important;
+        min-height: 96.5% !important;
+        margin: 0 auto;
+        padding: 5px;
+        width: 97%;
+    }
+
+    .header-style {
+        height: 20%;
+        width: 100%;
+        border: 1px solid black;
+        padding-bottom: 5px;
+    }
+
+    .left-header {
+        width: 50%;
+        float: left;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+
+    .right-header {
+        width: 45%;
+        float: left;
+        font-size: 13px;
+        margin-top: 3px;
+    }
+
+    .address-style {
+        width: 100%;
+        font-size: 14px;
+        float: left;
+        margin-left: 10px;
+    }
+
+    .body-style {
+        height: 80%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        width: 100%;
+    }
+
+    .left-body {
+        width: 35%;
+        border-right: 1px solid black;
+        float: left;
+        height: 100%;
+    }
+
+    .right-body {
+        width: 55%;
+        float: left;
+
+    }
+
+    .footer {
+        height: 5%;
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    #barcode {
+        width: 5cm;
+        margin-top: 15px;
+        padding-left: 10px;
+        float: right;
+    }
+</style>
+<div class="main-container">
+    <div class="header-style">
+        <div class="left-header">
+            <img src="/bahmni_config/openmrs/apps/registration/registrationCardLayout/images/registrationCardHeader.png"
+                 width="95%"/>
+        </div>
+        <div class="right-header" style="text-align: justify">
+
+            <img id="barcode"
+                 jsbarcode-value="{{patient.primaryIdentifier.identifier}}"
+                 jsbarcode-width="2"
+                 jsbarcode-height="50"
+                 jsbarcode-margin="0"
+                 jsbarcode-displayValue="false"
+                 jsbarcode-textAlign="left"
+                 jsbarcode-textMargin="0"
+                 jsbarcode-fontSize="4"
+            />
+            <span class="label_tag" style="padding-left: 40px"><b>Patient ID: </b> {{patient.primaryIdentifier.identifier}}</span><br>
+        </div>
+        <div style="text-align: right; padding-bottom: 6px;">
+            <span style="font-weight: bold; font-size: 12px;">{{observations[1].complexData.data.name}}</span>
+        </div>
+        <div class="address-style">
+            <span class="label_tag" style="font-weight: bold;"> Name: </span>
+            <span>{{patient.givenName + (patient.middleName ? (" " + patient.middleName) : "") + (patient.familyName ? (" " + patient.familyName) : "")}}</span>
+            <span class="label_tag" style="font-weight: bold;"> &nbsp; Age : </span>
+            <span>{{patient.age | age}}</span>
+            <span class="label_tag" style="font-weight: bold;"> &nbsp; Gender : </span>
+            <span>{{patient.gender}}</span>
+            <span class="label_tag" style="font-weight: bold;"> &nbsp; Mobile No : </span>
+            <span>{{patient.phoneNumber}}</span><br>
+            <span class="label_tag" style="font-weight: bold;"> Address:</span>
+            <span>
+                {{patient.address.address1 ? patient.address.address1 + "," : ""}}
+                {{patient.address.address2 ? patient.address.address2 + "," : ""}}
+                {{patient.address.address3 ? patient.address.address3 + "," : ""}}
+                {{patient.address.address4 ? patient.address.address4 + "," : ""}}
+                {{patient.address.address5 ? patient.address.address5 + "," : ""}}
+                {{patient.address.countyDistrict ? patient.address.countyDistrict + "," : ""}}
+                {{patient.address.stateProvince}}
+            </span>
+        </div>
+    </div>
+
+    <div class="body-style">
+        <div class="left-body"></div>
+        <div class="right-body"></div>
+    </div>
+    <div class="footer">
+        <p style="font-size: 15px; float: left; margin-left: 10px;">Follow Up : ......... Days / Week / Month</p>
+    </div>
+</div>
+<script type="text/javascript" src="/bahmni_config/openmrs/apps/JsBarcode.all.min.js"></script>
+<script>
+    (function () {
+        JsBarcode("#barcode").init();
+    })();
+</script>

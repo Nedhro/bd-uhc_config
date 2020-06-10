@@ -1,397 +1,426 @@
 {
-  "Prescription": {
-    "title": "Patient_Prescription ",
-    "translationKey": "PRESCRIPTION",
-    "displayByDefault": true,
-    "printing": {
-      "title": "",
-      "header": "",
-      "logo": ""
-    },
-    "sections": {
-      "Header": {
-        "type": "custom",
-        "displayOrder": 0,
-        "showOnlyInPrint": true,
-        "config": {
-          "title": " ",
-          "template": "<header-pad-white-space></header-pad-white-space>"
-        }
-      },
-      "Common_Patient_Info_Header": {
-        "type": "custom",
-        "displayOrder": 1,
-        "config": {
-          "title": "",
-          "template": "<common-patient-info-header></common-patient-info-header>"
-        }
-      },
-      "HistoryExaminations": {
-        "type": "custom",
-        "displayOrder": 2,
-        "config": {
-          "title": "History and Examination",
-          "template": "<chief-complaint-template></chief-complaint-template>",
-          "numberOfVisits": "2",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true
-        }
-      },
-      "diagnoses": {
-        "type": "custom",
-        "displayOrder": 3,
-        "config": {
-          "title": "Diagnosis",
-          "template": "<clinical-diagnosis-template></clinical-diagnosis-template>"
-        }
-      },
-      "labInvestigation": {
-        "type": "custom",
-        "displayOrder": 5,
-        "config": {
-          "title": "Lab Test",
-          "template": "<investigation-template></investigation-template>"
-        }
-      },
-      "pacsOrders":{
-        "type":"pacsOrders",
-        "displayOrder": 6,
-        "translationKey": "PACS_ORDERS_VISIT_PAGE_KEY",
-        "config":{
-          "orderType": "Radiology Order",
-          "showFlowSheet": false,
-          "showListView": false,
-          "showChart": false,
-          "showTable": false
-        }
-      },
-      "TreatmentPrescription": {
-        "type": "custom",
-        "displayOrder": 7,
-        "config": {
-          "title": "Medication",
-          "template": "<medication-template></medication-template>"
-        }
-      },
-      "ConsultationNotes": {
-        "type": "custom",
-        "displayOrder": 8,
-        "config": {
-          "title": "Advices",
-          "template": "<advice-template></advice-template>"
-        }
-      },
-      "Presciption Footer": {
-        "type": "custom",
-        "displayOrder": 9,
-        "config": {
-          "title": "  ",
-          "template": "<prescription-footer></prescription-footer>"
-        }
-      }
-    }
-  },
-  "general": {
-    "title": "General",
-    "translationKey": "GENERAL_TYPE_VISIT",
-    "displayByDefault": true,
-    "defaultSections": true,
-    "printing": {
-      "title": "",
-      "header": "",
-      "logo": ""
-    },
-    "sections": {
-      "pivot_table": {
-        "type": "pivotTable",
-        "title": "Basic Examination",
-        "config": {
-          "groupBy": "encounters",
-          "obsConcepts": [
-            "Vitals"
-          ],
-          "drugConcepts": [],
-          "labConcepts": ""
+    "Prescription": {
+        "title": "Patient_Prescription ",
+        "translationKey": "PATIENT_PRESCRIPTION",
+        "displayByDefault": true,
+        "printing": {
+            "title": "",
+            "header": "",
+            "logo": ""
         },
-        "displayOrder": 0
-      }
-    }
-  },
-  "dischargeSummary": {
-    "title": "Patient Discharge Summary ",
-    "translationKey": "DISCHARGE_SUMMARY_VISIT",
-    "printing": {
-      "title": "",
-      "header": "",
-      "logo": ""
+        "sections": {
+            "Header": {
+                "type": "custom",
+                "displayOrder": 0,
+                "showOnlyInPrint": true,
+                "config": {
+                    "title": " ",
+                    "template": "<prescription-header></prescription-header>"
+                }
+            },
+            "Common_Patient_Info_Header": {
+                "type": "custom",
+                "displayOrder": 1,
+                "config": {
+                    "title": "",
+                    "template": "<common-patient-info-header></common-patient-info-header>"
+                }
+            },
+            "Prescription Body": {
+                "type": "custom",
+                "displayOrder": 2,
+                "config": {
+                    "title": " ",
+                    "template": "<prescription-body></prescription-body>"
+                }
+            },
+            "Presciption Footer": {
+                "type": "custom",
+                "showOnlyInPrint": false,
+                "displayOrder": 9,
+                "config": {
+                    "title": "  ",
+                    "template": "<prescription-footer></prescription-footer>"
+                }
+            }
+        }
     },
-    "sections": {
-      "Header": {
-        "type": "custom",
-        "displayOrder": 0,
-        "showOnlyInPrint": true,
-        "config": {
-          "title": "Discharge Certificate",
-          "template": "<header-pad-white-space></header-pad-white-space>"
-        }
-      },
-      "Common_Patient_Info_Header": {
-        "type": "custom",
-        "displayOrder": 1,
-        "config": {
-          "title": "",
-          "template": "<common-patient-info-header></common-patient-info-header>"
-        }
-      },
-      "Common_Patient_Additional_Info_Header": {
-        "hideEmptyDisplayControl": true,
-        "type": "custom",
-        "displayOrder": 2,
-        "config": {
-          "title": "",
-          "template": "<common-patient-additional-info-header></common-patient-additional-info-header>"
-        }
-      },
-      "Admission_details_Info": {
-        "type": "custom",
-        "displayOrder": 3,
-        "config": {
-          "title": "Admission Details",
-          "template": "<admission-details-info></admission-info>"
-        }
-      },
-      "History_Examinations": {
-        "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "displayOrder": 4,
-        "title": "History and Examination",
-        "config": {
-          "conceptNames": [
-            "Condition Complaint Template"
-          ],
-          "translationKey": "DASHBOARD_TITLE_HISTORY_AND_EXAMINATIONS_KEY",
-          "numberOfVisits": "1",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true
-        }
-      },
-      "diagnoses": {
-        "hideEmptyDisplayControl": true,
-        "type": "diagnosis",
-        "displayOrder": 5,
-        "config": {
-          "translationKey": "DISCHARGE_CLINICAL_DIAGNOSIS_KEY",
-          "showCertainty": false,
-          "showOrder": false,
-          "showDetailsButton": true
-        }
-      },
-      "dischargedNotes": {
-        "hideEmptyDisplayControl": true,
-        "type": "observation",
-        "displayOrder": 6,
-        "translationKey": "Discharged Note",
-        "config": {
-          "conceptNames": [
-            "Hospital Course",
-            "Treatment Plan",
-            "Reason for admission",
-            "Inpatient Outcome",
-            "History and examination notes",
-            "Provisional Diagnosis",
-            "Lab Investigation Notes"
-          ],
-          "scope": "latest",
-          "numberOfVisits": "1"
-        }
-      },
-      "investigationresult": {
-        "hideEmptyDisplayControl": true,
-        "type": "investigationResult",
-        "showOnlyInDashboard": true,
-        "config": {
-          "title": "Lab Investigations",
-          "showChart": false,
-          "showTable": true,
-          "showNormalLabResults": true,
-          "showCommentsExpanded": true,
-          "showAccessionNotes": true,
-          "numberOfVisits": 4
+    "general": {
+        "title": "General",
+        "translationKey": "GENERAL_TYPE_VISIT",
+        "displayByDefault": true,
+        "printing": {
+            "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
+            "header": "Visit",
+            "logo": "/bahmni_config/openmrs/images/dghslogo.png"
         },
-        "displayOrder": 7
-      },
-      "labInvestigation": {
-        "hideEmptyDisplayControl": true,
-        "type": "custom",
-        "displayOrder": 8,
-        "showOnlyInPrint": true,
-        "config": {
-          "title": "Lab Test",
-          "template": "<lab-investigation></lab-investigation>"
+        "defaultSections": true,
+        "sections": {
+            "pivot_table": {
+                "type": "pivotTable",
+                "title": "Basic Examination",
+                "config": {
+                    "groupBy": "encounters",
+                    "obsConcepts": [
+                        "Vitals"
+                    ],
+                    "drugConcepts": [],
+                    "labConcepts": ""
+                },
+                "displayOrder": 0
+            }
         }
-      },
-      "treatments": {
-        "hideEmptyDisplayControl": true,
-        "type": "treatment",
-        "displayOrder": 9,
-        "config": {
-          "translationKey": "Given Medication",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": false,
-          "showDetailsButton": true,
-          "showRoute": true,
-          "showDrugForm": true
-        }
-      },
-      "dischargedSurgicalNote": {
-        "hideEmptyDisplayControl": true,
-        "type": "custom",
-        "displayOrder": 10,
-        "config": {
-          "title": "Surgical Note",
-          "template": "<discharged-surgical-note></discharged-advice>"
-        }
-      },
-      "TreatmentPrescription": {
-        "hideEmptyDisplayControl": true,
-        "type": "custom",
-        "displayOrder": 11,
-        "config": {
-          "title": "Active Medication",
-          "template": "<treatment-prescription></treatment-prescription>"
-        }
-      },
-      "dischargedAdvice": {
-        "hideEmptyDisplayControl": true,
-        "type": "custom",
-        "displayOrder": 12,
-        "config": {
-          "title": "Advice",
-          "template": "<discharged-advice></discharged-advice>"
-        }
-      },
-      "dischargedFollowUpPlan": {
-        "hideEmptyDisplayControl": true,
-        "type": "custom",
-        "displayOrder": 13,
-        "config": {
-          "title": "Follow Up Plan",
-          "template": "<discharged-follow-up-plan></discharged-follow-up-plan>"
-        }
-      },
-      "Discharged_Footer": {
-        "hideEmptyDisplayControl": true,
-        "type": "custom",
-        "displayOrder": 14,
-        "config": {
-          "title": "  ",
-          "template": "<discharged-footer></discharged-footer>"
-        }
-      }
-    }
-  },
-  "deathCertificate": {
-    "title": "Death CERTIFICATE ",
-    "translationKey": "DEATH_CLINICAL_CERTIFICATE",
-    "printing": {
-      "title": "",
-      "header": "",
-      "logo": ""
     },
-    "sections": {
-      "Header": {
-        "type": "custom",
-        "displayOrder": 0,
-        "showOnlyInPrint": true,
-        "config": {
-          "title": "Death Certificate",
-          "template": "<header-pad-white-space></header-pad-white-space>"
+    "dischargeSummary": {
+        "title": "Patient Discharge Summary",
+        "translationKey": "DISCHARGE_SUMMARY_VISIT",
+        "printing": {
+            "title": "",
+            "header": "",
+            "logo": ""
+        },
+        "sections": {
+            "Header": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 0,
+                "showOnlyInPrint": true,
+                "config": {
+                    "title": "Discharge Certificate",
+                    "template": "<header-pad-white-space></header-pad-white-space>"
+                }
+            },
+            "Common_Patient_Info_Header": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 1,
+                "config": {
+                    "title": "",
+                    "template": "<common-patient-info-header></common-patient-info-header>"
+                }
+            },
+            "Common_Patient_Additional_Info_Header": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 2,
+                "config": {
+                    "title": "",
+                    "template": "<common-patient-additional-info-header></common-patient-additional-info-header>"
+                }
+            },
+            "Admission_details_Info": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 3,
+                "config": {
+                    "title": "Admission Details",
+                    "template": "<admission-details-info></admission-info>"
+                }
+            },
+            "History_Examinations": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 4,
+                "config": {
+                    "title": "",
+                    "template": "<chief-complaint-template></chief-complaint-template>"
+                }
+            },
+            "diagnoses": {
+                "hideEmptyDisplayControl": true,
+                "type": "diagnosis",
+                "displayOrder": 5,
+                "config": {
+                    "translationKey": "DISCHARGE_CLINICAL_DIAGNOSIS_KEY",
+                    "showCertainty": false,
+                    "showOrder": false,
+                    "showDetailsButton": true
+                }
+            },
+            "dischargedNotes": {
+                "hideEmptyDisplayControl": true,
+                "type": "observation",
+                "displayOrder": 6,
+                "translationKey": "Discharged Note",
+                "config": {
+                    "conceptNames": [
+                        "Hospital Course",
+                        "Treatment Plan",
+                        "Reason for admission",
+                        "Inpatient Outcome",
+                        "History and examination notes",
+                        "Provisional Diagnosis",
+                        "Lab Investigation Notes"
+                    ],
+                    "scope": "latest",
+                    "numberOfVisits": "1"
+                }
+            },
+            "labInvestigation": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 8,
+                "showOnlyInPrint": true,
+                "config": {
+                    "title": "Lab Test",
+                    "template": "<investigation-template></investigation-template>"
+                }
+            },
+            "dischargedSurgicalNote": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 10,
+                "config": {
+                    "title": "Surgical Note",
+                    "template": "<discharged-surgical-note></discharged-advice>"
+                }
+            },
+            "TreatmentPrescription": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 11,
+                "config": {
+                    "title": "Active Medication",
+                    "template": "<treatment-prescription></treatment-prescription>"
+                }
+            },
+            "dischargedAdvice": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 12,
+                "config": {
+                    "title": "Advice",
+                    "template": "<discharged-advice></discharged-advice>"
+                }
+            },
+            "dischargedFollowUpPlan": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 13,
+                "config": {
+                    "title": "Follow Up Plan",
+                    "template": "<discharged-follow-up-plan></discharged-follow-up-plan>"
+                }
+            },
+            "Discharged_Footer": {
+                "hideEmptyDisplayControl": true,
+                "type": "custom",
+                "displayOrder": 14,
+                "config": {
+                    "title": "  ",
+                    "template": "<discharged-footer></discharged-footer>"
+                }
+            }
         }
-      },
-      "Death Certificate": {
-        "type": "custom",
-        "displayOrder": 2,
-        "config": {
-          "title": "Patient Death Certificate ",
-          "template": "<death-certificate></death-certificate>"
-        }
-      },
-      "DeathNotes": {
-        "type": "observation",
-        "title": "Death Notes",
-        "displayOrder": 3,
-        "config": {
-          "conceptNames": [
-            "Death Note, Time of Arrival",
-            "Date of death",
-            "Death Notes, Cause of Death",
-            "Death Notes, Primary diseases Causing Death",
-            "Medico Legal",
-            "Death Notes, Provider Name who Pronounced Death",
-            "Death Notes, Next to Kin Aware of Death",
-            "In Cause of Maternal Death ,Death Occurs at",
-            "Death Notes, Other Comorbidities"
-          ],
-          "translationKey": "DEATH_CLINICAL_NOTES",
-          "numberOfVisits": "1",
-          "showFlowSheet": false,
-          "showListView": true,
-          "showOtherActive": true,
-          "showDetailsButton": true,
-          "showRoute": true
-        }
-      },
-      "footerSummary": {
-        "type": "custom",
-        "displayOrder": 4,
-        "config": {
-          "translationKey": "FOOTER_SUMMARY",
-          "title": " Discharge Summary ",
-          "template": "<death-footer></death-footer>"
-        }
-      }
-    }
-  },
-  "MedicalCertificate": {
-    "title": "Medical CERTIFICATE ",
-    "translationKey": "MEDICAL_CLINICAL_CERTIFICATE",
-    "printing": {
-      "title": "",
-      "header": "",
-      "logo": ""
     },
-    "sections": {
-      "Header": {
-        "type": "custom",
-        "displayOrder": 1,
-        "showOnlyInPrint": true,
-        "config": {
-          "title": "Medical Certificate",
-          "subTitle": "To Whom It May Concern",
-          "template": "<header-pad-white-space></header-pad-white-space>"
+    "injuryCertificate": {
+        "title": "Patient INJURY CERTIFICATE ",
+        "translationKey": "INJURY_CLINICAL_CERTIFICATE",
+        "printing": {
+            "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
+            "header": " Injury Certificate",
+            "logo": "/bahmni_config/openmrs/images/dghslogo.png"
+        },
+        "sections": {
+            "Patient Information": {
+                "type": "patientInformation",
+                "title": "Patient Information",
+                "displayOrder": 0,
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": [
+                        "healthId",
+                        "fatherName",
+                        "spouseName",
+                        "nationalId",
+                        "education",
+                        "householdCode",
+                        "birthRegistrationId",
+                        "occupation",
+                        "phoneNumber"
+                    ],
+                    "addressFields": [
+                        "address1",
+                        "address2",
+                        "address3",
+                        "address4",
+                        "address5",
+                        "countyDistrict",
+                        "stateProvince"
+                    ]
+                }
+            },
+            "InjuryNotes": {
+                "type": "observation",
+                "displayOrder": 1,
+                "title": "Injury Notes",
+                "config": {
+                    "conceptNames": [
+                        "Injury Notes"
+                    ],
+                    "translationKey": "INJURY_CLINICAL_NOTES",
+                    "numberOfVisits": "1",
+                    "showFlowSheet": false,
+                    "showListView": true,
+                    "showOtherActive": true,
+                    "showDetailsButton": true,
+                    "showRoute": true
+                }
+            },
+            "footerSummary": {
+                "type": "custom",
+                "displayOrder": 6,
+                "config": {
+                    "translationKey": "FOOTER_SUMMARY",
+                    "title": " Discharge Summary ",
+                    "template": "<common-footer concept-name='Injury Notes'></common-footer>"
+                }
+            },
+            "Presciption EndFooter": {
+                "type": "custom",
+                "displayOrder": 2,
+                "config": {
+                    "title": "   ",
+                    "template": "<end_prescription></end_prescription>"
+                }
+            }
         }
-      },
-      "Medical Certificate": {
-        "type": "custom",
-        "displayOrder": 2,
-        "config": {
-          "title": "Patient Medical Certificate ",
-          "template": "<medical-certificate></medical-certificate>"
+    },
+    "deathCertificate": {
+        "title": "Death CERTIFICATE ",
+        "translationKey": "DEATH_CLINICAL_CERTIFICATE",
+        "printing": {
+            "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
+            "header": " Death Certificate",
+            "logo": "/bahmni_config/openmrs/images/dghslogo.png"
+        },
+        "sections": {
+            "Death Certificate": {
+                "type": "custom",
+                "displayOrder": 1,
+                "config": {
+                    "title": "Patient Death Certificate ",
+                    "template": "<death-certificate></death-certificate>"
+                }
+            },
+            "Patient Information": {
+                "type": "patientInformation",
+                "title": "Patient Information",
+                "displayOrder": 0,
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": [
+                        "healthId",
+                        "fatherName",
+                        "spouseName",
+                        "nationalId",
+                        "education",
+                        "householdCode",
+                        "birthRegistrationId",
+                        "occupation",
+                        "phoneNumber"
+                    ],
+                    "addressFields": [
+                        "address1",
+                        "address2",
+                        "address3",
+                        "address4",
+                        "address5",
+                        "countyDistrict",
+                        "stateProvince"
+                    ]
+                }
+            },
+            "DeathNotes": {
+                "type": "observation",
+                "title": "Death Notes",
+                "displayOrder": 2,
+                "config": {
+                    "conceptNames": [
+                        "Death Note"
+                    ],
+                    "translationKey": "DEATH_CLINICAL_NOTES",
+                    "numberOfVisits": "1",
+                    "showFlowSheet": false,
+                    "showListView": true,
+                    "showOtherActive": true,
+                    "showDetailsButton": true,
+                    "showRoute": true
+                }
+            },
+            "footerSummary": {
+                "type": "custom",
+                "displayOrder": 5,
+                "config": {
+                    "translationKey": "FOOTER_SUMMARY",
+                    "title": " Discharge Summary ",
+                    "template": "<death-footer></death-footer>"
+                }
+            }
         }
-      },
-      "Medical Footer": {
-        "type": "custom",
-        "displayOrder": 9,
-        "config": {
-          "title": "  ",
-          "template": "<medical-footer></medical-footer>"
+    },
+    "Baby Notes": {
+        "title": "Baby_Notes",
+        "translationKey": "BABY_NOTES",
+        "printing": {
+            "title": "উপজেলা স্বাস্থ্য কমপ্লেক্স কালিগঞ্জ, গাজীপুর জরুরী  স্বাস্থ্য সেবার মোবাইল নং 01730324480",
+            "header": "Baby Notes",
+            "logo": "/bahmni_config/openmrs/images/dghslogo.png"
+        },
+        "sections": {
+            "Patient Information": {
+                "type": "patientInformation",
+                "title": "Patient Information",
+                "displayOrder": 0,
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": [
+                        "healthId",
+                        "fatherName",
+                        "spouseName",
+                        "nationalId",
+                        "education",
+                        "householdCode",
+                        "birthRegistrationId",
+                        "occupation",
+                        "phoneNumber"
+                    ],
+                    "addressFields": [
+                        "address1",
+                        "address2",
+                        "address3",
+                        "address4",
+                        "address5",
+                        "countyDistrict",
+                        "stateProvince"
+                    ]
+                }
+            },
+            "BabyNotes": {
+                "type": "observation",
+                "title": "Baby Notes",
+                "displayOrder": 2,
+                "config": {
+                    "conceptNames": [
+                        "Delivery Note, Baby notes"
+                    ],
+                    "translationKey": "BABY_NOTES",
+                    "numberOfVisits": "1",
+                    "showFlowSheet": false,
+                    "showListView": true,
+                    "showOtherActive": true,
+                    "showDetailsButton": true,
+                    "showRoute": true
+                }
+            },
+            "Baby Notes Footer": {
+                "type": "custom",
+                "displayOrder": 4,
+                "config": {
+                    "title": "Death Footer",
+                    "template": "<common-footer concept-name='Delivery Note, Baby notes'></common-footer>"
+                }
+            }
         }
-      }
     }
-  }
 }
