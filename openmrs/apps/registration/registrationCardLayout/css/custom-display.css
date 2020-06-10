@@ -151,3 +151,11 @@
 .hindi-text {
   vertical-align: bottom;
 }
+
+.border-less tr {
+  border: none !important;
+}
+
+.border-less td {
+  border: none !important;
+}

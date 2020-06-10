@@ -14,8 +14,9 @@ from users user inner join provider provider on provider.person_id=user.person_i
 and cast(o.obs_datetime AS DATE) BETWEEN '#startDate#' AND '#endDate#'
   inner join person p on p.person_id=o.person_id
 
-  INNER JOIN reporting_age_group rag ON
-            rag.min_years <= TIMESTAMPDIFF(YEAR, p.birthdate,o.date_created) and rag.max_years >= TIMESTAMPDIFF(YEAR, p.birthdate,o.date_created)
-        AND rag.report_group_name = 'Registration'
+  INNER JOIN reporting_age_group rag ON DATE(o.obs_datetime) BETWEEN (DATE_ADD(
+      DATE_ADD(birthdate, INTERVAL rag.min_years YEAR), INTERVAL rag. min_days DAY)) AND (DATE_ADD(
+      DATE_ADD(birthdate, INTERVAL rag.max_years YEAR), INTERVAL rag.max_days DAY))
+                                        AND rag.report_group_name = 'Registration'
 
 group by user.user_id,rag.sort_order order by user.username,rag.name;

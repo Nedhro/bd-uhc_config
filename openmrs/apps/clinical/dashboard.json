@@ -30,6 +30,7 @@
         "displayOrder": 0
       },
       "diagnosis": {
+        "hideEmptyDisplayControl": true,
         "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
         "type": "diagnosis",
         "showCertainty": true,
@@ -38,6 +39,7 @@
         "displayOrder": 1
       },
       "treatments": {
+        "hideEmptyDisplayControl": true,
         "title": "Treatments",
         "translationKey": "DASHBOARD_TITLE_TREATMENTS_KEY",
         "type": "treatment",
@@ -61,14 +63,14 @@
           "showOtherActive": true,
           "showDetailsButton": true
         },
-        "displayOrder": 3
+        "displayOrder": 2
       },
       "lab_results": {
         "title": "Lab Results",
         "translationKey": "DASHBOARD_TITLE_LAB_ORDERS_DISPLAY_CONTROL_KEY",
         "type": "labOrders",
         "dashboardConfig": {
-          "title":null,
+          "title": null,
           "numberOfVisits": 1,
           "showChart": false,
           "showTable": true,
@@ -82,33 +84,22 @@
           "showChart": true,
           "showTable": true
         },
-        "displayOrder": 7
+        "displayOrder": 3
       },
-      "procedureOrders": {
-        "orderType": "Procedure Order",
-        "title": "Procedure Orders",
-        "type": "ordersControl",
-        "displayOrder": 12,
-        "dashboardConfig": {
-          "conceptNames": [
-            "Procedure Template"
-          ],
-          "numberOfVisits": 4
-        }
-      },
-      "radiologyOrders": {
-        "orderType": "Radiology Order",
-        "title": "Radiology Orders",
-        "type": "ordersControl",
-        "displayOrder": 13,
-        "dashboardConfig": {
-          "conceptNames": [
-            "Radiology Order Fulfillment Form"
-          ],
-          "numberOfVisits": 4
+
+      "pacs":{
+        "hideEmptyDisplayControl": true,
+        "orderType":"Radiology Order",
+        "type":"pacsOrders",
+        "translationKey":"DASHBOARD_TITLE_PACS_KEY",
+        "displayOrder":6,
+        "dashboardConfig":{
+          "pacsImageUrl":"/oviyam2/viewer.html?patientID={{patientID}}&accessionNumber={{orderNumber}}",
+          "numberOfVisits":1
         }
       },
       "vitals": {
+        "hideEmptyDisplayControl": true,
         "title": "Vitals",
         "translationKey": "DASHBOARD_TITLE_VITALS_KEY",
         "type": "vitals",
@@ -136,9 +127,10 @@
             "labConcepts": []
           }
         },
-        "displayOrder": 8
+        "displayOrder": 7
       },
       "history_and_examinations": {
+        "hideEmptyDisplayControl": true,
         "title": "History and Examinations",
         "translationKey": "DASHBOARD_TITLE_HISTORY_AND_EXAMINATIONS_KEY",
         "type": "vitals",
@@ -153,17 +145,17 @@
           "conceptNames": [
             "Condition Complaint Template"
           ],
-          "numberOfVisits": 2,
+          "numberOfVisits": 1,
           "showDetailsButton": true,
           "pivotTable": {}
         },
-        "displayOrder": 9
+        "displayOrder": 8
       },
       "ConsultationNotes": {
-
         "title": "Consultation Notes",
         "translationKey": "DASHBOARD_TITLE_Consultation_KEY",
-        "type":"Consultation Notes",
+        "type": "Consultation Notes",
+        "hideEmptyDisplayControl": true,
         "isObservation": true,
         "dashboardConfig": {
           "conceptNames": [
@@ -171,10 +163,17 @@
           ],
           "numberOfVisits": "2"
         },
-
-        "displayOrder": 11
+        "displayOrder": 9
+      },
+      "admission_details": {
+        "hideEmptyDisplayControl": true,
+        "title": "Admission Details",
+        "translationKey": "DASHBOARD_TITLE_ADMISSION_DETAILS_KEY",
+        "type": "admissionDetails",
+        "displayOrder": 10
       },
       "visits": {
+        "hideEmptyDisplayControl": true,
         "title": "Visits",
         "translationKey": "DASHBOARD_TITLE_VISITS_KEY",
         "type": "visits",
@@ -182,13 +181,7 @@
           "title": null,
           "maximumNoOfVisits": 10
         },
-        "displayOrder": 10
-      },
-      "admission_details": {
-        "title": "Admission Details",
-        "translationKey": "DASHBOARD_TITLE_ADMISSION_DETAILS_KEY",
-        "type": "admissionDetails",
-        "displayOrder": 2
+        "displayOrder": 11
       }
     }
   },
@@ -224,6 +217,7 @@
         "displayOrder": 0
       },
       "diagnosis": {
+        "hideEmptyDisplayControl": true,
         "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
         "type": "diagnosis",
         "showCertainty": true,
@@ -231,86 +225,391 @@
         "showOrder": true,
         "displayOrder": 1
       },
-      "DeliveryNotes": {
-        "type": "observation",
-        "title": "Delivery Note",
+      "delivery_notes": {
+        "hideEmptyDisplayControl": true,
+        "title": "Delivery Notes",
+        "translationKey": "Delivery Notes",
         "isObservation": true,
-        "type": "Delivery Note",
-        "displayOrder": 2,
-        "conceptNames": [
-          "Delivery Note"
-        ],
-        "translationKey": "DELIVERY_NOTES",
-        "numberOfVisits": "5",
         "dashboardConfig": {
           "conceptNames": [
-            "Delivery Note"
+            "Date and Time of Delivery",
+            "Indication",
+            "Mode of Delivery",
+            "Medication received during delivery",
+            "Delivery information, Delivery outcome",
+            "Delivery Note, Blood Transfusion Given",
+            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
+            "Delivery Notes, Baby Notes"
           ],
-          "numberOfVisits": "5"
+          "numberOfVisits": 1
         },
         "expandedViewConfig": {
           "conceptNames": [
-            "Delivery Note"
+            "Date and Time of Delivery",
+            "Indication",
+            "Mode of Delivery",
+            "Medication received during delivery",
+            "Delivery information, Delivery outcome",
+            "Delivery Note, Blood Transfusion Given",
+            "Delivery Note, AMTSL(Active Management of Third Stage of Labor) Given",
+            "Delivery Notes, Baby Notes"
           ],
+          "numberOfVisits": 2,
           "showDetailsButton": true,
           "pivotTable": {}
-        }
+        },
+        "displayOrder": 9
       },
-      "PNCNotes": {
-        "type": "observation",
-        "title": "PNC Notes",
+      "gynae_case_notes": {
+        "hideEmptyDisplayControl": true,
+        "title": "Gynae Case Notes",
+        "translationKey": "Gynae Case Notes",
         "isObservation": true,
-        "type": "PNC Notes",
-        "displayOrder": 3,
-        "conceptNames": [
-          "PNC Notes"
-        ],
-        "translationKey": "PNC_NOTES",
-        "numberOfVisits": "5",
         "dashboardConfig": {
           "conceptNames": [
-            "PNC Notes"
+            "Gynae Case, Gynae History, Menstrual History",
+            "Gynae Case, Menstrual Period days",
+            "Gynae Case, Menstrual Cycle days",
+            "Gynae Case, Gynae History, Menstrual Flow",
+            "Gynae Case, Gynae History, Dysmenorrhoea",
+            "Gynae Case, Gynae History, LMP",
+            "Gynae Case, Married For",
+            "Gynae Case, Obstetric History, Para",
+            "Gynae Case, Obstetric History, Gravida",
+            "Gynae Case, Obstetric History, ALC",
+            "Gynae Case, Contraceptive History"
           ],
-          "numberOfVisits": "5"
+          "numberOfVisits": 1
         },
         "expandedViewConfig": {
           "conceptNames": [
-            "PNC Notes"
+            "Gynae Case, Gynae History, Menstrual History",
+            "Gynae Case, Menstrual Period days",
+            "Gynae Case, Menstrual Cycle days",
+            "Gynae Case, Gynae History, Menstrual Flow",
+            "Gynae Case, Gynae History, Dysmenorrhoea",
+            "Gynae Case, Gynae History, LMP",
+            "Gynae Case, Married For",
+            "Gynae Case, Obstetric History, Para",
+            "Gynae Case, Obstetric History, Gravida",
+            "Gynae Case, Obstetric History, ALC",
+            "Gynae Case, Contraceptive History"
           ],
+          "numberOfVisits": 2,
           "showDetailsButton": true,
           "pivotTable": {}
-        }
+        },
+        "displayOrder": 9
       },
-      "ANCNotes": {
-        "type": "observation",
+      "anc_notes": {
+        "hideEmptyDisplayControl": true,
         "title": "ANC Notes",
+        "translationKey": "ANC Notes",
         "isObservation": true,
-        "type": "ANC Notes",
-        "displayOrder": 4,
-        "conceptNames": [
-          "ANC Notes"
-        ],
-        "translationKey": "ANC_NOTES",
-        "numberOfVisits": "5",
         "dashboardConfig": {
           "conceptNames": [
-            "ANC Notes"
+            "ANC visit number",
+            "ANC, Married For",
+            "Parity",
+            "ANC, Gravida",
+            "ANC, ALC",
+            "ANC, Obstetric Details",
+            "ANC, Menstrual History",
+            "ANC, LMP",
+            "ANC, EDD",
+            "ANC, Respiratory System",
+            "ANC, CVS",
+            "ANC, Urinary Tract",
+            "ANC, Endocrine and Metabolic",
+            "ANC, Others Note",
+            "ANC, Past Surgical History",
+            "ANC, Temperature",
+            "ANC, Systolic Blood Pressure",
+            "ANC, Diastolic Blood Pressure",
+            "ANC, Pulse",
+            "ANC, Weight",
+            "ANC, Anemia",
+            "Oedema",
+            "ANC, Jaundice",
+            "ANC, General Examination Others",
+            "ANC, Fundal Height",
+            "ANC, Fetal Movement",
+            "ANC, Fetal Heartbeat",
+            "ANC, Abdominal Problem",
+            "ANC, Position",
+            "ANC, Consistency",
+            "ANC, Effacement",
+            "ANC, Dilation",
+            "ANC, Station",
+            "ANC, Bishop Scoring Result",
+            "ANC, Internal Examination Other"
           ],
-          "numberOfVisits": "5"
+          "numberOfVisits": 1
         },
         "expandedViewConfig": {
           "conceptNames": [
-            "ANC Notes"
+            "ANC visit number",
+            "ANC, Married For",
+            "Parity",
+            "ANC, Gravida",
+            "ANC, ALC",
+            "ANC, Obstetric Details",
+            "ANC, Menstrual History",
+            "ANC, LMP",
+            "ANC, EDD",
+            "ANC, Respiratory System",
+            "ANC, CVS",
+            "ANC, Urinary Tract",
+            "ANC, Endocrine and Metabolic",
+            "ANC, Others Note",
+            "ANC, Past Surgical History",
+            "ANC, Temperature",
+            "ANC, Systolic Blood Pressure",
+            "ANC, Diastolic Blood Pressure",
+            "ANC, Pulse",
+            "ANC, Weight",
+            "ANC, Anemia",
+            "Oedema",
+            "ANC, Jaundice",
+            "ANC, General Examination Others",
+            "ANC, Fundal Height",
+            "ANC, Fetal Movement",
+            "ANC, Fetal Heartbeat",
+            "ANC, Abdominal Problem",
+            "ANC, Position",
+            "ANC, Consistency",
+            "ANC, Effacement",
+            "ANC, Dilation",
+            "ANC, Station",
+            "ANC, Bishop Scoring Result",
+            "ANC, Internal Examination Other"
           ],
+          "numberOfVisits": 2,
           "showDetailsButton": true,
-          "pivotTable": {
-                 "numberOfVisits": "10",
-                 "groupBy": "encounters",
-                 "obsConcepts": ["Weight"],
-                        "drugConcepts": [],
-                        "labConcepts": []
-            }
-        }
+          "pivotTable": {}
+        },
+        "displayOrder": 9
+      },
+      "pnc_notes": {
+        "hideEmptyDisplayControl": true,
+        "title": "PNC Notes",
+        "translationKey": "PNC Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "PNC visit number",
+            "Place of delivery",
+            "PNC, Date and Time of Delivery",
+            "PNC, Indication",
+            "PNC, Mode of Delivery",
+            "PNC, Medication received during delivery",
+            "PNC, Delivery Outcome",
+            "PNC Notes, Blood Transfusion",
+            "PNC, AMTSL Active Management of Third Stage of Labor Given",
+            "PNC, Baby Notes",
+            "PNC, Temperature",
+            "PNC, Systolic Blood Pressure",
+            "PNC, Diastolic Blood Pressure",
+            "PNC, Pulse",
+            "PNC, Weight",
+            "PNC, Anemia",
+            "PNC, Oedema",
+            "PNC, Jaundice",
+            "Postpartum Examination, Problem regarding Breast",
+            "PNC, Others",
+            "PNC, Fundal Height",
+            "PNC, Abdominal wound",
+            "PNC, Abdominal Others",
+            "PNC, Excessive Vaginal Bleeding",
+            "PNC, Vaginal Discharge",
+            "PNC, Perineal Tear Or Episiotomy Wound"
+          ],
+          "numberOfVisits": 1
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "PNC visit number",
+            "Place of delivery",
+            "PNC, Date and Time of Delivery",
+            "PNC, Indication",
+            "PNC, Mode of Delivery",
+            "PNC, Medication received during delivery",
+            "PNC, Delivery Outcome",
+            "PNC Notes, Blood Transfusion",
+            "PNC, AMTSL Active Management of Third Stage of Labor Given",
+            "PNC, Baby Notes",
+            "PNC, Temperature",
+            "PNC, Systolic Blood Pressure",
+            "PNC, Diastolic Blood Pressure",
+            "PNC, Pulse",
+            "PNC, Weight",
+            "PNC, Anemia",
+            "PNC, Oedema",
+            "PNC, Jaundice",
+            "Postpartum Examination, Problem regarding Breast",
+            "PNC, Others",
+            "PNC, Fundal Height",
+            "PNC, Abdominal wound",
+            "PNC, Abdominal Others",
+            "PNC, Excessive Vaginal Bleeding",
+            "PNC, Vaginal Discharge",
+            "PNC, Perineal Tear Or Episiotomy Wound"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
+      }
+    }
+  },
+  "diabetes": {
+    "dashboardName": "Diabetes",
+    "translationKey": "Diabetes",
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patient_information": {
+        "title": "Patient Information",
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY",
+        "type": "patientInformation",
+        "patientAttributes": [
+          "healthId",
+          "fatherName",
+          "spouseName",
+          "nationalId",
+          "education",
+          "householdCode",
+          "birthRegistrationId",
+          "occupation",
+          "phoneNumber"
+        ],
+        "addressFields": [
+          "address1",
+          "address2",
+          "address3",
+          "address4",
+          "address5",
+          "countyDistrict",
+          "stateProvince"
+        ],
+        "displayOrder": 0
+      },
+      "diagnosis": {
+        "hideEmptyDisplayControl": true,
+        "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
+        "type": "diagnosis",
+        "showCertainty": true,
+        "showDetailsButton": true,
+        "showOrder": true,
+        "displayOrder": 1
+      },
+      "diabetes_first_visit_note": {
+        "hideEmptyDisplayControl": true,
+        "title": "Diabetes First Visit  Notes",
+        "translationKey": "Diabetes First Visit  Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "Diabetes, Date of Last Visit",
+            "Diabetes, Previous Follow Up Location",
+            "Diabetes, Diagnosis Confirmed",
+            "Diabetic Type",
+            "Diabetes, Last Known HbA1C Date",
+            "Diabetes, Last Known HbA1C Result Percentage",
+            "Diabetes, Last Known Fasting Blood Sugar Date",
+            "Diabetes, Last Known Fasting Blood Sugar Mmml Liter",
+            "Diabetes, If New Patient Suspicion",
+            "Family History of Diabetes",
+            "Detail of Family History of Diabetes",
+            "Diabetes, Diabetes First Visit, HbA1C Percentage",
+            "Diabetes, Fasting Glucose Sugar Mmml Liter",
+            "Diabetes, Total Cholesterol",
+            "Diabetes, Low Density Lipoprotein LDL",
+            "Diabetes, High Density Lipoprotein HDL",
+            "Diabetes, Triglycerides",
+            "Diabetes, Exercise",
+            "Diabetes, Smoking History",
+            "Diabetes, Alcohol Abuse",
+            "Diabetes, Current Home Medication"
+          ],
+          "numberOfVisits": 2
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "Diabetes, Date of Last Visit",
+            "Diabetes, Previous Follow Up Location",
+            "Diabetes, Diagnosis Confirmed",
+            "Diabetic Type",
+            "Diabetes, Last Known HbA1C Date",
+            "Diabetes, Last Known HbA1C Result Percentage",
+            "Diabetes, Last Known Fasting Blood Sugar Date",
+            "Diabetes, Last Known Fasting Blood Sugar Mmml Liter",
+            "Diabetes, If New Patient Suspicion",
+            "Family History of Diabetes",
+            "Detail of Family History of Diabetes",
+            "Diabetes, Diabetes First Visit, HbA1C Percentage",
+            "Diabetes, Fasting Glucose Sugar Mmml Liter",
+            "Diabetes, Total Cholesterol",
+            "Diabetes, Low Density Lipoprotein LDL",
+            "Diabetes, High Density Lipoprotein HDL",
+            "Diabetes, Triglycerides",
+            "Diabetes, Exercise",
+            "Diabetes, Smoking History",
+            "Diabetes, Alcohol Abuse",
+            "Diabetes, Current Home Medication"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
+      },
+      "diabetes_followUp_visit_note": {
+        "hideEmptyDisplayControl": true,
+        "title": "Diabetes Follow Up Visit Notes",
+        "translationKey": "Diabetes Follow Up Visit Notes",
+        "isObservation": true,
+        "dashboardConfig": {
+          "conceptNames": [
+            "Diabetes Follow up, Systolic Data",
+            "Diabetes Follow up, Diastolic data",
+            "Diabetes Follow up, HbA1C Percentage",
+            "Diabetes Follow up, Last Date of HbA1C",
+            "Diabetes Follow up, Is Patient on ARB",
+            "Diabetes Follow up, Last LDL Mg",
+            "Diabetes Follow up, Last LDL Date",
+            "Diabetes Follow up, Last HDL Mg",
+            "Diabetes Follow up, Last HDL Date",
+            "Diabetes Follow up, Last TG",
+            "Diabetes Follow up, Last  TG Date",
+            "Diabetes Follow up, Total Cholesterol",
+            "Diabetes Follow up, Ulcer Present on Feet",
+            "Diabetes Follow up, Last Eye Exam Date"
+          ],
+          "numberOfVisits": 2
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "Diabetes Follow up, Systolic Data",
+            "Diabetes Follow up, Diastolic data",
+            "Diabetes Follow up, HbA1C Percentage",
+            "Diabetes Follow up, Last Date of HbA1C",
+            "Diabetes Follow up, Is Patient on ARB",
+            "Diabetes Follow up, Last LDL Mg",
+            "Diabetes Follow up, Last LDL Date",
+            "Diabetes Follow up, Last HDL Mg",
+            "Diabetes Follow up, Last HDL Date",
+            "Diabetes Follow up, Last TG",
+            "Diabetes Follow up, Last  TG Date",
+            "Diabetes Follow up, Total Cholesterol",
+            "Diabetes Follow up, Ulcer Present on Feet",
+            "Diabetes Follow up, Last Eye Exam Date"
+          ],
+          "numberOfVisits": 2,
+          "showDetailsButton": true,
+          "pivotTable": {}
+        },
+        "displayOrder": 9
       }
     }
   }
