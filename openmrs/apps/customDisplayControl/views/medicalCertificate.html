@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="placeholder-text">This is certified that,
+    <span ng-if="patient.gender == 'M' " style="font-weight: bold">Mr </span>
+    <span ng-if="patient.gender == 'O' " style="font-weight: bold">Mx </span>
+    <span ng-if="patient.gender == 'F' " style="font-weight: bold">Ms </span>
+    <span class="custom-bold-text" style="font-weight: bold"> {{patient.name}}</span>,
+    <span ng-if="patient.gender == 'M' && patient.fatherName.value!=undefined">son of </span>
+    <span ng-if="patient.gender == 'F' && patient.fatherName.value!=undefined">daughter of </span>
+    <span ng-if="patient.gender == 'O' && patient.fatherName.value!=undefined">son of </span>
+    {{patient.fatherName.value}} <span ng-if="patient.fatherName.value != undefined">, </span>
+    <span ng-if="patient.gender == 'M' && patient.spouseName.value!=undefined">husband of </span>
+    <span ng-if="patient.gender == 'F'&& patient.spouseName.value!=undefined">wife of </span>
+    <span ng-if="patient.gender == 'O'&& patient.spouseName.value!=undefined">spouse of </span>
+    {{patient.spouseName.value}} <span ng-if="patient.spouseName.value != undefined">, </span>
+    residing at
+    {{patient.address.address1 ? patient.address.address1 + "," : ""}}
+    {{patient.address.address2 ? patient.address.address2 + "," : ""}}
+    {{patient.address.address3 ? patient.address.address3 + "," : ""}}
+    {{patient.address.address4 ? patient.address.address4 + "," : ""}}
+    {{patient.address.address5 ? patient.address.address5 + "," : ""}}
+    {{patient.address.cityVillage ? patient.address.cityVillage + "," : ""}}
+    {{patient.address.countyDistrict ? patient.address.countyDistrict + "," : ""}}
+    {{patient.address.stateProvince}}
+    </span>
+    Age <span ng-if="patient.age == 0" ng-bind-html="htmlLabel(patient.ageText)"></span>
+    <span ng-if="patient.age !== 0">{{patient.age}},</span>
+    Gender {{patient.gender}},
+    <span ng-if="patient.occupation.value.display != undefined"> Occupation {{patient.occupation.value.display}}</span>
+
+
+    is my patient under my observation.
+    <span ng-if="patient.gender == 'M' ">He </span>
+    <span ng-if="patient.gender == 'O' ">He/She </span>
+    <span ng-if="patient.gender == 'F' ">She</span>
+    has been suffering from <b>{{medicalSufferingFrom}} For {{medicalSufferingFor}}
+        {{medicalDurationCodeUnit}} </b> With History of
+    <b>{{medicalPreviousComplication}} </b>.
+    <br/><br/>
+</p>
+<div class="placeholder-text">
+    <span style="font-weight: bold">General Indications/Complications:</span>
+    <br/>
+    <br/>
+    <ul style="list-style-type:circle; padding-left: 20px">
+        <li ng-repeat="indication in medicalGeneralComplicationName">{{indication}}</li>
+        <br>
+    </ul>
+</div>
+<p class="placeholder-text">
+    Now <span ng-if="patient.gender == 'M' ">He </span>
+    <span ng-if="patient.gender == 'O' ">He/She </span>
+    <span ng-if="patient.gender == 'F' ">She</span>
+    Needs <b>{{adviceName}} from {{medicalFromDate}} to {{medicalToDate}}.</b>
+</p>
+</body>
+</html>

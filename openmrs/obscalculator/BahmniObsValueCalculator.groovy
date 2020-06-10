@@ -128,7 +128,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     }
 
     static def bmi(Double height, Double weight) {
-        Double heightInMeters = height / 100;
+        Double heightInMeters = height * 0.0254;
         Double value = weight / (heightInMeters * heightInMeters);
         return new BigDecimal(value).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
     };

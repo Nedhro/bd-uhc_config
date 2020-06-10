@@ -37,26 +37,13 @@
         "type": "config",
         "showBirthTime": true
     },
-     "bahmni_registration_conceptsetgroup_visitdetails": {
-        "id": "bahmni.registration.conceptSetGroup.visitDetails",
-        "extensionPointId": "org.bahmni.registration.conceptSetGroup.observations",
-        "type": "config",
-        "extensionParams": {
-            "conceptName": "Visit Details",
-            "autocomplete": true,
-            "required": true
-          
-        },
-        "order": 2,
-        "requiredPrivilege": "Edit Visits"
-    },
-    "roomToAssign":{
-        "id": "bahmni.registration.conceptSetGroup.roomToAssign",
+    "assignedDoctor":{
+        "id": "bahmni.registration.assign_doctor",
         "extensionPointId": "org.bahmni.registration.conceptSetGroup.observations",
         "type": "forms",
         "extensionParams": {
-            "formName": "Room To Assign",
-            "conceptNames": ["Opd Consultation Room"],
+            "formName": "Assign Doctor",
+            "conceptNames": ["Assign Doctor"],
             "required":true,
             "showLatest": true
         },

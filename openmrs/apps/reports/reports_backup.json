@@ -7,20 +7,20 @@
       "conceptNames": [
         "Fee Category"
       ],
-     "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
     }
   },
-    "customlocationreport": {
+  "customlocationreport": {
     "name": "Registration count - Departments ",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/locationbasedregistration.sql"
     }
   },
-    "demoregistration": {
+  "demoregistration": {
     "name": "Registration count by users - All Categories",
     "type": "MRSGeneric",
     "config": {
@@ -41,14 +41,6 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/feecustomreport.sql"
     }
   },
-  "notInputCategoryInReg2ndPage": {
-    "name": "Registered Patient But not saved data in registration 2nd page",
-    "type": "MRSGeneric",
-    "config": {
-      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/notInputCategoryInReg2ndPage.sql"
-    }
-  },
-
   "children_death_report": {
     "name": "Children Death Report",
     "type": "obsCount",
@@ -57,23 +49,22 @@
       "conceptNames": [
         "Death Note"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
     }
   },
- 
   "ContagiousReport1": {
     "name": "Integrated Disease Surveillance Report-1",
     "type": "diagnosisCount",
     "config": {
       "concept": "Integrated Disease Surveillance 1 Set",
       "ageGroupName": "Contagious1",
-       "dateRangeRequired": true, 
-     "applyDateRangeFor": "diagnosisDate",
-     "visitsToConsider": "all",
-     "locationTagNames":[
+      "dateRangeRequired": true,
+      "applyDateRangeFor": "diagnosisDate",
+      "visitsToConsider": "all",
+      "locationTagNames": [
         "Report Location"
       ],
       "rowsGroupBy": [
@@ -92,10 +83,10 @@
     "config": {
       "concept": "Integrated Disease Surveillance 2 Set",
       "ageGroupName": "Contagious2",
-       "dateRangeRequired": true, 
-     "applyDateRangeFor": "diagnosisDate",
-     "visitsToConsider": "all",
-     "locationTagNames":[
+      "dateRangeRequired": true,
+      "applyDateRangeFor": "diagnosisDate",
+      "visitsToConsider": "all",
+      "locationTagNames": [
         "Report Location"
       ],
       "rowsGroupBy": [
@@ -108,30 +99,29 @@
       ]
     }
   },
-  "NCDTemplateReport":{
+  "NCDTemplateReport": {
     "name": "NCD Template Report",
     "type": "obsTemplate",
     "config": {
       "templateName": "Non Communicable Disease Set",
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "applyDateRangeFor": "encounterCreateDate"
     }
   },
-  "ProcedureTemplateReport":{
+  "ProcedureTemplateReport": {
     "name": "Procedure Template Report",
     "type": "obsTemplate",
     "config": {
       "templateName": "Procedure Template",
       "patientAttributes": [],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "applyDateRangeFor": "encounterCreateDate"
     }
   },
-
   "dispositionreport": {
     "name": "OPD Disposition Report",
     "type": "obsCount",
@@ -140,7 +130,7 @@
       "conceptNames": [
         "Disposition"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
@@ -153,7 +143,6 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/deathreport.sql"
     }
   },
-  
   "Physical Assault": {
     "name": "Physical Assault",
     "type": "MRSGeneric",
@@ -161,16 +150,16 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/physicalAssaultCustom.sql"
     }
   },
-    "OralnDentalReport": {
+  "OralnDentalReport": {
     "name": "Dental and Oral Report",
     "type": "diagnosisCount",
     "config": {
-      "concept":"Oral diagnosis",
-      "ageGroupName":"DentalOral",
-      "dateRangeRequired": true, 
-     "applyDateRangeFor":"diagnosisDate",
-     "visitsToConsider": "all",
-     "locationTagNames":[
+      "concept": "Oral diagnosis",
+      "ageGroupName": "DentalOral",
+      "dateRangeRequired": true,
+      "applyDateRangeFor": "diagnosisDate",
+      "visitsToConsider": "all",
+      "locationTagNames": [
         "Report Location"
       ],
       "rowsGroupBy": [
@@ -183,47 +172,74 @@
       ]
     }
   },
-   "admissionReport": {
-     "name": "Admission Report",
+  "admissionReport": {
+    "name": "Admission Report",
     "type": "ipdPatients",
-     "config": {
-       "addressAttributes": ["address1"],
-       "patientAttributes": ["fatherName","healthId","phoneNumber"],
-       "conceptNames": ["Reason for admission", "Inpatient Outcome", "History and examination notes", "Management given",
-"Treatment/Advice on discharge", "Additional advice" , "Follow up date"],
-       "locationTagNames":[
-         "Report Location"
-       ],
-       "filterBy": "Date of Admission"
-     }
-   },
- "dischargeReport": {
-     "name": "Discharge Report",
-     "type": "ipdPatients",
-     "config": {
-       "addressAttributes": ["address1"],
-       "patientAttributes": ["fatherName","healthId","phoneNumber"],
-       "conceptNames": ["Reason for admission", "Inpatient Outcome", "History and examination notes", "Management given",
-"Treatment/Advice on discharge", "Additional advice" , "Follow up date"],
-       "locationTagNames":[
-         "Report Location"
-       ],
-       "filterBy": "Date of Discharge"
-     }
-   },
-    "dischargeoutcome": {
-    "name":"Discharge Outcome count",
-    "type":"obsCount",
-    "config":{
-    "ageGroupName": "All Ages",
-    "conceptNames": ["Inpatient Outcome"],
-     "locationTagNames":[
+    "config": {
+      "addressAttributes": [
+        "address1"
+      ],
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "conceptNames": [
+        "Reason for admission",
+        "Inpatient Outcome",
+        "History and examination notes",
+        "Management given",
+        "Treatment/Advice on discharge",
+        "Additional advice",
+        "Follow up date"
+      ],
+      "locationTagNames": [
         "Report Location"
       ],
-    "countOnlyClosedVisits":"true"
+      "filterBy": "Date of Admission"
     }
-},
-
+  },
+  "dischargeReport": {
+    "name": "Discharge Report",
+    "type": "ipdPatients",
+    "config": {
+      "addressAttributes": [
+        "address1"
+      ],
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "conceptNames": [
+        "Reason for admission",
+        "Inpatient Outcome",
+        "History and examination notes",
+        "Management given",
+        "Treatment/Advice on discharge",
+        "Additional advice",
+        "Follow up date"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "filterBy": "Date of Discharge"
+    }
+  },
+  "dischargeoutcome": {
+    "name": "Discharge Outcome count",
+    "type": "obsCount",
+    "config": {
+      "ageGroupName": "All Ages",
+      "conceptNames": [
+        "Inpatient Outcome"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "countOnlyClosedVisits": "true"
+    }
+  },
   "diarrhoeainpatientreport": {
     "name": "Diarrhoea Inpatient Report",
     "type": "MRSGeneric",
@@ -249,51 +265,61 @@
     "name": "Pneumonia Report",
     "type": "obsCount",
     "config": {
-    "ageGroupName": "pneumonia",
-    "conceptNames": ["IMCI 0-2m","State Of Pneumonia"],
-       "locationTagNames": ["Report Location"],
-      "countOnlyClosedVisits":"false"
+      "ageGroupName": "pneumonia",
+      "conceptNames": [
+        "IMCI 0-2m",
+        "State Of Pneumonia"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "countOnlyClosedVisits": "false"
     }
- },
+  },
   "imci2pneumoniaReport": {
     "name": "IMCI 2months to 5 years, State Of Pneumonia",
     "type": "obsCount",
     "config": {
       "ageGroupName": "pneumonia",
-      "conceptNames": ["IMCI 2m-5y, IMCI 2months to 5 years", "State Of Pneumonia"],
-      "locationTagNames": ["Report Location"],
-      "countOnlyClosedVisits":"false"
+      "conceptNames": [
+        "IMCI 2m-5y, IMCI 2months to 5 years",
+        "State Of Pneumonia"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "countOnlyClosedVisits": "false"
     }
   },
-    "topTenDiagnosisCountBelowFiveYears": {
+  "topTenDiagnosisCountBelowFiveYears": {
     "name": "Top Ten Diagnosis Count - Below 5 years",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/topTenDiagnosisCountBelowFiveYears.sql"
     }
   },
-    "topTenCausesofDeathBelowfiveYears": {
+  "topTenCausesofDeathBelowfiveYears": {
     "name": "Top Ten Causes of Death - Below 5 years",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/topTenCausesOfDeathBelowFiveYears.sql"
     }
   },
-   "topTenDiagnosisCountAbove30Years": {
+  "topTenDiagnosisCountAbove30Years": {
     "name": "Top Ten Diagnosis Count - Above 30 Years",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/topTenDiagnosisCountAboveThirtyYears.sql"
     }
   },
-    "topTenCausesofDeath": {
+  "topTenCausesofDeath": {
     "name": "Top Ten Causes of Death - Above 30 Years",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/topTenCausesOfDeathAboveThirtyYears.sql"
     }
   },
-    "numberOfPatientsConsultedByaDoctor": {
+  "numberOfPatientsConsultedByaDoctor": {
     "name": "Number of Patients Consulted ",
     "type": "MRSGeneric",
     "config": {
@@ -335,78 +361,114 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/coded-noncoded-drugcount.sql"
     }
   },
-    "imciTemplateReport0":{
-        "name": "IMCI(0-2m) General Section Report",
-        "type": "obsTemplate",
-        "config": {
-            "templateName": "IMCI 0-2m, General",
-            "patientAttributes": ["fatherName","healthId","phoneNumber"],
-            "locationTagNames": ["Report Location"],
-            "applyDateRangeFor": "encounterCreateDate"
-        }
-    },
-  "imciTemplateReport1":{
-        "name": "IMCI(0-2m) Diarrhoea Section Report",
-        "type": "obsTemplate",
-        "config": {
-            "templateName": "IMCI 0-2m, Diarrhoea",
-            "patientAttributes": ["fatherName","healthId","phoneNumber"],
-            "locationTagNames": ["Report Location"],
-            "applyDateRangeFor": "encounterCreateDate"
-        }
-    },
-    "imciTemplateReport2":{
-        "name": "IMCI(0-2m) Breast Feeding Assessment Section Report",
-        "type": "obsTemplate",
-        "config": {
-            "templateName": "IMCI 0-2m, Breast feeding assessment",
-            "patientAttributes": ["fatherName","healthId","phoneNumber"],
-            "locationTagNames": ["Report Location"],
-            "applyDateRangeFor": "encounterCreateDate"
-        }
-    },
-    "imciTemplateReport3":{
-        "name": "IMCI(0-2m) Immunization Status Section Report",
-        "type": "obsTemplate",
-        "config": {
-            "templateName": "IMCI 0-2m, Check immunization status",
-            "patientAttributes": ["fatherName","healthId","phoneNumber"],
-            "locationTagNames": ["Report Location"],
-            "applyDateRangeFor": "encounterCreateDate"
-        }
-    },
-    "imciTemplateReport4":{
-        "name": "IMCI(2m-5y) General Section Report",
-        "type": "obsTemplate",
-        "config": {
-            "templateName": "IMCI 2m-5y, IMCI 2months to 5 years, General",
-            "patientAttributes": ["fatherName","healthId","phoneNumber"],
-            "locationTagNames": ["Report Location"],
-            "applyDateRangeFor": "encounterCreateDate"
-        }
-    },
-    "imciTemplateReport5":{
-        "name": "IMCI(2m-5y) Diarrhoea Section Report",
-        "type": "obsTemplate",
-        "config": {
-            "templateName": "IMCI 2m-5y ,Diarrhoea",
-            "patientAttributes": ["fatherName","healthId","phoneNumber"],
-            "locationTagNames": ["Report Location"],
-            "applyDateRangeFor": "encounterCreateDate"
-        }
-    },
-     "ObstericcareReport": {
+  "imciTemplateReport0": {
+    "name": "IMCI(0-2m) General Section Report",
+    "type": "obsTemplate",
+    "config": {
+      "templateName": "IMCI 0-2m, General",
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "applyDateRangeFor": "encounterCreateDate"
+    }
+  },
+  "imciTemplateReport1": {
+    "name": "IMCI(0-2m) Diarrhoea Section Report",
+    "type": "obsTemplate",
+    "config": {
+      "templateName": "IMCI 0-2m, Diarrhoea",
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "applyDateRangeFor": "encounterCreateDate"
+    }
+  },
+  "imciTemplateReport2": {
+    "name": "IMCI(0-2m) Breast Feeding Assessment Section Report",
+    "type": "obsTemplate",
+    "config": {
+      "templateName": "IMCI 0-2m, Breast feeding assessment",
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "applyDateRangeFor": "encounterCreateDate"
+    }
+  },
+  "imciTemplateReport3": {
+    "name": "IMCI(0-2m) Immunization Status Section Report",
+    "type": "obsTemplate",
+    "config": {
+      "templateName": "IMCI 0-2m, Check immunization status",
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "applyDateRangeFor": "encounterCreateDate"
+    }
+  },
+  "imciTemplateReport4": {
+    "name": "IMCI(2m-5y) General Section Report",
+    "type": "obsTemplate",
+    "config": {
+      "templateName": "IMCI 2m-5y, IMCI 2months to 5 years, General",
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "applyDateRangeFor": "encounterCreateDate"
+    }
+  },
+  "imciTemplateReport5": {
+    "name": "IMCI(2m-5y) Diarrhoea Section Report",
+    "type": "obsTemplate",
+    "config": {
+      "templateName": "IMCI 2m-5y ,Diarrhoea",
+      "patientAttributes": [
+        "fatherName",
+        "healthId",
+        "phoneNumber"
+      ],
+      "locationTagNames": [
+        "Report Location"
+      ],
+      "applyDateRangeFor": "encounterCreateDate"
+    }
+  },
+  "ObstericcareReport": {
     "name": "Obsteric Complications Information Report (DHIS2)",
     "type": "diagnosisCount",
     "config": {
-      "concept":"Obsteric Complications Info Set",
-      "ageGroupName":"All Ages",
+      "concept": "Obsteric Complications Info Set",
+      "ageGroupName": "All Ages",
       "dateRangeRequired": true,
-     "applyDateRangeFor":"diagnosisDate",
-     "locationTagNames":[
+      "applyDateRangeFor": "diagnosisDate",
+      "locationTagNames": [
         "Report Location"
       ],
-     "visitsToConsider": "all",
+      "visitsToConsider": "all",
       "rowsGroupBy": [
         "header_concept_name",
         "leaf_concept_name"
@@ -422,7 +484,7 @@
     "type": "obsTemplate",
     "config": {
       "templateName": "Delivery Note",
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
@@ -436,7 +498,7 @@
       "conceptNames": [
         "Type of delivery"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
@@ -450,13 +512,13 @@
       "conceptNames": [
         "Delivery outcome"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
     }
   },
- "ANCTemplateReport": {
+  "ANCTemplateReport": {
     "name": "Total Registered Pregnant Women or ANC Patients (DHIS2)",
     "type": "obsCount",
     "config": {
@@ -464,7 +526,7 @@
       "conceptNames": [
         "ANC Notes"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false",
@@ -479,13 +541,13 @@
       "conceptNames": [
         "ANC visit number"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
     }
   },
- "no_blood_transfusion": {
+  "no_blood_transfusion": {
     "name": "ANC Blood Transfusions (DHIS2)",
     "type": "obsCount",
     "config": {
@@ -493,7 +555,7 @@
       "conceptNames": [
         "ANC Notes, Blood Transfusion"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
@@ -507,7 +569,7 @@
       "conceptNames": [
         "PNC Notes"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false",
@@ -522,7 +584,7 @@
       "conceptNames": [
         "PNC visit number"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
@@ -536,26 +598,25 @@
       "conceptNames": [
         "PNC Notes, Blood Transfusion"
       ],
-      "locationTagNames":[
+      "locationTagNames": [
         "Report Location"
       ],
       "countOnlyClosedVisits": "false"
     }
   },
-    "DogBiteandOtherBite":
-	{
-     "name":"Dog Bite and Other Bite (DHIS2)",
-     "type":"diagnosisCount",
-     "config":{
-     "concept":"Dog Bite and Others Set",
-     "ageGroupName":"All Ages",
-     "dateRangeRequired": true, 
-     "applyDateRangeFor": "diagnosisDate",
-     "visitsToConsider": "all",
-     "locationTagNames":[
+  "DogBiteandOtherBite": {
+    "name": "Dog Bite and Other Bite (DHIS2)",
+    "type": "diagnosisCount",
+    "config": {
+      "concept": "Dog Bite and Others Set",
+      "ageGroupName": "All Ages",
+      "dateRangeRequired": true,
+      "applyDateRangeFor": "diagnosisDate",
+      "visitsToConsider": "all",
+      "locationTagNames": [
         "Report Location"
       ],
-     "rowsGroupBy": [
+      "rowsGroupBy": [
         "header_concept_name",
         "leaf_concept_name"
       ],
@@ -563,34 +624,38 @@
         "gender",
         "agegroup_name"
       ]
-     }
+    }
   },
-   "breastCancerScreeningReport":
-    {
-    "name":"Breast Cancer Screening Programme Report (DHIS2)",
-    "type":"obsCount",
-    "config":{
-    "ageGroupName": "All Ages",
-    "conceptNames": ["Breast Cancer Screening Notes, CBE Positive","Breast Cancer Screening Notes, CBE Negative"],
-    "countOnlyClosedVisits":"false",
-      "locationTagNames":[
+  "breastCancerScreeningReport": {
+    "name": "Breast Cancer Screening Programme Report (DHIS2)",
+    "type": "obsCount",
+    "config": {
+      "ageGroupName": "All Ages",
+      "conceptNames": [
+        "Breast Cancer Screening Notes, CBE Positive",
+        "Breast Cancer Screening Notes, CBE Negative"
+      ],
+      "countOnlyClosedVisits": "false",
+      "locationTagNames": [
         "Report Location"
       ]
     }
-    },
-    "cervicalCancerScreeningReport":
-    {
-    "name":"Cervical Cancer Screening Programme Report (DHIS2)",
-    "type":"obsCount",
-    "config":{
-    "ageGroupName": "All Ages",
-    "conceptNames": ["Cervical Cancer Screening Notes, VIA Positive","Cervical Cancer Screening Notes, VIA Negative"],
-    "countOnlyClosedVisits":"false",
-      "locationTagNames":[
+  },
+  "cervicalCancerScreeningReport": {
+    "name": "Cervical Cancer Screening Programme Report (DHIS2)",
+    "type": "obsCount",
+    "config": {
+      "ageGroupName": "All Ages",
+      "conceptNames": [
+        "Cervical Cancer Screening Notes, VIA Positive",
+        "Cervical Cancer Screening Notes, VIA Negative"
+      ],
+      "countOnlyClosedVisits": "false",
+      "locationTagNames": [
         "Report Location"
       ]
     }
-    },   
+  },
   "womenttcount": {
     "name": "Women TT Vaccine Count (DHIS2)",
     "type": "MRSGeneric",
@@ -612,18 +677,32 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/childrenvaccinecount.sql"
     }
   },
-    "visittypereport": {
-    "name": "Visit Count Report (DHIS2)",
+  "visittypereport": {
+    "name": "Visit Count Report",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/visittypecount.sql"
     }
   },
   "bedoccupancyRate": {
-        "name": "Bed Statement (DHIS2)",
-      "type": "MRSGeneric",
-      "config": {
+    "name": "Bed Statement (DHIS2)",
+    "type": "MRSGeneric",
+    "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/bor.sql"
-      }
+    }
+  },
+  "thanaWisePatientList": {
+    "name": "Thana Wise Patient Count",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/thanaWisePatientList.sql"
+    }
+  },
+  "categoryWisePatient": {
+    "name": "Patient Category Wise Report",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/categoryWisePatient.sql"
+    }
   }
 }
